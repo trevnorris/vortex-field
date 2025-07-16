@@ -337,7 +337,7 @@ Then:
 -\frac{1}{\rho_0} \frac{\partial^2 \delta \rho}{\partial t^2} - \frac{1}{\rho_0} \frac{\partial \dot{M}_{\text{body}}}{\partial t} = -\frac{v_{\text{eff}}^2}{\rho_0} \nabla^2 \delta \rho \implies \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \delta \rho}{\partial t^2} - \nabla^2 \delta \rho = -\frac{1}{v_{\text{eff}}^2} \frac{\partial \dot{M}_{\text{body}}}{\partial t}.
 \]
 
-For the irrotational part (P-4), set $\mathbf{v} = -\nabla \Psi$ (valid where vorticity is negligible). Then $\nabla \cdot \mathbf{v} = -\nabla^2 \Psi$, so from continuity:
+For the irrotational part (P-4), set $\mathbf{v} = -\nabla \Psi$ (valid where vorticity is negligible). Then $\nabla \cdot \mathbf{v} = \nabla^2 \Psi$, so from continuity:
 
 \[
 \nabla^2 \Psi = \frac{1}{\rho_0} \left( \frac{\partial \delta \rho}{\partial t} + \dot{M}_{\text{body}} \right).
@@ -357,9 +357,9 @@ Analogy: Propagating compressions like sound waves from a pulsing pump, but stea
 
 \subsection{Physical Interpretation and Calibration}
 
-Physically, $\Psi$ is the sink potential: Positive sources from effective matter density $\rho_{\text{body}}$ (aggregated deficits, as derived in Section 4.4) create positive $\Psi$ near masses, yielding attractive forces via $-\nabla \Psi$. The time-derivative allows finite-speed updates via $v_{\text{eff}}$, crucial for PN effects, with bulk $v_L > c$ enabling mathematical ``faster effects'' in steady balances while observables slow to $\approx c$. We calibrate $v_{\text{eff}}$ far-field to match the observed speed of light $c$, ensuring emergent Lorentz invariance without invoking special relativity a priori. The background $\rho_0$ is fixed by the superfluid's ground state (from GP parameters $g, m$ in Section 3), invariant under cosmological evolution due to the infinite 4D bulk acting as a reservoir.
+Physically, $\Psi$ is the sink potential: Positive sources from effective matter density $\rho_{\text{body}}$ (aggregated deficits, as derived in Section 4.4) create negative $\Psi$ near masses, yielding attractive forces via $-\nabla \Psi$. The time-derivative allows finite-speed updates via $v_{\text{eff}}$, crucial for PN effects, with bulk $v_L > c$ enabling mathematical ``faster effects'' in steady balances while observables slow to $\approx c$. We calibrate $v_{\text{eff}}$ far-field to match the observed speed of light $c$, ensuring emergent Lorentz invariance without invoking special relativity a priori. The background $\rho_0$ is fixed by the superfluid's ground state (from GP parameters $g, m$ in Section 3), invariant under cosmological evolution due to the infinite 4D bulk acting as a reservoir.
 
-Regarding the uniform $\rho_0$ contribution: In the Poisson limit, it sources a term $-\nabla^2 \Psi = 4\pi G \rho_0$, yielding a quadratic potential $\Psi \supset -2\pi G \rho_0 r^2$ that implies uniform acceleration $\nabla \Psi = -4\pi G \rho_0 \mathbf{r}$. This is absorbed into a gauge choice $\Psi \to \Psi + 2\pi G \rho_0 r^2$, setting zero far-field force for local systems. Physically, this gauge reflects Mach's principle, balanced by global inflows from distant matter: $\Psi_{\text{global}} = \int 4\pi G \rho_{\text{cosmo}}(\mathbf{r}') / |\mathbf{r} - \mathbf{r}'| d^3 r' \approx 2\pi G \langle \rho \rangle r^2$ for isotropic universe, canceling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$ (aggregate deficits equal background via re-emergence). In asymmetric cases, residual term predicts small G anisotropy $\sim 10^{-13} \mathrm{yr}^{-1}$, consistent with bounds.
+Regarding the uniform $\rho_0$ contribution: In the Poisson limit, it sources a term $\nabla^2 \Psi = 4\pi G \rho_0$, yielding a quadratic potential $\Psi \supset +2\pi G \rho_0 r^2$ that implies uniform acceleration $\nabla \Psi = -4\pi G \rho_0 \mathbf{r}$. This is absorbed into a gauge choice $\Psi \to \Psi + 2\pi G \rho_0 r^2$, setting zero far-field force for local systems. Physically, this gauge reflects Mach's principle, balanced by global inflows from distant matter: $\Psi_{\text{global}} = \int 4\pi G \rho_{\text{cosmo}}(\mathbf{r}') / |\mathbf{r} - \mathbf{r}'| d^3 r' \approx 2\pi G \langle \rho \rangle r^2$ for isotropic universe, canceling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$ (aggregate deficits equal background via re-emergence). In asymmetric cases, residual term predicts small G anisotropy $\sim 10^{-13} \mathrm{yr}^{-1}$, consistent with bounds.
 
 Calibration: Match Newtonian limit to one experiment (e.g., Cavendish torsion balance) identifies $G = v_{\text{eff}}^2 / (4\pi \rho_0) \approx c^2 / (4\pi \rho_0)$ far-field, or equivalently with bulk modulus $B = \rho_0 v_L^2$. Aggregate inflows into w are balanced by emergent re-injections at cosmological scales (e.g., white-hole analogs), ensuring $\dot{\rho_0} = 0$ and thus $\dot{G} = 0$ consistent with observational bounds ($ |\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1} $). This locks all coefficients without further freedom, with $\rho_{\text{body}}$ tied to deficits via the energy scaling in Section 4.4. Analogy: Tuning a pipe's stiffness to match observed echo speeds; once set for one length, it predicts all resonances, with variable density slowing in thinner sections.
 
@@ -579,9 +579,9 @@ The unified equations are:
 
 \boxed{\mathbf{F} = m \left[ -\nabla \Psi - \partial_t \mathbf{A} + 4 \mathbf{v}_m \times (\nabla \times \mathbf{A}) \right]}
 
-Note: The sign convention for $\Psi$ ensures $\Psi > 0$ corresponds to rarefied low-pressure zones near masses, yielding inward flows via $-\nabla \Psi$ and attractive forces.
+Note: The sign convention for $\Psi$ ensures $\Psi < 0$ corresponds to rarefied low-pressure zones near masses, yielding inward flows via $-\nabla \Psi$ and attractive forces.
 
-Note: The scalar equation absorbs the background $\rho_0$ contribution into a gauge choice $\Psi \to \Psi + 2\pi G \rho_0 r^2$, which introduces a uniform acceleration field that is balanced by the global aether inflows defining inertial frames (per Mach's principle in Section 3). This does not affect local gradients in isolated systems but ties to cosmological extensions. The sign convention for $\Psi$ ensures $\Psi > 0$ corresponds to rarefied low-pressure zones, yielding inward flows via $-\nabla \Psi$ and attractive forces.
+Note: The scalar equation absorbs the background $\rho_0$ contribution into a gauge choice $\Psi \to \Psi + 2\pi G \rho_0 r^2$, which introduces a uniform acceleration field that is balanced by the global aether inflows defining inertial frames (per Mach's principle in Section 3). This does not affect local gradients in isolated systems but ties to cosmological extensions. The sign convention for $\Psi$ ensures $\Psi < 0$ corresponds to rarefied low-pressure zones, yielding inward flows via $-\nabla \Psi$ and attractive forces.
 
 Interpretation table:
 
@@ -650,10 +650,10 @@ Physical interpretation: For everyday scales, finite propagation is negligible, 
 Expand fields: $\Psi = \Psi^{(0)} + O(\varepsilon^2)$, $\mathbf{A} = O(\varepsilon^3) + \ higher$ (since sources scale with V ~ $\varepsilon c$). Time-derivatives scale as $\partial_{tt} \Psi \sim (v^2 / r^2) \Psi = O(\varepsilon^2) \nabla^2 \Psi$, so drop $c^{-2} \partial_{tt}$ in the scalar equation:
 
 \[
-- \nabla^2 \Psi^{(0)} = 4\pi G \rho_{\text{body}}.
+\nabla^2 \Psi^{(0)} = 4\pi G \rho_{\text{body}}.
 \]
 
-(Note: The background $\rho_0$ term is absorbed into a gauge choice $\Psi \to \Psi - 2\pi G \rho_0 r^2$, which implies uniform acceleration $-4\pi G \rho_0 \mathbf{r}$ akin to a cosmological term; for isolated systems in local tests, this is subtracted as a reference frame adjustment per Mach's principle, ensuring no unphysical global forces.) For a point mass $M$ at $\mathbf{r}_A$, $\Psi^{(0)}(\mathbf{r}) = GM / |\mathbf{r} - \mathbf{r}_A|$ (with $\Psi^{(0)} > 0$ for positive sources, ensuring attractive gradients via $-\nabla \Psi$). Analogy: Static low-pressure bubble around a drain, with deficits $\delta \rho = -\rho_{\text{body}}$ from vortex energy balance.
+(Note: The background $\rho_0$ term is absorbed into a gauge choice $\Psi \to \Psi - 2\pi G \rho_0 r^2$, which implies uniform acceleration $-4\pi G \rho_0 \mathbf{r}$ akin to a cosmological term; for isolated systems in local tests, this is subtracted as a reference frame adjustment per Mach's principle, ensuring no unphysical global forces.) For a point mass $M$ at $\mathbf{r}_A$, $\Psi^{(0)}(\mathbf{r}) = -GM / |\mathbf{r} - \mathbf{r}_A|$ (with $\Psi^{(0)} < 0$ for positive sources, ensuring attractive gradients via $-\nabla \Psi$). Analogy: Static low-pressure bubble around a drain, with deficits $\delta \rho = -\rho_{\text{body}}$ from vortex energy balance.
 
 For the vector equation, sources $\rho_{\text{body}} \mathbf{V} = O(\varepsilon) \rho_{\text{body}} c$, so $\mathbf{A}^{(0)} = O(\varepsilon^3)$ (considering the $1/c^3$ factor). Drop time-derivatives:
 
@@ -668,7 +668,7 @@ with the coefficient derived from vortex stretching and braiding (Section 5.2). 
 The force scales as: $-\nabla \Psi = O(GM/r^2)$, while $\partial_t \mathbf{A} = O(\varepsilon^3 GM/r^2)$ and $4 \mathbf{v}_m \times (\nabla \times \mathbf{A}) = O(\varepsilon^3 GM/r^2)$ (since $v_m$ ~ $\varepsilon c$). Drop higher terms:
 
 \[
-\mathbf{F}_{\text{NR}} = -m \nabla \Psi = - \frac{G m M}{r^2} \hat{\mathbf{r}}.
+\mathbf{F}_{\text{NR}} = -m \nabla \Psi = -m \nabla \left(-\frac{GM}{r}\right) = - \frac{G m M}{r^2} \hat{\mathbf{r}}.
 \]
 
 This recovers Newton's inverse-square law exactly. Analogy: Compressional pull dominates, like air rushing into a vacuum pulling objects without noticeable twists.
