@@ -12,20 +12,20 @@
 
 \title{The Aether-Vortex Field Equations: A Unified Fluid Model for Gravity in Flat Space}
 \author{Written by Trevor Norris}
-\date{July 16, 2025}
+\date{July 17, 2025}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-This paper presents a novel unified model for gravity and matter in flat Euclidean 4D space, reimagining the luminiferous aether as a compressible superfluid medium. Our observable 3D universe occupies a hypersurface slice, where particles emerge as stable toroidal vortex structures that drain aether into the extra dimension, creating density deficits and inflows that mimic gravitational attraction. Gravity arises from pressure gradients due to rarefaction and drag from vortex-induced flows, without invoking curved spacetime or abstract quantum fields.
+We present a complete reformulation of gravity based on modeling spacetime as a compressible superfluid in flat 4D Euclidean space, with our observable universe occupying a 3D hypersurface. Particles emerge as stable quantized vortex structures that drain aether into the extra dimension, creating density deficits and flows that manifest as gravitational effects. Starting from five physical postulates---compressibility, quantized vortex sinks, dual wave modes, flow decomposition, and 4D vortex projections---we derive field equations using only superfluid hydrodynamics and the Gross-Pitaevskii formalism.
 
-Starting from five minimal physical postulates---including compressibility, quantized vortex sinks, dual wave modes (longitudinal at bulk speed $v_L$ potentially $>c$, transverse at $c$), flow decomposition, and 4D vortex projections---we derive a complete set of field equations using superfluid hydrodynamics and Gross-Pitaevskii formalism. The scalar sector governs irrotational inflows with density-dependent effective speeds $v_{\text{eff}}$, while the vector sector captures solenoidal circulation sourced by vortex motion, with a geometric 4-fold enhancement from 4D projections ensuring self-consistency.
+The theory features two wave types: longitudinal compression waves propagating at bulk speed $v_L$ (potentially exceeding $c$) that slow to $v_{\text{eff}} < v_L$ near masses due to rarefaction, and transverse modes fixed at $c$. This dual structure reconciles arguments for superluminal gravitational effects while preserving observable causality. A key geometric result is that 4D vortex sheets project with 4-fold enhanced circulation onto our 3D slice, naturally generating the gravitomagnetic coupling strength.
 
-The equations reproduce general relativity's post-Newtonian expansions exactly in weak fields, matching observations like Mercury's perihelion advance (43''/century), solar light deflection (1.75''), and frame-dragging (Gravity Probe B). Particle masses emerge from vortex core deficits, unifying leptons, neutrinos, and baryons with predictions aligning to PDG values within 1-5\%. Falsifiable extensions include lab-scale frame-dragging from spinning superconductors and chromatic shifts in black hole photon spheres.
+The resulting equations exactly reproduce general relativity's post-Newtonian predictions: Mercury's perihelion advance (43''/century), solar light deflection (1.75''), Shapiro delay, and frame-dragging effects measured by Gravity Probe B. The framework extends to unify particle masses through vortex topology and electromagnetism via helical phase twists, with specific predictions for lepton and baryon particles within 1--5\% of observed values.
 
-This framework offers an intuitive, fluid-mechanical alternative to established paradigms, bridging classical analogies with relativistic realities while inviting tests of its unique wave duality and flat-space unification.
+Distinguishing predictions include eclipse gravitational anomalies ($\sim$5 $\mu$Gal), chromatic variations in black hole photon spheres, laboratory-scale frame-dragging from spinning superconductors, and potential neutrino millicharges. These falsifiable tests, combined with the theory's conceptual simplicity and mathematical completeness, offer a compelling alternative to curved-spacetime approaches while maintaining full compatibility with confirmed observations.
 \end{abstract}
 
 \section{Introduction and Motivation}
@@ -148,22 +148,6 @@ where $\psi = \sqrt{\rho} e^{i \theta}$, yielding Madelung equations: $\mathbf{v
 
 Vorticity in 4D: $\boldsymbol{\omega}_4 = \nabla_4 \times \mathbf{v}_4$, quantized as $\oint \mathbf{v}_4 \cdot d\mathbf{l} = n (2\pi \hbar / m)$ around cores (P-5). In 4D, vortices manifest as 2D sheets (codimension-2 defects), rather than 1D lines as in 3D. This sheet structure is key to the model's unification, as it allows multiple circulation contributions upon projection to 3D. Analogy: Underwater tornado tubes dipping below the surface; circulation persists due to topological protection.
 
-\subsection{Microscopic Drainage via 4D Reconnections}
-
-The drainage mechanism at vortex cores involves phase singularities in the order parameter $\psi$. At the core, $\rho \to 0$ over $\xi$, and the phase winds by $2\pi n$. In 4D, vortex tori extend along $w$, and motion induces braiding or stretching, leading to reconnections that ``unwind'' phase into bulk excitations (phonons or second-sound modes). Mathematically, the flux into $w$ is $v_w \approx \Gamma / (2\pi w)$ near the core, with total $\dot{M}_i = \rho_0 \int v_w dA_w \approx \rho_0 \Gamma$ (regularized). This excites bulk waves at $v_L$, carrying away mass without back-reaction on the slice. Analogy: A whirlpool venting air bubbles downward; reconnections (Bewley et al. \cite{bewley2008characterization}) act as ``valves'' releasing flux.
-
-For rigor, consider the GP phase defect: The imaginary part $i \hbar \partial_t \psi$ balances the interaction term near singularities, sourcing $v_w$ proportional to the winding number. Numerical simulations (appendix) confirm stable flux ~ $\Gamma \rho_0$.
-
-The 2D vortex sheet in 4D introduces a geometric richness: When projecting to the 3D slice at $w=0$, the sheet's extension into the extra dimension contributes to observed circulation in multiple ways. Specifically, four distinct components emerge:
-
-\begin{enumerate}
-    \item \textbf{Direct Intersection}: The sheet pierces $w=0$ along a 1D curve, manifesting as a standard vortex line with circulation $\Gamma$. The velocity is azimuthal, $v_\theta = \Gamma / (2\pi \rho)$, where $\rho = \sqrt{x^2 + y^2}$. The circulation is $\oint \mathbf{v} \cdot d\mathbf{l} = \Gamma$.
-    \item \textbf{Upper Hemispherical Projection} ($w > 0$): The sheet's extension into positive $w$ projects as an effective distributed current. Using a 4D Biot-Savart approximation, the induced velocity at $w=0$ is $\mathbf{v}_{\text{upper}} = \int_0^\infty dw' \, \frac{\Gamma \, dw' \, \hat{\theta}}{4\pi (\rho^2 + w'^2)^{3/2}}$. Integrating yields $\int_0^\infty dw' / (\rho^2 + w'^2)^{3/2} = 1 / \rho^2$, so $v_\theta = \Gamma / (4\pi \rho)$, but full normalization (accounting for angular factors) gives circulation $\oint \mathbf{v} \cdot d\mathbf{l} = \Gamma$.
-    \item \textbf{Lower Hemispherical Projection} ($w < 0$): Symmetric to the upper, contributing another $\Gamma$.
-    \item \textbf{Induced Circulation from $w$-Flow}: The drainage sink $v_w = -\Gamma / (2\pi r_4)$ induces tangential swirl via 4D incompressibility and topological linking, approximated as $v_\theta = \Gamma / (2\pi \rho)$, yielding circulation $\Gamma$.
-\end{enumerate}
-
-Thus, the total observed circulation in 3D is $\Gamma_{\text{obs}} = 4\Gamma$. This 4-fold enhancement arises geometrically from the codimension-2 structure and is verified numerically in the appendix, where line integrals $\oint \mathbf{v} \cdot d\mathbf{l}$ for each component yield $\Gamma$, summing to $4\Gamma$. The equality of contributions follows from the infinite symmetric extension in $w$, making each projection equivalent to a full 3D vortex line. Analogy: A tornado extending above and below ground; at surface level, one feels direct wind, downdrafts from above, updrafts from below (projected), and secondary circulation from vertical flow.
 
 \subsection{Projection to 3D Effective Equations}
 
@@ -225,6 +209,23 @@ In the steady-state equilibrium near vortex cores, the density perturbation sati
 
 Globally, $\rho_0$ remains constant due to the infinite reservoir, implying no $\dot{G}$ (consistent with bounds $|\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1}$). Cosmological implications, such as re-emergent inflows balancing aggregate sinks, are discussed in Section 9. As a potential extension, drained aether could re-emerge from the bulk via waves at $v_L > c$, creating uniform outward pressure on the 3D slice that mimics dark energy ($\Lambda$), with aggregate inflows naturally setting $\langle \rho_{\text{cosmo}} \rangle \approx \rho_0$ for Machian balance.
 
+\subsection{Microscopic Drainage via 4D Reconnections}
+
+The drainage mechanism at vortex cores involves phase singularities in the order parameter $\psi$. At the core, $\rho \to 0$ over $\xi$, and the phase winds by $2\pi n$. In 4D, vortex tori extend along $w$, and motion induces braiding or stretching, leading to reconnections that ``unwind'' phase into bulk excitations (phonons or second-sound modes). Mathematically, the flux into $w$ is $v_w \approx \Gamma / (2\pi w)$ near the core, with total $\dot{M}_i = \rho_0 \int v_w dA_w \approx \rho_0 \Gamma$ (regularized). This excites bulk waves at $v_L$, carrying away mass without back-reaction on the slice. Analogy: A whirlpool venting air bubbles downward; reconnections (Bewley et al. \cite{bewley2008characterization}) act as ``valves'' releasing flux.
+
+For rigor, consider the GP phase defect: The imaginary part $i \hbar \partial_t \psi$ balances the interaction term near singularities, sourcing $v_w$ proportional to the winding number. Numerical simulations (appendix) confirm stable flux ~ $\Gamma \rho_0$.
+
+The 2D vortex sheet in 4D introduces a geometric richness: When projecting to the 3D slice at $w=0$, the sheet's extension into the extra dimension contributes to observed circulation in multiple ways. Specifically, four distinct components emerge:
+
+\begin{enumerate}
+    \item \textbf{Direct Intersection}: The sheet pierces $w=0$ along a 1D curve, manifesting as a standard vortex line with circulation $\Gamma$. The velocity is azimuthal, $v_\theta = \Gamma / (2\pi \rho)$, where $\rho = \sqrt{x^2 + y^2}$. The circulation is $\oint \mathbf{v} \cdot d\mathbf{l} = \Gamma$.
+    \item \textbf{Upper Hemispherical Projection} ($w > 0$): The sheet's extension into positive $w$ projects as an effective distributed current. Using a 4D Biot-Savart approximation, the induced velocity at $w=0$ is $\mathbf{v}_{\text{upper}} = \int_0^\infty dw' \, \frac{\Gamma \, dw' \, \hat{\theta}}{4\pi (\rho^2 + w'^2)^{3/2}}$. Integrating yields $\int_0^\infty dw' / (\rho^2 + w'^2)^{3/2} = 1 / \rho^2$, so $v_\theta = \Gamma / (4\pi \rho)$, but full normalization (accounting for angular factors) gives circulation $\oint \mathbf{v} \cdot d\mathbf{l} = \Gamma$.
+    \item \textbf{Lower Hemispherical Projection} ($w < 0$): Symmetric to the upper, contributing another $\Gamma$.
+    \item \textbf{Induced Circulation from $w$-Flow}: The drainage sink $v_w = -\Gamma / (2\pi r_4)$ induces tangential swirl via 4D incompressibility and topological linking, approximated as $v_\theta = \Gamma / (2\pi \rho)$, yielding circulation $\Gamma$.
+\end{enumerate}
+
+Thus, the total observed circulation in 3D is $\Gamma_{\text{obs}} = 4\Gamma$. This 4-fold enhancement arises geometrically from the codimension-2 structure and is verified numerically in the appendix, where line integrals $\oint \mathbf{v} \cdot d\mathbf{l}$ for each component yield $\Gamma$, summing to $4\Gamma$. The equality of contributions follows from the infinite symmetric extension in $w$, making each projection equivalent to a full 3D vortex line. Analogy: A tornado extending above and below ground; at surface level, one feels direct wind, downdrafts from above, updrafts from below (projected), and secondary circulation from vertical flow.
+
 \subsection{Acoustic Metrics and Density-Dependent Wave Propagation}
 
 To capture the superfluid's natural wave behaviors, we derive propagation speeds from the Gross-Pitaevskii (GP) framework, allowing longitudinal compression waves to differ from transverse modes. In the 4D aether (P-1), the order parameter $\psi$ yields an effective barotropic EOS $P = (g / 2) \rho^2 / m$ (from interaction term), giving the local longitudinal speed $v_{\text{eff}} = \sqrt{\partial P / \partial \rho} = \sqrt{g \rho_{\text{local}} / m}$. In unperturbed bulk ($\rho_{\text{local}} = \rho_0$), this is $v_L = \sqrt{g \rho_0 / m}$, which may exceed the emergent light speed $c$ (postulated in P-3 for transverse modes, e.g., shear from vortex circulation with $T \propto \rho$).
@@ -249,16 +250,6 @@ However, observable signals (e.g., gravitational waves and light) are transverse
 
 Calibration: Set transverse $c$ to observed light, while $v_L$ emerges from GP ($m, g$ tuned via one experiment, e.g., Cavendish for $G = v_{\text{eff}}^2 / (4\pi \rho_0) \approx c^2 / (4\pi \rho_0)$). Falsifiable: Near black holes, GW chromaticity from $v_{\text{eff}}$ variation.
 
-\subsection{Bulk Dissipation and Boundary Conditions}
-
-To prevent back-reaction from accumulated drained aether in the bulk, we model the 4D medium as dissipative, converting flux into non-interacting excitations that propagate away without reflection. The global drained mass rate is $\int \dot{M}_{\text{body}} \, d^3 r \approx \langle \rho_{\text{univ}} \rangle v_{\text{eff}}^2 V_{\text{core}}$, where the average is over cosmic matter density.
-
-In the bulk, the continuity equation is modified to include a damping term: $\partial_t \rho_{\text{bulk}} + \nabla_w (\rho_{\text{bulk}} v_w) = -\gamma \rho_{\text{bulk}}$, representing conversion to rotons or second-sound modes with dissipation rate $\gamma \sim v_L / L_{\text{univ}}$ ($L_{\text{univ}}$ a cosmological scale).
-
-Assuming steady flux and exponential decay, the solution is $\rho_{\text{bulk}}(w) \sim e^{-\gamma t} e^{-|w| / \lambda}$, where $\lambda = v_L / \gamma$ is the absorption length. This prevents pressure build-up on the $w=0$ slice, maintaining $\rho_0$ constant and ensuring no back-flow. Boundary conditions at $w \to \pm \infty$ remain vanishing perturbations, as the infinite bulk acts as a perfect absorber.
-
-Physically, drained aether is converted to non-interacting bulk excitations (e.g., via reconnections into rotons), preserving $\rho_0$ and yielding $\dot{G} = 0$, consistent with observational bounds $|\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1}$. Cosmologically, aggregate dissipation could relate to re-emergent uniform inflows mimicking dark energy, but for weak-field tests, this ensures no unphysical global effects.
-
 \subsection{Causality in Dual Modes: Bulk vs. Slice}
 
 To rigorously demonstrate causality, consider wave propagation in the 4D slab. Bulk longitudinal modes travel at $v_L > c$, adjusting steady deficits (mathematical ``instant'' effects), but observable signals are transverse or projected longitudinal on the slice at $v_{\text{eff}} \approx c$.
@@ -276,6 +267,16 @@ Substituting, $\tau_{\text{core}} = \hbar / (\sqrt{2} g \rho_0)$ (derived via Sy
 In contrast, macroscopic gravitational timescales are much longer: Wave propagation across a system of size $r$ takes $\tau_{\text{prop}} \approx r / v_{\text{eff}}$ (e.g., ~200 s for Mercury's orbit at $v_{\text{eff}} \approx c$), while orbital periods are $\tau_{\text{orb}} = 2\pi \sqrt{r^3 / G M}$ (~$10^{7}$ s for Mercury). The separation $\tau_{\text{core}} << \tau_{\text{macro}}$ (by factors of $10^{40}$ or more) ensures that vortex cores remain in local quasi-steady state---relaxing via fast internal sound/quantum waves within $\xi$ ---even as aggregate matter distributions vary slowly, sourcing time-dependent fields.
 
 Physically, this means the relation $\rho_{\text{body}} \approx \dot{M}_{\text{body}} / (v_{\text{eff}}^2 V_{\text{core}})$ holds as an equilibrium condition within each core, with $V_{\text{core}} \approx \pi \xi^2 L_w$ ($L_w$ the effective w-length). Perturbations from motion (e.g., $V(t)$) induce small $\delta \rho$ that dissipate rapidly, preserving stability while allowing global waves.
+
+\subsection{Bulk Dissipation and Boundary Conditions}
+
+To prevent back-reaction from accumulated drained aether in the bulk, we model the 4D medium as dissipative, converting flux into non-interacting excitations that propagate away without reflection. The global drained mass rate is $\int \dot{M}_{\text{body}} \, d^3 r \approx \langle \rho_{\text{univ}} \rangle v_{\text{eff}}^2 V_{\text{core}}$, where the average is over cosmic matter density.
+
+In the bulk, the continuity equation is modified to include a damping term: $\partial_t \rho_{\text{bulk}} + \nabla_w (\rho_{\text{bulk}} v_w) = -\gamma \rho_{\text{bulk}}$, representing conversion to rotons or second-sound modes with dissipation rate $\gamma \sim v_L / L_{\text{univ}}$ ($L_{\text{univ}}$ a cosmological scale).
+
+Assuming steady flux and exponential decay, the solution is $\rho_{\text{bulk}}(w) \sim e^{-\gamma t} e^{-|w| / \lambda}$, where $\lambda = v_L / \gamma$ is the absorption length. This prevents pressure build-up on the $w=0$ slice, maintaining $\rho_0$ constant and ensuring no back-flow. Boundary conditions at $w \to \pm \infty$ remain vanishing perturbations, as the infinite bulk acts as a perfect absorber.
+
+Physically, drained aether is converted to non-interacting bulk excitations (e.g., via reconnections into rotons), preserving $\rho_0$ and yielding $\dot{G} = 0$, consistent with observational bounds $|\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1}$. Cosmologically, aggregate dissipation could relate to re-emergent uniform inflows mimicking dark energy, but for weak-field tests, this ensures no unphysical global effects.
 
 \subsection{Machian Resolution of Background Term}
 
@@ -355,16 +356,6 @@ where the constant is fixed by calibration (Subsection 4.3), and the sign ensure
 
 Analogy: Propagating compressions like sound waves from a pulsing pump, but steady drains set up static low-pressure pulls, slowed in rarefied zones.
 
-\subsection{Physical Interpretation and Calibration}
-
-Physically, $\Psi$ is the sink potential: Positive sources from effective matter density $\rho_{\text{body}}$ (aggregated deficits, as derived in Section 4.4) create negative $\Psi$ near masses, yielding attractive forces via $-\nabla \Psi$. The time-derivative allows finite-speed updates via $v_{\text{eff}}$, crucial for PN effects, with bulk $v_L > c$ enabling mathematical ``faster effects'' in steady balances while observables slow to $\approx c$. We calibrate $v_{\text{eff}}$ far-field to match the observed speed of light $c$, ensuring emergent Lorentz invariance without invoking special relativity a priori. The background $\rho_0$ is fixed by the superfluid's ground state (from GP parameters $g, m$ in Section 3), invariant under cosmological evolution due to the infinite 4D bulk acting as a reservoir.
-
-Regarding the uniform $\rho_0$ contribution: In the Poisson limit, it sources a term $\nabla^2 \Psi = 4\pi G \rho_0$, yielding a quadratic potential $\Psi \supset +2\pi G \rho_0 r^2$ that implies uniform acceleration $\nabla \Psi = -4\pi G \rho_0 \mathbf{r}$. This is absorbed into a gauge choice $\Psi \to \Psi + 2\pi G \rho_0 r^2$, setting zero far-field force for local systems. Physically, this gauge reflects Mach's principle, balanced by global inflows from distant matter: $\Psi_{\text{global}} = \int 4\pi G \rho_{\text{cosmo}}(\mathbf{r}') / |\mathbf{r} - \mathbf{r}'| d^3 r' \approx 2\pi G \langle \rho \rangle r^2$ for isotropic universe, canceling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$ (aggregate deficits equal background via re-emergence). In asymmetric cases, residual term predicts small G anisotropy $\sim 10^{-13} \mathrm{yr}^{-1}$, consistent with bounds.
-
-Calibration: Match Newtonian limit to one experiment (e.g., Cavendish torsion balance) identifies $G = v_{\text{eff}}^2 / (4\pi \rho_0) \approx c^2 / (4\pi \rho_0)$ far-field, or equivalently with bulk modulus $B = \rho_0 v_L^2$. Aggregate inflows into w are balanced by emergent re-injections at cosmological scales (e.g., white-hole analogs), ensuring $\dot{\rho_0} = 0$ and thus $\dot{G} = 0$ consistent with observational bounds ($ |\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1} $). This locks all coefficients without further freedom, with $\rho_{\text{body}}$ tied to deficits via the energy scaling in Section 4.4. Analogy: Tuning a pipe's stiffness to match observed echo speeds; once set for one length, it predicts all resonances, with variable density slowing in thinner sections.
-
-This derivation incorporates density-dependent speeds by using local $v_{\text{eff}}$ from the GP EOS, ensuring consistency for the vector sector next.
-
 \subsection{Non-Circular Derivation of Deficit-Mass Equivalence from GP Energetics and Lattice Scaling}
 
 To rigorously link the sink rate $\dot{M}_{\text{body}}$ to the matter density deficit $\rho_{\text{body}}$ without circular assumptions, we compute the energy associated with a vortex core starting from the microscopic parameters of the Gross-Pitaevskii (GP) framework. The GP equation governs the superfluid order parameter $\psi = \sqrt{\rho} e^{i \theta}$:
@@ -390,6 +381,16 @@ Let $\scale = \sqrt{2} \xi$ and $u = r / \scale$, then the integral becomes
 \]
 
 (since $\int_0^\infty u \sech^2 u du = \ln 2$ as computed via integration by parts: $\int u \sech^2 u du = u \tanh u - \ln \cosh u$, evaluating to $\ln 2$ at infinity). SymPy symbolic verification in the appendix confirms this value. This finite deficit equates to the effective mass density in steady state, yielding $\rho_{\text{body}} = - \delta \rho$ with numerical coefficient $\sim 1$ (absorbing $\ln 2 \approx 0.693$ into the aggregation scaling).
+
+\subsection{Physical Interpretation and Calibration}
+
+Physically, $\Psi$ is the sink potential: Positive sources from effective matter density $\rho_{\text{body}}$ (aggregated deficits, as derived in Section 4.4) create negative $\Psi$ near masses, yielding attractive forces via $-\nabla \Psi$. The time-derivative allows finite-speed updates via $v_{\text{eff}}$, crucial for PN effects, with bulk $v_L > c$ enabling mathematical ``faster effects'' in steady balances while observables slow to $\approx c$. We calibrate $v_{\text{eff}}$ far-field to match the observed speed of light $c$, ensuring emergent Lorentz invariance without invoking special relativity a priori. The background $\rho_0$ is fixed by the superfluid's ground state (from GP parameters $g, m$ in Section 3), invariant under cosmological evolution due to the infinite 4D bulk acting as a reservoir.
+
+Regarding the uniform $\rho_0$ contribution: In the Poisson limit, it sources a term $\nabla^2 \Psi = 4\pi G \rho_0$, yielding a quadratic potential $\Psi \supset +2\pi G \rho_0 r^2$ that implies uniform acceleration $\nabla \Psi = -4\pi G \rho_0 \mathbf{r}$. This is absorbed into a gauge choice $\Psi \to \Psi + 2\pi G \rho_0 r^2$, setting zero far-field force for local systems. Physically, this gauge reflects Mach's principle, balanced by global inflows from distant matter: $\Psi_{\text{global}} = \int 4\pi G \rho_{\text{cosmo}}(\mathbf{r}') / |\mathbf{r} - \mathbf{r}'| d^3 r' \approx 2\pi G \langle \rho \rangle r^2$ for isotropic universe, canceling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$ (aggregate deficits equal background via re-emergence). In asymmetric cases, residual term predicts small G anisotropy $\sim 10^{-13} \mathrm{yr}^{-1}$, consistent with bounds.
+
+Calibration: Match Newtonian limit to one experiment (e.g., Cavendish torsion balance) identifies $G = v_{\text{eff}}^2 / (4\pi \rho_0) \approx c^2 / (4\pi \rho_0)$ far-field, or equivalently with bulk modulus $B = \rho_0 v_L^2$. Aggregate inflows into w are balanced by emergent re-injections at cosmological scales (e.g., white-hole analogs), ensuring $\dot{\rho_0} = 0$ and thus $\dot{G} = 0$ consistent with observational bounds ($ |\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1} $). This locks all coefficients without further freedom, with $\rho_{\text{body}}$ tied to deficits via the energy scaling in Section 4.4. Analogy: Tuning a pipe's stiffness to match observed echo speeds; once set for one length, it predicts all resonances, with variable density slowing in thinner sections.
+
+This derivation incorporates density-dependent speeds by using local $v_{\text{eff}}$ from the GP EOS, ensuring consistency for the vector sector next.
 
 \subsection{Nonlinear Extension of the Scalar Field Equation}
 
@@ -527,6 +528,16 @@ The vector equation captures circulation from moving drains; source like current
 
 The scalar and vector sectors combine into a unified system analogous to gravitomagnetism (GEM), but derived from fluid mechanics with density-dependent propagation and geometric enhancements. The Helmholtz decomposition (P-4) yields the total aether flow: $\mathbf{v} = -\nabla \Psi + \nabla \times \mathbf{A}$, separating compressible ``suck'' (scalar) from incompressible ``swirl'' (vector). The force on a test mass $m$ (vortex cluster moving at $\mathbf{v}_m$) emerges from drag in the aether flow: $\mathbf{F} = m \mathbf{a} = -m \nabla \cdot (\mathbf{v} \otimes \mathbf{v}) + \dots$, but in weak fields linearizes to GEM form with coefficients locked by calibration. Analogy: Like Lorentz force in EM, but for gravity: ``gravito-electric'' pull from rarefaction, ``gravito-magnetic'' drag from circulation.
 
+\subsection{Flow Decomposition}
+
+The total aether velocity field is:
+
+\[
+\mathbf{v}(\mathbf{r}, t) = -\nabla \Psi + \nabla \times \mathbf{A},
+\]
+
+ensuring irrotational scalar ($\nabla \times \nabla \Psi = 0$) and solenoidal vector ($\nabla \cdot \nabla \times \mathbf{A} = 0$). This decomposition holds in the linear far-field; near cores, nonlinear terms couple sectors (e.g., vortex motion modulates deficits), but PN expansions capture effects via iterations.
+
 \subsection{Scalar and Vector Equations}
 
 From Sections 4 and 5, the field equations are:
@@ -540,16 +551,6 @@ From Sections 4 and 5, the field equations are:
 \]
 
 where $\mathbf{J} = \rho_{\text{body}} \mathbf{V}$ is the mass current density (from clustered vortex motion at bulk velocity $\mathbf{V}$). The scalar propagates at local $v_{\text{eff}}$ (slowed near masses for PN delays), while the vector uses fixed transverse $c$ (matched to light/GW). The vector coefficient derives from 4-fold geometric projection of 4D vortex sheets (Section 3.2), ensuring self-consistency without ad-hoc terms. In Lorenz gauge ($\nabla \cdot \mathbf{A} + c^{-2} \partial_t \Phi = 0$, but here scalar-vector decoupled in linear regime), these mirror Maxwell's equations for GEM, with ``permeability'' $4\pi G / c^2$.
-
-\subsection{Flow Decomposition}
-
-The total aether velocity field is:
-
-\[
-\mathbf{v}(\mathbf{r}, t) = -\nabla \Psi + \nabla \times \mathbf{A},
-\]
-
-ensuring irrotational scalar ($\nabla \times \nabla \Psi = 0$) and solenoidal vector ($\nabla \cdot \nabla \times \mathbf{A} = 0$). This decomposition holds in the linear far-field; near cores, nonlinear terms couple sectors (e.g., vortex motion modulates deficits), but PN expansions capture effects via iterations.
 
 \subsection{Force Law on Test Masses}
 
@@ -587,7 +588,7 @@ Interpretation table:
 
 \begin{table}[h!]
 \centering
-\begin{tabularx}{\textwidth}{|c|Y|Y|}
+\begin{tabularx}{\textwidth}{|c|c|Y|}
 \hline
 Symbol & Units/Dimensions & Physical Picture \\
 \hline
@@ -715,81 +716,6 @@ Periastron: $\Delta \omega = 6\pi GM / [c^2 a (1-e^2)]$. Matches GR; scalar alon
 
 Extend to 2 PN ($O(\varepsilon^4)$): Include next nonlinear in $\Psi^{(0)}$, like $v^4$ and $G^2 M^2 / r^2$ terms, yielding full 2 PN Lagrangian with higher harmonics (details as in Blanchet review, but derived here).
 
-\subsection{Perihelion Advance of Mercury}
-
-The model's scalar sector reproduces the 1PN perihelion advance through density-dependent wave delays and inflow perturbations, mimicking GR's orbital precession without curvature. For Mercury, this yields exactly 43'' per century.
-
-Physically, the advance arises from slowed effective speeds $v_{\text{eff}} < c$ in rarefied zones near the Sun (P-3), combined with inflow drag from vortex sinks (P-2). Analogy: A orbiting whirlpool in thinning water experiences extra "echoing" compressions, nudging its path forward like a yo-yo spinning extra from twisted string.
-
-\textbf{Derivation Step-by-Step}:
-\begin{enumerate}
-    \item Start from the effective potential in the scalar sector (Section 4): $\Psi \approx -GM/r + (3/2) (GM/r)^2 / c^2 + \mathcal{O}(1/c^4)$, where the $1/c^2$ term emerges from nonlinear inflows ($\mathbf{v} \cdot \nabla \mathbf{v}$ in Euler) and $v_{\text{eff}}$ variations.
-    \item Use the Binet equation for orbits: $d^2 u / d\phi^2 + u = (GM / L^2) + (3 GM / c^2) u^2$, with perturbation $\delta = 3 GM / c^2$ from inflow $v^2 / 2 \approx GM / r + (3/2) (GM / r)^2 / c^2$ (Bernoulli expansion, calibrated via $G = c^2 / (4\pi \rho_0)$).
-    \item Precession per orbit: $\Delta\omega = 6\pi GM / (c^2 a (1-e^2))$, where $a$ is semi-major axis and $e$ eccentricity.
-    \item For Mercury ($M_\odot = 1.989 \times 10^{30}$ kg, $a = 5.79 \times 10^{10}$ m, $e=0.2056$): $\Delta\omega \approx 5.03 \times 10^{-7}$ rad/orbit.
-    \item Over century (415 orbits): $43''$, matching observation within error.
-\end{enumerate}
-
-This validates the compressible inflows (P-1, P-3); deviations in strong fields (e.g., binary pulsars) would falsify if $v_{\text{eff}}$ chromaticity appears.
-
-\subsection{Solar Light Deflection}
-
-Light deflection (1.75'' at solar limb) emerges from rarefaction gradients (refractive index $n(r) \approx 1 + GM/(c^2 r)$) and inflow drag, projecting to GR without geodesics.
-
-Analogy: A soliton wave (photon) near a drain bends inward as current tugs it, despite thinning water speeding it slightly outward—like a boat resisting shallows but yielding to tide.
-
-\textbf{Derivation Step-by-Step}:
-\begin{enumerate}
-    \item Ray path via Fermat: $\delta \int n ds = 0$, plus advection $\delta \int (\mathbf{v} \cdot d\mathbf{l}) / c = 0$, with $n-1 \approx GM / (c^2 r)$ from $v_{\text{eff}}$ (P-3).
-    \item Small-angle: $\Delta\phi = \int_{-\infty}^\infty -\frac{\partial n}{\partial b} dz + \frac{1}{c} \int_{-\infty}^\infty \frac{\partial v_{\text{inflow}}}{\partial b} dz$, $b$ impact parameter.
-    \item Density term: $\partial n / \partial b = (GM / c^2) (b / r^3)$, integrate $\Delta\phi_{\text{density}} = (2 GM / c^2 b)$.
-    \item Flow term ($v_{\text{inflow}} = - (2 GM / r)$ from 4-fold enhancement, P-5): $\partial v / \partial b \approx - (4 GM / r^3) b$, integrate $\Delta\phi_{\text{flow}} = - (4 GM / c b)$ (sign for inward).
-    \item Net: $\Delta\phi = 4 GM / (c^2 b)$ (density + flow balance).
-    \item For Sun ($b = R_\odot = 6.96 \times 10^8$ m): $1.75''$, exact match.
-\end{enumerate}
-
-Falsifiable: Chromatic shifts ($\Delta\theta \propto \lambda^{-1/2}$ from $v_{\text{eff}}$) in multi-band observations (ngEHT).
-
-\subsection{Gravitational Redshift}
-
-Redshift arises from $v_{\text{eff}}$ variations and Doppler from inflows, matching Pound-Rebka.
-
-Analogy: A vortex clock (light emitter) in rarefied zones "ticks" slower as compressions delay, like a whistle deepening against wind.
-
-\textbf{Derivation Step-by-Step}:
-\begin{enumerate}
-    \item Frequency: $\nu(r) = \nu_\infty \sqrt{v_{\text{eff}}(r) / c}$ (wave speed), $v_{\text{eff}} \approx c (1 - GM/(2 c^2 r))$ from $\delta\rho < 0$ (P-3).
-    \item Doppler addition: $\Delta\nu / \nu \approx v_{\text{inflow}} / c = GM / (c^2 r)$.
-    \item Net: $\Delta\nu / \nu = - GM / (c^2 r)$, blueshift from speed counters but drag dominates.
-    \item For white dwarf (Sirius B): $\Delta\lambda / \lambda \approx 3 \times 10^{-4}$, matches spectra.
-\end{enumerate}
-
-\subsection{Shapiro Delay}
-
-Radar echoes delay by $\sim240 \mu s$ (Earth-Venus) from slowed $v_{\text{eff}}$ and path drag.
-
-Analogy: Signals "swim upstream" against inflows, like mail delayed in headwind.
-
-\textbf{Derivation Step-by-Step}:
-\begin{enumerate}
-    \item Time: $\Delta t = \int ds / v_{\text{eff}} + \int (\mathbf{v}_{\text{inflow}} \cdot d\mathbf{l}) / c^2$.
-    \item Approximate: $\Delta t \approx (2 GM / c^3) \ln(4 r_1 r_2 / b^2)$ (log from integral $\int dz / \sqrt{b^2 + z^2}$).
-    \item Matches Viking lander data within 0.1\%.
-\end{enumerate}
-
-\subsection{Eclipse Anomalies as Falsifiable Extension}
-
-Inflow interference during eclipses predicts small $\Delta g \sim \mu$Gal drops, absent in GR.
-
-Analogy: Moon "shadows" Sun's aether suction, like a middle fan blocking wind.
-
-\textbf{Derivation Step-by-Step}:
-\begin{enumerate}
-    \item Shadow factor: $\alpha = (R_M / d_{SM})^2 \approx 10^{-5}$, amplified by coherence $f_{\text{amp}} \sim 10^5$ from $v_L > c$ (P-3).
-    \item $\Delta g \approx - (GM_\odot / d^2) \alpha f_{\text{amp}} \sim 5 \mu$Gal.
-    \item Matches Allais/Saxl anomalies; testable with gravimeters in 2026 eclipse.
-\end{enumerate}
-
 \subsection{1.5 PN Sector (Frame-Dragging from Vector)}
 
 At 1.5 PN (O($\varepsilon^3$)), the vector potential $\mathbf{A}$ enters, capturing frame-dragging effects. The near-zone solution to the vector equation is:
@@ -861,6 +787,83 @@ PN Order & Terms in Equations & Physical Meaning \\
 \end{tabular}
 \caption{PN origins and interpretations.}
 \end{table}
+
+\subsection{Applications of PN Effects}
+
+\subsubsection{Perihelion Advance of Mercury}
+
+The model's scalar sector reproduces the 1PN perihelion advance through density-dependent wave delays and inflow perturbations, mimicking GR's orbital precession without curvature. For Mercury, this yields exactly 43'' per century.
+
+Physically, the advance arises from slowed effective speeds $v_{\text{eff}} < c$ in rarefied zones near the Sun (P-3), combined with inflow drag from vortex sinks (P-2). Analogy: A orbiting whirlpool in thinning water experiences extra "echoing" compressions, nudging its path forward like a yo-yo spinning extra from twisted string.
+
+\textbf{Derivation Step-by-Step}:
+\begin{enumerate}
+    \item Start from the effective potential in the scalar sector (Section 4): $\Psi \approx -GM/r + (3/2) (GM/r)^2 / c^2 + \mathcal{O}(1/c^4)$, where the $1/c^2$ term emerges from nonlinear inflows ($\mathbf{v} \cdot \nabla \mathbf{v}$ in Euler) and $v_{\text{eff}}$ variations.
+    \item Use the Binet equation for orbits: $d^2 u / d\phi^2 + u = (GM / L^2) + (3 GM / c^2) u^2$, with perturbation $\delta = 3 GM / c^2$ from inflow $v^2 / 2 \approx GM / r + (3/2) (GM / r)^2 / c^2$ (Bernoulli expansion, calibrated via $G = c^2 / (4\pi \rho_0)$).
+    \item Precession per orbit: $\Delta\omega = 6\pi GM / (c^2 a (1-e^2))$, where $a$ is semi-major axis and $e$ eccentricity.
+    \item For Mercury ($M_\odot = 1.989 \times 10^{30}$ kg, $a = 5.79 \times 10^{10}$ m, $e=0.2056$): $\Delta\omega \approx 5.03 \times 10^{-7}$ rad/orbit.
+    \item Over century (415 orbits): $43''$, matching observation within error.
+\end{enumerate}
+
+This validates the compressible inflows (P-1, P-3); deviations in strong fields (e.g., binary pulsars) would falsify if $v_{\text{eff}}$ chromaticity appears.
+
+\subsubsection{Solar Light Deflection}
+
+Light deflection (1.75'' at solar limb) emerges from rarefaction gradients (refractive index $n(r) \approx 1 + GM/(c^2 r)$) and inflow drag, projecting to GR without geodesics.
+
+Analogy: A soliton wave (photon) near a drain bends inward as current tugs it, despite thinning water speeding it slightly outward—like a boat resisting shallows but yielding to tide.
+
+\textbf{Derivation Step-by-Step}:
+\begin{enumerate}
+    \item Ray path via Fermat: $\delta \int n ds = 0$, plus advection $\delta \int (\mathbf{v} \cdot d\mathbf{l}) / c = 0$, with $n-1 \approx GM / (c^2 r)$ from $v_{\text{eff}}$ (P-3).
+    \item Small-angle: $\Delta\phi = \int_{-\infty}^\infty -\frac{\partial n}{\partial b} dz + \frac{1}{c} \int_{-\infty}^\infty \frac{\partial v_{\text{inflow}}}{\partial b} dz$, $b$ impact parameter.
+    \item Density term: $\partial n / \partial b = (GM / c^2) (b / r^3)$, integrate $\Delta\phi_{\text{density}} = (2 GM / c^2 b)$.
+    \item Flow term ($v_{\text{inflow}} = - (2 GM / r)$ from 4-fold enhancement, P-5): $\partial v / \partial b \approx - (4 GM / r^3) b$, integrate $\Delta\phi_{\text{flow}} = - (4 GM / c b)$ (sign for inward).
+    \item Net: $\Delta\phi = 4 GM / (c^2 b)$ (density + flow balance).
+    \item For Sun ($b = R_\odot = 6.96 \times 10^8$ m): $1.75''$, exact match.
+\end{enumerate}
+
+Falsifiable: Chromatic shifts ($\Delta\theta \propto \lambda^{-1/2}$ from $v_{\text{eff}}$) in multi-band observations (ngEHT).
+
+\subsubsection{Gravitational Redshift}
+
+Redshift arises from $v_{\text{eff}}$ variations and Doppler from inflows, matching Pound-Rebka.
+
+Analogy: A vortex clock (light emitter) in rarefied zones "ticks" slower as compressions delay, like a whistle deepening against wind.
+
+\textbf{Derivation Step-by-Step}:
+\begin{enumerate}
+    \item Frequency: $\nu(r) = \nu_\infty \sqrt{v_{\text{eff}}(r) / c}$ (wave speed), $v_{\text{eff}} \approx c (1 - GM/(2 c^2 r))$ from $\delta\rho < 0$ (P-3).
+    \item Doppler addition: $\Delta\nu / \nu \approx v_{\text{inflow}} / c = GM / (c^2 r)$.
+    \item Net: $\Delta\nu / \nu = - GM / (c^2 r)$, blueshift from speed counters but drag dominates.
+    \item For white dwarf (Sirius B): $\Delta\lambda / \lambda \approx 3 \times 10^{-4}$, matches spectra.
+\end{enumerate}
+
+\subsubsection{Shapiro Delay}
+
+Radar echoes delay by $\sim240 \mu s$ (Earth-Venus) from slowed $v_{\text{eff}}$ and path drag.
+
+Analogy: Signals "swim upstream" against inflows, like mail delayed in headwind.
+
+\textbf{Derivation Step-by-Step}:
+\begin{enumerate}
+    \item Time: $\Delta t = \int ds / v_{\text{eff}} + \int (\mathbf{v}_{\text{inflow}} \cdot d\mathbf{l}) / c^2$.
+    \item Approximate: $\Delta t \approx (2 GM / c^3) \ln(4 r_1 r_2 / b^2)$ (log from integral $\int dz / \sqrt{b^2 + z^2}$).
+    \item Matches Viking lander data within 0.1\%.
+\end{enumerate}
+
+\subsection{Eclipse Anomalies as Falsifiable Extension}
+
+Inflow interference during eclipses predicts small $\Delta g \sim \mu$Gal drops, absent in GR.
+
+Analogy: Moon "shadows" Sun's aether suction, like a middle fan blocking wind.
+
+\textbf{Derivation Step-by-Step}:
+\begin{enumerate}
+    \item Shadow factor: $\alpha = (R_M / d_{SM})^2 \approx 10^{-5}$, amplified by coherence $f_{\text{amp}} \sim 10^5$ from $v_L > c$ (P-3).
+    \item $\Delta g \approx - (GM_\odot / d^2) \alpha f_{\text{amp}} \sim 5 \mu$Gal.
+    \item Matches Allais/Saxl anomalies; testable with gravimeters in 2026 eclipse.
+\end{enumerate}
 
 \section{Strong-Field Analogs in the Aether-Vortex Model}
 
@@ -1170,38 +1173,6 @@ Thus, $\tau = 1 / (\sqrt{\phi} R_n)$.
 
 Base charge from dynamo polarization: $q_{\text{base}} = - \tau \Gamma / (2 \sqrt{\phi})$ (negative for lepton convention, normalization from symmetry).
 
-\subsection{Geometric Projections for Fixed Charge in Charged Leptons}
-
-Larger $R_n$ for heavier leptons ($n>0$) would naively reduce $\tau \sim 1/R_n$, lowering $q$---but 4D projections balance this. The vortex sheet extends into $w$ with spread $\Delta w \sim \xi (R_n / \xi)^{\phi - 1}$ (golden scaling for self-similar stability, $\delta = \phi - 1 \approx 0.618$).
-
-Projection factor: $f_{\text{proj}} = 1 + (R_n / \xi)^{\phi - 1}$ (additive contributions from hemispheres amplify for larger sheets, countering dilution).
-
-Net charge: $q = q_{\text{base}} f_{\text{proj}}$.
-
-This geometry ensures $q$ independent of $n$: The exponent $\phi - 1$ offsets the $1/R_n$ in $\tau$, as $R_n \sim n^\phi$ implies $f_{\text{proj}} \sim n^{\phi (\phi - 1)} \sim n^\phi$ (counters $1/n^\phi$ from $\tau$), yielding near-constant $q$ (exact for $\epsilon=0$).
-
-Physically, larger vortices ``leak'' twist into bulk hemispheres, but projections reconcentrate it in 3D, balancing slower swirl ($v_{\text{swirl}} \sim 1/R_n$) to fix $q = -e$ (elementary charge $e$ calibrated once, like $G$).
-
-\subsection{Charge Suppression for Neutrinos via w-Offset}
-
-Neutrinos are chiral offsets of charged lepton vortices, with twist energy $\delta E_{\text{chiral}} = \rho_0 v_{\text{eff}}^2 \pi \xi^2 (\theta_{\text{twist}} / (2\pi))^2$ balanced against w-trap $\delta E_w = \rho_0 v_{\text{eff}}^2 \pi \xi^2 (w / \xi)^2 / 2$.
-
-Equilibrium: $w_{\text{offset}} / \xi = (\theta_{\text{twist}} / \pi) \sqrt{2} = \sqrt{2} / \sqrt{\phi} \approx 1.11$ (for $k=2$ asymmetry factor).
-
-Suppression: $q_\nu = q_{\text{lepton}} \exp( - \beta (w_{\text{offset}} / \xi)^2 )$, with $\beta=2$ (tangential projection stronger than mass's radial).
-
-Yields $q_\nu \approx q_{\text{lepton}} \exp(-2 \times 1.23) \approx -0.085 e$ (scalable to tinier by $\beta \sim \ln(m_e / m_\nu) \approx 13$ for $\sim 10^{-6} e$, but derived value tests the model).
-
-Geometrically, offset asymmetrizes hemispheres (w>0 vs. w<0 contributions cancel partially, like $(e^{-w/\xi} - e^{w/\xi})/2 \approx - \sinh(w/\xi) e^{-w/\xi}$), suppressing projected twist. Minimal mass (weak drainage) implies weak $\Gamma_\nu$, further reducing dynamo.
-
-\subsection{Implications: EM as Surface Waves}
-
-EM fields emerge as transverse perturbations on the $w=0$ hypersurface (P-3: modes at $c = \sqrt{T / \rho_0}$, $T \propto \rho$), excited by projected twists. Maxwell equations follow from linearized GP with twist: $\nabla \cdot \mathbf{E} = \rho_q / \epsilon_0$, etc., with $\rho_q \sim q \delta^3(\mathbf{r})$.
-
-Photons (Section 9.6) are neutral solitons (no twist), propagating linearly without self-disruption (GP integrable limit). EM waves (photon ensembles) don't alter paths in vacuum due to neutrality and linearity---nonlinear effects (e.g., scattering) negligible ($\sim 10^{-30}$ cross-section), but near masses, $v_eff$ gradients bend EM like light (chromatic shifts, falsifiable with ngEHT).
-
-This unifies: Gravity's ``suck'' (longitudinal bulk) complements EM's ``twisted swirl'' (transverse surface), inviting extensions to weak/strong forces as unraveling/braiding.
-
 \subsection{Emergent Maxwell Equations from Linearized GPE Twists}
 
 Building on the helical twist mechanism for electromagnetism (EM) in Section 10, we derive effective Maxwell-like equations from the 4D Gross-Pitaevskii equation (GPE) without additional assumptions, relying on postulates P-1 (compressible superfluid), P-3 (transverse waves at \(c\)), and P-5 (quantized vortex twists). This yields an emergent description that reproduces classical Maxwell's equations in linear, low-density limits, akin to analog models in superfluids where phase and density perturbations map to vector and scalar potentials \cite{unruh1981experimental, visser1998acoustic}. Physically, EM fields arise as transverse "swirl" perturbations on the \(w=0\) hypersurface: twists in vortex phase \(\theta\) induce solenoidal flows (magnetic-like), while density fluctuations \(\delta \rho\) create gradients (electric-like), propagating at fixed \(c = \sqrt{T / \rho_0}\) (with \(T \propto \rho\) for invariance, distinct from longitudinal \(v_L\) for gravity).
@@ -1261,6 +1232,40 @@ Predictions:
 \end{itemize}
 
 This unifies EM with gravity via shared hydrodynamics: "Suck" for electric/gravitational attraction, "twisted swirl" for magnetic/frame-dragging, inviting extensions to weak forces as chiral unraveling.
+
+\subsection{Implications: EM as Surface Waves}
+
+EM fields emerge as transverse perturbations on the $w=0$ hypersurface (P-3: modes at $c = \sqrt{T / \rho_0}$, $T \propto \rho$), excited by projected twists. Maxwell equations follow from linearized GP with twist: $\nabla \cdot \mathbf{E} = \rho_q / \epsilon_0$, etc., with $\rho_q \sim q \delta^3(\mathbf{r})$.
+
+Photons (Section 9.6) are neutral solitons (no twist), propagating linearly without self-disruption (GP integrable limit). EM waves (photon ensembles) don't alter paths in vacuum due to neutrality and linearity---nonlinear effects (e.g., scattering) negligible ($\sim 10^{-30}$ cross-section), but near masses, $v_eff$ gradients bend EM like light (chromatic shifts, falsifiable with ngEHT).
+
+This unifies: Gravity's ``suck'' (longitudinal bulk) complements EM's ``twisted swirl'' (transverse surface), inviting extensions to weak/strong forces as unraveling/braiding.
+
+\subsection{Specific Charge Calculations}
+
+\subsubsection{Geometric Projections for Fixed Charge in Charged Leptons}
+
+Larger $R_n$ for heavier leptons ($n>0$) would naively reduce $\tau \sim 1/R_n$, lowering $q$---but 4D projections balance this. The vortex sheet extends into $w$ with spread $\Delta w \sim \xi (R_n / \xi)^{\phi - 1}$ (golden scaling for self-similar stability, $\delta = \phi - 1 \approx 0.618$).
+
+Projection factor: $f_{\text{proj}} = 1 + (R_n / \xi)^{\phi - 1}$ (additive contributions from hemispheres amplify for larger sheets, countering dilution).
+
+Net charge: $q = q_{\text{base}} f_{\text{proj}}$.
+
+This geometry ensures $q$ independent of $n$: The exponent $\phi - 1$ offsets the $1/R_n$ in $\tau$, as $R_n \sim n^\phi$ implies $f_{\text{proj}} \sim n^{\phi (\phi - 1)} \sim n^\phi$ (counters $1/n^\phi$ from $\tau$), yielding near-constant $q$ (exact for $\epsilon=0$).
+
+Physically, larger vortices ``leak'' twist into bulk hemispheres, but projections reconcentrate it in 3D, balancing slower swirl ($v_{\text{swirl}} \sim 1/R_n$) to fix $q = -e$ (elementary charge $e$ calibrated once, like $G$).
+
+\subsubsection{Charge Suppression for Neutrinos via w-Offset}
+
+Neutrinos are chiral offsets of charged lepton vortices, with twist energy $\delta E_{\text{chiral}} = \rho_0 v_{\text{eff}}^2 \pi \xi^2 (\theta_{\text{twist}} / (2\pi))^2$ balanced against w-trap $\delta E_w = \rho_0 v_{\text{eff}}^2 \pi \xi^2 (w / \xi)^2 / 2$.
+
+Equilibrium: $w_{\text{offset}} / \xi = (\theta_{\text{twist}} / \pi) \sqrt{2} = \sqrt{2} / \sqrt{\phi} \approx 1.11$ (for $k=2$ asymmetry factor).
+
+Suppression: $q_\nu = q_{\text{lepton}} \exp( - \beta (w_{\text{offset}} / \xi)^2 )$, with $\beta=2$ (tangential projection stronger than mass's radial).
+
+Yields $q_\nu \approx q_{\text{lepton}} \exp(-2 \times 1.23) \approx -0.085 e$ (scalable to tinier by $\beta \sim \ln(m_e / m_\nu) \approx 13$ for $\sim 10^{-6} e$, but derived value tests the model).
+
+Geometrically, offset asymmetrizes hemispheres (w>0 vs. w<0 contributions cancel partially, like $(e^{-w/\xi} - e^{w/\xi})/2 \approx - \sinh(w/\xi) e^{-w/\xi}$), suppressing projected twist. Minimal mass (weak drainage) implies weak $\Gamma_\nu$, further reducing dynamo.
 
 \subsection{Predictions and Falsifiability}
 
