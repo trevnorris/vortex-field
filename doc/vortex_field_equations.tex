@@ -12,7 +12,7 @@
 
 \title{The Aether-Vortex Field Equations: A Unified Fluid Model for Gravity in Flat Space}
 \author{Written by Trevor Norris}
-\date{July 17, 2025}
+\date{July 16, 2025}
 
 \begin{document}
 
@@ -27,6 +27,8 @@ The resulting equations exactly reproduce general relativity's post-Newtonian pr
 
 Distinguishing predictions include eclipse gravitational anomalies ($\sim$5 $\mu$Gal), chromatic variations in black hole photon spheres, laboratory-scale frame-dragging from spinning superconductors, and potential neutrino millicharges. These falsifiable tests, combined with the theory's conceptual simplicity and mathematical completeness, offer a compelling alternative to curved-spacetime approaches while maintaining full compatibility with confirmed observations.
 \end{abstract}
+
+\part{Foundations}
 
 \section{Introduction and Motivation}
 
@@ -59,11 +61,15 @@ Analog gravity models provide closer parallels, particularly Unruh's sonic black
 
 By grounding in testable fluid mechanics without gauge symmetries or curved manifolds, this work offers a novel, intuitive alternative that aligns with GR's weak-field tests while inviting extensions to quantum regimes.
 
-\section{Physical Postulates}
+\section{Physical Postulates and 4D Superfluid Framework}
 
-To establish a rigorous foundation, we begin with a minimal set of physical postulates that define the aether as a compressible superfluid in 4D space. These axioms capture the essential properties needed to derive the field equations, incorporating the conceptual vision of particles as vortex sinks draining aether into an extra dimension. Each postulate is stated verbally for intuition, mathematically for precision, and explained with analogies to everyday fluid phenomena.
+To establish a rigorous foundation, we begin by defining the aether as a compressible superfluid in full 4D space, then derive how its dynamics project to our observable 3D universe. This unified approach incorporates the conceptual core of the model: the aether as an infinite 4D medium (coordinates $\mathbf{r}_4 = (\mathbf{r}, w)$, where $\mathbf{r}$ is 3D position and $w$ the extra ``depth'' dimension), with our universe at the $w=0$ hypersurface. Particles, as vortex structures extending into $w$, act as sinks that flux aether away from the 3D slice, creating effective sources without violating conservation.
 
-The postulates build on the original five but are refined for consistency, ensuring the vector sector emerges naturally from vortex dynamics. This eliminates ad-hoc assumptions in prior derivations, such as arbitrary sources for circulation.
+We present a minimal set of physical postulates that capture the essential properties needed to derive the field equations. These axioms incorporate the conceptual vision of particles as vortex sinks draining aether into the extra dimension, with each postulate stated verbally for intuition, mathematically for precision, and explained with analogies to everyday fluid phenomena.
+
+The framework draws from superfluid hydrodynamics, where nonlinearity ensures vortex stability and quantization. We use a Gross-Pitaevskii-like equation for the order parameter $\psi$ (with $|\psi|^2 = \rho$), but focus on classical fluid limits for derivations, incorporating quantum terms for core regularization as needed. Analogies emphasize the 4D ocean: flows vanish ``downward'' into depths, projecting as drains on the surface. This 4D embedding also addresses Mach's principle by positing that inertial frames emerge from global aether inflows aggregated across the universe, providing a physical basis for rotation and acceleration relative to distant matter.
+
+Boundary conditions at $w \to \pm \infty$ are vanishing perturbations ($\delta \rho \to 0$, $\mathbf{v}_4 \to 0$), ensuring the infinite bulk acts as a uniform reservoir that absorbs drained aether without back-reaction on the $w=0$ slice. With this foundation established, we now present the postulates and develop the mathematical framework for projection from 4D to 3D.
 
 \subsection{Verbal and Mathematical Statements}
 
@@ -115,12 +121,6 @@ These five postulates are sufficient to derive the complete dynamical system, in
 \end{enumerate}
 
 Physically, the postulates capture the ``suck + swirl'' essence: Drains (P-2) create scalar rarefaction and inflows, while vortex motion (P-5) adds vector circulation with geometric enhancement, all propagating with density-dependent speeds (P-3) in the superfluid medium (P-1). This suffices for gravity's full PN structure, as shown in subsequent derivations. Analogy: With just water properties, drains, and spins, one can explain bathtub attraction and eddies---no need for ``curved basins.''
-
-\section{4D Superfluid Framework and Projections}
-
-To derive the field equations consistently, we first establish the aether's dynamics in full 4D space before projecting to our observable 3D slice. This step incorporates the conceptual core of the model: the aether as an infinite 4D medium (coordinates $\mathbf{r}_4 = (\mathbf{r}, w)$, where $\mathbf{r}$ is 3D position and $w$ the extra ``depth'' dimension), with our universe at the $w=0$ hypersurface. Particles, as vortex structures extending into $w$, act as sinks that flux aether away from the 3D slice, creating effective sources without violating conservation. The framework draws from superfluid hydrodynamics, where nonlinearity ensures vortex stability and quantization. We use a Gross-Pitaevskii-like equation for the order parameter $\psi$ (with $|\psi|^2 = \rho$), but focus on classical fluid limits for derivations, incorporating quantum terms for core regularization as needed. Analogies emphasize the 4D ocean: flows vanish ``downward'' into depths, projecting as drains on the surface. This 4D embedding also addresses Mach's principle by positing that inertial frames emerge from global aether inflows aggregated across the universe, providing a physical basis for rotation and acceleration relative to distant matter.
-
-Boundary conditions at $w \to \pm \infty$ are vanishing perturbations ($\delta \rho \to 0$, $\mathbf{v}_4 \to 0$), ensuring the infinite bulk acts as a uniform reservoir that absorbs drained aether without back-reaction on the $w=0$ slice.
 
 \subsection{4D Continuity and Euler Equations}
 
@@ -282,9 +282,17 @@ Physically, drained aether is converted to non-interacting bulk excitations (e.g
 
 The uniform $\rho_0$ sources a quadratic potential $\Psi \supset -2\pi G \rho_0 r^2$ in the Poisson limit, implying uniform acceleration $\nabla \Psi = -4\pi G \rho_0 \mathbf{r}$. This is balanced by global inflows from distant matter: $\Psi_{\text{global}} = \int 4\pi G \rho_{\text{cosmo}}(\mathbf{r}') / |\mathbf{r} - \mathbf{r}'| d^3 r' \approx 2\pi G \langle \rho \rangle r^2$ for isotropic universe, canceling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$ (aggregate deficits equal background via re-emergence). In asymmetric cases, residual term predicts small G anisotropy ~$10^{-13} yr^{-1}$, consistent with bounds.
 
-\section{Derivation of the Scalar Field Equation}
+\section{Unified Field Equations}
 
-The scalar sector governs the irrotational, compressible part of the aether flow, corresponding to the ``suck'' component driven by vortex sinks. This yields the potential $\Psi$, which encodes Newtonian attraction in the static limit and propagation delays at higher orders. We derive the wave equation for $\Psi$ step-by-step from the postulates, starting with 4D-projected continuity and Euler, then linearizing for small perturbations while incorporating the density-dependent effective speed $v_{\text{eff}}$ from the Gross-Pitaevskii framework. Physical interpretation: Sinks create rarefied zones (density deficits), setting up pressure gradients that pull nearby matter inward, like low-pressure regions around a drain tugging floating debris. Bulk compression waves propagate at $v_L = \sqrt{g \rho_0 / m}$ (potentially $> c$), but slow to $v_{\text{eff}} = \sqrt{g \rho_{\text{local}} / m} < v_L$ near deficits, mimicking relativistic delays via fluid thinning.
+The aether flow decomposes into two complementary sectors that together capture all gravitational phenomena, analogous to gravitomagnetism (GEM) but derived purely from fluid mechanics with density-dependent propagation and geometric enhancements. The Helmholtz decomposition (P-4) yields the total aether flow as $\mathbf{v} = -\nabla \Psi + \nabla \times \mathbf{A}$, separating the compressible ``suck'' component (scalar sector) from the incompressible ``swirl'' component (vector sector). This decomposition naturally emerges from the distinct physical mechanisms: vortex sinks create pressure-driven inflows, while vortex motion induces circulation.
+
+The scalar sector, governed by potential $\Psi$, captures the irrotational, compressible flow driven by vortex sinks. Physically, sinks create rarefied zones (density deficits), setting up pressure gradients that pull nearby matter inward, like low-pressure regions around a drain tugging floating debris. This sector encodes Newtonian attraction in the static limit and propagation delays at higher orders. Bulk compression waves propagate at $v_L = \sqrt{g \rho_0 / m}$ (potentially $> c$), but slow to $v_{\text{eff}} = \sqrt{g \rho_{\text{local}} / m} < v_L$ near deficits, mimicking relativistic delays via fluid thinning.
+
+The vector sector, governed by potential $\mathbf{A}$, represents the solenoidal flow driven by vortex motion and braiding. Moving vortices drag the aether into circulation, like spinning whirlpools creating eddies that twist nearby flows. This sector encodes frame-dragging and spin effects in the PN expansion. A key result is that the 4D vortex sheet's projection onto the 3D slice at $w=0$ enhances circulation 4-fold through geometric effects, naturally generating the gravitomagnetic coupling strength without ad-hoc assumptions.
+
+Together, these sectors yield forces on test masses (vortex clusters) through drag in the combined flow. In the full nonlinear theory, $\mathbf{F} = m \mathbf{a} = -m \nabla \cdot (\mathbf{v} \otimes \mathbf{v}) + \dots$, but in weak fields this linearizes to the familiar GEM form with coefficients locked by calibration. The analogy to electromagnetism is precise: ``gravito-electric'' pull from rarefaction (scalar) and ``gravito-magnetic'' drag from circulation (vector), but with all effects emerging from a single underlying fluid rather than abstract fields.
+
+We now derive the wave equations for both sectors step-by-step from the postulates, addressing key challenges such as the linearized vorticity limitation and incorporating 4D projections to ensure self-consistency.
 
 \subsection{Continuity with 4D Sinks}
 
@@ -454,12 +462,6 @@ For strong fields, the equation supports acoustic horizons: In steady-state ($\p
 
 Extensions include coupling to the vector sector ($\mathbf{v} = -\nabla \Psi + \nabla \times \mathbf{A}$) for frame-dragging in nonlinear flows, or adding quantum pressure ($-\frac{\hbar^2}{2m \rho} \nabla (\nabla^2 \sqrt{\rho})$ in Euler) for core stability. Numerical solves (e.g., finite differences) are feasible for binary mergers or vortex perturbations, as previewed in Section 9 for particle decays. This nonlinear foundation invites rigorous tests of the model's unification, distinguishing it from GR through fluid-specific phenomena while recovering established limits.
 
-\section{Derivation of the Vector Field Equation}
-
-The vector sector captures the solenoidal, incompressible part of the aether flow, representing the ``swirl'' component driven by vortex motion and braiding. This yields the potential $\mathbf{A}$, which encodes frame-dragging and spin effects in the PN expansion. We derive the wave equation for $\mathbf{A}$ step-by-step, starting from the full (nonlinear) vorticity dynamics to ensure consistency---addressing the limitation where linearized Euler freezes vorticity ($\partial_t (\nabla \times \mathbf{v}) = 0$). By incorporating 4D vortex quantization and singularities (P-5), sources emerge naturally from mass currents without ad-hoc additions, with the coefficient derived from the geometric projection of 4D vortex sheets in the superfluid framework, upscaled through collective lattice effects and analog metric coupling.
-
-Physical interpretation: Moving vortices drag the aether into circulation, like spinning whirlpools creating eddies that twist nearby flows. In 4D, the vortex sheet's projection onto the 3D slice at $w=0$ enhances this circulation 4-fold, as detailed below.
-
 \subsection{Vorticity Equation and Nonlinear Sourcing}
 
 From the projected 3D Euler equation (Section 3):
@@ -523,10 +525,6 @@ For propagation (P-3, transverse at $c$), the wave equation is:
 \subsection{Physical Interpretation}
 
 The vector equation captures circulation from moving drains; source like currents in magnetostatics, at fixed $c$. Analogy: Spinning vortices dragging fluid, creating Lense-Thirring twists, enhanced 4-fold by the 4D sheet's geometric projections.
-
-\section{Unified Equations and Force Law}
-
-The scalar and vector sectors combine into a unified system analogous to gravitomagnetism (GEM), but derived from fluid mechanics with density-dependent propagation and geometric enhancements. The Helmholtz decomposition (P-4) yields the total aether flow: $\mathbf{v} = -\nabla \Psi + \nabla \times \mathbf{A}$, separating compressible ``suck'' (scalar) from incompressible ``swirl'' (vector). The force on a test mass $m$ (vortex cluster moving at $\mathbf{v}_m$) emerges from drag in the aether flow: $\mathbf{F} = m \mathbf{a} = -m \nabla \cdot (\mathbf{v} \otimes \mathbf{v}) + \dots$, but in weak fields linearizes to GEM form with coefficients locked by calibration. Analogy: Like Lorentz force in EM, but for gravity: ``gravito-electric'' pull from rarefaction, ``gravito-magnetic'' drag from circulation.
 
 \subsection{Flow Decomposition}
 
@@ -640,11 +638,17 @@ Equation (2): Circulation from moving drains; source like currents in magnetosta
 
 Force (4): Attraction plus induction and drag. No extra constants beyond $G$; PN fixed via far-field $v_{\text{eff}} \approx c$, with bulk $v_L > c$ reconciling superluminal math.
 
-\section{Newtonian Limit (0 PN)}
+\part{Gravitational Phenomena}
 
-In the non-relativistic regime---slow velocities $\|\mathbf{V}\| \ll c$ and weak potentials $|\Psi| \ll c^2$---the field equations must reduce to Newton's law of gravity. We demonstrate this collapse explicitly by scaling in the small parameter $\varepsilon \equiv v/c \sim \sqrt{GM/(c^2 r)} \ll 1$, dropping higher-order terms. This validates the model: time-derivatives and vector contributions vanish, leaving static Poisson equations sourced by density deficits emergent from vortex core energies (as derived in Section 4.4).
+\section{Weak-Field Gravity: From Newton to Post-Newtonian}
 
-Physical interpretation: For everyday scales, finite propagation is negligible, so attraction acts ``instantaneously'' via pressure gradients from rarefied zones, with swirls too weak to notice. Analogy: In calm waters, drains pull steadily without waves or eddies dominating.
+To validate our unified field equations, we systematically demonstrate their agreement with established gravitational physics across different regimes of the small parameter $\varepsilon \equiv v/c \sim \sqrt{GM/(c^2 r)} \ll 1$. This progression from Newtonian gravity through post-Newtonian corrections confirms that our fluid-mechanical framework reproduces all known weak-field phenomena while revealing their underlying hydrodynamic origins.
+
+In the non-relativistic limit where velocities $\|\mathbf{V}\| \ll c$ and potentials $|\Psi| \ll c^2$, the field equations must reduce to Newton's law of gravity. By explicitly scaling in powers of $\varepsilon$ and dropping higher-order terms, we show that time-derivatives and vector contributions vanish, leaving static Poisson equations sourced by density deficits emergent from vortex core energies. Physical interpretation: For everyday scales, finite propagation is negligible, so attraction acts ``instantaneously'' via pressure gradients from rarefied zones, with swirls too weak to notice. Analogy: In calm waters, drains pull steadily without waves or eddies dominating.
+
+As we include higher powers of $\varepsilon$, the post-Newtonian (PN) expansion reveals how relativistic effects emerge from our dual wave structure. The scalar potential expands as $\Psi = \Psi^{(0)} + \Psi^{(2)} + \cdots$ (even powers capturing compression effects), while the vector potential enters as $\mathbf{A} = \mathbf{A}^{(3)} + \cdots$ (odd powers beginning at O$(\varepsilon^3)$ for frame-dragging). This natural separation validates our decomposition: scalar $\Psi$ handles propagation delays and energy corrections, while vector $\mathbf{A}$ captures rotational effects. Analogy: Low orders appear as steady pulls, while higher orders manifest as rippling waves and eddies.
+
+We now derive these limits systematically, showing exact agreement with general relativity's predictions while maintaining the intuitive fluid-mechanical picture throughout.
 
 \subsection{Scaling and Static Equations}
 
@@ -675,12 +679,6 @@ The force scales as: $-\nabla \Psi = O(GM/r^2)$, while $\partial_t \mathbf{A} = 
 This recovers Newton's inverse-square law exactly. Analogy: Compressional pull dominates, like air rushing into a vacuum pulling objects without noticeable twists.
 
 The elliptic equations ensure ``instantaneous'' action, depending only on simultaneous matter distribution. Vector pieces vanish at this order, as currents are weak.
-
-\section{Post-Newtonian Expansions}
-
-The post-Newtonian (PN) expansion approximates relativistic effects in weak fields and slow motions, parameterized by orders in $\varepsilon \sim v/c$. Here, we demonstrate that the unified equations recover GR's PN terms exactly, with math derived from the consistent scalar and vector sectors. This validates the model: Scalar $\Psi$ handles even orders (compressions), vector $\mathbf{A}$ odd orders (swirls).
-
-We expand: $\Psi = \Psi^{(0)} + \Psi^{(2)} + \cdots$ (even powers), $\mathbf{A} = \mathbf{A}^{(3)} + \cdots$ (odd, starting at O$(\varepsilon^3)$ for 1.5 PN). Analogy: Low orders as steady pulls, higher as rippling waves and eddies.
 
 \subsection{1 PN Corrections (Scalar Perturbations)}
 
@@ -934,6 +932,8 @@ Generalizing for variable $v_{\text{eff}}$, effective $\kappa_{\text{eff}} = \fr
 The spectrum is thermal $\langle \hat{n}_\omega \rangle = 1 / (e^{\omega / T_H} - 1)$, but dispersion $\omega'^2 = v_{\text{eff}}^2 k^2 + (k^2 / 2m)^2$ cuts off high $\omega > m v_{\text{eff}}^2$, introducing chromaticity: Blueshifted phonons escape easier (seeing bulk $v_L > c$), deviating ~10-30\% in tail for $\delta \rho / \rho_0 \sim 0.5$ (from simulations).
 
 This confirms the model's quantum viability, reproducing Hawking radiation while predicting observable chromatic shifts, falsifiable via Bose-Einstein condensate horizons \cite{steinhauer2016observation}.
+
+\part{Unified Physics}
 
 \section{Emergent Particle Masses from Vortex Structures}
 
@@ -1277,6 +1277,8 @@ This framework predicts:
 \end{itemize}
 
 Failure to detect at these levels falsifies the geometric scaling.
+
+\part{Implications}
 
 \section{Discussion and Extensions}
 
