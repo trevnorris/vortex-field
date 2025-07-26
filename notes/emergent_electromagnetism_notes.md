@@ -393,3 +393,32 @@ Notes about changes:
 4. **For Section 4.9**: Emphasize this is NOT speculation but geometric consequence
 
 The outline provides detailed mathematical frameworks for each new section. Would you like me to elaborate on any particular section or help draft the actual text for the most challenging parts?
+
+---
+
+Notes on simulations to run:
+
+For the photon simulations based on your framework, we'd want to demonstrate several key aspects:
+1. Wave Packet Propagation
+
+Initialize a Gaussian wave packet with the 4D structure: exp[i(kx - ωt)] × exp[-(y² + z²)/(2σ_⊥²)] × exp[-w²/(2σ_w²)]
+Show that it propagates at constant speed c without dispersion (due to w-confinement)
+Compare with a 3D-only packet that would disperse as 1/√t
+
+2. Zero Mass Verification
+
+Calculate the density perturbation δρ over time
+Show that the time average ⟨δρ⟩_t = 0 over one period
+Contrast with a vortex that has permanent deficit
+
+3. Polarization Projections
+
+Simulate the universal (y,w) oscillation
+Show how different propagation directions yield different observed polarizations
+Demonstrate circular polarization from the 4D rotation
+
+4. Gravitational Deflection
+
+Implement the effective refractive index n ≈ 1 + GM/(2c²r)
+Ray trace through this medium
+Verify the deflection angle matches δφ = 4GM/(c²b)
