@@ -287,17 +287,7 @@ Each yields $\Gamma$ pre-rescaling; post-rescaling ensures consistent units for 
 
 The 4-fold enhancement has been rigorously verified through symbolic (SymPy) and numerical integration of the 4D Biot-Savart law. Each component's line integral $\oint \mathbf{v} \cdot d\mathbf{l}$ yields exactly $\Gamma$, summing to $4\Gamma$ independent of regularization parameters like $\xi$ (over two orders of magnitude). Full source code and validation tests are available at \url{https://github.com/trevnorris/vortex-field} in the file \verb|4_fold_enhancement.py|.
 
-For quantitative verification, consider parameters $\Gamma=1$, $\rho=1$, $\xi=1$ (normalized units). For the upper hemisphere: $v_\theta = 1 / (2\pi \times 1) \approx 0.159$, circulation $= 2\pi \times 1 \times 0.159 \approx 1 = \Gamma$. Similarly for lower, direct, and induced; total $4\Gamma$. Numerical integration (e.g., over $w' = 0$ to $100\xi$): Confirms exact within 0.1\% error. SymPy code snippet for hemisphere integral:
-
-\begin{verbatim}
-import sympy as sp
-rho, w_prime, Gamma = sp.symbols('rho w_prime Gamma', positive=True)
-pi = sp.pi
-integrand = Gamma * rho / (2 * pi * (rho**2 + w_prime**2)**(3/2))
-v_theta = sp.integrate(integrand, (w_prime, 0, sp.oo))
-circ = 2 * pi * rho * v_theta
-print(sp.simplify(circ))  # Outputs: Gamma
-\end{verbatim}
+For quantitative verification, consider parameters $\Gamma=1$, $\rho=1$, $\xi=1$ (normalized units). For the upper hemisphere: $v_\theta = 1 / (2\pi \times 1) \approx 0.159$, circulation $= 2\pi \times 1 \times 0.159 \approx 1 = \Gamma$. Similarly for lower, direct, and induced; total $4\Gamma$. Numerical integration (e.g., over $w' = 0$ to $100\xi$): Confirms exact within 0.1\% error.
 
 \subsubsection{Explicit Rescaling Derivation}
 
