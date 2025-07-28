@@ -8,7 +8,7 @@ Does NOT assume the paper is correct - derives and verifies each result.
 
 This script addresses ALL gaps identified in the original verification:
 - Actual computation of 4-fold enhancement contributions
-- Boundary condition mathematical verification  
+- Boundary condition mathematical verification
 - Integration convergence proofs
 - Physical assumption validation
 - Parameter independence testing
@@ -75,27 +75,27 @@ dimensions = {
     # Coordinates
     't': T, 'r': L, 'r_4': L, 'x': L, 'y': L, 'z': L, 'w': L,
     'rho_cyl': L, 'theta': 1, 'phi': 1, 'epsilon': L, 'xi': L,
-    
+
     # 4D potentials (pre-projection)
     'Phi_4D': L**2 / T, 'B4_x': L**2 / T, 'B4_y': L**2 / T, 'B4_z': L**2 / T,
-    
-    # 3D potentials (post-projection)  
+
+    # 3D potentials (post-projection)
     'Psi_3D': L**2 / T**2, 'A_x': L / T, 'A_y': L / T, 'A_z': L / T,
-    
+
     # Velocities
     'v_x': L / T, 'v_y': L / T, 'v_z': L / T, 'v_w': L / T, 'v_theta': L / T,
-    
+
     # Densities
     'rho_4D': Mass / L**4, 'rho_3D': Mass / L**3, 'rho_0': Mass / L**3,
     'delta_rho_4D': Mass / L**4,
-    
+
     # Physical constants
     'c': L / T, 'v_L': L / T, 'v_eff': L / T, 'G': L**3 / (Mass * T**2),
     'g': L**6 / T**2, 'hbar': Mass * L**2 / T, 'm': Mass, 'm_core': Mass / L**2,
-    
+
     # Vortex quantities
     'Gamma': L**2 / T, 'Gamma_obs': L**2 / T, 'kappa': L**2 / T, 'M_dot': Mass / T,
-    
+
     # Integration variables (dimensionless or as appropriate)
     'w_var': L, 'u_sub': 1, 's_var': 1, 'n_int': 1
 }
@@ -130,7 +130,7 @@ verification_results.append(("4D continuity equation dimensions", continuity_dim
 status = "✓" if continuity_dimensional_check else "✗"
 print(f"{status} 4D Continuity: ∂_t ρ_(4D) + ∇_4 · (ρ_(4D) v_4) = -∑Ṁ_i δ^4")
 print(f"  Time term: [{continuity_time_term}]")
-print(f"  Flux term: [{continuity_flux_term}]") 
+print(f"  Flux term: [{continuity_flux_term}]")
 print(f"  Sink term: [{continuity_sink_term}] (per unit 4D volume)")
 
 # Verify sink strength relationship: Ṁ_i = m_core Γ_i
@@ -150,10 +150,10 @@ print("-" * 50)
 # ∫_{-ε}^{ε} dw f(x,y,z,w) where ε ≈ ξ
 
 print("Testing slab integration setup:")
-print("∫_{-ε}^{ε} dw [∂_t ρ_{4D} + ∇_4 · (ρ_{4D} v_4)] = -∑_i Ṁ_i ∫_{-ε}^{ε} dw δ^4(r_4 - r_{4,i})")
+print("∫(-ε to ε) dw [∂_t ρ_(4D) + ∇_4 · (ρ_(4D) v_4)] = -∑_i Ṁ_i ∫(-ε to ε) dw δ^4(r_4 - r_(4,i))")
 
-# For a 4D delta function δ^4(r_4 - r_{4,i}) = δ(x-x_i)δ(y-y_i)δ(z-z_i)δ(w-w_i)
-# The w-integration: ∫_{-ε}^{ε} δ(w-w_i) dw = 1 if |w_i| < ε, 0 otherwise
+# For a 4D delta function δ^4(r_4 - r_(4,i)) = δ(x-x_i)δ(y-y_i)δ(z-z_i)δ(w-w_i)
+# The w-integration: ∫(-ε to ε) δ(w-w_i) dw = 1 if |w_i| < ε, 0 otherwise
 # This correctly reduces 4D delta to 3D delta when vortex intersects slab
 
 slab_integration_dimensional = True  # Integration measure is correct
@@ -171,7 +171,7 @@ print("-" * 50)
 # This requires exponential decay assumption: δρ_{4D} ~ e^{-|w|/ξ}
 
 print("Testing boundary flux vanishing condition:")
-print("Assumption: δρ_{4D} ~ e^{-|w|/ξ} for |w| > ξ")
+print("Assumption: δρ_(4D) ~ e^(-|w|/ξ) for |w| > ξ")
 
 # Test the exponential decay profile
 w_test = symbols('w_test', real=True)
@@ -198,7 +198,7 @@ epsilon_equals_xi_flux = float(exp(-1).evalf())  # ≈ 0.368
 boundary_flux_acceptable = epsilon_equals_xi_flux < 0.1  # < 10% error
 
 status = "✓" if boundary_condition_satisfied else "⚠"
-print(f"{status} Boundary flux limit: lim_{ε/ξ→∞} e^(-ε/ξ) = 0")
+print(f"{status} Boundary flux limit: lim_(ε/ξ→∞) e^(-ε/ξ) = 0")
 status2 = "✗" if not boundary_flux_acceptable else "✓"
 print(f"{status2} Practical condition: ε ≈ ξ gives ~37% boundary flux (NOT negligible)")
 print(f"  ISSUE: Either need ε >> ξ or more careful boundary treatment")
@@ -208,7 +208,7 @@ verification_results.append(("Boundary flux practical negligibility", boundary_f
 print("\n4. PROJECTED 3D CONTINUITY VERIFICATION")
 print("-" * 50)
 
-# After integration: ∂_t ρ_{3D} + ∇ · (ρ_{3D} v) = -Ṁ_{body} δ^3(r)
+# After integration: ∂_t ρ_(3D) + ∇ · (ρ_(3D) v) = -Ṁ_(body) δ^3(r)
 projected_continuity_time = dimensions['rho_3D'] / dimensions['t']
 projected_continuity_flux = dimensions['rho_3D'] * dimensions['v_x'] / dimensions['r']
 projected_continuity_sink = dimensions['M_dot'] / (dimensions['r']**3)
@@ -220,7 +220,7 @@ projected_continuity_check = (
 
 verification_results.append(("Projected 3D continuity equation", projected_continuity_check))
 status = "✓" if projected_continuity_check else "✗"
-print(f"{status} Projected continuity: ∂_t ρ_{3D} + ∇ · (ρ_{3D} v) = -Ṁ_{body} δ^3(r)")
+print(f"{status} Projected continuity: ∂_t ρ_(3D) + ∇ · (ρ_(3D) v) = -Ṁ_(body) δ^3(r)")
 print(f"  All terms have dimensions [{projected_continuity_time}]")
 
 # ============================================================================
@@ -235,7 +235,7 @@ print("\n1. SCALAR POTENTIAL RESCALING - STEP BY STEP")
 print("-" * 50)
 
 # Step 1: Integration over slab
-print("Step 1: Slab integration ∫_{-ε}^{ε} dw Φ")
+print("Step 1: Slab integration ∫(-ε to ε) dw Φ")
 scalar_pre_integration = dimensions['Phi_4D']  # [L²T⁻¹]
 scalar_post_integration = scalar_pre_integration * dimensions['epsilon']  # [L³T⁻¹]
 
@@ -272,8 +272,8 @@ print(f"✓ Complete scalar rescaling: Φ[L²T⁻¹] → Ψ[L²T⁻²] via (v_ef
 print("\n2. VECTOR POTENTIAL RESCALING - STEP BY STEP")
 print("-" * 50)
 
-# Step 1: Integration over slab  
-print("Step 1: Slab integration ∫_{-ε}^{ε} dw B₄")
+# Step 1: Integration over slab
+print("Step 1: Slab integration ∫(-ε to ε) dw B₄")
 vector_pre_integration = dimensions['B4_x']  # [L²T⁻¹]
 vector_post_integration = vector_pre_integration * dimensions['epsilon']  # [L³T⁻¹]
 
@@ -315,12 +315,11 @@ print("Standard 3D vortex: v_θ = Γ/(2π ρ)")
 
 # Line integral: ∮ v · dl = ∮ v_θ ρ dθ = ∮ [Γ/(2π ρ)] ρ dθ = Γ/(2π) ∮ dθ = Γ
 theta_var = symbols('theta_var', real=True)
-azimuthal_velocity = Gamma / (2 * pi * rho_cyl)
-line_element = rho_cyl  # ρ dθ component
-integrand = azimuthal_velocity * line_element  # Γ/(2π)
+azimuthal_velocity = Gamma / (2 * pi * rho_cyl)  # v_θ = Γ/(2π ρ)
+line_element_integrand = azimuthal_velocity * rho_cyl  # v_θ × ρ = Γ/(2π)
 
-# ACTUAL COMPUTATION
-direct_circulation = integrate(integrand / rho_cyl, (theta_var, 0, 2*pi))
+# ACTUAL COMPUTATION - integrate v_θ ρ dθ from 0 to 2π
+direct_circulation = integrate(line_element_integrand, (theta_var, 0, 2*pi))
 direct_circulation_simplified = simplify(direct_circulation)
 
 direct_intersection_check = simplify(direct_circulation_simplified - Gamma) == 0
@@ -345,10 +344,10 @@ try:
     # DIRECT COMPUTATION
     hemisphere_integral_result = integrate(hemisphere_integrand, (w_prime, 0, oo))
     hemisphere_simplified = simplify(hemisphere_integral_result)
-    
+
     expected_result = 1 / rho_fixed**2
     hemisphere_integral_check = simplify(hemisphere_simplified - expected_result) == 0
-    
+
     print(f"✓ Direct integration: ∫₀^∞ dw'/(ρ²+w'²)^(3/2) = {hemisphere_simplified}")
     print(f"  Expected: {expected_result}")
     print(f"  Match: {hemisphere_integral_check}")
@@ -356,11 +355,11 @@ try:
 except Exception as e:
     print(f"Direct integration failed: {e}")
     print("Using substitution method:")
-    
+
     # SUBSTITUTION METHOD: u = w'/ρ
     u_var = symbols('u_var', real=True)
     standard_integral = integrate(1/(1 + u_var**2)**(sp.Rational(3,2)), (u_var, 0, oo))
-    
+
     hemisphere_integral_check = simplify(standard_integral - 1) == 0
     print(f"✓ Standard integral: ∫₀^∞ du/(1+u²)^(3/2) = {standard_integral}")
     print(f"  Therefore: hemisphere integral = (1/ρ²) × {standard_integral} = 1/ρ²")
@@ -376,13 +375,13 @@ upper_hemisphere_velocity = biot_savart_coeff * (1 / rho_fixed**2)
 print(f"v_θ(upper) = (Γ/4π) × (1/ρ²) = {upper_hemisphere_velocity}")
 
 # The circulation from upper hemisphere
-upper_circulation_integrand = upper_hemisphere_velocity * rho_fixed  # v_θ × ρ for line integral
-upper_circulation = integrate(upper_circulation_integrand / rho_fixed, (theta_var, 0, 2*pi))
+upper_velocity_times_rho = upper_hemisphere_velocity * rho_fixed  # v_θ × ρ for line integral
+upper_circulation = integrate(upper_velocity_times_rho, (theta_var, 0, 2*pi))
 upper_circulation_simplified = simplify(upper_circulation)
 
 upper_hemisphere_check = simplify(upper_circulation_simplified - Gamma) == 0
 verification_results.append(("Upper hemisphere circulation = Γ", upper_hemisphere_check))
-status = "✓" if upper_hemisphere_check else "✗"  
+status = "✓" if upper_hemisphere_check else "✗"
 print(f"{status} Upper hemisphere circulation: ∮ v_upper·dl = {upper_circulation_simplified} = Γ")
 
 # Lower hemisphere (symmetric)
@@ -409,9 +408,9 @@ print(f"Drainage velocity: v_w = {drainage_velocity}")
 print("Through 4D incompressibility (∇₄ · v = 0):")
 print("Induced tangential velocity: v_θ(induced) ≈ Γ/(2π ρ)")
 
-induced_velocity = Gamma / (2 * pi * rho_cyl)
-induced_circulation_integrand = induced_velocity * rho_cyl
-induced_circulation = integrate(induced_circulation_integrand / rho_cyl, (theta_var, 0, 2*pi))
+induced_velocity = Gamma / (2 * pi * rho_cyl)  # v_θ(induced)
+induced_velocity_times_rho = induced_velocity * rho_cyl  # v_θ × ρ = Γ/(2π)
+induced_circulation = integrate(induced_velocity_times_rho, (theta_var, 0, 2*pi))
 induced_circulation_simplified = simplify(induced_circulation)
 
 induced_circulation_check = simplify(induced_circulation_simplified - Gamma) == 0
@@ -425,7 +424,7 @@ print("-" * 50)
 # Sum all contributions
 contributions = {
     "Direct intersection": direct_intersection_check,
-    "Upper hemisphere": upper_hemisphere_check, 
+    "Upper hemisphere": upper_hemisphere_check,
     "Lower hemisphere": lower_hemisphere_check,
     "Induced w-flow": induced_circulation_check
 }
@@ -469,7 +468,7 @@ status = "✓" if core_area_check else "✗"
 print(f"{status} Core area: A_core ≈ π ξ²")
 print(f"  Dimensions: [{core_area_lhs}] = π × [{core_area_rhs}]")
 
-print("\n2. MATTER DENSITY FROM ENERGY BALANCE")  
+print("\n2. MATTER DENSITY FROM ENERGY BALANCE")
 print("-" * 50)
 
 # ρ_body = Ṁ_body/(v_eff × A_core)
@@ -511,9 +510,9 @@ surface_density_lhs = surface_density_dim
 surface_density_rhs = dimensions['rho_4D'] * dimensions['xi']**2
 
 surface_density_check = simplify(surface_density_lhs - surface_density_rhs) == 0
-verification_results.append(("Surface density σ = ρ₄D⁰ ξ²", surface_density_check))
+verification_results.append(("Surface density σ = ρ(4D)⁰ ξ²", surface_density_check))
 status = "✓" if surface_density_check else "✗"
-print(f"{status} Surface density: σ = ρ₄D⁰ ξ²")
+print(f"{status} Surface density: σ = ρ(4D)⁰ ξ²")
 print(f"  [{surface_density_lhs}] = [{surface_density_rhs}]")
 
 # ============================================================================
@@ -601,7 +600,7 @@ print("Testing boundary condition consistency:")
 
 boundary_conditions = {
     "v_w vanishes at boundaries": True,
-    "ρ₄D decays exponentially": True, 
+    "ρ(4D) decays exponentially": True,
     "No net flux through slab boundaries": True,
     "Vortex cores anchored to w=0 slice": True,
     "4D continuity satisfied globally": True,
@@ -625,7 +624,7 @@ print("="*60)
 # Categorize results
 categories = {
     "Core Equations": [],
-    "Rescaling Operations": [], 
+    "Rescaling Operations": [],
     "4-Fold Enhancement": [],
     "Physical Properties": [],
     "Robustness Tests": []
@@ -654,7 +653,7 @@ for category, results in categories.items():
         category_total = len(results)
         total_passed += category_passed
         total_tests += category_total
-        
+
         print(f"\n{category}: {category_passed}/{category_total}")
         print("-" * 40)
         for description, result in results:
@@ -671,14 +670,14 @@ if success_rate >= 95:
     print("")
     print("✅ MATHEMATICAL RIGOR ACHIEVED:")
     print("   • All core equations dimensionally consistent")
-    print("   • Rescaling operations step-by-step verified") 
+    print("   • Rescaling operations step-by-step verified")
     print("   • 4-fold enhancement computed from first principles")
     print("   • Every circulation contribution independently calculated")
     print("   • Physical assumptions mathematically validated")
     print("   • Scale invariance and robustness confirmed")
     print("   • Boundary conditions consistently treated")
     print("")
-    print("🔬 KEY COMPUTATIONAL ACHIEVEMENTS:") 
+    print("🔬 KEY COMPUTATIONAL ACHIEVEMENTS:")
     print("   • Hemisphere integral: ∫₀^∞ dw/(ρ²+w²)^(3/2) = 1/ρ² computed")
     print("   • Direct circulation: ∮ v·dl = Γ verified for each contribution")
     print("   • Biot-Savart calculation: Upper/lower hemispheres = Γ each")
@@ -697,14 +696,14 @@ if success_rate >= 95:
     print("   • Convergence analysis of infinite integrals")
     print("   • Scale invariance testing across parameter ranges")
     print("   • Physical assumption validation beyond dimensional analysis")
-    
+
 elif success_rate >= 85:
     print("\n⚠️ MOSTLY VERIFIED WITH SOME CONCERNS")
     failed_tests = [desc for desc, result in verification_results if not result]
     print(f"\nFailed tests ({len(failed_tests)}):")
     for test in failed_tests:
         print(f"   • {test}")
-        
+
 else:
     print("\n❌ SIGNIFICANT VERIFICATION ISSUES FOUND")
     failed_tests = [desc for desc, result in verification_results if not result]

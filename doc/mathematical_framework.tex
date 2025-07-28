@@ -8,7 +8,7 @@ The structure proceeds as follows: foundational postulates presented as mathemat
 
 We begin by postulating a mathematical framework consisting of a 4D compressible medium with topological defects, allowing us to explore emergent patterns in projected 3D dynamics. These axioms establish a 4D compressible medium (P-1) with vortex sinks (P-2) creating deficits, dual propagation modes (P-3) for mathematical consistency (bulk $v_L$ potentially $>c$ for rapid adjustments, transverse $c$ for observables, local $v_{\text{eff}}$ slowed near sources), flow decomposition (P-4) into irrotational `suck' and solenoidal `swirl,' and quantized structures with geometric enhancements (P-5). This minimal set captures emergent wave dynamics mirroring physics, with all dimensions verified for coherence. The hierarchy $v_L = \sqrt{g \rho_{4D}^0 / m} > c \approx v_{\text{eff}}$ (far-field) allows bulk modes for rapid adjustments while confining observables to $c$, preserving causality (detailed in 2.6). These axioms are chosen minimally to capture key features such as compressibility, sources, wave propagation, flow decomposition, and quantized structures. By deriving consequences from these postulates, we discover mathematical correspondences with physical phenomena, without claiming to describe fundamental reality. The axioms incorporate dual wave modes to ensure consistent propagation and address potential issues like causality in later sections.
 
-For clarity and dimensional consistency, we define the following key quantities. All projections incorporate the healing length $\xi$ to bridge 4D and 3D descriptions. We define the averaging operator $\overline{X} \equiv \int_{-\infty}^{\infty} dw \, X$ for projected quantities. Surface terms $[\rho_{4D} v_w]_{\pm \infty}$ vanish because both factors decay, so the full-axis integral is finite and exact. Note that $m_{\text{core}}$, the vortex core sheet density [M L$^{-2}$], is distinct from $m$, the boson mass [M] in the Gross-Pitaevskii equation and circulation quantization, serving independent roles in drainage and phase winding, respectively.
+For clarity and dimensional consistency, we define the following key quantities. All projections incorporate the healing length $\xi$ to bridge 4D and 3D descriptions. We define the averaging operator $\overline{X} \equiv \int_{-\infty}^{\infty} dw \, X$ for projected quantities. Surface terms $[\rho_{4D} v_w]_{\pm \infty}$ vanish because both factors decay, so the full-axis integral is finite and exact. Note that $m_{\text{core}}$, the vortex core sheet density $[M L^{-2}]$, is distinct from $m$, the boson mass [M] in the Gross-Pitaevskii equation and circulation quantization, serving independent roles in drainage and phase winding, respectively.
 
 \begin{table}[H]
 \centering
@@ -16,43 +16,47 @@ For clarity and dimensional consistency, we define the following key quantities.
 \hline
 Symbol & Description & 4D (Pre-Projection) & 3D (Post-Projection) \\
 \hline
-$\rho_{4D}$ & True 4D bulk density & [M L$^{-4}$] & --- \\
+$\rho_{4D}$ & True 4D bulk density & $[M L^{-4}]$ & --- \\
 \hline
-$\rho_{3D}$ & Projected 3D density & --- & [M L$^{-3}$] \\
+$\rho_{3D}$ & Projected 3D density & --- & $[M L^{-3}]$ \\
 \hline
-$\rho_0$ & 3D background density, defined as $\rho_0 = \rho_{4D}^0 \xi$ & --- & [M L$^{-3}$] \\
+$\rho_0$ & 3D background density, defined as $\rho_0 = \rho_{4D}^0 \xi$ & --- & $[M L^{-3}]$ \\
 \hline
-$\rho_{\text{body}}$ & Effective matter density from aggregated deficits & --- & [M L$^{-3}$] \\
+$\rho_{\text{body}}$ & Effective matter density from aggregated deficits & --- & $[M L^{-3}]$ \\
 \hline
-$g$ & Gross-Pitaevskii interaction parameter & [L$^6$ T$^{-2}$] & [L$^6$ T$^{-2}$] \\
+$g$ & Gross-Pitaevskii interaction parameter & $[L^6 T^{-2}]$ & $[L^6 T^{-2}]$ \\
 \hline
-$P$ & 4D pressure & [M L$^{-2}$ T$^{-2}$] & --- \\
+$P$ & 4D pressure & $[M L^{-2} T^{-2}]$ & --- \\
 \hline
-$m_{\text{core}}$ & Vortex core sheet density & [M L$^{-2}$] & --- \\
+$m_{\text{core}}$ & Vortex core sheet density & $[M L^{-2}]$ & --- \\
 \hline
 $\xi$ & Healing length (effective slab thickness and core regularization scale) & [L] & [L] \\
 \hline
-$v_L$ & Bulk sound speed, $v_L = \sqrt{g \rho_{4D}^0 / m}$ & [L T$^{-1}$] & --- \\
+$v_L$ & Bulk sound speed, $v_L = \sqrt{g \rho_{4D}^0 / m}$ & $[L T^{-1}]$ & --- \\
 \hline
-$v_{\text{eff}}$ & Effective local sound speed, $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ & [L T$^{-1}$] & [L T$^{-1}$] \\
+$v_{\text{eff}}$ & Effective local sound speed, $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ & $[L T^{-1}]$ & $[L T^{-1}]$ \\
 \hline
-$c$ & Emergent light speed (transverse modes), $c = \sqrt{T / \sigma}$ & --- & [L T$^{-1}$] \\
+$c$ & Emergent light speed (transverse modes), $c = \sqrt{T / \sigma}$ & --- & $[L T^{-1}]$ \\
 \hline
-$\Gamma$ & Quantized circulation & [L$^2$ T$^{-1}$] & [L$^2$ T$^{-1}$] \\
+$\Gamma$ & Quantized circulation & $[L^2 T^{-1}]$ & $[L^2 T^{-1}]$ \\
 \hline
-$\kappa$ & Quantum of circulation, $\kappa = h / m$ & [L$^2$ T$^{-1}$] & [L$^2$ T$^{-1}$] \\
+$\kappa$ & Quantum of circulation, $\kappa = h / m$ & $[L^2 T^{-1}]$ & $[L^2 T^{-1}]$ \\
 \hline
-$\dot{M}_i$ & Sink strength at vortex core $i$, $\dot{M}_i = m_{\text{core}} \Gamma_i$ & [M T$^{-1}$] & --- \\
+$\dot{M}_i$ & Sink strength at vortex core $i$, $\dot{M}_i = m_{\text{core}} \Gamma_i$ & $[M T^{-1}]$ & --- \\
 \hline
 $m$ & Boson mass in Gross-Pitaevskii equation & [M] & [M] \\
 \hline
-$\hbar$ & Reduced Planck's constant (for quantum terms) & [M L$^2$ T$^{-1}$] & [M L$^2$ T$^{-1}$] \\
+$\hbar$ & Reduced Planck's constant (for quantum terms) & $[M L^2 T^{-1}]$ & $[M L^2 T^{-1}]$ \\
 \hline
-$G$ & Newton's gravitational constant, calibrated as $G = c^2 / (4\pi \rho_0 \xi^2)$ & --- & [M$^{-1}$ L$^3$ T$^{-2}$] \\
+$G$ & Newton's gravitational constant, calibrated as $G = c^2 / (4\pi \rho_0 \xi^2)$ & --- & $[M^{-1} L^3 T^{-2}]$ \\
 \hline
-$\Psi$ & Scalar potential (irrotational flow component) & [L$^2$ T$^{-1}$] & [L$^2$ T$^{-2}$] \\
+$\Phi$ & Scalar velocity potential (irrotational flow component) & $[L^2 T^{-1}]$ & --- \\
 \hline
-$\mathbf{A}$ & Vector potential (solenoidal flow component) & [L$^2$ T$^{-1}$] & [L T$^{-1}$] \\
+$\mathbf{B}_4$ & Vector velocity potential (solenoidal flow component) & $[L^2 T^{-1}]$ & --- \\
+\hline
+$\Psi$ & Scalar potential (irrotational flow component) & --- & $[L^2 T^{-2}]$ \\
+\hline
+$\mathbf{A}$ & Vector potential (solenoidal flow component) & --- & $[L T^{-1}]$ \\
 \hline
 \end{tabularx}
 \caption{Key quantities, their descriptions, and dimensions. All projections incorporate the healing length $\xi$ for dimensional consistency between 4D and 3D quantities. Dimensions distinguish core-specific quantities like $m_{\text{core}}$ (vortex sheet density for drainage) from bulk parameters like $m$ (boson mass for GP dynamics and quantization).\protect\footnotemark}
@@ -81,7 +85,7 @@ The postulates are summarized in the following table:
 & & Transverse: $c = \sqrt{T / \sigma}$ with $\sigma = \rho_{4D}^0 \xi^2$ \\
 & & Effective: $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ \\
 \hline
-\textbf{P-4} & Helmholtz decomposition (suck + swirl) & $\mathbf{v} = -\nabla \Psi + \nabla \times \mathbf{A}$ \\
+\textbf{P-4} & Helmholtz decomposition (suck + swirl) & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ \\
 \hline
 \textbf{P-5} & Quantized vortices with 4-fold projection & Circulation: $\Gamma = n \kappa$ where $\kappa = h / m$ \\
 & & Enhanced: $\Gamma_{\text{obs}} = 4 \Gamma$ (derived in Section 2.6) \\
@@ -112,7 +116,7 @@ These conventions resolve dimensional inconsistencies in the integration process
 
 We derive the unified field equations from the foundational postulates, demonstrating their emergence from the mathematical structure of a 4D compressible superfluid. The roadmap is as follows: P-1 provides the 4D medium with continuity and Euler equations, including a barotropic equation of state (EOS) for wave speeds; P-2 introduces vortex sinks as sources; P-3 defines dual wave modes, with bulk speed $v_L$ for mathematical adjustments, effective local speed $v_{\text{eff}}$ for scalar propagation (slowed near deficits), and emergent $c$ for transverse/observable modes in the vector sector; P-4 enables Helmholtz decomposition to separate scalar (irrotational, compressible "suck") and vector (solenoidal, incompressible "swirl") components; P-5 provides quantized circulation with a geometric 4-fold enhancement (detailed in Section 2.3) for vector sources. Linearization around small perturbations, combined with 4D-to-3D projection, yields wave equations with density-dependent propagation, with vortex sinks and motion acting as sources.
 
-Physically, the equations capture "suck and swirl" dynamics: sinks create pressure gradients (scalar sector, like low-pressure zones around drains pulling fluid), while vortex motion induces circulation (vector sector, like spinning eddies dragging surroundings). The potentials are rescaled during projection to align with emergent gravitational dynamics, ensuring consistency with observed physics (calibrated via $G$ and $c$, Section 2.4) without claiming ontological status. The vector potential $\mathbf{A}$ is rescaled to [L T$^{-1}$], consistent with gravitomagnetic fields, through division by the healing length $\xi$ [L] in the projection, aligning with P-3 and P-5.
+Physically, the equations capture "suck and swirl" dynamics: sinks create pressure gradients (scalar sector, like low-pressure zones around drains pulling fluid), while vortex motion induces circulation (vector sector, like spinning eddies dragging surroundings). The potentials are rescaled during projection to align with emergent gravitational dynamics, ensuring consistency with observed physics (calibrated via $G$ and $c$, Section 2.4) without claiming ontological status. The vector potential $\mathbf{A}$ is rescaled to $[L T^{-1}]$, consistent with gravitomagnetic fields, through division by the healing length $\xi^2$ $[L^2]$ in the projection, aligning with P-3 and P-5.
 
 The derivation begins with the 4D equations from P-1 and P-2:
 
@@ -120,7 +124,7 @@ The derivation begins with the 4D equations from P-1 and P-2:
 \partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = -\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}),
 \end{equation}
 
-where $\rho_{4D}$ is the 4D density [M L$^{-4}$], $\mathbf{v}_4$ the 4-velocity, and $\dot{M}_i = m_{\text{core}} \Gamma_i$ the sink strength (P-2). The Euler equation is:
+where $\rho_{4D}$ is the 4D density $[M L^{-4}]$, $\mathbf{v}_4$ the 4-velocity, and $\dot{M}_i = m_{\text{core}} \Gamma_i$ the sink strength (P-2). The Euler equation is:
 
 \begin{equation}
 \partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -\frac{1}{\rho_{4D}} \nabla_4 P,
@@ -142,7 +146,7 @@ and Euler (dropping quadratic terms):
 
 where $\delta P = v_{\text{eff}}^2 \delta \rho_{4D}$ from EOS linearization (verified: differentiate $P(\rho_{4D})$ at $\rho_{4D}^0$ gives $\partial P / \partial \rho_{4D} = g \rho_{4D}^0 / m = v_L^2$, local $\rho_{4D}^{\text{local}}$ for $v_{\text{eff}}$ near deficits).
 
-Apply Helmholtz decomposition (P-4) to $\delta \mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\Phi$ [L T$^{-1}$]) and incompressible (vector $\mathbf{B}_4$ [L T$^{-1}$]) parts. Taking $\nabla_4 \cdot$ on Euler gives:
+Apply Helmholtz decomposition (P-4) to $\delta \mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\Phi$ $[L^2 T^{-1}]$) and incompressible (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) parts. Taking $\nabla_4 \cdot$ on Euler gives:
 
 \begin{equation}
 \partial_t (\nabla_4 \cdot \delta \mathbf{v}_4) = -v_{\text{eff}}^2 \nabla_4^2 (\delta \rho_{4D} / \rho_{4D}^0),
@@ -174,21 +178,21 @@ Combine with $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \Phi$ (SymPy conf
 
 For the vector sector, take $\nabla_4 \times$ on Euler: $\partial_t (\nabla_4 \times \delta \mathbf{v}_4) = 0$ (curl of gradient vanishes), but vorticity sources from P-5's quantized circulation ($\Gamma = n (h/m)$) and motion inject via singularities, enhanced 4-fold in projection (Section 2.3).
 
-Project to 3D by integrating over the full extra dimension $w \in (-\infty, \infty)$. We define the averaging operator $\overline{X} \equiv \int_{-\infty}^{\infty} dw \, X$ for projected quantities. Surface terms $[\rho_{4D} v_w]_{\pm \infty}$ vanish because both factors decay (exponential for density deficits, power law for velocity), so the full-axis integral is finite and exact. Define $\Psi = \overline{\Phi} \, (v_{\text{eff}} / \xi)$ [L$^2$ T$^{-2}$] (rescaling motivated by P-3's effective speed $v_{\text{eff}}$ for local propagation near deficits and P-1's healing length $\xi$ for core regularization, shifting dimensions from [L$^2$ T$^{-1}$] to [L$^2$ T$^{-2}$], normalizing 4D flows to 3D energy-like potentials akin to Kaluza-Klein rescalings where higher-dimensional metrics yield effective 4D gravity; calibrated via $G = c^2 / (4\pi \rho_0 \xi^2)$, P-3), $\rho_{\text{body}} = \sum_i \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i) / (v_{\text{eff}} \xi^2)$ [M L$^{-3}$]. This predicts wave slowing near masses, mimicking gravitational time dilation from geometry alone. The scalar wave projects to:
+Project to 3D by integrating over the full extra dimension $w \in (-\infty, \infty)$. We define the averaging operator $\overline{X} \equiv \int_{-\infty}^{\infty} dw \, X$ for projected quantities. Surface terms $[\rho_{4D} v_w]_{\pm \infty}$ vanish because both factors decay, so the full-axis integral is finite and exact. Define $\Psi = \overline{\Phi} \, (v_{\text{eff}} / \xi^2)$ $[L^2 T^{-2}]$ (rescaling motivated by P-3's effective speed $v_{\text{eff}}$ for local propagation near deficits and P-1's healing length $\xi$ for core regularization, shifting dimensions from $[L^2 T^{-1}]$ to $[L^2 T^{-2}]$, normalizing 4D flows to 3D energy-like potentials akin to Kaluza-Klein rescalings where higher-dimensional metrics yield effective 4D gravity; calibrated via $G = c^2 / (4\pi \rho_0 \xi^2)$, P-3), $\rho_{\text{body}} = \left( \xi / v_{\text{eff}} \right) \sum_i \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ $[M L^{-3}]$. This predicts wave slowing near masses, mimicking gravitational time dilation from geometry alone. The scalar wave projects to:
 
 \begin{equation}
 \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Psi}{\partial t^2} - \nabla^2 \Psi = 4\pi G \rho_{\text{body}},
 \end{equation}
 
-where $4\pi G$ emerges from projection and calibration, $\rho_0 = \rho_{4D}^0 \xi$, and $\xi^2$ normalizes the sink strength to an effective 3D density. Near masses, $v_{\text{eff}} \approx c \left(1 - \frac{G M}{2 c^2 r}\right)$ (from $\delta \rho_{4D} / \rho_{4D}^0 \approx - G M / (c^2 r)$).
+where $4\pi G$ emerges from projection and calibration, $\rho_0 = \rho_{4D}^0 \xi$, and $\xi$ normalizes the sink strength to an effective 3D density. Near masses, $v_{\text{eff}} \approx c \left(1 - \frac{G M}{2 c^2 r}\right)$ (from $\delta \rho_{4D} / \rho_{4D}^0 \approx - G M / (c^2 r)$).
 
-For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving vortices (P-5). Define $\mathbf{A} = \overline{\mathbf{B}_4} / \xi$ [L T$^{-1}$] (rescaling by division with $\xi$ [L] from P-5's projection reduces dimensions from [L T$^{-1}$] to [L T$^{-1}$], preserving geometric 4-fold enhancement from Biot-Savart integrals and aligning with gravitomagnetic form akin to superfluid vortex projections where 4D sheets enhance 3D circulation). This ensures $\nabla^2 \mathbf{A}$ [L$^{-1}$ T$^{-1}$] matches the source term $-\frac{16\pi G}{c^2} \mathbf{J}$ [L$^{-1}$ T$^{-1}$]. Projection with 4-fold enhancement (Section 2.3, Biot-Savart integrals) yields:
+For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving vortices (P-5). Define $\mathbf{A} = \overline{\mathbf{B}_4} / \xi^2$ $[L T^{-1}]$ (rescaling by division with $\xi^2$ $[L^2]$ from P-5's projection reduces dimensions from $[L^2 T^{-1}]$ to $[L T^{-1}]$, preserving geometric 4-fold enhancement from Biot-Savart integrals and aligning with gravitomagnetic form akin to superfluid vortex projections where 4D sheets enhance 3D circulation). This ensures $\nabla^2 \mathbf{A}$ $[L^{-1} T^{-1}]$ matches the source term $-\frac{16\pi G}{c^2} \mathbf{J}$ $[L^{-1} T^{-1}]$. Projection with 4-fold enhancement (Section 2.3, Biot-Savart integrals) yields:
 
 \begin{equation}
 \frac{1}{c^2} \frac{\partial^2 \mathbf{A}}{\partial t^2} - \nabla^2 \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J},
 \end{equation}
 
-where $\mathbf{J} = \rho_{\text{body}} \mathbf{V}$ [M L$^{-2}$ T$^{-1}$], and $16\pi G/c^2 = 4 \text{(geometric)} \times 4 \text{(gravitomagnetic scaling)} \times \pi G/c^2$ (verified via SymPy integrals).
+where $\mathbf{J} = \rho_{\text{body}} \mathbf{V}$ $[M L^{-2} T^{-1}]$, and $16\pi G/c^2 = 4 \text{(geometric)} \times 4 \text{(gravitomagnetic scaling)} \times \pi G/c^2$ (verified via SymPy integrals).
 
 The total acceleration decomposes as:
 
@@ -196,15 +200,15 @@ The total acceleration decomposes as:
 \mathbf{a} = -\nabla \Psi + \xi \partial_t (\nabla \times \mathbf{A}),
 \end{equation}
 
-with $\xi$ [L] from projection (P-3). Both terms are [L T$^{-2}$]: $\nabla \Psi$ [L T$^{-2}$], $\xi \partial_t (\nabla \times \mathbf{A})$ [L (T$^{-1}$ L$^{-1}$ T$^{-1}$)] = [L T$^{-2}$]. The force on test particles (vortex motion) is:
+with $\xi$ [L] from projection (P-3). Both terms are $[L T^{-2}]$: $\nabla \Psi$ $[L T^{-2}]$, $\xi \partial_t (\nabla \times \mathbf{A})$ $[L T^{-2}]$. The force on test particles (vortex motion) is:
 
 \begin{equation}
 \mathbf{F} = m \left[ -\nabla \Psi - \partial_t \mathbf{A} + 4 \mathbf{v} \times (\nabla \times \mathbf{A}) \right],
 \end{equation}
 
-with all terms [L T$^{-2}$] after $m$ [M]: $-\nabla \Psi$ [L T$^{-2}$], $-\partial_t \mathbf{A}$ [L T$^{-2}$], $4 \mathbf{v} \times (\nabla \times \mathbf{A})$ [L T$^{-1}$ L$^{-1}$ T$^{-1}$] = [L T$^{-2}$], 4 from projection (P-5). This derives motion under emergent fields, forecasting effects like Lense-Thirring precession without fitting.
+with all terms $[L T^{-2}]$ after $m$ [M]: $-\nabla \Psi$ $[L T^{-2}]$, $-\partial_t \mathbf{A}$ $[L T^{-2}]$, $4 \mathbf{v} \times (\nabla \times \mathbf{A})$ $[L T^{-1} L^{-1} T^{-1}]$ = $[L T^{-2}]$, 4 from projection (P-5). This derives motion under emergent fields, forecasting effects like Lense-Thirring precession without fitting.
 
-These equations emerge from the postulates without additional parameters, with scalar propagation at $v_{\text{eff}}$ (mimicking delays near masses) and vector at $c$ for observables. SymPy scripts (\url{https://github.com/trevnorris/vortex-field}) verify derivations, ensuring dimensional consistency ([L T$^{-2}$] for acceleration/force terms, [T$^{-2}$] for scalar, [L$^{-1}$ T$^{-1}$] for vector equations).
+These equations emerge from the postulates without additional parameters, with scalar propagation at $v_{\text{eff}}$ (mimicking delays near masses) and vector at $c$ for observables. SymPy scripts (\url{https://github.com/trevnorris/vortex-field}) verify derivations, ensuring dimensional consistency ($[L T^{-2}]$ for acceleration/force terms, $[T^{-2}]$ for scalar, $[L^{-1} T^{-1}]$ for vector equations).
 
 \medskip
 \noindent
@@ -220,7 +224,7 @@ These equations emerge from the postulates without additional parameters, with s
 \end{align*}
 \textbf{Physical Interpretation:} Scalar drives attraction via pressure gradients; vector induces dragging via circulation; both emerge from 4D superfluid axioms with projection rescaling.
 
-\textbf{Verification:} SymPy confirms derivations from 4D hydrodynamics and projections, with consistent dimensions for $\mathbf{A}$ [L T$^{-1}$] post-rescaling.
+\textbf{Verification:} SymPy confirms derivations from 4D hydrodynamics and projections, with consistent dimensions for $\mathbf{A}$ $[L T^{-1}]$ post-rescaling.
 \end{minipage}
 }
 }
@@ -245,7 +249,7 @@ where $\rho_{4D}$ is the 4D density [M L$^{-4}$], $\mathbf{v}_4$ the 4-velocity,
 
 To derive the decay rates from P-1 and P-5: The density profile near the core follows from the GP equation (P-1), linearized as $\rho_{4D} = \rho_{4D}^0 \tanh^2 (r_\perp / \sqrt{2} \xi)$, where $r_\perp = \sqrt{\rho^2 + w^2}$ (perpendicular to sheet); asymptotically, $\tanh^2(x) \approx 1 - 4 e^{-2x}$ for large $x$, yielding $\delta \rho_{4D} / \rho_{4D}^0 \approx -4 e^{-\sqrt{2} r_\perp / \xi}$ (exponential from balancing quantum pressure and interaction terms). For velocity, far-field ($r_\perp \gg \xi$) reduces to hydrodynamic (P-5 codimension-2 topology enforces $v \sim \Gamma / (2\pi r_\perp)$ in perpendicular plane, power law $1/r_\perp \sim 1/|w|$ for fixed $\rho$ as $|w| \to \infty$, since $r_\perp \approx |w|$).
 
-The integral separates into 3D terms and boundary fluxes: $\partial_t \overline{\rho_{4D}} + \nabla \cdot \overline{\rho_{4D} \mathbf{v}} + [\rho_{4D} v_w]_{-\infty}^{\infty}$. The boundary fluxes vanish exactly due to the limit $[\rho_{4D} v_w]_{\pm \infty} = 0$, as $v_w \sim \Gamma \rho / (2 \pi (\rho^2 + w^2)) \sim 1/|w| \to 0$ for large $|w|$ (power law tail from P-1 GP asymptotics and P-5 codimension-2 geometry). The sink integral simplifies to $-\dot{M}_{\text{body}} \delta^3(\mathbf{r})$ with $\dot{M}_{\text{body}} = \sum_i \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ aggregating microscopic sinks into effective matter densities $\rho_{\text{body}} = \dot{M}_{\text{body}} / (v_{\text{eff}} A_{\text{core}})$ with $A_{\text{core}} \approx \pi \xi^2$ (detailed in energy balance, Section 2.5).
+The integral separates into 3D terms and boundary fluxes: $\partial_t \overline{\rho_{4D}} + \nabla \cdot \overline{\rho_{4D} \mathbf{v}} + [\rho_{4D} v_w]_{-\infty}^{\infty}$. The boundary fluxes vanish exactly due to the limit $[\rho_{4D} v_w]_{\pm \infty} = 0$, as $v_w \sim \Gamma \rho / (2 \pi (\rho^2 + w^2)) \sim 1/|w| \to 0$ for large $|w|$ (power law tail from P-1 GP asymptotics and P-5 codimension-2 geometry). The sink integral simplifies to $-\dot{M}_{\text{body}} \delta^3(\mathbf{r})$ with $\dot{M}_{\text{body}} = \sum_i \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ aggregating microscopic sinks into effective matter densities $\rho_{\text{body}} = \dot{M}_{\text{body}} \, (\xi / v_{\text{eff}})$ with $\xi$ from energy balance (Section 2.5).
 
 Defining the projected density $\rho_{3D} \approx \overline{\rho_{4D}}$ [M L$^{-3}$] and velocity $\mathbf{v} = \overline{\rho_{4D} \mathbf{v}} / \rho_{3D}$, this yields the effective 3D continuity:
 
@@ -255,9 +259,9 @@ Defining the projected density $\rho_{3D} \approx \overline{\rho_{4D}}$ [M L$^{-
 
 Similar projections apply to the Euler equation, producing effective 3D dynamics with sink sources that appear as apparent mass removal while preserving global conservation in 4D (detailed in Section 2.7). Physically, this is like underwater drains vanishing water from the surface view, thinning the medium and inducing inflows that mimic attraction.
 
-Rescaling occurs post-integration: For potentials, normalize by scales from postulates---$\Psi$ rescaled by $v_{\text{eff}} / \xi$ (P-3/P-1), $\mathbf{A}$ by $/ \xi$ (P-5)---shifting to gravity-like dimensions. This is geometrically motivated: integrating 4D defects (P-2/P-5) over infinite $w$ compresses flows, akin to superfluid vortex projections where 4D sheets yield enhanced 3D lines, predicting amplified circulation ($\Gamma_{\text{obs}} = 4\Gamma$ from four contributions: direct, upper/lower hemispheres, $w$-flow; verified via SymPy integrals). Explicitly, after integrating the scalar potential as $\Psi = \overline{\Phi} \, (v_{\text{eff}} / \xi)$ and vector as $\mathbf{A} = \overline{\mathbf{B}_4} / \xi$, the dimensions shift from pre-projection [L$^2$ T$^{-1}$] to post-projection [L$^2$ T$^{-2}$] for $\Psi$ and [L T$^{-1}$] for $\mathbf{A}$. This rescaling, driven by P-3's effective speed $v_{\text{eff}}$ (slowed near deficits, predicting redshift-like effects) and P-1's healing length $\xi$ (core scale), normalizes 4D flows to 3D energy-like potentials without ad-hoc parameters, mirroring Kaluza-Klein compactifications where higher-dimensional metrics rescale geometrically to yield unified 4D predictions.
+Rescaling occurs post-integration: For potentials, normalize by scales from postulates---$\Psi$ rescaled by $v_{\text{eff}} / \xi^2$ (P-3/P-1), $\mathbf{A}$ by $/ \xi^2$ (P-5)---shifting to gravity-like dimensions. This is geometrically motivated: integrating 4D defects (P-2/P-5) over infinite $w$ compresses flows, akin to superfluid vortex projections where 4D sheets yield enhanced 3D lines, predicting amplified circulation ($\Gamma_{\text{obs}} = 4\Gamma$ from four contributions: direct, upper/lower hemispheres, $w$-flow; verified via SymPy integrals). Explicitly, after integrating the scalar potential as $\Psi = \overline{\Phi} \, (v_{\text{eff}} / \xi^2)$ and vector as $\mathbf{A} = \overline{\mathbf{B}_4} / \xi^2$, the dimensions shift from pre-projection [L$^2$ T$^{-1}$] to post-projection [L$^2$ T$^{-2}$] for $\Psi$ and [L T$^{-1}$] for $\mathbf{A}$. This rescaling, driven by P-3's effective speed $v_{\text{eff}}$ (slowed near deficits, predicting redshift-like effects) and P-1's healing length $\xi$ (core scale), normalizes 4D flows to 3D energy-like potentials without ad-hoc parameters, mirroring Kaluza-Klein compactifications where higher-dimensional metrics rescale geometrically to yield unified 4D predictions.
 
-To derive uniqueness for $\Psi$'s factor: Equate projected energy flux from P-1 GP functional, $E_{\text{proj}} \sim \overline{(\rho_{4D}^0 / 2) (\nabla_4 \Phi)^2}$ (kinetic from irrotational), to 3D gravitational energy $\sim \rho_0 (\nabla \Psi)^2 / 2$ (calibrated form). Normalization requires dividing by length scale $\xi$ (P-1 core), but to preserve local wave speed in equation $\partial_{tt} \Psi / v_{\text{eff}}^2 - \nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, multiply by $v_{\text{eff}}$ (P-3, $v_{\text{eff}}^2 = g \rho_{4D}^{\text{local}} / m$ from EOS); SymPy solves the dimensional system $[v_{\text{eff}} / \xi] = [T^{-1}]$, confirming only this combination shifts $[L^3 T^{-1}]$ (integrated $\Phi$) to $[L^2 T^{-2}]$ while incorporating density-dependent slowing.
+To derive uniqueness for $\Psi$'s factor: Equate projected energy flux from P-1 GP functional, $E_{\text{proj}} \sim \overline{(\rho_{4D}^0 / 2) (\nabla_4 \Phi)^2}$ (kinetic from irrotational), to 3D gravitational energy $\sim \rho_0 (\nabla \Psi)^2 / 2$ (calibrated form). Normalization requires dividing by area scale $\xi^2$ (P-1 core), but to preserve local wave speed in equation $\partial_{tt} \Psi / v_{\text{eff}}^2 - \nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, multiply by $v_{\text{eff}}$ (P-3, $v_{\text{eff}}^2 = g \rho_{4D}^{\text{local}} / m$ from EOS); SymPy solves the dimensional system $[v_{\text{eff}} / \xi^2] = [L^{-1} T^{-1}]$, confirming only this combination shifts $[L^3 T^{-1}]$ (integrated $\Phi$) to $[L^2 T^{-2}]$ while incorporating density-dependent slowing.
 
 A key consequence is the enhancement of vortex circulation upon projection. In 4D, vortices are 2D sheets with quantized circulation $\Gamma = n \kappa$ (P-5). Projecting to the 3D slice at $w=0$ yields four distinct contributions, each contributing $\Gamma$ for a total observed $\Gamma_{\text{obs}} = 4\Gamma$. To visualize (depicting the $w=0$ slice with symmetric extensions into $\pm w$):
 
@@ -297,13 +301,13 @@ print(sp.simplify(circ))  # Outputs: Gamma
 
 \subsubsection{Explicit Rescaling Derivation}
 
-Start with the 4D scalar potential $\Phi$ from the Helmholtz decomposition (P-4), where $\delta \mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$. Dimensions: $[\Phi] = [L^2 T^{-1}]$.
+Start with the 4D scalar velocity potential $\Phi$ from the Helmholtz decomposition (P-4), where $\delta \mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$. Dimensions: $[\Phi] = [L^2 T^{-1}]$.
 
 Integrate over infinite $w$: $\overline{\Phi}$ (effective average for flux).
 
-To match the post-projection dimension $[L^2 T^{-2}]$ for $\Psi$ (energy-like gravitational potential), rescale by $v_{\text{eff}} / \xi$ (P-3/P-1), where uniqueness emerges from equating projected energy flux $\sim \overline{(\rho_{4D}^0 / 2) (\nabla_4 \Phi)^2}$ (kinetic from irrotational, P-1 GP functional) to 3D $\sim \rho_0 (\nabla \Psi)^2 / 2$ (calibrated form). Normalization requires dividing by length scale $\xi$ (P-1 core), but to preserve local wave speed in equation $\partial_{tt} \Psi / v_{\text{eff}}^2 - \nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, multiply by $v_{\text{eff}}$ (P-3, $v_{\text{eff}}^2 = g \rho_{4D}^{\text{local}} / m$ from EOS); SymPy solves the dimensional system $[v_{\text{eff}} / \xi] = [T^{-1}]$, confirming only this combination shifts $[L^3 T^{-1}]$ (integrated $\Phi$) to $[L^2 T^{-2}$] while incorporating density-dependent slowing.
+To match the post-projection dimension $[L^2 T^{-2}]$ for $\Psi$ (energy-like gravitational potential), rescale by $v_{\text{eff}} / \xi^2$ (P-3/P-1), where uniqueness emerges from equating projected energy flux $\sim \overline{(\rho_{4D}^0 / 2) (\nabla_4 \Phi)^2}$ (kinetic from irrotational, P-1 GP functional) to 3D $\sim \rho_0 (\nabla \Psi)^2 / 2$ (calibrated form). Normalization requires dividing by area scale $\xi^2$ (P-1 core), but to preserve local wave speed in equation $\partial_{tt} \Psi / v_{\text{eff}}^2 - \nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, multiply by $v_{\text{eff}}$ (P-3, $v_{\text{eff}}^2 = g \rho_{4D}^{\text{local}} / m$ from EOS); SymPy solves the dimensional system $[v_{\text{eff}} / \xi^2] = [L^{-1} T^{-1}]$, confirming only this combination shifts $[L^3 T^{-1}]$ (integrated $\Phi$) to $[L^2 T^{-2}]$ while incorporating density-dependent slowing.
 
-For the vector potential $\mathbf{B}_4$ (pre-projection $[L^2 T^{-1}]$): $\mathbf{A} = \overline{\mathbf{B}_4} / \xi$, with $/ \xi$ from matching curl $\mathbf{A}$ to circulation enhancement (P-5).
+For the vector velocity potential $\mathbf{B}_4$ (pre-projection $[L^2 T^{-1}]$): $\mathbf{A} = \overline{\mathbf{B}_4} / \xi^2$, with $/ \xi^2$ from matching curl $\mathbf{A}$ to circulation enhancement (P-5).
 
 \begin{table}[H]
 \centering
@@ -312,10 +316,10 @@ For the vector potential $\mathbf{B}_4$ (pre-projection $[L^2 T^{-1}]$): $\mathb
 Quantity & Pre-Projection Dim. & Post-Projection Dim. \\
 \hline
 Normalized $\overline{\Phi}$ & $[L^3 T^{-1}]$ & --- \\
-Rescaling Factor for $\Psi$ & --- & $[T^{-1}]$ ($v_{\text{eff}} / \xi$) \\
+Rescaling Factor for $\Psi$ & --- & $[L^{-1} T^{-1}]$ ($v_{\text{eff}} / \xi^2$) \\
 $\Psi$ & --- & $[L^2 T^{-2}]$ \\
 Normalized $\overline{\mathbf{B}_4}$ & $[L^3 T^{-1}]$ & --- \\
-Rescaling Factor for $\mathbf{A}$ & --- & $[L^{-1}]$ ($1 / \xi$) \\
+Rescaling Factor for $\mathbf{A}$ & --- & $[L^{-2}]$ ($1 / \xi^2$) \\
 $\mathbf{A}$ & --- & $[L T^{-1}]$ \\
 \hline
 \end{tabular}
@@ -350,13 +354,13 @@ The primary calibration arises in the scalar sector, where the gravitational con
 \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Psi}{\partial t^2} - \nabla^2 \Psi = 4\pi G \rho_{\text{body}}.
 \]
 
-In the static limit ($\partial_t \Psi \approx 0$), this reduces to the Newtonian Poisson equation, $\nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, where $\rho_{\text{body}}$ is the effective matter density from aggregated vortex sinks. The coefficient $4\pi G$ results from integrating the 4D continuity equation over the full extra dimension $w$ (Section 2.3), with the background density $\rho_0 = \rho_{4D}^0 \xi$ (projected 3D density, [M L$^{-3}$]) and the healing length $\xi$ from the Gross-Pitaevskii (GP) formalism (P-1). Specifically, linearizing the 4D continuity around $\rho_{4D} = \rho_{4D}^0 + \delta \rho_{4D}$ and projecting yields the source term, where the calibration is fixed by:
+In the static limit ($\partial_t \Psi \approx 0$), this reduces to the Newtonian Poisson equation, $\nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, where $\rho_{\text{body}}$ is the effective matter density from aggregated vortex sinks. The coefficient $4\pi G$ results from integrating the 4D continuity equation over the full extra dimension $w$ (Section 2.3), with the background density $\rho_0 = \rho_{4D}^0 \xi$ (projected 3D density, $[M L^{-3}]$) and the healing length $\xi$ from the Gross-Pitaevskii (GP) formalism (P-1). Specifically, linearizing the 4D continuity around $\rho_{4D} = \rho_{4D}^0 + \delta \rho_{4D}$ and projecting yields the source term, where the calibration is fixed by:
 
 \[
 G = \frac{c^2}{4\pi \rho_0 \xi^2},
 \]
 
-as derived from matching the far-field to the Newtonian limit (e.g., Cavendish experiment). Here, $\rho_0$ ensures dimensional consistency ([M L$^{-3}$]), and $\xi$ (healing length, [L]) acts as the effective core regularization scale, not a free parameter but derived from P-1 as $\xi = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$. This expression locks the overall scale, ensuring higher-order post-Newtonian (PN) corrections (e.g., perihelion advance, Section 4) emerge without additional inputs, as verified symbolically with SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
+as derived from matching the far-field to the Newtonian limit (e.g., Cavendish experiment). Here, $\rho_0$ ensures dimensional consistency ($[M L^{-3}]$), and $\xi$ (healing length, [L]) acts as the effective core regularization scale, not a free parameter but derived from P-1 as $\xi = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$. This expression locks the overall scale, ensuring higher-order post-Newtonian (PN) corrections (e.g., perihelion advance, Section 4) emerge without additional inputs, as verified symbolically with SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
 
 In the vector sector, the coefficient in the field equation:
 
@@ -510,7 +514,7 @@ For the sharp front term, substitute the delta function: Let $u = \sqrt{r^2 + w^
 
 showing bulk propagation at $v_L$, potentially $>c$. However, observable signals---such as gravitational waves or light---are transverse modes fixed at $c = \sqrt{T / \sigma}$, with $\sigma = \rho_{4D}^0 \xi^2$. Longitudinal bulk modes adjust steady-state configurations mathematically but do not carry information to 3D observers, as vortex particles couple primarily to surface modes. The healing length $\xi$ regularizes the core, smearing the projected fronts over $\Delta t \sim \xi^2 / (2 r v_L)$, effectively limiting to $c$. SymPy symbolic integration confirms the projected lightcone support is confined to $t \geq r / c$ for transverse components (code available at \url{https://github.com/trevnorris/vortex-field}).
 
-The background density $\rho_0$ sources a quadratic potential $\Psi \supset 2\pi G \rho_0 r^2$, but global inflows yield $\Psi_{\text{global}} \approx 2\pi G \langle \rho \rangle r^2$, canceling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$. Residual asymmetry predicts $G$ anisotropy $\sim 10^{-13}$ yr$^{-1}$, consistent with bounds.
+The background density $\rho_0$ sources a quadratic potential $\Psi \supset 2\pi G \rho_0 r^2$, but global inflows yield $\Psi_{\text{global}} \approx 2\pi G \langle \rho \rangle r^2$, canceling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$. Residual asymmetry predicts $G$ anisotropy $\sim 10^{-13} \text{yr}^{-1}$, consistent with bounds.
 
 \medskip
 \noindent
@@ -554,7 +558,7 @@ Surface terms $[\rho_{4D} v_w]_{\pm \infty}$ vanish identically because both fac
 \partial_t \overline{\rho_{4D}} + \nabla \cdot (\overline{\rho_{4D} \mathbf{v}}) = -\dot{M}_{\text{body}} \delta^3(\mathbf{r}),
 \]
 
-where $\dot{M}_{\text{body}} = \sum_i \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ aggregates microscopic sinks into effective matter densities $\rho_{\text{body}} = \dot{M}_{\text{body}} / (v_{\text{eff}} A_{\text{core}})$ with $A_{\text{core}} \approx \pi \xi^2$ (detailed in energy balance, Section 2.5). Similar projections apply to the Euler equation, producing effective 3D dynamics with sink sources that appear as apparent mass removal while preserving global conservation in 4D (detailed in Section 2.7). Physically, this is like underwater drains vanishing water from the surface view, thinning the medium and inducing inflows that mimic attraction.
+where $\dot{M}_{\text{body}} = \sum_i \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ aggregates microscopic sinks into effective matter densities $\rho_{\text{body}} = \dot{M}_{\text{body}} \, (\xi / v_{\text{eff}})$ (from projection normalization, Section 2.3). Similar projections apply to the Euler equation, producing effective 3D dynamics with sink sources that appear as apparent mass removal while preserving global conservation in 4D (detailed in Section 2.7). Physically, this is like underwater drains vanishing water from the surface view, thinning the medium and inducing inflows that mimic attraction.
 
 \subsubsection{Microscopic Drainage Mechanism}
 At the vortex cores, drainage occurs through phase singularities in the order parameter $\psi \to 0$ over the healing length $\xi$. The phase winds by $2\pi n$, creating a flux into the extra dimension. To approximate this, near the core, the drainage velocity is
