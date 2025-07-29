@@ -569,22 +569,29 @@ preventing uncontrolled leakage.
 To prevent accumulation and back-reaction, the bulk continuity includes a dissipation term converting flux to non-interacting excitations:
 
 \begin{equation}
-\partial_t \rho_{\text{bulk}} + \nabla_w (\rho_{\text{bulk}} v_w) = -\gamma \rho_{\text{bulk}},
+\partial_t \rho_{\text{bulk}} + \partial_w (\rho_{\text{bulk}} v_w) = -\gamma \rho_{\text{bulk}},
 \end{equation}
 
-with rate $\gamma \sim v_L / L_{\text{univ}}$ ($L_{\text{univ}}$ a large scale). Assuming steady state ($\partial_t = 0$) and constant $v_w$ for simplicity, integrate along $w$:
+with rate $\gamma \sim v_L / L_{\text{univ}}$ ($L_{\text{univ}}$ a large scale). The drainage geometry motivates directional flow: $v_w = \text{sign}(w) \cdot v$ where $v > 0$ is the outflow magnitude, reflecting symmetric outward flux from the central $w=0$ slice (sinks as bidirectional drains, per P-2). The scale $v \sim v_L$ emerges from P-3, as bulk longitudinal modes at $v_L = \sqrt{g \rho_{4D}^0 / m}$ (potentially $> c$) govern rapid adjustments in the compressible medium (P-1), while observables remain confined to transverse modes at $c$.
 
-\[
-\nabla_w (\rho_{\text{bulk}} v_w) = -\gamma \rho_{\text{bulk}} \implies v_w \frac{d \rho_{\text{bulk}}}{dw} = -\gamma \rho_{\text{bulk}},
-\]
+We solve piecewise for $w > 0$ and $w < 0$, assuming steady state ($\partial_t \rho_{\text{bulk}} = 0$) for the spatial part to capture long-term equilibrium (no ongoing accumulation), while retaining transient time dependence $e^{-\gamma t}$ as a multiplier for initial perturbations decaying over short timescales.
 
-yielding the solution
+\begin{itemize}
+\item For $w > 0$: $v_w = +v$, so $v \partial_w \rho_{\text{bulk}} = -\gamma \rho_{\text{bulk}}$ yields $\partial_w \rho_{\text{bulk}} = -(\gamma / v) \rho_{\text{bulk}}$. Solution: $\rho_{\text{bulk}}(w) = \rho(0^+) e^{-w / \lambda}$ with $\lambda = v / \gamma$.
+\item For $w < 0$: $v_w = -v$, so $-v \partial_w \rho_{\text{bulk}} = -\gamma \rho_{\text{bulk}}$ yields $\partial_w \rho_{\text{bulk}} = (\gamma / v) \rho_{\text{bulk}}$. Solution: $\rho_{\text{bulk}}(w) = \rho(0^-) e^{w / \lambda} = \rho(0^-) e^{-|w| / \lambda}$ (since $w < 0$).
+\end{itemize}
+
+Assuming symmetry ($\rho(0^+) = \rho(0^-) = \rho_{\text{inj}}$, injected from sinks), the overall form is
 
 \begin{equation}
-\rho_{\text{bulk}}(w) \sim e^{-\gamma t} e^{-|w| / \lambda},
+\rho_{\text{bulk}}(w) = \rho_{\text{inj}} \, e^{-\gamma t} \, e^{-|w| / \lambda},
 \end{equation}
 
-where $\lambda = v_w / \gamma$ is the absorption length (adjusted for flow direction). This ensures constant background $\rho_{4D}^0$ and $\dot{G} = 0$, consistent with bounds $|\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1}$.
+where the $e^{-\gamma t}$ term accounts for transient decay of initial conditions (optional for pure steady-state analysis, set to 1 if $\partial_t = 0$ globally). This satisfies the equation for $w \neq 0$.
+
+At $w=0$, differentiating $\partial_w (\rho_{\text{bulk}} v_w)$ globally introduces a delta function: $\partial_w [\text{sign}(w) v \rho_{\text{bulk}}] = \text{sign}(w) v \partial_w \rho_{\text{bulk}} + 2 v \rho_{\text{bulk}} \delta(w)$. The first term equals $-\gamma \rho_{\text{bulk}}$ (from piecewise), while $+2 v \rho_{\text{inj}} \delta(w)$ represents the positive source injection at $w=0$ (flux from P-2 vortex sinks), balancing the equation without additional terms. Physically, this delta encodes the topological discontinuity from drainage, ensuring energy conversion to bulk modes without back-reaction on the $w=0$ slice.
+
+This ensures constant background $\rho_{4D}^0$ and $\dot{G} = 0$, consistent with bounds $|\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1}$.
 
 Analogously, this dissipation mimics energy conversion to heat in a vast reservoir, maintaining equilibrium.
 
