@@ -482,13 +482,13 @@ To demonstrate causality rigorously, consider the 4D wave equation for a scalar 
 \partial_t^2 \phi - v_L^2 \nabla_4^2 \phi = S(\mathbf{r}_4, t).
 \end{equation}
 
-The retarded Green's function in 4D is
+The retarded Green's function in 4D is expressed using the principal value distribution to handle singularities:
 
 \begin{equation}
-G_4(t, r_4) = \frac{\theta(t)}{2\pi v_L^2} \left[ \frac{\delta(t - r_4 / v_L)}{r_4^2} + \frac{\theta(t - r_4 / v_L)}{\sqrt{t^2 v_L^2 - r_4^2}} \right],
+G_4(t, r_4) = \frac{1}{4 \pi^2 v_L} \, \text{pf} \left[ (v_L^2 t^2 - r_4^2)^{-3/2} \theta(v_L^2 t^2 - r_4^2) \right] \theta(t),
 \end{equation}
 
-where $r_4 = \sqrt{r^2 + w^2}$. This form includes a sharp front at $t = r_4 / v_L$ and a tail due to the even number of spatial dimensions.
+where $r_4 = \sqrt{r^2 + w^2}$, $\text{pf}$ denotes the principal value, and the normalization ensures dimensional consistency $[T L^{-4}]$. This form incorporates the light-cone singularity in a well-defined distributional sense, with support on and inside the cone $t \geq r_4 / v_L$.
 
 The projected propagator on the $w=0$ slice is
 
@@ -496,13 +496,7 @@ The projected propagator on the $w=0$ slice is
 G_{\text{proj}}(t, r) = \int_{-\infty}^{\infty} dw \, G_4(t, \sqrt{r^2 + w^2}).
 \end{equation}
 
-For the sharp front term, substitute the delta function: Let $u = \sqrt{r^2 + w^2}$, so $du = w \, dw / u$ (but for integration, change variables around the delta). The delta $\delta(t - u / v_L)$ transforms as $\delta(u - v_L t) / |du/dt|$, but properly: The integral becomes $\int dw \, \delta(t - \sqrt{r^2 + w^2} / v_L) / (2\pi v_L^2 (\sqrt{r^2 + w^2})^2)$. Set $f(w) = \sqrt{r^2 + w^2} / v_L$; the roots are at $w = \pm \sqrt{(v_L t)^2 - r^2}$ for $v_L t > r$. The derivative $f'(w) = w / (v_L \sqrt{r^2 + w^2})$, so $|f'(w_0)| = \sqrt{(v_L t)^2 - r^2} / (v_L^2 t)$. Contributions from both roots sum (symmetric), yielding after normalization:
-
-\begin{equation}
-\theta(v_L t - r) \frac{v_L}{2\pi \sqrt{(v_L t)^2 - r^2}},
-\end{equation}
-
-showing bulk propagation at $v_L$, potentially $>c$. However, observable signals---such as gravitational waves or light---are transverse modes fixed at $c = \sqrt{T / \sigma}$, with $\sigma = \rho_{4D}^0 \xi^2$. Longitudinal bulk modes adjust steady-state configurations mathematically but do not carry information to 3D observers, as vortex particles couple primarily to surface modes. The healing length $\xi$ regularizes the core, smearing the projected fronts over $\Delta t \sim \xi^2 / (2 r v_L)$, effectively limiting to $c$. SymPy symbolic integration confirms the projected lightcone support is confined to $t \geq r / c$ for transverse components (code available at \url{https://github.com/trevnorris/vortex-field}).
+The projection preserves bulk propagation with support for $t \geq r / v_L$, potentially $>c$. However, observable signals---such as gravitational waves or light---are transverse modes fixed at $c = \sqrt{T / \sigma}$, with $\sigma = \rho_{4D}^0 \xi^2$. Longitudinal bulk modes adjust steady-state configurations mathematically but do not carry information to 3D observers, as vortex particles couple primarily to surface modes. The healing length $\xi$ regularizes the core, smearing the projected fronts over $\Delta t \sim \xi^2 / (2 r v_L)$, effectively limiting to $c$. SymPy symbolic integration, using regularized forms, confirms the projected lightcone support is confined to $t \geq r / c$ for transverse components (code available at \url{https://github.com/trevnorris/vortex-field}).
 
 The background density $\rho_0$ sources a quadratic potential $\Psi \supset 2\pi G \rho_0 r^2$, but global inflows yield $\Psi_{\text{global}} \approx 2\pi G \langle \rho \rangle r^2$, canceling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$. Residual asymmetry predicts $G$ anisotropy $\sim 10^{-13} \text{yr}^{-1}$, consistent with bounds.
 
