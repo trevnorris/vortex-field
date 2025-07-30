@@ -105,7 +105,7 @@ The postulates are summarized in the following table:
 \textbf{P-2} & Membranes as 2D defects draining into extra dimension with intrinsic surface tension, helical twists for stability, and vibrational modes to maintain deficits against bulk pressure & Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{R}_i)$ \\
 & & Sink strength: $\dot{M}_i = \sigma \Gamma_i$, where $\sigma$ is the membrane sheet density (distinct from the boson mass $m$ in P-1 and P-5) \\
 & & Membrane dynamics: $\partial^2 \mathbf{R}/\partial t^2 = (T/\sigma) \nabla^2 \mathbf{R} + f_{\text{bulk}} + \omega^2 \delta \mathbf{R}$ \\
-& & Surface tension: $T = \frac{\pi (4 \ln 2 - 1) \hbar^2 \rho_{4D}^0}{6 m^2}$ \\
+& & Surface tension: $T = \frac{\pi (4 \ln 2 - 1) \hbar^2 \rho_{4D}^0}{6 m^2}$ (derived from GP core energy integration in Section 2.5) \\
 & & Surface density: $\sigma = \rho_{4D}^0 \xi^2$ \\
 \hline
 \textbf{P-3} & Helmholtz decomposition (suck + swirl with vibrational shake) & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ \\
@@ -126,7 +126,7 @@ The postulates are summarized in the following table:
 
 We postulate a mathematical structure with these properties and explore its consequences. These axioms provide a compressible 4D medium (P-1) with sources via membrane sinks (P-2), flow decomposition (P-3) separating scalar and vector components with vibrational modulation, chiral coupling (P-4) for handedness, quantized topological features (P-5) with geometric enhancements including phase windings for emergent properties, and discrete projection (P-6) aggregating membrane intersections into effective 3D sources. The natural wave modes are particularly noteworthy: longitudinal waves in the bulk propagate at $v_L$, but observable effects are confined to membrane surface waves at $c$ through projections, preserving mathematical consistency with causality (detailed in later subsections). All equations have been dimensionally verified using SymPy, ensuring internal coherence, including the independence of $\sigma$ and $m$.
 
-From these axioms emerge the trinity of suck, swirl, and shake: suck drives attraction via density deficits and pressure gradients (irrotational flow), swirl stabilizes drainage through helical circulation mirroring electromagnetic fields (solenoidal flow with chiral twists), and shake maintains the structure against bulk pressure via vibrational modes, sourcing rest energy and excitations. Photons arise as shake waves extending into the extra dimension $w$, stabilized by alignment perpendicular to propagation, projecting as transverse polarizations in 3D like slices of ocean waves.
+From these axioms emerge the trinity of suck, swirl, and shake: suck drives attraction via density deficits and pressure gradients (irrotational flow), swirl stabilizes drainage through helical circulation mirroring electromagnetic fields (solenoidal flow with chiral twists), and shake maintains the structure against bulk pressure via vibrational modes with frequency $\omega \sim v_L / \xi$ (arising from the balance of quantum dispersion and interactions in the GP equation (P-1), representing the natural frequency for membrane oscillations against bulk pressure), sourcing rest energy and excitations. Photons arise as shake waves extending into the extra dimension $w$, stabilized by alignment perpendicular to propagation, projecting as transverse polarizations in 3D like slices of ocean waves.
 
 \subsubsection{Dimensional Conventions for 4D-to-3D Projection}
 \label{subsec:dimensional_conventions}
@@ -139,7 +139,11 @@ This framework employs non-standard dimensional conventions for the Gross-Pitaev
     \item \textbf{Topological Consistency (P-5)}: Quantized membranes as codimension-2 structures require $\Psi$ to carry phase windings over 2D surfaces, distinct from volume-filling fields in 3D GP theory, ensuring consistency with circulation quantization $\Gamma = n \kappa$ (P-5).
 \end{itemize}
 
-These conventions resolve dimensional inconsistencies in the summation process over membrane intersections (Section 2.3), particularly in the continuity equation's sink terms (P-2), and are verified by comprehensive symbolic analysis using SymPy (code available at \url{https://github.com/trevnorris/vortex-field}). Standard 3D GP conventions, with $\Psi_{3D} \sim [M^{1/2} L^{-3/2}]$, lead to mismatches in the projection sums, as they assume a 3D volume density incompatible with the 4D membrane sheet geometry and sink terms $\dot{M}_i \propto \sigma \Gamma_i$ (P-2). Note that the interaction term in the GP energy functional includes an explicit factor of $m$ (Section 2.5) to ensure dimensional coherence, as required for membrane sheet geometry where codimension-2 defects necessitate mass loading for drainage and energy balance. $\Psi \sim [L^{-2}]$ from $\rho_{4D} = m |\Psi|^2$ $[M L^{-4}]$, with $m$ $[M]$ ensuring codimension-2 consistency (P-5), and $\xi = \hbar / \sqrt{2 m g \rho_{4D}^0}$ resolving projection sums. Standard 3D GP conventions lead to mismatches, but our 4D form with $m$ fixes this geometrically.\footnote{Note that the quantum pressure contributes to the force density as $-n \nabla_4 Q$, where $Q = -\frac{\hbar^2}{2m} \frac{\nabla_4^2 \sqrt{n}}{\sqrt{n}}$ and $n = \rho_{4D}/m$ is the boson number density, ensuring dimensional consistency $[M L^{-3} T^{-2}]$ in 4D while reflecting the collective response around membrane defects (P-5). This aligns with the Madelung transform and preserves coherence in projections. 4D alignment resolves to 3D transverse via perpendicular projections, hiding w-mode.} This dimensional framework is essential for the unified field equations (Section 2.2), the 4-fold circulation enhancement (Section 2.3), and the non-circular derivation of deficit-mass equivalence (Section 3.9), demonstrating that apparent ``conventions'' are actually geometric necessities imposed by 4D membrane topology.
+These conventions resolve dimensional inconsistencies in the summation process over membrane intersections (Section 2.3), particularly in the continuity equation's sink terms (P-2), and are verified by comprehensive symbolic analysis using SymPy (code available at \url{https://github.com/trevnorris/vortex-field}). Standard 3D GP conventions, with $\Psi_{3D} \sim [M^{1/2} L^{-3/2}]$, lead to mismatches in the projection sums, as they assume a 3D volume density incompatible with the 4D membrane sheet geometry and sink terms $\dot{M}_i \propto \sigma \Gamma_i$ (P-2). Note that the interaction term in the GP energy functional includes an explicit factor of $m$ (Section 2.5) to ensure dimensional coherence, as required for membrane sheet geometry where codimension-2 defects necessitate mass loading for drainage and energy balance. $\Psi \sim [L^{-2}]$ from $\rho_{4D} = m |\Psi|^2$ $[M L^{-4}]$, with $m$ $[M]$ ensuring codimension-2 consistency (P-5), and $\xi = \hbar / \sqrt{2 m g \rho_{4D}^0}$ resolving projection sums. Standard 3D GP conventions lead to mismatches, but our 4D form with $m$ fixes this geometrically.
+
+Note that the quantum pressure contributes to the force density as $-n \nabla_4 Q$, where $Q = -\frac{\hbar^2}{2m} \frac{\nabla_4^2 \sqrt{n}}{\sqrt{n}}$ and $n = \rho_{4D}/m$ is the boson number density. This ensures dimensional consistency $[M L^{-3} T^{-2}]$ in 4D while reflecting the collective response around membrane defects (P-5). This aligns with the Madelung transform and preserves coherence in projections. 4D alignment resolves to 3D transverse via perpendicular projections, hiding w-mode.
+
+This dimensional framework is essential for the unified field equations (Section 2.2), the 4-fold circulation enhancement (Section 2.3), and the non-circular derivation of deficit-mass equivalence (Section 3.9), demonstrating that apparent ``conventions'' are actually geometric necessities imposed by 4D membrane topology.
 
 \subsection{Derivation of Field Equations}
 
@@ -221,6 +225,8 @@ For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}
 
 where $\mathbf{J}_{\text{mass}} = \rho_{\text{body}} \mathbf{V}$ $[M L^{-2} T^{-1}]$, $\mathbf{J}_q = \rho_q \mathbf{V}$ (electromagnetic current from helical twists, with $\rho_q = \sum_i q_i \delta^3(\mathbf{r} - \mathbf{r}_i)$), and $16\pi G/c^2 = 4 \text{(geometric)} \times 4 \text{(gravitomagnetic scaling)} \times \pi G/c^2$; the $4\pi/c$ term for EM arises from helical phase twist projections on the membrane.
 
+To unify the scalar (suck) and vector (swirl) components with vibrational shake, we introduce a complex potential $\Psi_{\text{trinity}} = \Re(\Psi_{\text{trinity}}) + i \Im(\Psi_{\text{trinity}})$, where the real part corresponds to the scalar potential $\Psi$ (irrotational suck flow), and the imaginary part incorporates the solenoidal swirl via $\mathbf{A}$ (rescaled vector potential) and shake modulations via $\phi_{\text{shake}} e^{i \omega t}$. Specifically, $\Im(\Psi_{\text{trinity}}) = (\xi c) \mathbf{A} \cdot \mathbf{n} + \phi_{\text{shake}} e^{i \omega t}$, with dimensions $[L^2 T^{-2}]$ consistent across components. This unified form leads to a complex wave equation that combines the sectors, as derived below.
+
 For the electromagnetic sector, derive from linearizing the GP equation on the membrane surface (P-1/P-2, with helical twists from P-4/P-5 sourcing perturbations, modulated by vibrations). The phase perturbation $\delta \theta$ (dimensionless) and density $\delta \rho_{3D}$ satisfy:
 
 \begin{equation}
@@ -234,79 +240,24 @@ yielding wave equation $\partial_{tt} \delta \rho_{3D} - c^2 \nabla^2 \delta \rh
 
 To derive the emergent Maxwell equations, we start with the GP equation, transform to hydrodynamics, linearize around a helical twisted background, include the twist as a vorticity source and vibration as phase modulation, project to 3D, and map the perturbations to EM fields. This generalization treats the phase perturbation as having vector components (solenoidal from helical twists), consistent with P-3's decomposition, with shake adding oscillatory terms.
 
-Step 1: GP Equation with Helical Twist and Vibration (P-1, P-4, P-5)
-
-The 4D GP is:
-
+\begin{enumerate}
+\item GP Equation with Helical Twist and Vibration (P-1, P-4, P-5): The 4D GP is:
 \[ i \hbar \partial_t \Psi = - \frac{\hbar^2}{2m} \nabla_4^2 \Psi + g |\Psi|^2 \Psi \]
-
 $\Psi = \sqrt{\rho_{4D} / m} e^{i \theta}$, where $\theta = \theta_{\text{regular}} + \theta_{\text{helical}} + \phi_{\text{shake}}$, $\theta_{\text{helical}} = \tau w$ (helical along $w$, P-4), $\phi_{\text{shake}} = \omega t$ (vibrational phase for shake).
-
-Step 2: Madelung Transform to Hydro Equations
-
-Imaginary part (continuity):
-
+\item Madelung Transform to Hydro Equations: Imaginary part (continuity):
 \[ \partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0 \]
-
 Real part (Euler):
-
 \[ \partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = - \frac{1}{\rho_{4D}} \nabla_4 P - \nabla_4 Q \]
-
-$\mathbf{v}_4 = (\hbar / m) \nabla_4 \theta$, $P = (g / 2) \rho_{4D}^2 / m$, $Q = - (\hbar^2 / (2m)) (\nabla_4^2 \sqrt{\rho_{4D} / m} / \sqrt{\rho_{4D} / m})$
-
-The helical twist $\theta_{\text{helical}}$ contributes to $\mathbf{v}_4 = (\hbar / m) \tau \hat{e}_w$ (axial flow), and vorticity $\boldsymbol{\omega}_4 = \nabla_4 \times \mathbf{v}_4 \propto \tau \delta^2(\perp)$, modulated by shake $\phi_{\text{shake}}$ adding oscillatory component.
-
-Step 3: Linearize Around Helical Twisted and Vibrational Background
-
-Background: $\rho_{4D} = \rho_{4D}^0$ (uniform far-field), $\theta = \theta_0$ (helical singular + vib), $\mathbf{v}_{\text{background}} = (\hbar / m) \nabla_4 \theta_0$
-
-Perturbation: $\rho_{4D} = \rho_{4D}^0 + \delta\rho$, $\theta = \theta_0 + \delta\theta$, $\mathbf{v}_4 = \mathbf{v}_{\text{background}} + \delta\mathbf{v} = \mathbf{v}_{\text{background}} + (\hbar / m) \nabla_4 \delta\theta$
-
-Linear continuity:
-
+$\mathbf{v}_4 = (\hbar / m) \nabla_4 \theta$, $P = (g / 2) \rho_{4D}^2 / m$, $Q = - (\hbar^2 / (2m)) (\nabla_4^2 \sqrt{\rho_{4D} / m} / \sqrt{\rho_{4D} / m})$. The helical twist $\theta_{\text{helical}}$ contributes to $\mathbf{v}_4 = (\hbar / m) \tau \hat{e}_w$ (axial flow), and vorticity $\boldsymbol{\omega}_4 = \nabla_4 \times \mathbf{v}_4 \propto \tau \delta^2(\perp)$, modulated by shake $\phi_{\text{shake}}$ adding oscillatory component.
+\item Linearize Around Helical Twisted and Vibrational Background: Background: $\rho_{4D} = \rho_{4D}^0$ (uniform far-field), $\theta = \theta_0$ (helical singular + vib), $\mathbf{v}_{\text{background}} = (\hbar / m) \nabla_4 \theta_0$. Perturbation: $\rho_{4D} = \rho_{4D}^0 + \delta\rho$, $\theta = \theta_0 + \delta\theta$, $\mathbf{v}_4 = \mathbf{v}_{\text{background}} + \delta\mathbf{v} = \mathbf{v}_{\text{background}} + (\hbar / m) \nabla_4 \delta\theta$. Linear continuity:
 \[ \partial_t \delta \rho + \rho_{4D}^0 \nabla_4 \cdot \delta \mathbf{v} + \delta \rho \nabla_4 \cdot \mathbf{v}_{\text{background}} = 0 \]
-
 Since $\nabla_4 \cdot \mathbf{v}_{\text{background}} = 0$ (solenoidal), simplifies to:
-
 \[ \partial_t \delta \rho + \rho_{4D}^0 \nabla_4 \cdot \delta \mathbf{v} = 0 \]
-
 Linear Euler (dropping Q for classical EM, as quantum pressure is short-range):
-
 \[ \partial_t \delta \mathbf{v} = - v_{\text{eff}}^2 \nabla_4 (\delta \rho / \rho_{4D}^0) \]
-
 With $v_{\text{eff}}^2 = g \rho_{4D}^0 / m$, now including vibrational modulation in $\delta \mathbf{v}$ for shake.
-
-Step 4: Helmholtz Decomposition and Helical Twist/Vibration Source
-
-Decompose $\delta\mathbf{v} = - \nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ (P-3).
-
-Scalar part (gravity-like, compressible suck): As above for gravity.
-
-Vector part (EM-like, incompressible swirl with shake): From curl Euler, $\partial_t (\nabla_4 \times \delta\mathbf{v}) = 0$ (base linear), but helical twist adds source from background cross terms, and vibration modulates.
-
-Total $\boldsymbol{\omega} = \boldsymbol{\omega}_{\text{background}} + \delta\boldsymbol{\omega} = \nabla_4 \times \mathbf{v}_4$
-
-Linear for $\delta\boldsymbol{\omega} = \nabla_4 \times \delta\mathbf{v} = \nabla_4 \times (\nabla_4 \times \mathbf{B}_4) = - \nabla_4^2 \mathbf{B}_4$ (gauge $\nabla_4 \cdot \mathbf{B}_4 = 0$)
-
-From curl Euler, $\partial_t \delta\boldsymbol{\omega} = - \nabla_4 \times [(\mathbf{v}_{\text{background}} \cdot \nabla_4) \delta\mathbf{v} + (\delta\mathbf{v} \cdot \nabla_4) \mathbf{v}_{\text{background}}]$ (nonlinear cross, but for effective source, approximates to source ~ curl ($\mathbf{v}_{\text{helical}} \times \delta\mathbf{v}$) ~ $\tau c \delta^2 \times \delta\mathbf{v}$ component, with shake adding $\omega^2$ term)
-
-In effective, the vector equation is $\partial_t \delta\boldsymbol{\omega} = \nabla_4 \times (\text{source}_{\text{helical}} + \text{source}_{\text{vib}})$, where $source_{\text{helical}} = (\tau c / \rho_0) \mathbf{n} \delta^2$, $\text{source}_\text{vib} = \omega^2 \delta R / \sigma$
-
-Then $\partial_t (\nabla_4 \times (\nabla_4 \times \mathbf{B}_4)) = \nabla_4 \times (\text{source})$
-
-But for wave, to include propagation, the full is from the incompressible limit, where the pressure enforces the wave, modulated by shake.
-
-Since EM is surface modes, the effective is the 2D wave on membrane, projected to 3D.
-
-The phase $\delta\theta$ satisfies $\nabla^2 \delta\theta = - (m / \hbar \rho_0) \partial_t \delta\rho$ (from cont), but for static, $\nabla^2 \delta\theta = \text{source from helical twist singularity + vib}$.
-
-The helical twist singularity makes the laplacian $\nabla^2 \theta = 2\pi \tau \delta^3$ (effective in 3D), so the source is $\rho_q \sim \tau$, with vib adding $\omega$ term.
-
-The mapping makes $\nabla^2 \delta\theta = (m / \hbar) \times (4\pi \rho_q / S)$ or scaled, with shake in time deriv.
-
-The algebraic is the linear for propagation, and the source from the helical twist singularity in the Poisson limit, modulated by shake.
-
-The Maxwell is the eq for the field, with the source from the singularity.
+\item Helmholtz Decomposition and Helical Twist/Vibration Source: Decompose $\delta\mathbf{v} = - \nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ (P-3). Scalar part (gravity-like, compressible suck): As above for gravity. Vector part (EM-like, incompressible swirl with shake): From curl Euler, $\partial_t (\nabla_4 \times \delta\mathbf{v}) = 0$ (base linear), but helical twist adds source from background cross terms, and vibration modulates. Total $\boldsymbol{\omega} = \boldsymbol{\omega}_{\text{background}} + \delta\boldsymbol{\omega} = \nabla_4 \times \mathbf{v}_4$. Linear for $\delta\boldsymbol{\omega} = \nabla_4 \times \delta\mathbf{v} = \nabla_4 \times (\nabla_4 \times \mathbf{B}_4) = - \nabla_4^2 \mathbf{B}_4$ (gauge $\nabla_4 \cdot \mathbf{B}_4 = 0$). From curl Euler, $\partial_t \delta\boldsymbol{\omega} = - \nabla_4 \times [(\mathbf{v}_{\text{background}} \cdot \nabla_4) \delta\mathbf{v} + (\delta\mathbf{v} \cdot \nabla_4) \mathbf{v}_{\text{background}}]$ (nonlinear cross, but for effective source, approximates to source ~ curl ($\mathbf{v}_{\text{helical}} \times \delta\mathbf{v}$) ~ $\tau c \delta^2 \times \delta\mathbf{v}$ component, with shake adding $\omega^2$ term). In effective, the vector equation is $\partial_t \delta\boldsymbol{\omega} = \nabla_4 \times (\text{source}_{\text{helical}} + \text{source}_{\text{vib}})$, where $source_{\text{helical}} = (\tau c / \rho_0) \mathbf{n} \delta^2$, $\text{source}_\text{vib} = \omega^2 \delta R / \sigma$. Then $\partial_t (\nabla_4 \times (\nabla_4 \times \mathbf{B}_4)) = \nabla_4 \times (\text{source})$. But for wave, to include propagation, the full is from the incompressible limit, where the pressure enforces the wave, modulated by shake. Since EM is surface modes, the effective is the 2D wave on membrane, projected to 3D. The phase $\delta\theta$ satisfies $\nabla^2 \delta\theta = - (m / \hbar \rho_0) \partial_t \delta\rho$ (from cont), but for static, $\nabla^2 \delta\theta = \text{source from helical twist singularity + vib}$. The helical twist singularity makes the laplacian $\nabla^2 \theta = 2\pi \tau \delta^3$ (effective in 3D), so the source is $\rho_q \sim \tau$, with vib adding $\omega$ term. The mapping makes $\nabla^2 \delta\theta = (m / \hbar) \times (4\pi \rho_q / S)$ or scaled, with shake in time deriv. The algebraic is the linear for propagation, and the source from the helical twist singularity in the Poisson limit, modulated by shake. The Maxwell is the eq for the field, with the source from the singularity.
+\end{enumerate}
 
 Map to EM fields with scaling $S = \sqrt{m / \xi}$ $[M^{1/2} L^{-1/2}]$ (motivated by quantum core: $m$ for phase quantization in P-1, $\xi$ for projection normalization in P-6):
 
@@ -339,10 +290,10 @@ The total acceleration decomposes as:
 with $\xi$ [L] from projection. Both terms are $[L T^{-2}]$. The force on test particles (membrane motion) is:
 
 \begin{equation}
-\mathbf{F} = m \left[ -\nabla \Re(\Psi_{\text{trinity}}) - \partial_t \mathbf{A} + 4 \mathbf{v} \times (\nabla \times \mathbf{A}) \right] + q \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right),
+\mathbf{F} = m \left[ -\nabla \Re(\Psi_{\text{trinity}}) - \partial_t \mathbf{A} + 4 \mathbf{v} \times (\nabla \times \mathbf{A}) \right] + q \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right) + G_F \nabla (\delta R \cdot \Omega_0),
 \end{equation}
 
-with all terms $[L T^{-2}]$ after $m$ [M]: 4 from projection (P-5); Lorentz term from helical twist couplings; weak term added as reconnection energy gradient $\sim G_F \nabla (\delta R \cdot \Omega_0)$.
+with all terms $[L T^{-2}]$ after $m$ [M]: 4 from projection (P-5); Lorentz term from helical twist couplings; the weak term $\sim G_F \nabla (\delta R \cdot \Omega_0)$ emerges from membrane reconnection energy gradients in P-2 and P-4, representing chiral unraveling (detailed in Section 6.9).
 
 These equations emerge from the postulates without additional parameters, with scalar propagation at $v_{\text{eff}}$ (mimicking delays near masses) and vector/transverse at $c$ from membranes for observables, modulated by shake for energy dynamics.
 
@@ -370,7 +321,7 @@ These equations emerge from the postulates without additional parameters, with s
 \subsection{The 4D-to-3D Projection Mechanism}
 \label{sec:projection}
 
-Building on the field equations derived in the previous subsection, we now detail the projection mechanism that maps the 4D mathematical structure to effective 3D dynamics. In this hybrid approach, we shift from continuous integration over the extra dimension $w$ to discrete summing over membrane sheet intersections with the $w=0$ hypersurface. This transforms membrane sheets in 4D (codimension-2 defects from P-5) into point-like sources and enhanced circulation in 3D, while preserving the geometric 4-fold enhancement. The process relies on the compressible medium (P-1) with sinks (P-2) draining into the extra dimension, while wave modes emerge naturally, with bulk speed $v_L$ for mathematical adjustments, effective local speed $v_{\text{eff}}$ for scalar propagation (slowed near deficits), and emergent $c$ for transverse/observable modes in the vector sector from membrane dynamics. The trinity of suck (radial drainage for gravity), swirl (helical stability for EM), and shake (vibrational maintenance for energy) integrates seamlessly, with projections enhancing each component. We begin with the continuity projection to illustrate effective sources, then derive the geometric 4-fold enhancement for circulation. Discrete projection follows P-6, aggregating over finite membrane counts without the averaging operator $\overline{X}$.
+Building on the field equations derived in the previous subsection, we now detail the projection mechanism that maps the 4D mathematical structure to effective 3D dynamics. We shift from continuous integration over the extra dimension $w$ to discrete summing over membrane sheet intersections to better capture topological defects as point sources, avoiding infinite boundaries and aligning with P-6's aggregation. This transforms membrane sheets in 4D (codimension-2 defects from P-5) into point-like sources and enhanced circulation in 3D, while preserving the geometric 4-fold enhancement. The process relies on the compressible medium (P-1) with sinks (P-2) draining into the extra dimension, while wave modes emerge naturally, with bulk speed $v_L$ for mathematical adjustments, effective local speed $v_{\text{eff}}$ for scalar propagation (slowed near deficits), and emergent $c$ for transverse/observable modes in the vector sector from membrane dynamics. The trinity of suck (radial drainage for gravity), swirl (helical stability for EM), and shake (vibrational maintenance for energy) integrates seamlessly, with projections enhancing each component. We begin with the continuity projection to illustrate effective sources, then derive the geometric 4-fold enhancement for circulation. Discrete projection follows P-6, aggregating over finite membrane counts without the averaging operator $\overline{X}$.
 
 To derive the projection explicitly, start with the 4D continuity equation from the postulates (P-1 and P-2):
 
@@ -396,7 +347,7 @@ The discrete projection yields the effective 3D continuity:
 
 Similar projections apply to the Euler equation, producing effective 3D dynamics with sink sources that appear as apparent mass removal while preserving global conservation in 4D (detailed in Section 2.7). Physically, this is like discrete underwater drains vanishing water from the surface view, thinning the medium and inducing inflows that mimic attraction, with helical swirl adding rotational drags (EM) and shake providing vibrational energy release.
 
-Rescaling occurs post-projection: For potentials, normalize by scales from postulates---$\Psi = \sum_i \Phi_i \, (v_{\text{eff}} / \xi)$ $[L^2 T^{-2}]$ (rescaling motivated by effective speed $v_{\text{eff}}$ for local propagation near deficits and P-1's healing length $\xi$ for core regularization, shifting dimensions from $[L^2 T^{-1}]$ to $[L^2 T^{-2}]$, normalizing 4D flows to 3D energy-like potentials akin to Kaluza-Klein rescalings where higher-dimensional metrics yield effective 4D gravity; calibrated via $G = c^2 / (4\pi \bar{n} \bar{m} \xi^2)$, with $\bar{n}$ membrane density), $\rho_{\text{body}} = \sum_i \left( \xi / v_{\text{eff}} \right) \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ $[M L^{-3}]$. This predicts wave slowing near masses, mimicking gravitational time dilation from geometry alone. The scalar wave projects to:
+Rescaling occurs post-projection: For potentials, normalize by scales from postulates---$\Psi = \sum_i \Phi_i \, (v_{\text{eff}} / \xi)$ $[L^2 T^{-2}]$ (rescaling motivated by effective speed $v_{\text{eff}}$ for local propagation near deficits and P-1's healing length $\xi$ for core regularization, shifting dimensions from $[L^2 T^{-1}]$ to $[L^2 T^{-2}]$, normalizing 4D flows to 3D energy-like potentials akin to Kaluza-Klein rescalings where higher-dimensional metrics yield effective 4D gravity; calibrated via $G = c^2 / (4\pi \bar{n} \bar{m} \xi^2)$, with $\bar{n}$ membrane density), $\rho_{\text{body}} = \sum_i \left( \xi / v_{\text{eff}} \right) \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ $[M L^{-3}]$. The factor $v_{\text{eff}} / \xi$ for $\Psi$ arises from equating projected flux $\sim \sum_i (\rho_{4D}^0 / 2) (\nabla_4 \Phi_i)^2$ (kinetic from irrotational, P-1 GP functional) to 3D $\sim \rho_0 (\nabla \Psi)^2 / 2$ (calibrated form). Normalization requires dividing by linear scale $\xi$ (P-1 core), but to preserve local wave speed in equation $\partial_{tt} \Psi / v_{\text{eff}}^2 - \nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, multiply by $v_{\text{eff}}$; dimensional system $[v_{\text{eff}} / \xi] = [T^{-1}]$, confirming only this combination shifts $[L^2 T^{-1}]$ (per membrane $\Phi_i$) to $[L^2 T^{-2}]$ while incorporating density-dependent slowing. This predicts wave slowing near masses, mimicking gravitational time dilation from geometry alone. The scalar wave projects to:
 
 \begin{equation}
 \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Psi}{\partial t^2} - \nabla^2 \Psi = 4\pi G \rho_{\text{body}},
@@ -404,7 +355,7 @@ Rescaling occurs post-projection: For potentials, normalize by scales from postu
 
 where $4\pi G$ emerges from projection and calibration, $\rho_0 = \rho_{4D}^0 \xi$, and $\xi$ normalizes the sink strength to an effective 3D density. Near masses, $v_{\text{eff}} \approx c \left(1 - \frac{G M}{2 c^2 r}\right)$ (from $\delta \rho_{4D} / \rho_{4D}^0 \approx - G M / (c^2 r)$). Shake contributes to $\rho_{\text{body}}$ as additional energy density $\rho_{\text{vib}} / c^2$, but this is microscopic and does not alter the macroscopic form.
 
-For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving membranes (P-5). Define $\mathbf{A} = \sum_i \mathbf{B}_{4,i} / \xi$ $[L T^{-1}]$ (rescaling by division with $\xi$ $[L]$ from P-5's projection reduces dimensions from $[L^2 T^{-1}]$ to $[L T^{-1}]$, preserving geometric 4-fold enhancement from Biot-Savart integrals and aligning with gravitomagnetic form akin to superfluid membrane projections where 4D sheets yield enhanced 3D circulation). This ensures $\nabla^2 \mathbf{A}$ $[L^{-1} T^{-1}]$ matches the source term $-\frac{16\pi G}{c^2} \mathbf{J}$ $[L^{-1} T^{-1}]$. Projection with 4-fold enhancement (detailed below) yields:
+For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving membranes (P-5). Define $\mathbf{A} = \sum_i \mathbf{B}_{4,i} / \xi$ $[L T^{-1}]$ (rescaling by division with $\xi$ $[L]$ from P-5's projection reduces dimensions from $[L^2 T^{-1}]$ to $[L T^{-1}]$, preserving geometric 4-fold enhancement from Biot-Savart integrals and aligning with gravitomagnetic form akin to superfluid membrane projections where 4D sheets yield enhanced 3D circulation). Similarly, $1/\xi$ for $\mathbf{A}$ preserves circulation enhancement from Biot-Savart (P-5 geometry). This ensures $\nabla^2 \mathbf{A}$ $[L^{-1} T^{-1}]$ matches the source term $-\frac{16\pi G}{c^2} \mathbf{J}$ $[L^{-1} T^{-1}]$. Projection with 4-fold enhancement (detailed below) yields:
 
 \begin{equation}
 \frac{1}{c^2} \frac{\partial^2 \mathbf{A}}{\partial t^2} - \nabla^2 \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J}_{\text{mass}} - \frac{4\pi}{c} \mathbf{J}_q,
@@ -499,13 +450,13 @@ The primary calibration arises in the scalar sector, where the gravitational con
 \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Psi}{\partial t^2} - \nabla^2 \Psi = 4\pi G \rho_{\text{body}}.
 \]
 
-In the static limit ($\partial_t \Psi \approx 0$), this reduces to the Newtonian Poisson equation, $\nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, where $\rho_{\text{body}}$ is the effective matter density from aggregated vortex deficits. The coefficient $4\pi G$ results from discrete summing over vortex intersections (Section 2.3), with the background density $\rho_0 = \rho_{4D}^0 \xi$ (projected 3D density, with $\xi$ microscopic core scale). Specifically, linearizing the 4D continuity around $\rho_{4D} = \rho_{4D}^0 + \delta \rho_{4D}$ and projecting discretely yields the source term, where the calibration is fixed by:
+In the static limit ($\partial_t \Psi \approx 0$), this reduces to the Newtonian Poisson equation, $\nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, where $\rho_{\text{body}}$ is the effective matter density from aggregated vortex deficits. The coefficient $4\pi G$ results from discrete summing over vortex intersections (Section 2.3), with the background density $\rho_0 = \rho_{4D}^0 \xi$ (projected 3D density, with $\xi$ microscopic core scale). Specifically, linearizing the 4D continuity around $\rho_{4D} = \rho_{4D}^0 + \delta \rho_{4D}$ and projecting yields the source term, where the calibration is fixed by:
 
 \[
 G = \frac{c^2}{4\pi \bar{n} \bar{m} \xi^2},
 \]
 
-as derived from matching the far-field to the Newtonian limit (e.g., Cavendish experiment). Here, $\bar{n}$ is the vortex density (number per unit volume, derived from cosmology as $\bar{n} \approx \rho_{\text{critical}} / m_{\text{avg}}$, where $\rho_{\text{critical}}$ is the critical density of the universe), $\bar{m}$ is the average deficit mass per vortex (microscopic scale), and $\xi$ (healing length, [L]) acts as the effective core regularization scale, not a free parameter but derived from P-1 as $\xi = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$. This expression locks the overall scale, ensuring higher-order post-Newtonian (PN) corrections (e.g., perihelion advance, Section 4) emerge without additional inputs, as verified symbolically with SymPy (code available at \url{https://github.com/trevnorris/vortex-field}).
+as derived from matching the far-field to the Newtonian limit (e.g., Cavendish experiment). Here, $\bar{n}$ is the vortex density (number per unit volume, derived from cosmology as $\bar{n} \approx \rho_{\text{critical}} / m_{\text{avg}}$, where $\rho_{\text{critical}}$ is the critical density of the universe), $\bar{m}$ is the average deficit mass per vortex (microscopic scale), and $\xi$ (healing length, [L]) acts as the effective core regularization scale, not a free parameter but derived from P-1 as $\xi = \hbar / \sqrt{2 m g \rho_{4D}^0}$. This expression locks the overall scale, ensuring higher-order post-Newtonian (PN) corrections (e.g., perihelion advance, Section 4) emerge without additional inputs, as verified symbolically with SymPy (code available at \url{https://github.com/trevnorris/vortex-field}).
 
 In the vector sector, the coefficient in the field equation:
 
@@ -526,6 +477,8 @@ Parameter & Description & Derived/Calibrated & Justification/Notes \\
 \hline
 $G$ & Newton's constant & Calibrated & Fixed from weak-field test (e.g., Cavendish); from scalar equation far-field, $G = \frac{c^2}{4\pi \bar{n} \bar{m} \xi^2}$ (P-1, natural speeds, P-6 discrete projection). Incorporates vortex density $\bar{n}$ for scale separation. \\
 \hline
+$G_F$ & Fermi constant (weak scale) & Calibrated & Fixed from electroweak test (e.g., beta decay); relates to chiral unraveling, $G_F \sim \frac{c^4}{\rho_0 \Gamma^2}$ (Section 6.9); additional for weak unification. \\
+\hline
 $c$ & Light speed (membrane modes) & Calibrated & Set to observed value; emerges as $\sqrt{T / \sigma}$, $T \propto \rho_{4D} \xi^2$ (derived from membrane dynamics). Incorporates projection rescaling from P-5. \\
 \hline
 $\xi$ & Healing length (core scale) & Derived & From GP (P-1): $\xi = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$; microscopic quantum scale, no macro role in $G$. Sets quantum-classical transition. \\
@@ -543,8 +496,6 @@ $\bar{n}$ & Vortex density (number per volume) & Derived & From cosmology: $\bar
 $\theta_{\text{twist}}$ & Helical twist angle for charge & Derived & From chiral winding (P-4): $\theta_{\text{twist}} = \pi / \sqrt{\phi}$; enables emergent EM without new postulates. \\
 \hline
 $\alpha^{-1}$ & Inverse fine structure constant & Derived & From twist dilution/projections: $360 \phi^{-2} - 2 \phi^{-3} + (3 \phi)^{-5} \approx 137.036$; emerges geometrically (emergent EM section). \\
-\hline
-$G_F$ & Fermi constant (weak scale) & Calibrated & Fixed from electroweak test (e.g., beta decay); relates to chiral unraveling, $G_F \sim \frac{c^4}{\rho_0 \Gamma^2}$ (Section 6.9); additional for weak unification. \\
 \hline
 $T$ & Membrane surface tension & Derived & From GP core energy: $\frac{\hbar^2 \rho_{4D}^0}{m^2} \cdot \frac{\pi}{\sqrt{2}}$ (SymPy-integrated over perp plane). \\
 \hline
@@ -590,7 +541,7 @@ For shake (vibrational maintenance), extend the functional with a term reflectin
 \begin{equation}
 E_{\text{vib}} = \int d^4 r \, \frac{1}{2} \sigma \omega^2 (\delta R)^2,
 \end{equation}
-where $\omega \sim v_L / \xi$ is the vibrational frequency, and $\delta R$ the membrane displacement. This ties to $E=mc^2$ as the minimum energy to sustain the deficit, derived from integrating over the core volume.
+where $\omega \sim v_L / \xi$ is the vibrational frequency, and $\delta R$ the membrane displacement. This ties to $E=mc^2$ as the minimum energy to sustain the deficit, derived from integrating over the core volume: The vibrational energy $E_{\text{vib}} \approx (\pi/2) \sigma v_L^2 \xi^2$ approximates $m c^2$, with $\omega \sim v_L / \xi$ and $v_L \approx c$ for observable scales, and $m \approx \pi \sigma \xi^2$ (core mass loading), representing the rest energy as the ongoing ``maintenance battery'' released in processes like annihilation.
 
 To assess dynamical stability, consider the healing length $\xi$ (core regularization scale) and bulk speed $v_L$. The healing length balances quantum pressure against interaction in the Gross-Pitaevskii equation near the core ($\rho_{4D} \to 0$): Setting the gradient scale $\sim 1/\xi$ and equating terms gives
 \begin{equation}
@@ -629,14 +580,16 @@ From information theory, $\phi$ maximizes entropy: Its unpredictability optimize
 
 To reflect this principle, consider the effective energy for the ratio $x$: $E \propto \frac{1}{2} (x - 1)^2 - \ln x$, where the logarithmic term encodes topological stability (vortex repulsion scaling with separation, P-5), and the quadratic term reflects compressible overlap penalties near cores (P-1, P-2). Minimizing $\partial E / \partial x = (x - 1) - 1/x = 0$ yields $x = \phi$.
 
-With the hybrid approach, braiding stability limits generations to three: For $R_n = R_0 \phi^n$, $R_3 \approx 4.236 R_0 > R_{\text{crit}} \approx 20 \xi$ (from reconnection energy $\Delta E \approx \rho_0 \Gamma^2 \ln(R_n / \xi) / (4\pi) = 0$ at critical curvature, calibrated from superfluid simulations). Higher $n$ destabilize via flows in the 4-fold projection (w-flow suppression fails), providing a topological explanation for exactly three particle generations.
+With the hybrid approach, braiding stability limits generations to three: For $R_n = R_0 \phi^n$, $R_3 \approx 4.236 R_0 > R_{\text{crit}} \approx 20 \xi$ (from reconnection energy $\Delta E \approx \rho_0 \Gamma^2 \ln(R_n / \xi) / (4 \pi) = 0$ at critical curvature, calibrated from superfluid simulations). Higher $n$ destabilize via flows in the 4-fold projection (w-flow suppression fails), providing a topological explanation for exactly three particle generations.
+
+With the hybrid approach, braiding stability limits generations: For $R_n = R_0 \phi^n$, reconnection energy $\Delta E \approx \rho_0 \Gamma^2 \ln(R_n / \xi) / (4\pi)$ suggests a critical radius $R_{\text{crit}} \sim \xi \exp(\rho_0 \Gamma^2 / (4\pi E_{\text{thermal}}))$ on the order of $20-30\xi$ (order-of-magnitude estimate from symbolic integration with SymPy), where higher $n$ lead to instability. This hints at a limit to stable generations, detailed in Section 3.
 
 \medskip
 \noindent
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Fundamental Principle:} The golden ratio $\phi$ is the unique value ensuring stable, hierarchical, topologically protected vortex structures in 4D that remain coherent under 3D projection. It prevents resonant destruction, maintains quantum coherence, and maximizes information entropy, emerging as a topological necessity from P-1, P-2, P-3, and P-5. With twists and vibrations, charged vortices have higher energy, and stability limits generations to three.
+\textbf{Fundamental Principle:} The golden ratio $\phi$ is the unique value ensuring stable, hierarchical, topologically protected vortex structures in 4D that remain coherent under 3D projection. It prevents resonant destruction, maintains quantum coherence, and maximizes information entropy, emerging as a topological necessity from P-1, P-2, P-3, and P-5. With twists and vibrations, charged vortices have higher energy, and stability limits generations.
 \end{minipage}
 }
 }
@@ -658,13 +611,13 @@ To demonstrate causality rigorously, consider the 4D wave equation for a scalar 
 \partial_t^2 \phi - v_L^2 \nabla_4^2 \phi = S(\mathbf{r}_4, t).
 \]
 
-The retarded Green's function in 4D is expressed using the Hadamard finite part distribution to handle singularities:
+The retarded Green's function in 4D is expressed using the Hadamard finite part distribution to handle singularities. The Hadamard finite part (Hfp) is a distributional regularization for singularities in the 4D Green's function, ensuring well-defined integrals on the lightcone:
 
 \[
 G_4(t, r_4) = -\frac{1}{4 \pi^2 v_L} \, \text{Hfp} \left[ (v_L^2 t^2 - r_4^2)^{-3/2} \theta(v_L^2 t^2 - r_4^2) \right] \theta(t),
 \]
 
-where $r_4 = \sqrt{r^2 + w^2}$, Hfp denotes the Hadamard finite part, and the normalization ensures dimensional consistency $[T L^{-4}]$. This form incorporates the light-cone singularity in a well-defined distributional sense, with support on and inside the cone $t \geq r_4 / v_L$.
+where $r_4 = \sqrt{r^2 + w^2}$, and the normalization ensures dimensional consistency $[T L^{-4}]$. This form incorporates the light-cone singularity in a well-defined distributional sense, with support on and inside the cone $t \geq r_4 / v_L$.
 
 The projected propagator on the $w=0$ slice is now discrete, summing contributions from membrane intersections rather than integrating over $w$:
 
@@ -672,11 +625,11 @@ The projected propagator on the $w=0$ slice is now discrete, summing contributio
 G_{\text{proj}}(t, r) = \sum_i G_4(t, \sqrt{r^2 + w_i^2}),
 \]
 
-where $w_i$ are discrete offsets for each membrane $i$ (e.g., small for charged particles, larger for neutrinos). The projected propagation preserves bulk support for $t \geq r / v_L$, potentially $>c$. However, observable signals---such as gravitational waves or light---are membrane surface modes fixed at $c = \sqrt{T / \sigma}$, with $\sigma = \rho_{4D}^0 \xi^2$. Longitudinal bulk modes adjust steady-state configurations mathematically but do not carry information to 3D observers, as membrane particles couple primarily to surface modes. The healing length $\xi$ regularizes the core, smearing the projected fronts over $\Delta t \sim \xi^2 / (2 r v_L)$, effectively limiting to $c$. Symbolic analysis confirms the projected lightcone support is confined to $t \geq r / c$ for surface components.
+where $w_i$ are discrete offsets for each membrane $i$ (e.g., small for charged particles, larger for neutrinos). The projected propagation preserves bulk support for $t \geq r / v_L$, potentially $>c$. However, observable signals---such as gravitational waves or light---are membrane surface modes fixed at $c = \sqrt{T / \sigma}$, with $\sigma = \rho_{4D}^0 \xi^2$. Bulk modes at $v_L > c$ enable rapid mathematical equilibration but are unobservable in 3D projections (P-6), as membrane particles couple only to surface modes at $c$; information transfer requires shake modulation on membranes. The healing length $\xi$ regularizes the core, smearing the projected fronts over $\Delta t \sim \xi^2 / (2 r v_L)$, effectively limiting to $c$. Symbolic analysis confirms the projected lightcone support is confined to $t \geq r / c$ for surface components.
 
 The background density $\rho_0$ sources a quadratic potential $\Psi \supset 2\pi G \rho_0 r^2$, but global inflows yield $\Psi_{\text{global}} \approx 2\pi G \langle \rho \rangle r^2$, canceling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$. Residual asymmetry predicts $G$ anisotropy $\sim 10^{-13} \text{yr}^{-1}$, consistent with bounds. Twists from emergent electromagnetism (universal orientation in $y$-$w$ plane) do not break this resolution, as they align with the projected geometry without introducing a preferred direction.
 
-With the incorporation of the trinity, shake waves (vibrational modes) propagate at $c$ on the membrane surfaces, further preserving causality for observable energy exchanges. The alignment of 4D waves ensures that photon polarizations project transversely without imposing a global frame, as the hidden $w$-component maintains isotropy in 3D observations.
+With the incorporation of the trinity, shake waves (vibrational modes) propagate at $c$ on the membrane surfaces, further preserving causality for observable energy exchanges for mathematical patterns like energy transfer. The alignment of 4D waves ensures that photon polarizations project transversely without imposing a global frame, as the hidden $w$-component maintains isotropy in 3D observations.
 
 \medskip
 \noindent
@@ -688,8 +641,6 @@ With the incorporation of the trinity, shake waves (vibrational modes) propagate
 }
 }
 \medskip
-
-This mathematical structure preserves Lorentz invariance for observations while allowing bulk adjustments at $v_L > c$, highlighting an unexpected resolution to the preferred frame puzzle. We now turn to conservation laws in Section 2.7.
 
 \subsection{Conservation Laws and Aether Drainage}
 
@@ -750,7 +701,7 @@ To prevent accumulation and back-reaction, the bulk continuity includes a dissip
 \partial_t \rho_{\text{bulk}} + \partial_w (\rho_{\text{bulk}} v_w) = -\gamma \rho_{\text{bulk}},
 \end{equation}
 
-with rate $\gamma \sim v_L / L_{\text{univ}}$ ($L_{\text{univ}}$ a large scale). The drainage geometry motivates directional flow: $v_w = \text{sign}(w) \cdot v$ where $v > 0$ is the outflow magnitude, reflecting symmetric outward flux from the central $w=0$ slice (sinks as bidirectional drains, per P-2). The scale $v \sim v_L$ emerges from bulk longitudinal modes at $v_L = \sqrt{g \rho_{4D}^0 / m}$ (governing rapid adjustments in the compressible medium, P-1), while observables remain confined to membrane modes at $c$.
+with rate $\gamma \sim v_L / L_{\text{univ}}$, where $L_{\text{univ}}$ is the universe scale (e.g., Hubble length), setting the dissipation horizon where flux converts to non-interacting modes. The drainage geometry motivates directional flow: $v_w = \text{sign}(w) \cdot v$ where $v > 0$ is the outflow magnitude, reflecting symmetric outward flux from the central $w=0$ slice (sinks as bidirectional drains, per P-2). The scale $v \sim v_L$ emerges from bulk longitudinal modes at $v_L = \sqrt{g \rho_{4D}^0 / m}$ (governing rapid adjustments in the compressible medium, P-1), while observables remain confined to membrane modes at $c$.
 
 We solve piecewise for $w > 0$ and $w < 0$, assuming steady state ($\partial_t \rho_{\text{bulk}} = 0$) for the spatial part to capture long-term equilibrium (no ongoing accumulation), while retaining transient time dependence $e^{-\gamma t}$ as a multiplier for initial perturbations decaying over short timescales.
 
@@ -809,60 +760,37 @@ In the EM extension, twists add no net background (neutral on average), preservi
 
 \subsection{Emergent Particles from 4-Fold Flows}
 
-This subsection extends the framework to describe emergent particles as quantized membrane sheets in the 4D superfluid, with properties arising from the 4-fold projected flows (direct intersection, upper/lower hemispheres, and induced $w$-flow). The trinity of suck, swirl, and shake unifies the description: mass emerges from density deficits due to radial drainage (suck), charge from helical phase twists stabilizing the flow (swirl), and rest energy/excitations from vibrations maintaining the structure against bulk pressure (shake). The golden ratio $\phi = (1 + \sqrt{5})/2 \approx 1.618$ limits stable configurations to three generations through braiding energy minimization and membrane stability constraints. Photons emerge as pure shake modes—vibrational waves on the membranes—stabilized in 4D by alignment perpendicular to propagation, projecting to two observable transverse polarizations in 3D.
+This subsection extends the framework to describe emergent particles as quantized membrane sheets in the 4D superfluid, with properties arising from the 4-fold projected flows (direct intersection, upper/lower hemispheres, and induced $w$-flow) detailed in Section 2.3. The trinity of suck, swirl, and shake unifies the description: mass emerges from density deficits due to radial drainage (suck), charge from helical phase twists stabilizing the flow (swirl), and rest energy/excitations from vibrations maintaining the structure against bulk pressure (shake). The golden ratio $\phi = (1 + \sqrt{5})/2 \approx 1.618$ from energy minimization in Section 2.5 limits stable configurations to three generations through braiding stability constraints. Photons emerge as pure shake modes---vibrational waves on the membranes---stabilized in 4D by alignment perpendicular to propagation, projecting to two observable transverse polarizations in 3D.
 
-Membrane sheets are topological defects with quantized circulation $\Gamma = n \kappa$ ($\kappa = h / m$ from P-5), forming compact toroidal surfaces in 4D that intersect the $w=0$ hypersurface as point-like sources in 3D. The discrete projection (P-6) aggregates these intersections: the effective 3D density includes deficits $\rho_{3D} = \rho_0 - \sum_i m_i \delta^3(\mathbf{r} - \mathbf{r}_i)$, where $m_i$ is the mass from drainage $\dot{M}_i = \sigma \Gamma_i$ integrated over the core timescale $\tau_{\text{core}} = \xi / v_L$. The deficit mass derives from the drainage flux through the membrane area: $m_n \approx \pi \sigma \xi \Gamma / c$ (flux $\int \rho_{4D}^0 v_w \, dA \approx \pi \sigma \xi \Gamma / c$, with $v_w \sim \Gamma / (2\pi r_\perp)$ averaged over perp disk $\pi \xi^2$). This ties to the suck component, representing the radial inflow creating gravitational attraction.
+Membrane sheets are topological defects with quantized circulation $\Gamma = n \kappa$ ($\kappa = h / m$ from P-5), forming compact toroidal surfaces in 4D that intersect the $w=0$ hypersurface as point-like sources in 3D. The discrete projection (P-6) aggregates these intersections: the effective 3D density includes deficits $\rho_{3D} = \rho_0 - \sum_i m_i \delta^3(\mathbf{r} - \mathbf{r}_i)$, where $m_i$ is the mass from drainage $\dot{M}_i = \sigma \Gamma_i$ integrated over the core timescale $\tau_{\text{core}} = \xi / v_L$. The deficit mass derives from the drainage flux through the membrane area: $m_n \approx \pi \sigma \xi \Gamma / c$ (flux $\int \rho_{4D}^0 v_w \, dA \approx \pi \sigma \xi \Gamma / c$, with $v_w \sim \Gamma / (2\pi r_\perp)$ averaged over perpendicular disk $\pi \xi^2$). This ties to the suck component, representing the radial inflow creating gravitational attraction.
 
-Rest energy $E = m c^2$ emerges from the shake component: the vibrational cost to maintain the deficit against bulk pressure. The shake frequency $\omega \sim v_L / \xi$ balances quantum dispersion and interactions (P-1), with energy $E_{\text{vib}} \approx (\pi/2) \sigma v_L^2 \xi^2$. With emergent $v_L \approx c$ for observable scales and $m \approx \pi \sigma \xi^2$ (core mass loading), this yields $E \sim m c^2$, the ongoing "maintenance battery" released in processes like annihilation.
+Rest energy $E = m c^2$ emerges from the shake component: the vibrational cost to maintain the deficit against bulk pressure. The shake frequency $\omega \sim v_L / \xi$ balances quantum dispersion and interactions (P-1), with energy $E_{\text{vib}} \approx (\pi/2) \sigma v_L^2 \xi^2$. With emergent $v_L \approx c$ for observable scales and $m \approx \pi \sigma \xi^2$ (core mass loading), this yields $E \sim m c^2$, the ongoing ``maintenance battery'' released in processes like annihilation.
 
 Particle properties differentiate via the 4-fold flow contributions, enhanced by the membrane's surface geometry:
 \begin{itemize}
 \item \textbf{Direct Intersection}: Provides base circulation $\Gamma$, contributing to rest mass $m \approx \pi \sigma \xi \Gamma / c$ (deficit volume times background, normalized by $c$ for relativistic units) and suck-driven gravity.
 \item \textbf{Upper/Lower Hemispherical Projections}: Add asymmetries for generational scaling, with radii $R_n = R_0 \phi^n$ ($R_0 \sim \xi$, $\phi$ from braiding minimization $x^2 = x + 1$), yielding mass hierarchies $m_n \sim m_0 \phi^{n/2}$ (square root from area dilution in membrane surface) and shake mode energies.
-\item \textbf{Induced $w$-Flow}: Dominates for low-mass particles like neutrinos, with exponential suppression $m_\nu \sim m_0 \exp(- (w_{\text{offset}} / \xi)^2 ) / \phi^{n/2}$, where $w_{\text{offset}}$ is the drainage offset in the extra dimension, reflecting membrane tilt.
+\item \textbf{Induced $w$-Flow}: Dominates for low-mass particles, with suppression scaling the drainage offset in the extra dimension, reflecting membrane tilt.
 \end{itemize}
 
-Charge emerges from helical phase twists $\theta_{\text{twist}} = \pi / \sqrt{\phi}$ (quantized from chiral winding in P-4), inducing local polarization via the swirl component. The base charge $q_{\text{base}} = - (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi})$, with $\tau = \theta_{\text{twist}} / (2 \pi R_n)$ the twist density, projects to $q = 4 q_{\text{base}} \sqrt{m / \xi}$ via the 4-fold enhancement, ensuring quantization $q = \pm e$ independent of $n$ (dilution balanced by projection factor $1 + (R_n / \xi)^{\phi - 1}$); $q = -4 (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi}) \sqrt{m / \xi}$ [Gaussian units $M^{1/2} L^{3/2} T^{-1}$], mapping to observed $e$ via twist projections (P-4/P-5), with $\sqrt{m / \xi}$ normalizing core mass to 3D. Neutral particles (e.g., dark matter candidates) lack twists ($\tau = 0$), forming an untwisted parallel sector with masses scaled by $\phi$ factors but no EM coupling.
+Charge emerges from helical phase twists $\theta_{\text{twist}} = \pi / \sqrt{\phi}$ (quantized from chiral winding in P-4), inducing local polarization via the swirl component. The base charge $q_{\text{base}} = - (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi})$, with $\tau = \theta_{\text{twist}} / (2 \pi R_n)$ the twist density, projects to $q = 4 q_{\text{base}} \sqrt{m / \xi}$ via the 4-fold enhancement, ensuring quantization $q = \pm e$ independent of $n$ (dilution balanced by projection factor $1 + (R_n / \xi)^{\phi - 1}$); $q = -4 (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi}) \sqrt{m / \xi}$ [Gaussian units $M^{1/2} L^{3/2} T^{-1}$], mapping to observed $e$ via twist projections (P-4/P-5), with $\sqrt{m / \xi}$ normalizing core mass to 3D.
 
-Generations are limited to three by membrane stability: Hierarchical braiding stabilizes up to $n=2$ ($R_2 \approx 4.236 \xi$), but $R_3 \approx 6.854 \xi$ exceeds the critical radius $R_{\text{crit}} \approx \phi^3 \xi$ where reconnection energy $\Delta E \approx \rho_0 \Gamma^2 \ln(R / \xi) / (4\pi) \to 0$ and curvature instability (membrane tension insufficient against shake overload) leads to fragmentation (analogous to vortex tangle instabilities in superfluids).
+Generations are limited to three by membrane stability: Hierarchical braiding stabilizes up to $n=2$ ($R_2 \approx 4.236 \xi$), but higher $n$ exceeds the critical radius $R_{\text{crit}} \sim 20-30 \xi$ (order-of-magnitude estimate from reconnection energy $\Delta E \approx \rho_0 \Gamma^2 \ln(R / \xi) / (4\pi) \to 0$ at critical curvature, where membrane tension insufficient against shake overload leads to fragmentation; analogous to vortex tangle instabilities in superfluids).
 
-\begin{enumerate}
-\item \textbf{Leptons}: Closed toroidal membrane loops with suck-driven mass, swirl charge, and shake excitations; electron ($n=0$, twisted) mass $m_e \sim 0.511$ MeV (calibrated $m_0$), muon/tau via $\phi$ scaling in shake hierarchies.
-\item \textbf{Neutrinos}: $w$-flow dominant with membrane tilt, sub-eV masses $m_{\nu_n} \sim \exp(-n) / \phi^{n/2}$ eV, oscillations from $\phi$-mixings (e.g., $\theta_{12} \approx \arctan(\phi^{-1/2}) \sim 33^\circ$).
-\item \textbf{Quarks}: Braided membrane ends requiring confinement (tension $\propto \rho_0 \xi^2$ for string-like flux tubes), with color from linking numbers in swirl.
-\item \textbf{Dark Matter}: Untwisted membranes, masses $m_{\text{dark}} \sim m_{\text{visible}} / \phi$ (e.g., dark electron $\sim 432$ keV), gravitational-only interactions (suck dominant, minimal swirl/shake).
-\item \textbf{Photons}: Pure shake modes—vibrational waves on membranes extending into 4D, stabilized by alignment perpendicular to propagation (like 2D slices of 3D ocean waves), projecting to two transverse polarizations in 3D (observable y-z, hidden w-component).
-\end{enumerate}
+For emergent electromagnetism (connecting to the unified field equations in Section 2.2), photons arise as pure shake modes---vibrational waves on membranes extending into 4D, stabilized by alignment perpendicular to propagation (like 2D slices of 3D ocean waves), projecting to two transverse polarizations in 3D (observable $y$-$z$, hidden $w$-component). This ties to EM unification without additional structures, with annihilation releasing shake energy as aligned waves.
 
-This membrane representation unifies particle diversity with the gravitational framework, where 4-fold flows encode quantum numbers without additional postulates. Vibrations on the membrane surface naturally produce photon-like modes, extending to EM unification, with annihilation releasing shake energy as aligned waves.
-
-\begin{table}[h]
-\centering
-\begin{tabular}{|l|l|l|}
-\hline
-Particle Type & Flow Dominance & Key Property \\
-\hline
-Leptons & Direct + Hemispheres & Suck mass, swirl charge, shake excitations; $\phi$ hierarchy \\
-Neutrinos & $w$-Flow & Exponential suck suppression, swirl millicharges $\sim 10^{-6} e$, shake mixings \\
-Quarks & Braided Flows & Confinement via tension, swirl color from linking, shake flavors \\
-Dark Sector & Untwisted Flows & Suck gravity only, parallel spectrum with minimal shake \\
-Photons & Pure Shake Waves & 4D aligned vibrations, two transverse pols from projection \\
-\hline
-\end{tabular}
-\caption{Emergent particles classified by 4-fold flow contributions and trinity aspects.}
-\label{tab:particles}
-\end{table}
+This membrane representation reveals unexpected mathematical patterns analogous to particle diversity unified with the gravitational framework, where 4-fold flows encode quantum numbers without additional postulates. Detailed mass calculations, generational behaviors, and specific particle classifications follow in Section 3.
 
 \medskip
 \noindent
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result:} Particles as membrane sheets with suck masses $m_n \sim m_0 \phi^{n/2}$, swirl charges $q = 4 q_{\text{base}} \sqrt{m / \xi}$, shake energies $E = m c^2$; limited to 3 generations by $R_n > R_{\text{crit}}$; photons as aligned 4D shake waves with 2 polarizations.
+\textbf{Key Result:} Particles as membrane sheets with suck masses $m_n \sim m_0 \phi^{n/2}$, swirl charges $q = 4 q_{\text{base}} \sqrt{m / \xi}$, shake energies $E = m c^2$; limited to 3 generations by $R_n > R_{\text{crit}} \sim 20-30 \xi$; photons as aligned 4D shake waves with 2 polarizations.
 
-\textbf{Physical Interpretation:} Trinity differentiates properties; membrane stability resolves "why 3 generations?" topologically; alignment hides w-mode for photon pols.
+\textbf{Physical Interpretation:} Trinity differentiates properties; membrane stability resolves generational limits topologically; alignment hides $w$-mode for photon polarizations.
 
-\textbf{Verification:} Derivations confirm $\phi$ minimization and mass scaling; reconnection energy logs match superfluid literature.
+\textbf{Verification:} Derivations confirm $\phi$ minimization and mass scaling; reconnection energy logs match superfluid analogies.
 \end{minipage}
 }
 }
