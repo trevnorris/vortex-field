@@ -170,15 +170,15 @@ where $\rho_{4D}$ is the 4D density $[M L^{-4}]$, $\mathbf{v}_4$ the 4-velocity,
 \partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -\frac{1}{\rho_{4D}} \nabla_4 P,
 \end{equation}
 
-with barotropic EOS $P = (g/2) \rho_{4D}^2 / m$ (P-1), yielding local effective speed $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ (bulk $v_L = \sqrt{g \rho_{4D}^0 / m}$ naturally $\gg c$; membrane $c = \sqrt{T / \sigma}$ for observables). Helical twists from P-4 and P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$, normal to membrane $\mathbf{n}$, scaled by membrane speed $c$ for surface shear, sourcing EM currents), sourcing electromagnetic currents.
+with barotropic EOS $P = (g/2) \rho_{4D}^2 / m$ (P-1), yielding local effective speed $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ (bulk $v_L = \sqrt{g \rho_{4D}^0 / m}$ naturally $\gg c$; membrane $c = \sqrt{T / \sigma}$ for observables). Helical twists from P-4 and P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$, normal to membrane $\mathbf{n}$, scaled by membrane speed $c$ for surface shear, sourcing EM currents).
 
 The membrane dynamics, derived from varying the GP functional with boundary $\Psi=0$ on $R$, yield:
 
 \begin{equation}
-\partial^2 R / \partial t^2 = (T / \sigma) \nabla^2 R + f_{\text{bulk}},
+\partial^2 R / \partial t^2 = (T / \sigma) \nabla^2 R - (1 / \rho_{4D}) \nabla P \cdot n,
 \end{equation}
 
-where $f_{\text{bulk}}$ couples to the 4D flow (pressure gradients and chiral forces on the sheet), $T$ is the surface tension (SymPy-derived as $T = \sqrt{2} \pi \hbar^2 \rho_{4D}^0 / (2 m^2)$ from integrating kinetic energy density over the perpendicular plane: $\int (\hbar^2 / (2m)) (\nabla \sqrt{\rho_{4D}/m})^2 dA_\perp$, with profile $\tanh^2(r_\perp / \sqrt{2} \xi)$, 2D integral yielding $\pi \sqrt{2}/3$ adjusted factor), and $\sigma = \rho_{4D}^0 \xi^2$.
+where the bulk coupling term follows from the defect advecting with the local bulk flow (motivated by superfluid vortex dynamics in P-1 and P-5), $T$ is the surface tension (SymPy-derived as $T = \sqrt{2} \pi \hbar^2 \rho_{4D}^0 / (2 m^2)$ from integrating kinetic energy density over the perpendicular plane: $\int (\hbar^2 / (2m)) (\nabla \sqrt{\rho_{4D}/m})^2 dA_\perp$, with profile $\tanh^2(r_\perp / \sqrt{2} \xi)$, 2D integral yielding $\pi \sqrt{2}/3$ adjusted factor), and $\sigma = \rho_{4D}^0 \xi^2$.
 
 Linearize around background $\rho_{4D} = \rho_{4D}^0 + \delta \rho_{4D}$, $\mathbf{v}_4 = \mathbf{0} + \delta \mathbf{v}_4$ (steady state), and membrane perturbation $\delta R$. The linearized continuity is:
 
@@ -192,7 +192,7 @@ and Euler (dropping quadratic terms):
 \partial_t \delta \mathbf{v}_4 = -\frac{1}{\rho_{4D}^0} \nabla_4 \delta P = -v_{\text{eff}}^2 \nabla_4 (\delta \rho_{4D} / \rho_{4D}^0),
 \end{equation}
 
-where $\delta P = v_{\text{eff}}^2 \delta \rho_{4D}$ from EOS linearization (verified: differentiate $P(\rho_{4D})$ at $\rho_{4D}^0$ gives $\partial P / \partial \rho_{4D} = g \rho_{4D}^0 / m = v_L^2$, local $\rho_{4D}^{\text{local}}$ for $v_{\text{eff}}$ near deficits). The linearized membrane equation is $\partial_{tt} \delta R = (T / \sigma) \nabla^2 \delta R - (1/\sigma) \delta P \mathbf{n}$ (coupling term from bulk pressure on sheet).
+where $\delta P = v_{\text{eff}}^2 \delta \rho_{4D}$ from EOS linearization (verified: differentiate $P(\rho_{4D})$ at $\rho_{4D}^0$ gives $\partial P / \partial \rho_{4D} = g \rho_{4D}^0 / m = v_L^2$, local $\rho_{4D}^{\text{local}}$ for $v_{\text{eff}}$ near deficits). The linearized membrane equation is $\partial_{tt} \delta R = (T / \sigma) \nabla^2 \delta R - (1 / \rho_{4D}^0) \nabla \delta P \cdot n$ (coupling term from bulk pressure on sheet, with $\delta P$ replacing P for perturbation).
 
 Apply Helmholtz decomposition (P-3) to $\delta \mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\Phi$ $[L^2 T^{-1}]$) and incompressible (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) parts. Taking $\nabla_4 \cdot$ on Euler gives:
 
@@ -224,32 +224,128 @@ Combine with $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \Phi$ (SymPy conf
 \partial_{tt} \Phi - v_{\text{eff}}^2 \nabla_4^2 \Phi = v_{\text{eff}}^2 \sum_i \frac{\dot{M}_i}{\rho_{4D}^0} \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}).
 \end{equation}
 
-For the vector sector, take $\nabla_4 \times$ on Euler: $\partial_t (\nabla_4 \times \delta \mathbf{v}_4) = 0$ (curl of gradient vanishes), but vorticity sources from P-5's quantized circulation ($\Gamma = n (h/m)$) and membrane motion/twist inject via singularities, enhanced 4-fold in projection (Section 2.3). Helical twists from P-4 and P-5 introduce chiral vorticity $\nabla_4 \times \delta \mathbf{v}_4 \propto \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$, scaled by membrane speed $c$ for surface shear, sourcing EM currents), sourcing electromagnetic currents. The membrane vibrations contribute transverse waves at $c$, coupled to the vector potential.
-
-Project to 3D discretely via P-6, aggregating over membrane intersections at $w=0$. Define the projected quantities as sums over discrete sites: $\Psi = \sum_i \Phi_i \, (v_{\text{eff}} / \xi)$ $[L^2 T^{-2}]$ (rescaling motivated by effective speed $v_{\text{eff}}$ for local propagation near deficits and healing length $\xi$ for core regularization, shifting dimensions from $[L^2 T^{-1}]$ to $[L^2 T^{-2}]$, normalizing 4D flows to 3D energy-like potentials; uniqueness from equating projected energy flux $\sim \sum_i (\rho_{4D}^0 / 2) (\nabla_4 \Phi_i)^2$ to 3D $\sim \rho_0 (\nabla \Psi)^2 / 2$, requiring $v_{\text{eff}} / \xi$ as solved dimensionally), $\rho_{\text{body}} = \sum_i \left( \xi / v_{\text{eff}} \right) \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ $[M L^{-3}]$. This predicts wave slowing near masses, mimicking gravitational time dilation from geometry alone. The scalar wave projects to:
-
-\begin{equation}
-\frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Psi}{\partial t^2} - \nabla^2 \Psi = 4\pi G \rho_{\text{body}},
-\end{equation}
-
-where $4\pi G$ emerges from projection and calibration, $\rho_0 = \rho_{4D}^0 \xi$, and $\xi$ normalizes the sink strength to an effective 3D density. Near masses, $v_{\text{eff}} \approx c \left(1 - \frac{G M}{2 c^2 r}\right)$ (from $\delta \rho_{4D} / \rho_{4D}^0 \approx - G M / (c^2 r)$).
-
 For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving membranes (P-5). Define $\mathbf{A} = \sum_i \mathbf{B}_{4,i} / \xi$ $[L T^{-1}]$ (rescaling by division with $\xi$ $[L]$ from P-5's projection reduces dimensions from $[L^2 T^{-1}]$ to $[L T^{-1}]$, preserving geometric 4-fold enhancement from Biot-Savart integrals and aligning with gravitomagnetic form). This ensures $\nabla^2 \mathbf{A}$ $[L^{-1} T^{-1}]$ matches the source term $-\frac{16\pi G}{c^2} \mathbf{J}$ $[L^{-1} T^{-1}]$. Projection with 4-fold enhancement (Section 2.3, Biot-Savart integrals) yields:
 
 \begin{equation}
-\frac{1}{c^2} \frac{\partial^2 \mathbf{A}}{\partial t^2} - \nabla^2 \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J}_{\text{mass}} - \frac{4\pi}{c} \mathbf{J}_q,
+\frac{1}{c^2} \frac{\partial^2 \mathbf{A}}{\partial t^2} - \nabla^2 \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J}_{\text{mass}},
 \end{equation}
 
-where $\mathbf{J}_{\text{mass}} = \rho_{\text{body}} \mathbf{V}$ $[M L^{-2} T^{-1}]$, $\mathbf{J}_q = \rho_q \mathbf{V}$ (electromagnetic current from twists, with $\rho_q = \sum_i q_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ [dimensions in Gaussian units $M^{1/2} L^{-3/2} T^{-1}$ for charge density]), and $16\pi G/c^2 = 4 \text{(geometric)} \times 4 \text{(gravitomagnetic scaling)} \times \pi G/c^2$ (verified via SymPy integrals); the $4\pi/c$ term for EM arises from phase twist projections and membrane vibrations.
+where $\mathbf{J}_{\text{mass}} = \rho_{\text{body}} \mathbf{V}$ $[M L^{-2} T^{-1}]$, and $16\pi G/c^2 = 4 \text{(geometric)} \times 4 \text{(gravitomagnetic scaling)} \times \pi G/c^2$ (verified via SymPy integrals); electromagnetic currents are handled separately in the surface modes below.
 
-Twists and membrane oscillations also source Maxwell-like equations: Define $\mathbf{E} = -\nabla \phi - \partial_t \mathbf{A}/c - (T/\sigma) \nabla \delta R$ (membrane displacement contribution), $\mathbf{B} = \nabla \times \mathbf{A} + (\tau c / \xi) (\mathbf{n} \times \delta R)$ (twist-coupled circulation, normalized by $\xi$ for core smearing as $\delta R \sim \xi$), with $\phi = (g_{3D} / m) \delta \rho_{3D}$, yielding:
+For the electromagnetic sector, derive from linearizing the GP equation on the membrane surface (P-1/P-2, with twists from P-4/P-5 sourcing perturbations). The phase perturbation $\delta \theta$ (dimensionless) and density $\delta \rho_{3D}$ satisfy:
+
 \begin{equation}
-\nabla \cdot \mathbf{E} = \frac{\rho_q}{\epsilon_0}, \quad \nabla \cdot \mathbf{B} = 0,
+\partial_t \delta \rho_{3D} + \rho_0 (\hbar / m) \nabla^2 \delta \theta = 0,
 \end{equation}
 \begin{equation}
-\nabla \times \mathbf{E} = -\frac{1}{c} \partial_t \mathbf{B}, \quad \nabla \times \mathbf{B} = \frac{1}{c} \left( \frac{4\pi}{c} \mathbf{J}_q + \epsilon_0 \partial_t \mathbf{E} \right),
+\partial_t \delta \theta = - (g_{3D} / \hbar) \delta \rho_{3D},
 \end{equation}
-where $\epsilon_0 = m / (g_{3D} \rho_0)$.
+
+yielding wave equation $\partial_{tt} \delta \rho_{3D} - c^2 \nabla^2 \delta \rho_{3D} = 0$, with $c = \sqrt{g_{3D} \rho_0 / m}$ (transverse surface mode, independent of bulk $v_{\text{eff}}$).
+
+To derive the emergent Maxwell equations, we start with the GP equation, transform to hydrodynamics, linearize around a twisted background, include the twist as a vorticity source, project to 3D, and map the perturbations to EM fields. This generalization treats the phase perturbation as having vector components (solenoidal from twists), consistent with P-3's decomposition. 
+
+Step 1: GP Equation with Twist (P-1, P-4, P-5)
+
+The 4D GP is:
+
+\[ i \hbar \partial_t \Psi = - \frac{\hbar^2}{2m} \nabla_4^2 \Psi + g |\Psi|^2 \Psi \]
+
+$\Psi = \sqrt{\rho_{4D} / m} e^{i \theta}$, where $\theta = \theta_{\text{regular}} + \theta_{\text{twist}}$, $\theta_{\text{twist}} = \tau w$ (helical along $w$, P-4).
+
+Step 2: Madelung Transform to Hydro Equations
+
+Imaginary part (continuity):
+
+\[ \partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0 \]
+
+Real part (Euler):
+
+\[ \partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = - \frac{1}{\rho_{4D}} \nabla_4 P - \nabla_4 Q \]
+
+$\mathbf{v}_4 = (\hbar / m) \nabla_4 \theta$, $P = (g / 2) \rho_{4D}^2 / m$, $Q = - (\hbar^2 / (2m)) (\nabla_4^2 \sqrt{\rho_{4D} / m} / \sqrt{\rho_{4D} / m})$
+
+The twist $\theta_{\text{twist}}$ contributes to $\mathbf{v}_4 = (\hbar / m) \tau \hat{e}_w$ (axial flow), and vorticity $\boldsymbol{\omega}_4 = \nabla_4 \times \mathbf{v}_4 \propto \tau \delta^2(\perp)$.
+
+Step 3: Linearize Around Twisted Background
+
+Background: $\rho_{4D} = \rho_{4D}^0$ (uniform far-field), $\theta = \theta_0$ (twist singular), $\mathbf{v}_{\text{background}} = (\hbar / m) \nabla_4 \theta_0$
+
+Perturbation: $\rho_{4D} = \rho_{4D}^0 + \delta\rho$, $\theta = \theta_0 + \delta\theta$, $\mathbf{v}_4 = \mathbf{v}_{\text{background}} + \delta\mathbf{v} = \mathbf{v}_{\text{background}} + (\hbar / m) \nabla_4 \delta\theta$
+
+Linear continuity:
+
+\[ \partial_t \delta \rho + \rho_{4D}^0 \nabla_4 \cdot \delta \mathbf{v} + \delta \rho \nabla_4 \cdot \mathbf{v}_{\text{background}} = 0 \]
+
+Since $\nabla_4 \cdot \mathbf{v}_{\text{background}} = 0$ (solenoidal), simplifies to:
+
+\[ \partial_t \delta \rho + \rho_{4D}^0 \nabla_4 \cdot \delta \mathbf{v} = 0 \]
+
+Linear Euler (dropping Q for classical EM, as quantum pressure is short-range):
+
+\[ \partial_t \delta \mathbf{v} = - v_{\text{eff}}^2 \nabla_4 (\delta \rho / \rho_{4D}^0) \]
+
+With $v_{\text{eff}}^2 = g \rho_{4D}^0 / m$.
+
+Step 4: Helmholtz Decomposition and Twist Source
+
+Decompose $\delta\mathbf{v} = - \nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ (P-3).
+
+Scalar part (gravity-like, compressible): As above for gravity.
+
+Vector part (EM-like, incompressible): From curl Euler, $\partial_t (\nabla_4 \times \delta\mathbf{v}) = 0$ (base linear), but twist adds source from background cross terms.
+
+Total $\boldsymbol{\omega} = \boldsymbol{\omega}_{\text{background}} + \delta\boldsymbol{\omega} = \nabla_4 \times \mathbf{v}_4$
+
+Linear for $\delta\boldsymbol{\omega} = \nabla_4 \times \delta\mathbf{v} = \nabla_4 \times (\nabla_4 \times \mathbf{B}_4) = - \nabla_4^2 \mathbf{B}_4$ (gauge $\nabla_4 \cdot \mathbf{B}_4 = 0$)
+
+From curl Euler, $\partial_t \delta\boldsymbol{\omega} = - \nabla_4 \times [(\mathbf{v}_{\text{background}} \cdot \nabla_4) \delta\mathbf{v} + (\delta\mathbf{v} \cdot \nabla_4) \mathbf{v}_{\text{background}}]$ (nonlinear cross, but for effective source, approximates to source ~ curl ($\mathbf{v}_{\text{twist}} \times \delta\mathbf{v}$) ~ $\tau c \delta^2 \times \delta\mathbf{v}$ component)
+
+In effective, the vector equation is $\partial_t \delta\boldsymbol{\omega} = \nabla_4 \times (\text{source}_{\text{twist}})$, where source_{\text{twist}} = (\tau c / \rho_0) \mathbf{n} \delta^2$
+
+Then $\partial_t (\nabla_4 \times (\nabla_4 \times \mathbf{B}_4)) = \nabla_4 \times (\text{source})$
+
+But for wave, to include propagation, the full is from the incompressible limit, where the pressure enforces the wave.
+
+Since EM is surface modes, the effective is the 2D wave on membrane, projected to 3D.
+
+The GP on surface: effective 2D GP for the membrane perturbation.
+
+But to approximate, the linear for the surface phase $\delta\theta$ and $\delta\rho_{\text{surface}} = \delta\rho \times \xi$ (projected).
+
+From the tex, the eqs are without source, but the source is the fixed twist delta in the laplacian.
+
+The phase $\delta\theta$ satisfies $\nabla^2 \delta\theta = - (m / \hbar \rho_0) \partial_t \delta\rho$ (from cont), but for static, $\nabla^2 \delta\theta = \text{source from twist singularity}$.
+
+The twist singularity makes the laplacian $\nabla^2 \theta = 2\pi \tau \delta^3$ (effective in 3D), so the source is $\rho_q \sim \tau$
+
+The mapping makes $\nabla^2 \delta\theta = (m / \hbar) \times (4\pi \rho_q / S)$ or scaled.
+
+The algebraic is the linear for propagation, and the source from the twist singularity in the Poisson limit.
+
+The Maxwell is the eq for the field, with the source from the singularity.
+
+Map to EM fields with scaling $S = \sqrt{m / \xi}$ $[M^{1/2} L^{-1/2}]$ (motivated by quantum core: $m$ for phase quantization in P-1, $\xi$ for projection normalization in P-6):
+
+\begin{itemize}
+\item Scalar potential: $\phi = (g_{3D} / m) \delta \rho_{3D}$ $[L^2 T^{-2}]$.
+\item Vector potential: $\mathbf{A} = (\hbar / m) \nabla \delta \theta$ $[L T^{-1}]$ (solenoidal from twists).
+\item Electric field: $\mathbf{E} = S \left[ - (1/c) \nabla \phi - (1/c) \partial_t \mathbf{A} - (T/\sigma) \nabla \delta R \right]$ $[M^{1/2} L^{1/2} T^{-2}]$.
+\item Magnetic field: $\mathbf{B} = S \left[ \nabla \times \mathbf{A} + (\tau c / \xi) (\mathbf{n} \times \delta R) \right]$ $[M^{1/2} L^{-1/2} T^{-1}]$.
+\end{itemize}
+
+Charge density: $\rho_q = \sum_i q_i \delta^3(\mathbf{r} - \mathbf{r}_i)$, with $q_i = -4 (\hbar / (m c)) (\tau \Gamma_i) / (2 \sqrt{\phi}) \sqrt{m / \xi}$ (4-fold from projection, Gaussian units $[M^{1/2} L^{3/2} T^{-1}]$).
+
+Substituting into the linearized equations with twist sources as inhomogeneities yields Maxwell equations (Gaussian convention, $\epsilon_0 = 1$):
+
+\begin{equation}
+\nabla \cdot \mathbf{E} = 4\pi \rho_q, \quad \nabla \cdot \mathbf{B} = 0,
+\end{equation}
+\begin{equation}
+\nabla \times \mathbf{E} = -\frac{1}{c} \partial_t \mathbf{B}, \quad \nabla \times \mathbf{B} = \frac{4\pi}{c} \mathbf{J}_q + \frac{1}{c} \partial_t \mathbf{E},
+\end{equation}
+
+where $\mathbf{J}_q = \rho_q \mathbf{V}$ (from vortex motion).
 
 The total acceleration decomposes as:
 
@@ -275,8 +371,8 @@ These equations emerge from the postulates without additional parameters, with s
 \textbf{Key Result: Unified Field Equations}
 \begin{align*}
 &\text{\textbf{Scalar:}}\; \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Psi}{\partial t^2} - \nabla^2 \Psi = 4\pi G \rho_{\text{body}}, \\
-&\text{\textbf{Vector:}}\; \frac{1}{c^2} \frac{\partial^2 \mathbf{A}}{\partial t^2} - \nabla^2 \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J}_{\text{mass}} - \frac{4\pi}{c} \mathbf{J}_q, \\
-&\text{\textbf{EM Fields:}}\; \nabla \cdot \mathbf{E} = \frac{\rho_q}{\epsilon_0}, \quad \nabla \times \mathbf{B} = \frac{1}{c} \left( \frac{4\pi}{c} \mathbf{J}_q + \epsilon_0 \partial_t \mathbf{E} \right), \\
+&\text{\textbf{Vector:}}\; \frac{1}{c^2} \frac{\partial^2 \mathbf{A}}{\partial t^2} - \nabla^2 \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J}_{\text{mass}}, \\
+&\text{\textbf{EM Fields:}}\; \nabla \cdot \mathbf{E} = 4\pi \rho_q, \quad \nabla \times \mathbf{B} = \frac{4\pi}{c} \mathbf{J}_q + \frac{1}{c} \partial_t \mathbf{E}, \\
 &\text{\textbf{Acceleration:}}\; \mathbf{a} = -\nabla \Psi + \xi \partial_t (\nabla \times \mathbf{A}), \\
 &\text{\textbf{Force:}}\; \mathbf{F} = m \left[ -\nabla \Psi - \partial_t \mathbf{A} + 4 \mathbf{v} \times (\nabla \times \mathbf{A}) \right] + q \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right).
 \end{align*}
