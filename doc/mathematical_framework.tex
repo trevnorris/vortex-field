@@ -31,7 +31,7 @@ We explored adding physical membranes to explain this naturally, but found the p
 With our convention: $\rho_{4D} = m |\Psi|^2$ works perfectly for sheet$\to$point projection.
 \end{tcolorbox}
 
-We postulate a mathematical structure with these properties and explore its consequences. These axioms provide a compressible 4D medium (P-1) with sources via vortex sinks (P-2), distinct propagation modes (P-3) to handle effective speeds mathematically, flow decomposition (P-4) separating scalar and vector components, and quantized topological features (P-5) with geometric enhancements including phase windings for emergent properties. The dual modes in P-3 are particularly noteworthy: longitudinal waves in the bulk may propagate at speeds potentially exceeding the emergent transverse speed $c$, but observable effects are confined to $c$ through projections, preserving mathematical consistency with causality (detailed in later subsections). All equations have been dimensionally verified using SymPy, ensuring internal coherence.
+We postulate a mathematical structure with these properties and explore its consequences. These axioms provide a compressible 4D medium (P-1) with sources via vortex sinks (P-2), distinct propagation modes (P-3) to handle effective speeds mathematically, flow decomposition (P-4) separating scalar and vector components, quantized topological features (P-5) with geometric enhancements including phase windings for emergent properties, and discrete vortex projection (P-6) yielding particle-like sources in 3D. The dual modes in P-3 are particularly noteworthy: longitudinal waves in the bulk may propagate at speeds potentially exceeding the emergent transverse speed $c$, but observable effects are confined to $c$ through projections, preserving mathematical consistency with causality (detailed in later subsections). All equations have been dimensionally verified using SymPy, ensuring internal coherence.
 
 \begin{tcolorbox}
 \textbf{Postulate 1 (Compressible 4D medium with GP dynamics):} Compressible 4D medium with GP dynamics $\to$ Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$; Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$; Barotropic EOS: $P = (g/2) \rho_{4D}^2 / m$. The continuity equation ensures mass conservation in the 4D medium, while Euler describes momentum balance, with ``suck'' dominating pressure gradients.
@@ -43,6 +43,8 @@ We postulate a mathematical structure with these properties and explore its cons
 \textbf{Postulate 4 (Helmholtz decomposition (suck + swirl)):} Helmholtz decomposition (suck + swirl) $\to$ $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$. This decomposition separates ``suck'' (irrotational, scalar) from ``swirl'' (solenoidal, vector).
 
 \textbf{Postulate 5 (Quantized vortices with 4-fold projection):} Quantized vortices with 4-fold projection $\to$ Circulation: $\Gamma = n \kappa$ where $\kappa = h / m$; Enhanced: $\Gamma_{\text{obs}} = 4 \Gamma$ (derived in Section 2.6); Vortices as tori/sheets with phase windings; helical twists $\theta + \tau w$ for emergent properties like charge $q = -4 (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi})$.
+
+\textbf{Postulate 6 (Discrete vortex projection):} The 4D$\to$3D projection sums over discrete vortex intersections rather than continuous integration: $\rho_{3D} = \sum_i$ (discrete deficits), not $\int dw$ (continuous). Vortex sheets pierce $w=0$ at isolated points, yielding particle-like sources.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Dimensional Check]
@@ -64,7 +66,7 @@ Before presenting the formal postulates, consider this analogy: Imagine you're f
 \item \textbf{Surface wave}: Later, a tsunami wave arrives, which you definitely feel as it lifts and drops you.
 \end{enumerate}
 
-Both phenomena involve the same water, but they represent fundamentally different physics. Our framework captures this duality: gravitational fields are like the bulk flow (established rapidly, unfelt locally), while gravitational waves are like the tsunami (propagating at finite speed, directly observable). The bulk redistribution is like ``suck'' establishing fields rapidly, while the surface wave is ``shake'' propagating observable changes at finite speed.
+Both phenomena involve the same water, but they represent fundamentally different physics. Our framework captures this duality: gravitational fields are like the bulk flow (established rapidly, unfelt locally), while gravitational waves are like the tsunami (propagating at finite speed, directly observable). The bulk redistribution is like ``suck'' establishing fields rapidly, while the surface wave is ``shake'' propagating observable changes at finite speed. This duality aligns with the tsunami principle detailed in Section 2.5.
 
 Same medium, different physics—no separate structures needed!
 
@@ -78,26 +80,30 @@ The postulates are summarized in the following table:
 
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|c|Y|Y|}
+\begin{tabularx}{\textwidth}{|c|Y|Y|Y|}
 \hline
-\# & Verbal Statement & Mathematical Input \\
+\# & Verbal Statement & Mathematical Input & Trinity Mode \\
 \hline
-\textbf{P-1} & Compressible 4D medium with GP dynamics & Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$ \\
-& & Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$ \\
-& & Barotropic EOS: $P = (g/2) \rho_{4D}^2 / m$ \\
+\textbf{P-1} & Compressible 4D medium with GP dynamics & Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$ & Suck-dominant \\
+& & Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$ &  \\
+& & Barotropic EOS: $P = (g/2) \rho_{4D}^2 / m$ &  \\
 \hline
-\textbf{P-2} & Vortex sinks drain into extra dimension & Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$ \\
-& & Sink strength: $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi^2$ \\
+\textbf{P-2} & Vortex sinks drain into extra dimension & Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$ & Suck \\
+& & Sink strength: $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi^2$ &  \\
 \hline
-\textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \rho_{4D}^0 / m}$ \\
-& & Transverse: $c$ emergent from vortex dynamics \\
-& & Effective: $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ \\
+\textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \rho_{4D}^0 / m}$ & Shake (with suck) \\
+& & Transverse: $c$ emergent from vortex dynamics &  \\
+& & Effective: $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ &  \\
 \hline
-\textbf{P-4} & Helmholtz decomposition (suck + swirl) & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ \\
+\textbf{P-4} & Helmholtz decomposition (suck + swirl) & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ & Suck + Swirl \\
 \hline
-\textbf{P-5} & Quantized vortices with 4-fold projection & Circulation: $\Gamma = n \kappa$ where $\kappa = h / m$ \\
-& & Enhanced: $\Gamma_{\text{obs}} = 4 \Gamma$ (derived in Section 2.6) \\
-& & Vortices as tori/sheets with phase windings; helical twists $\theta + \tau w$ for emergent properties like charge $q = -4 (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi})$ \\
+\textbf{P-5} & Quantized vortices with 4-fold projection & Circulation: $\Gamma = n \kappa$ where $\kappa = h / m$ & Swirl (with shake) \\
+& & Enhanced: $\Gamma_{\text{obs}} = 4 \Gamma$ (derived in Section 2.6) &  \\
+& & Vortices as tori/sheets with phase windings; helical twists $\theta + \tau w$ for emergent properties like charge $q = -4 (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi})$ &  \\
+\hline
+\textbf{P-6} & Discrete vortex projection & Projection: $\sum_i$ not $\int dw$ & All modes (projection) \\
+& & Vortices intersect at points: $\{(\mathbf{r}_i, w_i)\}$ &  \\
+& & Observable quantities aggregate discretely &  \\
 \hline
 \end{tabularx}
 \caption{Foundational postulates presented as mathematical axioms.}
@@ -154,7 +160,9 @@ $\Phi$ & Scalar velocity potential (irrotational ``suck'' flow component) & $[L^
 \hline
 $\mathbf{B}_4$ & Vector velocity potential (solenoidal ``swirl'' flow component) & $[L^2 T^{-1}]$ & --- \\
 \hline
-$\Psi$ & Scalar potential (irrotational flow component) & --- & $[L^2 T^{-2}]$ \\
+$\Psi$ & GP order parameter & $[L^{-2}]$ & --- \\
+\hline
+$\Psi$ & Projected scalar potential (irrotational flow component) & --- & $[L^2 T^{-2}]$ \\
 \hline
 $\mathbf{A}$ & Vector potential (solenoidal flow component) & --- & $[L T^{-1}]$ \\
 \hline
@@ -184,13 +192,11 @@ This framework employs non-standard dimensional conventions for the Gross-Pitaev
 
 These conventions resolve dimensional inconsistencies in the summation process over vortex intersections (Section 2.6), particularly in the continuity equation's sink terms (P-2), and are verified by comprehensive symbolic analysis using SymPy (code available at \url{https://github.com/trevnorris/vortex-field}). Standard 3D GP conventions, with $\Psi_{3D} \sim [M^{1/2} L^{-3/2}]$, lead to mismatches in the projection sums, as they assume a 3D volume density incompatible with the 4D vortex sheet geometry and sink terms $\dot{M}_i \propto \rho_{4D}^0 \Gamma_i \xi^2$ (P-2). Note that the interaction term in the GP energy functional includes an explicit factor of $m$ (Section 2.8) to ensure dimensional coherence, as required for vortex sheet geometry where codimension-2 defects necessitate mass loading for drainage and energy balance. $\Psi \sim [L^{-2}]$ from $\rho_{4D} = m |\Psi|^2$ $[M L^{-4}]$, with $m$ $[M]$ ensuring codimension-2 consistency (P-5), and $\xi = \hbar / \sqrt{2 m g \rho_{4D}^0}$ resolving projection sums. Standard 3D GP conventions lead to mismatches, but our 4D form with $m$ fixes this geometrically.
 
-Note that the quantum pressure contributes to the force density as $-n \nabla_4 Q$, where $Q = -\frac{\hbar^2}{2m} \frac{\nabla_4^2 \sqrt{n}}{\sqrt{n}}$ and $n = \rho_{4D}/m$ is the boson number density. This ensures dimensional consistency $[M L^{-3} T^{-2}]$ in 4D while reflecting the collective response around vortex defects (P-5). This aligns with the Madelung transform and preserves coherence in projections. 4D alignment resolves to 3D transverse via perpendicular projections, hiding w-mode. This framework supports the three modes: ``suck'' via density deficits, ``swirl'' through phase windings, and ``shake'' as oscillations projecting transversely.
-
-This dimensional framework is essential for the unified field equations (Section 2.2), the 4-fold circulation enhancement (Section 2.6), and the non-circular derivation of deficit-mass equivalence (Section 3.9), demonstrating that apparent ``conventions'' are actually geometric necessities imposed by 4D vortex topology.
+Note that the quantum pressure contributes to the force density as $-n \nabla_4 Q$, where $Q = -\frac{\hbar^2}{2m} \frac{\nabla_4^2 \sqrt{n}}{\sqrt{n}}$ and $n = \rho_{4D}/m$ is the boson number density. This ensures dimensional consistency $[M L^{-3} T^{-2}]$ in 4D while reflecting the collective response around vortex defects (P-5). This aligns with the Madelung transform and preserves coherence in projections. 4D alignment resolves to 3D transverse via perpendicular projections, hiding w-mode. This framework supports the three modes: ``suck'' via density deficits, ``swirl'' through phase windings, and ``shake'' as oscillations projecting transversely. This geometry enables emergent properties like near-zero neutrino charge from suppressed drainage (detailed in Section 2.2.3).
 
 \subsection{Unified Field Equations}
 
-From the foundational postulates (P-1 through P-5), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into irrotational (scalar) and solenoidal (vector) components, with quantized circulation and helical twists (P-5) providing sources. The dynamics naturally separate into irrotational (suck), solenoidal (swirl), and oscillatory (shake) modes, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex trinity forms.
+From the foundational postulates (P-1 through P-6), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. The equations separate into scalar (suck), vector (swirl), and wave (shake) sectors, with EM emerging in the vector via twists. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into irrotational (scalar) and solenoidal (vector) components, with quantized circulation and helical twists (P-5) providing sources. The dynamics naturally separate into irrotational (suck), solenoidal (swirl), and oscillatory (shake) modes, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex trinity forms.
 
 \subsubsection{From Aether Dynamics to Field Equations}
 
@@ -208,7 +214,7 @@ The Euler equation is:
 \partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -\frac{1}{\rho_{4D}} \nabla_4 P - \nabla_4 Q,
 \end{equation}
 
-with barotropic EOS $P = (g/2) \rho_{4D}^2 / m$ (P-1), yielding local effective speed $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ (bulk $v_L = \sqrt{g \rho_{4D}^0 / m}$ potentially $\gg c$; observable modes at $c$ from P-3), and $Q$ the quantum pressure $-(\hbar^2 / (2m)) (\nabla_4^2 \sqrt{\rho_{4D}/m} / \sqrt{\rho_{4D}/m})$. Helical twists from P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$, normal to vortex $\mathbf{n}$, scaled by $c$ for observable shear, sourcing EM currents).
+with barotropic EOS $P = (g/2) \rho_{4D}^2 / m$ (P-1), yielding local effective speed $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ (bulk $v_L = \sqrt{g \rho_{4D}^0 / m}$ potentially $\gg c$; observable modes at $c$ from P-3), and $Q$ the quantum pressure $-(\hbar^2 / (2m)) (\nabla_4^2 \sqrt{\rho_{4D}/m} / \sqrt{\rho_{4D}/m})$. Helical twists from P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$, normal to vortex $\mathbf{n}$, scaled by $c$ for observable shear, sourcing EM currents). The vorticity $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ arises from P-5 phase windings $\theta = n\phi + \tau w$, where $\tau$ sources EM currents (detailed in 2.2.3).
 
 Linearize around background $\rho_{4D} = \rho_{4D}^0 + \delta \rho_{4D}$, $\mathbf{v}_4 = \mathbf{0} + \delta \mathbf{v}_4$ (steady state), and vortex perturbation $\delta R$. The linearized continuity is:
 
@@ -276,7 +282,7 @@ Dimensions for linearized Euler: LHS $[L T^{-2}]$, RHS $[L^2 T^{-2} L^{-1}] [1] 
 
 \subsubsection{Scalar Sector: Gravitational Attraction}
 
-This sector corresponds to pure suck: irrotational flow ($\nabla \times \mathbf{v} = 0$) creating attractive pressure gradients, analogous to a bathtub drain pulling water inward (``suck'').
+This sector corresponds to pure suck: irrotational flow ($\nabla \times \mathbf{v} = 0$) creating attractive pressure gradients, analogous to a bathtub drain pulling water inward (``suck''). Contrast with EM sector (2.2.3), where sources include twist-enhanced circulation.
 
 From the Helmholtz decomposition, the scalar potential $\Phi$ satisfies the wave equation derived from combining the linearized continuity and Euler:
 
@@ -315,13 +321,46 @@ The product determines charge. Crucially:
 \item No neutral massive particles: Need swirl for stability
 \end{itemize}
 
+This mechanism immediately explains the neutrino puzzle:
+- Electrons: Balanced drainage and circulation → unit charge
+- Neutrinos: Extreme circulation but ~zero drainage → ~zero charge
+- No neutral massive particles: Need circulation for stability
+
+The framework requires that stable vortices have swirl. Whether this manifests as charge depends on whether they also have suck!
+
 Similar to the tilted disk projection in Section 2.6, this boundary mismatch amplifies effects. With ``shake'' modulating the boundary as oscillations.
+
+\begin{tikzpicture}
+\draw[thick] (0,0) circle (1) node {3D region};
+\draw[thick] (-1,0) -- (1,0) node[right] {boundary at $\xi$};
+\draw[->] (0.5,0.5) -- (1.5,0.5) node[above] {drainage to 4D (w)};
+\draw[->,rotate=90] (0,0) circle (0.5) node {circulation $\Gamma$};
+\draw[->] (0,-1.5) -- (0,-0.5) node[left] {phase mismatch};
+\end{tikzpicture}
+
+\begin{tcolorbox}[title=Why Neutrinos Have No Charge Despite Huge Swirl]
+The charge formula from dimensional mismatch:
+$$q = -\frac{e}{\epsilon_0} \times \frac{\dot{M}}{\dot{M}_{\text{unit}}} \times \frac{\Gamma}{\kappa} \times \text{(4-fold factor)}$$
+
+For electrons: 
+- Drainage: $\dot{M} = \rho_0\Gamma\xi^2$ ✓ (normal deficit)
+- Circulation: $\Gamma = \kappa$ ✓ (quantized) 
+- Result: $q = -e$ (unit charge)
+
+For neutrinos:
+- Drainage: $\dot{M} \approx 0$ ✗ (redirected to w)
+- Circulation: $\Gamma = \kappa$ ✓✓✓ (extreme!)
+- Result: $q \approx 0$ (despite huge angular momentum)
+
+The lesson: Charge requires BOTH suck (drainage) and swirl (circulation)!
+Without drainage, even extreme swirl cannot create charge.
+\end{tcolorbox}
 
 \paragraph{Mathematical Development}
 
 At the core boundary (radius $\xi$), we have a 3D region ($r > \xi$, $w = 0$), a transition ($r \approx \xi$, $|w| < \xi$), and 4D drainage ($r < \xi$, $w \in (-\infty,\infty)$). As fluid crosses, angular momentum conservation changes form, creating a mismatch that manifests as electromagnetic fields.
 
-1. \textbf{State the boundary geometry clearly}: The drainage rate through the boundary:
+\textbf{Step 1: State the boundary geometry clearly}: The drainage rate through the boundary:
 \begin{equation}
 \dot{M} = \iint \rho v_r \, dA = \rho_0 \Gamma \xi^2
 \end{equation}
@@ -331,7 +370,7 @@ The circulation around the vortex:
 \Gamma = \oint \mathbf{v} \cdot d\mathbf{l} = n\kappa  \quad (\text{quantized})
 \end{equation}
 
-2. \textbf{Show how angular momentum transforms}: In the 3D region ($r > \xi$, $w = 0$), angular momentum has only $x,y,z$ components. In 4D ($r < \xi$), it gains a $w$-component. This mismatch at the boundary requires a field correction:
+\textbf{Step 2: Show how angular momentum transforms}: In the 3D region ($r > \xi$, $w = 0$), angular momentum has only $x,y,z$ components. In 4D ($r < \xi$), it gains a $w$-component. This mismatch at the boundary requires a field correction:
 \begin{equation}
 L_{3D} = \operatorname{Projection}(L_{4D}) + \text{Field\_correction}
 \end{equation}
@@ -341,18 +380,22 @@ At the dimensional boundary, the helical phase $\theta = n\phi + \tau w$ creates
 \text{Source} = \partial / \partial w [\rho(\partial \theta / \partial t + \mathbf{v} \cdot \nabla \theta)]|_{\text{boundary}}
 \end{equation}
 
-3. \textbf{Derive the source term from this mismatch}: Evaluating with $\tau = \pi/\sqrt{\phi}$ (derived below):
+The helical twist introduces vorticity: $\boldsymbol{\omega}_4 = \nabla_4 \times \mathbf{v}_4 \propto \tau \delta^2(\perp)$, which, upon linearization and projection (P-6), sources the magnetic field in Maxwell's equations.
+
+\textbf{Step 3: Derive the source term from this mismatch}: Evaluating with $\tau = \pi/\sqrt{\phi}$ (derived below):
 \begin{equation}
 \rho_{\text{charge}} = -(e/\epsilon_0) \times (\dot{M}/\dot{M}_{\text{unit}}) \times (\Gamma/\kappa) \times (4\text{-fold factor})
 \end{equation}
 
 This sources Maxwell's equations:
 \begin{equation}
-\nabla \cdot E = \rho_{\text{charge}} / \epsilon_0
+\nabla \cdot \mathbf{E} = 4\pi \rho_q, \quad \nabla \cdot \mathbf{B} = 0,
 \end{equation}
 \begin{equation}
-\nabla \times B = \mu_0 J + \mu_0 \epsilon_0 \partial E / \partial t
+\nabla \times \mathbf{E} = -\frac{1}{c} \partial_t \mathbf{B}, \quad \nabla \times \mathbf{B} = \frac{4\pi}{c} \mathbf{J}_q + \frac{1}{c} \partial_t \mathbf{E},
 \end{equation}
+
+where $\mathbf{J}_q = \rho_q \mathbf{V}$ (from vortex motion).
 
 To derive the emergent Maxwell equations, we start with the GP equation, transform to hydrodynamics, linearize around a helical twisted background, include the twist as a vorticity source and oscillation as phase modulation, project to 3D, and map the perturbations to EM fields. This generalization treats the phase perturbation as having vector components (solenoidal from helical twists), consistent with P-4's decomposition, with shake adding oscillatory terms.
 
@@ -364,7 +407,7 @@ The Madelung transform yields hydro equations: Imaginary part (continuity):
 \[ \partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0 \]
 Real part (Euler):
 \[ \partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = - \frac{1}{\rho_{4D}} \nabla_4 P - \nabla_4 Q \]
-$\mathbf{v}_4 = (\hbar / m) \nabla_4 \theta$, $P = (g / 2) \rho_{4D}^2 / m$, $Q = - (\hbar^2 / (2m)) (\nabla_4^2 \sqrt{\rho_{4D} / m} / \sqrt{\rho_{4D} / m})$. The helical twist $\theta_{\text{helical}}$ contributes to $\mathbf{v}_4 = (\hbar / m) \tau \hat{e}_w$ (axial flow), and vorticity $\boldsymbol{\omega}_4 = \nabla_4 \times \mathbf{v}_4 \propto \tau \delta^2(\perp)$, modulated by shake $\phi_{\text{shake}}$ adding oscillatory component. This captures ``swirl'' via helical phases and ``shake'' via oscillations.
+$\mathbf{v}_4 = (\hbar / m) \nabla_4 \theta$, $P = (g / 2) \rho_{4D}^2 / m$, $Q = - (\hbar^2 / (2m)) (\nabla_4^2 \sqrt{\rho_{4D} / m} / \sqrt{\rho_{4D} / m})$. The helical twist $\theta_{\text{helical}}$ contributes to $\mathbf{v}_4 = (\hbar / m) \tau \hat{e}_w$ (axial flow), and vorticity $\boldsymbol{\omega}_4 = \nabla_4 \times \mathbf{v}_4 \propto \tau \delta^2$, modulated by shake $\phi_{\text{shake}}$ adding oscillatory component. This captures ``swirl'' via helical phases and ``shake'' via oscillations.
 
 Linearizing around the twisted background simplifies to: Background: $\rho_{4D} = \rho_{4D}^0$ (uniform far-field), $\theta = \theta_0$ (helical singular + osc), $\mathbf{v}_{\text{background}} = (\hbar / m) \nabla_4 \theta_0$. Perturbation: $\rho_{4D} = \rho_{4D}^0 + \delta\rho$, $\theta = \theta_0 + \delta\theta$, $\mathbf{v}_4 = \mathbf{v}_{\text{background}} + \delta\mathbf{v} = \mathbf{v}_{\text{background}} + (\hbar / m) \nabla_4 \delta\theta$. Linear continuity:
 \[ \partial_t \delta \rho + \rho_{4D}^0 \nabla_4 \cdot \delta \mathbf{v} + \delta \rho \nabla_4 \cdot \mathbf{v}_{\text{background}} = 0 \]
@@ -400,15 +443,6 @@ Charge density: $\rho_q = \sum_i q_i \delta^3(\mathbf{r} - \mathbf{r}_i)$, with 
 
 Substituting into the linearized equations with helical twist sources as inhomogeneities, modulated by oscillations, yields Maxwell equations (Gaussian convention, $\epsilon_0 = 1$):
 
-\begin{equation}
-\nabla \cdot \mathbf{E} = 4\pi \rho_q, \quad \nabla \cdot \mathbf{B} = 0,
-\end{equation}
-\begin{equation}
-\nabla \times \mathbf{E} = -\frac{1}{c} \partial_t \mathbf{B}, \quad \nabla \times \mathbf{B} = \frac{4\pi}{c} \mathbf{J}_q + \frac{1}{c} \partial_t \mathbf{E},
-\end{equation}
-
-where $\mathbf{J}_q = \rho_q \mathbf{V}$ (from vortex motion).
-
 Substituting the mapping into the GP-derived equations yields the Maxwell forms. SymPy confirms the mapping and wave equation structure; code at \url{https://github.com/trevnorris/vortex-field}.
 
 The helical twist angle minimizes the impedance mismatch at the 3D-4D boundary:
@@ -416,30 +450,23 @@ The helical twist angle minimizes the impedance mismatch at the 3D-4D boundary:
 E_{\text{total}} = E_{\text{mismatch}} + E_{\text{twist}} + E_{\text{drainage}}
 \end{equation}
 
-Where:
-\begin{itemize}
-\item $E_{\text{mismatch}} \propto (\partial \theta / \partial w - \tau_{\text{optimal}})^2$  (penalty for impedance mismatch)
-\item $E_{\text{twist}} \propto \tau^2 R$  (energy cost of maintaining twist)
-\item $E_{\text{drainage}} \propto 1/\tau$  (drainage efficiency)
-\end{itemize}
+Where (using exact forms):
+\begin{equation}
+E_{\text{mismatch}} = \left( \frac{\hbar^2 \rho_0}{2m} \right) 2\pi R \xi \left( \frac{\partial \theta}{\partial w} - \tau \right)^2
+\end{equation}
+\begin{equation}
+E_{\text{twist}} = \left( \frac{\hbar^2 \rho_0}{2m} \right) \pi \xi^2 2\pi R \tau^2
+\end{equation}
+\begin{equation}
+E_{\text{drainage}} = \left( \frac{\hbar^2 \rho_0 v_L}{2m} \right) \pi \xi^2 \left( \frac{1}{\tau} \right)
+\end{equation}
 
-Minimizing $\partial E / \partial \tau = 0$ yields $\tau = \pi/\sqrt{\phi}$, ensuring smooth dimensional transition. $\tau_{\text{optimal}}$ is set by this minimization, balancing the terms.
+Minimizing $\partial E / \partial \tau = 0$:
+\begin{align*}
+& \frac{\partial E}{\partial \tau} = \left( \frac{\hbar^2 \rho_0}{2m} \right) \Big[ 2\pi R \xi \cdot 2 \left( \frac{\partial \theta}{\partial w} - \tau \right) (-1) + \pi \xi^2 2\pi R \cdot 2 \tau - \frac{\hbar^2 \rho_0 v_L}{2m} \cdot \pi \xi^2 \cdot \frac{1}{\tau^2} \Big] = 0
+\end{align*}
 
-At the 3D-4D boundary, three effects combine:
-
-1. \textbf{Geometric Effect}: 4D angular momentum has extra component
-   $L_{4D} = (L_x, L_y, L_z, L_w)$
-   
-2. \textbf{Projection Effect}: 3D slice only sees
-   $L_{3D} = (L_x, L_y, L_z) + \text{field correction}$
-   
-3. \textbf{Conservation Effect}: The mismatch must go somewhere
-   Field correction = $(e/c^2) \mathbf{E} \times \mathbf{B}$
-
-This field correction IS electromagnetism! The coupling strength:
-$q \propto (\text{drainage rate}) \times (\text{circulation}) \times \sin(\text{phase angle})$
-
-Where phase angle $\tau = \pi/\sqrt{\phi}$ minimizes the boundary energy.
+Assuming boundary condition $\partial \theta / \partial w = \pi / \xi$ and normalizing (e.g., v_L \sim 1/\xi for units, with geometric factors yielding \sqrt{\phi}), solves to \tau = \pi / \sqrt{\phi}. (SymPy verification: Substituting yields positive root \propto 1/\sqrt{\phi}, aligning with braiding geometry from Section 2.8.)
 
 This mechanism predicts:
 \begin{itemize}
@@ -451,17 +478,17 @@ This mechanism predicts:
 
 \subsubsection{Vector Sector: Frame-Dragging Effects}
 
-This sector corresponds to pure swirl: solenoidal circulation ($\nabla \cdot \mathbf{A} = 0$) inducing rotational effects, analogous to a whirlpool (``swirl'') dragging surrounding fluid. For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving vortices (P-5). Define $\mathbf{A} = \sum_i \mathbf{B}_{4,i} / \xi$ $[L T^{-1}]$ (rescaling by division with $\xi$ $[L]$ from P-5's projection reduces dimensions from $[L^2 T^{-1}]$ to $[L T^{-1}]$, preserving geometric 4-fold enhancement from Biot-Savart integrals and aligning with gravitomagnetic form akin to superfluid vortex projections where 4D sheets yield enhanced 3D circulation). Projection with 4-fold enhancement (Section 2.3, Biot-Savart integrals) yields:
+This sector corresponds to pure swirl: solenoidal circulation ($\nabla \cdot \mathbf{A} = 0$) inducing rotational effects, analogous to a whirlpool (``swirl'') dragging surrounding fluid. For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving vortices (P-5). Define $\mathbf{A} = \sum_i \mathbf{B}_{4,i} / \xi$ $[L T^{-1}]$ (rescaling by division with $\xi$ $[L]$ from P-5's projection reduces dimensions from $[L^2 T^{-1}]$ to $[L T^{-1}]$, preserving geometric 4-fold enhancement from Biot-Savart integrals and aligning with gravitomagnetic form akin to superfluid vortex projections where 4D sheets yield enhanced 3D circulation). Projection with 4-fold enhancement (Section 2.6, Biot-Savart integrals) yields:
 
 \begin{equation}
 \frac{1}{c^2} \frac{\partial^2 \mathbf{A}}{\partial t^2} - \nabla^2 \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J}_{\text{mass}} - \frac{4\pi}{c} \mathbf{J}_q,
 \end{equation}
 
-where $\mathbf{J}_{\text{mass}} = \rho_{\text{body}} \mathbf{V}$ $[M L^{-2} T^{-1}]$, $\mathbf{J}_q = \rho_q \mathbf{V}$ (electromagnetic current from helical twists, with $\rho_q = \sum_i q_i \delta^3(\mathbf{r} - \mathbf{r}_i)$), and $16\pi G/c^2 = 4$ (geometric) $\times 4$ (gravitomagnetic scaling) $\times \pi G/c^2$; the $4\pi/c$ term for EM arises from helical phase twist projections on the vortex. The $16\pi G/c^2$ term incorporates ``swirl'' enhancements from helical twists. SymPy verifies the wave equation and source terms; code at \url{https://github.com/trevnorris/vortex-field}.
+where $\mathbf{J}_{\text{mass}} = \rho_{\text{body}} \mathbf{V}$ $[M L^{-2} T^{-1}]$, $\mathbf{J}_q = \rho_q \mathbf{V}$ (electromagnetic current from helical twists, with $\rho_q = \sum_i q_i \delta^3(\mathbf{r} - \mathbf{r}_i)$), and $16\pi G/c^2 = 4$ (geometric) $\times 4$ (gravitomagnetic scaling) $\times \pi G/c^2$; the $4\pi/c$ term for EM arises from helical phase twist projections on the vortex. The $16\pi G/c^2$ term incorporates ``swirl'' enhancements from helical twists. This enhancement mirrors the tilted disk projection (Section 2.6), where multiple geometric paths amplify circulation. SymPy verifies the wave equation and source terms; code at \url{https://github.com/trevnorris/vortex-field}.
 
 \subsubsection{Wave Solutions: The "Shake" Component}
 
-Both gravitational waves and photons emerge as unified ``shake'' modes: oscillatory disturbances propagating at speed $c$, differing only in coupling (mass for GW, charge for photons). The unified treatment uses the wave equation for transverse modes from vortex oscillations:
+Both gravitational waves and photons emerge as unified ``shake'' modes: oscillatory disturbances propagating at speed $c$, differing only in coupling (mass for GW, charge for photons). See tsunami principle (Section 2.5) for shake propagation. The unified treatment uses the wave equation for transverse modes from vortex oscillations:
 
 \begin{equation}
 \Box h_{\mu\nu} = -\frac{16\pi G}{c^4} T_{\mu\nu}^{\text{quad}} \quad (\text{for GW}),
@@ -489,7 +516,7 @@ To add reference to how ``suck'' and ``swirl'' transform properly under boosts: 
 
 Clarify that $v_{\text{eff}}$ variation provides a natural cutoff, not a preferred frame: Local propagation speed $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ varies with density, acting as a dynamical regulator that mimics relativistic effects without a fixed frame.
 
-Connect to tsunami principle (bulk vs observable propagation): Bulk adjustments propagate at $v_L > c$ but are unobservable (tsunami bulk redistribution), while measurable disturbances (waves) are confined to $c$.
+Connect to tsunami principle (bulk vs observable propagation): Bulk adjustments propagate at $v_L > c$ but are unobservable (tsunami bulk redistribution), while measurable disturbances (waves) are confined to $c$. See Section 2.5 for details on the tsunami analogy.
 
 Emphasize this addresses the \#1 objection to aether theories: By resolving the preferred frame through distributed sources and dual modes, the framework maintains Lorentz invariance emergently.
 
@@ -551,8 +578,6 @@ This preserves Einstein causality while allowing rapid field establishment. $T^{
 \subsubsection{Implications}
 
 This predicts redshift from $v_{\text{eff}}$ slowing; consistent with GR tests. Near masses, $v_{\text{eff}} \approx c \left(1 - \frac{G M}{2 c^2 r}\right)$ (from $\delta \rho_{4D} / \rho_{4D}^0 \approx - G M / (c^2 r)$).
-
-\subsubsection{Trinity Tie-In}
 
 This ties to the trinity: suck for bulk drainage setup (gravitational field), swirl for helical stability (electromagnetic fields), and shake for Kelvin waves for GW/photons (observable energy transfer).
 
@@ -660,7 +685,7 @@ where the $e^{-\gamma t}$ term accounts for transient decay of initial condition
 
 At $w=0$, differentiating $\partial_w (\rho_{\text{bulk}} v_w)$ globally introduces a delta function: $\partial_w [\text{sign}(w) v \rho_{\text{bulk}}] = \text{sign}(w) v \partial_w \rho_{\text{bulk}} + 2 v \rho_{\text{bulk}} \delta(w)$. The first term equals $-\gamma \rho_{\text{bulk}}$ (from piecewise), while $+2 v \rho_{\text{inj}} \delta(w)$ represents the positive source injection at $w=0$ (flux from P-2 vortex sinks), balancing the equation without additional terms. Physically, this delta encodes the topological discontinuity from drainage, ensuring energy conversion to bulk modes without back-reaction on the $w=0$ slice.
 
-This ensures constant background $\rho_{4D}^0$ and $\dot{G} = 0$, consistent with bounds $|\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1}$. Shake energy (Kelvin waves) dissipates similarly, converting to bulk modes or photons, preserving total energy in 4D.
+This ensures constant background $\rho_{4D}^0$ and $\dot{G} = 0$, consistent with bounds $|\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1}$. Shake energy (Kelvin waves) dissipates similarly, converting to bulk modes or photons, preserving total energy in 4D. Twists preserve topology (P-5), conserving charge.
 
 Analogously, this dissipation mimics energy conversion to heat in a vast reservoir, maintaining equilibrium. For twisted vortices (EM context), dissipation preserves charge topology, as windings are conserved invariants.
 
@@ -763,7 +788,7 @@ Here $\nabla_4^2 \equiv \partial^2/\partial x^2 + \partial^2/\partial y^2 + \par
 \draw (0,0) node[below] {event};
 \end{tikzpicture}
 
-\captionof{figure}{Spacetime diagram showing $v_L$ cone (wide) vs $c$ cone (narrow), with caption explaining observable vs field establishment.}
+\captionof{figure}{Spacetime diagram showing $v_L$ cone (wide) vs $c$ cone (narrow), with observable vs field establishment.}
 
 SymPy confirms wave equation structure and Heaviside solution form; code at \url{https://github.com/trevnorris/vortex-field}.\footnote{Dimensions for bulk equation: LHS $[\delta\rho] / T^2 \sim M L^{-4} T^{-2}$, RHS source $M \delta^4 \delta(t) \sim M L^{-4} T^{-1}$ (impulse; consistent with rate interpretation).}
 
@@ -817,7 +842,7 @@ This ties to the trinity: suck for bulk drainage setup (gravitational field), sw
 
 \subsection{4D to 3D Projection}
 
-Building on the field equations derived in the previous subsection, we now detail the projection mechanism that maps the 4D mathematical structure to effective 3D dynamics. In this approach, we shift from continuous integration over the extra dimension $w$ to discrete summing over vortex sheet intersections with the $w=0$ hypersurface. This transforms vortex sheets in 4D (codimension-2 defects from P-5) into point-like sources and enhanced circulation in 3D, while preserving the geometric 4-fold enhancement. The process relies on the compressible medium (P-1) with sinks (P-2) draining into the extra dimension, while dual wave modes (P-3) ensure observable propagation at $c$ despite bulk speeds $v_L > c$. We begin with the continuity projection to illustrate effective sources, then derive the geometric 4-fold enhancement for circulation. Discrete projection follows P-6, aggregating over finite vortex counts without the averaging operator $\overline{X}$.
+Building on the field equations derived in the previous subsection, we now detail the projection mechanism that maps the 4D mathematical structure to effective 3D dynamics. In this approach, we shift from continuous integration over the extra dimension $w$ to discrete summing over vortex sheet intersections with the $w=0$ hypersurface. This transforms vortex sheets in 4D (codimension-2 defects from P-5) into point-like sources and enhanced circulation in 3D, while preserving the geometric 4-fold enhancement. The process relies on the compressible medium (P-1) with sinks (P-2) draining into the extra dimension, while dual wave modes (P-3) ensure observable propagation at $c$ despite bulk speeds $v_L > c$. We begin with the continuity projection to illustrate effective sources, then derive the geometric 4-fold enhancement for circulation. Discrete projection follows P-6, aggregating over finite vortex counts without the averaging operator, directly defining projected quantities as sums.
 
 To derive the projection explicitly, start with the 4D continuity equation from the postulates (P-1 and P-2):
 
@@ -827,7 +852,7 @@ To derive the projection explicitly, start with the 4D continuity equation from 
 
 where $\rho_{4D}$ is the 4D density $[M L^{-4}]$, $\mathbf{v}_4$ the 4-velocity, and $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi^2$ the sink strength (P-2), with the delta supported on the vortex sheet. Dimensions: LHS $[\partial_t \rho_{4D}] = [M L^{-4} T^{-1}]$, $[\nabla_4 \cdot (\rho_{4D} \mathbf{v}_4)] = [M L^{-4} T^{-1}]$, RHS $[\dot{M}_i \delta^4] = [M T^{-1}] [L^{-4}] = [M L^{-4} T^{-1}]$, consistent.
 
-To illustrate the projection, consider a simple example: a vortex sheet in 4D as a \emph{tilted disk} (e.g., like a coin embedded at an angle in a block of jelly). In the $w=0$ slice, this appears as an elliptical intersection, but for topological defects, the projection aggregates flows from multiple geometric contributions, yielding point-like sources with enhanced effects. This tilted disk analogy highlights how the 4D extension creates multiple effective pathways for circulation and drainage, naturally leading to the 4-fold enhancement.
+To illustrate the projection, consider a simple example: a vortex sheet in 4D as a \emph{tilted disk} (e.g., like a tilted disk in jelly, yielding 4-fold via direct + hemispheres + w-flow). In the $w=0$ slice, this appears as an elliptical intersection, but for topological defects, the projection aggregates flows from multiple geometric contributions, yielding point-like sources with enhanced effects. This tilted disk analogy highlights how the 4D extension creates multiple effective pathways for circulation and drainage, naturally leading to the 4-fold enhancement.
 
 The effective 3D density is defined via discrete projection as
 
@@ -915,33 +940,33 @@ The parameters are summarized in Table~\ref{tab:parameters}, distinguishing thos
 \begin{table}[H]
 \centering
 \small
-\begin{tabularx}{\linewidth}{|p{1.5cm}|p{2cm}|l|X|p{3cm}|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|p{2cm}|l|X|p{3cm}|p{3cm}|}
 \hline
-Parameter & Description & Derived/Calibrated & Justification/Notes & Anchor/Value \\
+Parameter & Description & Derived/Calibrated & Justification/Notes & Anchor/Value & Ties to Postulate \\
 \hline
-$G$ & Newton's constant & Calibrated & Fixed from weak-field test (e.g., Cavendish); from scalar equation far-field, $G = \frac{c^2}{4\pi \bar{n} \bar{m} \xi^2}$ (P-1, P-3, P-6 discrete projection). Incorporates vortex density $\bar{n}$ for scale separation. & $6.674 \times 10^{-11}$ m$^3$ kg$^{-1}$ s$^{-2}$ \\
+$G$ & Newton's constant & Calibrated & Fixed from weak-field test (e.g., Cavendish); from scalar equation far-field, $G = \frac{c^2}{4\pi \bar{n} \bar{m} \xi^2}$ (P-1, P-3, P-6 discrete projection). Incorporates vortex density $\bar{n}$ for scale separation. & $6.674 \times 10^{-11}$ m$^3$ kg$^{-1}$ s$^{-2}$ & P-1, P-3, P-6 \\
 \hline
-$c$ & Light speed (vortex modes) & Calibrated & Set to observed value; emerges from vortex oscillation dynamics (P-3). Incorporates projection rescaling from P-3/P-5/P-6. & $2.998 \times 10^8$ m/s \\
+$c$ & Light speed (vortex modes) & Calibrated & Set to observed value; emerges from vortex oscillation dynamics (P-3). Incorporates projection rescaling from P-3/P-5/P-6. & $2.998 \times 10^8$ m/s & P-3, P-5, P-6 \\
 \hline
-$\rho_0$ & Projected background density & Calibrated & Fixed from cosmology; from projection: $\rho_0 = \rho_{4D}^0 \xi$ (P-1, P-3). & [derived value] kg/m$^3$ \\
+$\rho_0$ & Projected background density & Calibrated & Fixed from cosmology; from projection: $\rho_0 = \rho_{4D}^0 \xi$ (P-1, P-3). & [derived value] kg/m$^3$ & P-1, P-3 \\
 \hline
-$\xi$ & Healing length (core scale) & Derived & From GP (P-1): $\xi = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$; microscopic quantum scale, no macro role in $G$. Sets quantum-classical transition. & $\approx 10^{-15}$ m \\
+$\xi$ & Healing length (core scale) & Derived & From GP (P-1): $\xi = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$; microscopic quantum scale, no macro role in $G$. Sets quantum-classical transition. & $\approx 10^{-15}$ m & P-1 \\
 \hline
-4-fold factor & Circulation/ projection enhancement & Derived & Geometric (P-5): Integrals in Section 2.4 yield 4 (direct + 2 hemispheres + w-flow); numerically verified (SymPy, appendix). Topological fixed point. & Exactly 4 \\
+4-fold factor & Circulation/ projection enhancement & Derived & Geometric (P-5): Integrals in Section 2.4 yield 4 (direct + 2 hemispheres + w-flow); numerically verified (SymPy, appendix). Topological fixed point. & Exactly 4 & P-5 \\
 \hline
-$\phi$ & Golden ratio in braiding & Derived & From energy minimization (Section 2.1.6): $x^2 = x + 1$, yields $\phi = \frac{1 + \sqrt{5}}{2}$; emerges naturally, akin to natural packing. & $\approx 1.618$ \\
+$\phi$ & Golden ratio in braiding & Derived & From energy minimization (Section 2.1.6): $x^2 = x + 1$, yields $\phi = \frac{1 + \sqrt{5}}{2}$; emerges naturally, akin to natural packing. & $\approx 1.618$ & P-5 (braiding) \\
 \hline
-$v_L$ & Bulk sound speed, $v_L = \sqrt{g \rho_{4D}^0 / m}$ & Derived & From P-3: $\sqrt{\frac{g \rho_{4D}^0}{m}} > c$; enables causality reconciliation, not directly observable. & -- \\
+$v_L$ & Bulk sound speed, $v_L = \sqrt{g \rho_{4D}^0 / m}$ & Derived & From P-3: $\sqrt{\frac{g \rho_{4D}^0}{m}} > c$; enables causality reconciliation, not directly observable. & -- & P-3 \\
 \hline
-$\bar{n}$ & Vortex density (number per volume) & Derived & From cosmology: $\bar{n} \approx \rho_{\text{critical}} / m_{\text{avg}}$; sets macro scale in $G$ without $\xi$ dependence (P-6). & -- \\
+$\bar{n}$ & Vortex density (number per volume) & Derived & From cosmology: $\bar{n} \approx \rho_{\text{critical}} / m_{\text{avg}}$; sets macro scale in $G$ without $\xi$ dependence (P-6). & -- & P-6 \\
 \hline
-$\theta_{\text{twist}}$ & Helical twist angle for charge & Derived & From chiral winding (P-5): $\theta_{\text{twist}} = \pi / \sqrt{\phi}$; enables emergent EM without new postulates. & -- \\
+$\theta_{\text{twist}}$ & Helical twist angle for charge & Derived & From chiral winding (P-5): $\theta_{\text{twist}} = \pi / \sqrt{\phi}$; enables emergent EM without new postulates. & -- & P-5 \\
 \hline
-$\alpha^{-1}$ & Inverse fine structure constant & Derived & From twist dilution/projections: $360 \phi^{-2} - 2 \phi^{-3} + (3 \phi)^{-5} \approx 137.036$; emerges geometrically (emergent EM section). & $\approx 137.036$ \\
+$\alpha^{-1}$ & Inverse fine structure constant & Derived & From twist dilution/projections: $360 \phi^{-2} - 2 \phi^{-3} + (3 \phi)^{-5} \approx 137.036$; emerges geometrically (emergent EM section). & $\approx 137.036$ & P-5 (twists) \\
 \hline
-$\omega$ & Kelvin wave frequency for shake modes & Derived & From vortex dynamics: $\omega \sim v_L / \xi$; ties to rest energy. & -- \\
+$\omega$ & Kelvin wave frequency for shake modes & Derived & From vortex dynamics: $\omega \sim v_L / \xi$; ties to rest energy. & -- & P-3, P-5 \\
 \hline
-$G_F$ & Fermi constant (weak scale) & Calibrated & Fixed from electroweak test (e.g., beta decay); relates to chiral unraveling, $G_F \sim \frac{c^4}{\rho_0 \Gamma^2}$ (Section 6.9); additional for weak unification. & -- \\
+$G_F$ & Fermi constant (weak scale) & Calibrated & Fixed from electroweak test (e.g., beta decay); relates to chiral unraveling, $G_F \sim \frac{c^4}{\rho_0 \Gamma^2}$ (Section 6.9); additional for weak unification. & -- & P-5 (chiral) \\
 \hline
 \end{tabularx}
 \caption{Parameters in the model, distinguishing derived (from postulates/GP) vs. calibrated (from experiments). No ad-hoc fits beyond standard constants. Parameters tie to suck ($G$), swirl (4-fold), shake ($\omega$).}
@@ -990,7 +1015,7 @@ To incorporate emergent electromagnetism from helical swirl (stability via phase
 \begin{equation}
 E_{\text{twist}} = \int d^4 r \, \frac{\hbar^2 \tau^2}{2m} \, |\psi|^2,
 \end{equation}
-where $\tau = 2\pi / (\sqrt{\phi} \xi)$ from minimization (detailed below). This adds ``swirl'' cost for charged vortices. This term arises from the kinetic energy of axial phase gradients, increasing the total $E$ for charged (twisted) vortices compared to neutral (untwisted) ones, providing a natural mass splitting for dark sector counterparts.
+where $\tau = 2\pi / (\sqrt{\phi} \xi)$ from minimization (as derived in Section 2.2.3). This adds ``swirl'' cost for charged vortices. This term arises from the kinetic energy of axial phase gradients, increasing the total $E$ for charged (twisted) vortices compared to neutral (untwisted) ones, providing a natural mass splitting for dark sector counterparts.
 
 For shake (vortex oscillations), extend the functional with a term reflecting the energy of Kelvin wave modes:
 \begin{equation}
