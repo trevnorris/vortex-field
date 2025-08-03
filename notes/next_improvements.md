@@ -23,33 +23,58 @@ Add a clear roadmap paragraph after the section title:
 
 ### 2.1 Foundational Postulates
 
-**Current issues**: Prose is dense, postulates buried in text, dimensional checks scattered
+**Current issues**: Prose is dense, postulates buried in text, dimensional checks scattered, non-standard Ψ dimensions unexplained
 
 **Improvements**:
-1. **Restructure postulates** as numbered box:
+1. **Add upfront box explaining dimensional choice**:
+   ```
+   \begin{tcolorbox}[title=Why Ψ ~ [L⁻²]: A Geometric Necessity]
+   Standard 3D GP theory uses Ψ ~ [M^{1/2} L^{-3/2}], but our 4D framework
+   requires Ψ ~ [L⁻²]. This isn't arbitrary—it's mathematically necessary:
+
+   • Vortices are 2D sheets in 4D (codimension-2 defects)
+   • These sheets intersect our 3D space at points
+   • Projection: ∫(2D sheet density) → Σ(3D point masses)
+   • Standard dimensions would break this projection
+
+   We explored adding physical membranes to explain this naturally, but
+   found the pure vortex approach cleaner. The dimension emerges from
+   projection geometry, like how string theory requires specific dimensions
+   for consistency.
+
+   With our convention: ρ₄D = m|Ψ|² works perfectly for sheet→point projection.
+   \end{tcolorbox}
+   ```
+
+2. **Restructure postulates** as numbered box:
    ```
    \begin{tcolorbox}
    \textbf{Postulate 1 (Medium):} 4D compressible superfluid with GP dynamics
    → Enables vortex cores with characteristic scale ξ
-   
-   \textbf{Postulate 2 (Sources):} Vortices drain into extra dimension  
+   → Uses Ψ ~ [L⁻²] for codimension-2 consistency
+
+   \textbf{Postulate 2 (Sources):} Vortices drain into extra dimension
    → Creates observable mass via density deficits
-   
+   → Sink strength Ṁᵢ = ρ₄D⁰ Γᵢ ξ² has correct [M T⁻¹]
+
    [etc...]
    \end{tcolorbox}
    ```
 
-2. **Add dimensional verification box** after P-3:
+3. **Add dimensional verification box** after P-3:
    ```
    \begin{tcolorbox}[title=Dimensional Check]
    vL = √(gρ/m): [L⁶T⁻²][ML⁻⁴][M⁻¹] = [LT⁻¹] ✓
    ξ = ℏ/√(2mgρ): [ML²T⁻¹]/([M][L⁶T⁻²][ML⁻⁴])^½ = [L] ✓
+   Ṁ = ρΓξ²: [ML⁻⁴][L²T⁻¹][L²] = [MT⁻¹] ✓
+   ρ₃D = ρ₄D·ξ: [ML⁻⁴][L] = [ML⁻³] ✓
    \end{tcolorbox}
    ```
 
-3. **Clarify ocean/tsunami analogy** upfront:
+4. **Clarify ocean/tsunami analogy** upfront:
    - Add simple diagram showing bulk vs surface propagation
    - Reference back when explaining dual speeds
+   - Emphasize: same medium, different physics (not membrane+bulk)
 
 ### 2.2 Derivation of Field Equations
 
@@ -58,7 +83,7 @@ Add a clear roadmap paragraph after the section title:
 **Improvements**:
 1. **Split into subsections**:
    - 2.2.1 Kinematic Structure (continuity, flux)
-   - 2.2.2 Dynamic Evolution (Euler, forces)  
+   - 2.2.2 Dynamic Evolution (Euler, forces)
    - 2.2.3 Emergence of Electromagnetic Terms
    - 2.2.4 Unified Field Equations
 
@@ -82,16 +107,32 @@ Add a clear roadmap paragraph after the section title:
 **Current issues**: Term undefined initially, no visual aid, unclear wave equation notation
 
 **Improvements**:
-1. **Define immediately**: 
+1. **Define immediately**:
    "We call bulk density adjustments propagating at vL > c 'tsunamis'—they establish fields rapidly but remain unobservable, like ocean depth changes vs surface waves."
 
-2. **Add spacetime diagram**:
+2. **Add clarification box**:
    ```
-   [Simple figure showing vL cone (wide) vs c cone (narrow) 
+   \begin{tcolorbox}[title=Why Two Speeds Without Membranes]
+   Early versions of this framework added physical membranes at vortex cores
+   to explain c ≠ vL. We discovered this was unnecessary—the same 4D medium
+   naturally supports two propagation modes:
+
+   • Bulk density waves: Entire medium responds (speed vL)
+   • Vortex oscillations: Kelvin waves on defects (speed c)
+
+   Like how ocean water supports both pressure waves (fast, through bulk)
+   and surface waves (slower, confined to interface), no separate structures
+   needed!
+   \end{tcolorbox}
+   ```
+
+3. **Add spacetime diagram**:
+   ```
+   [Simple figure showing vL cone (wide) vs c cone (narrow)
     with caption explaining observable vs field establishment]
    ```
 
-3. **Clarify ∇₄²**: 
+4. **Clarify ∇₄²**:
    "Here ∇₄² ≡ ∂²/∂x² + ∂²/∂y² + ∂²/∂z² + ∂²/∂w² acts on all four spatial coordinates"
 
 ### 2.4 The 4D to 3D Projection Mechanism
@@ -118,9 +159,9 @@ Add a clear roadmap paragraph after the section title:
    \begin{tcolorbox}[title=Parameter Values]
    CALIBRATED (from observation):
    • G = 6.674 × 10⁻¹¹ m³ kg⁻¹ s⁻²
-   • c = 2.998 × 10⁸ m/s  
+   • c = 2.998 × 10⁸ m/s
    • ρ₀ = [derived value] kg/m³
-   
+
    DERIVED (from postulates):
    • ξ ≈ 10⁻¹⁵ m (Planck-scale)
    • 4-fold factor: Exactly 4 (geometric)
@@ -169,7 +210,7 @@ Add a clear roadmap paragraph after the section title:
 
 4. **Add flowchart**:
    ```
-   Distributed sources → No global rest frame → Local balance points 
+   Distributed sources → No global rest frame → Local balance points
    → Emergent inertial frames → Lorentz invariance preserved
    ```
 
@@ -207,7 +248,7 @@ Add a clear roadmap paragraph after the section title:
    Topology    | Example  | Properties
    ------------|----------|-------------
    Torus       | Electron | Stable, charge ±e
-   Linked tori | Neutrino | Neutral, oscillates  
+   Linked tori | Neutrino | Neutral, oscillates
    Braided     | Proton   | Confined quarks
    ```
 
@@ -228,7 +269,7 @@ Every dense paragraph should follow:
 ### Equation Highlighting
 For each subsection, identify 2-3 "keystone" equations:
 - Box them with `\empheq`
-- Number prominently  
+- Number prominently
 - Reference throughout
 
 ### Cross-References
@@ -244,11 +285,15 @@ Keep all analogies but structure as:
 
 1. **Implement improvements** subsection by subsection
 2. **Run SymPy verification** on all derivations
-3. **Add diagrams** for tsunami principle and 4-fold enhancement  
+3. **Add diagrams** for tsunami principle and 4-fold enhancement
 4. **Final pass**: Move lengthy derivations to appendix
 5. **Polish**: Ensure every equation is dimensionally verified
 
 The goal: Make Section 2 a clear bridge from postulates to predictions, where even complex mathematics feels inevitable rather than imposed.
+
+## Key Message About Dimensional Choice
+
+Throughout revisions, emphasize that Ψ ~ [L⁻²] isn't arbitrary but geometrically required for codimension-2 defects projecting to 3D. This unusual choice actually validates the framework—it emerges from mathematical consistency, not fitting. Like how Maxwell's displacement current was "weird" but necessary for consistency, leading to the prediction of electromagnetic waves.
 
 
 ## Additional Clarifications on Key Issues:
