@@ -6,6 +6,7 @@ This section develops a mathematical framework exploring how gravitational and e
 \item Yields exact geometric results (e.g., 4-fold circulation enhancement)
 \item Makes specific, testable predictions
 \item Offers novel perspectives on longstanding puzzles, including rotation-magnetism correlations validated by black hole astrophysics (e.g., Kerr BHs show strong magnetic fields scaling with spin parameter $a$, absent in non-rotating Schwarzschild)
+\item The framework also incorporates photon-like modes in SHAKE to maintain vortex stability, yielding $E=mc^2$ as the energy required against collapse
 \end{itemize}
 Particles emerge as stable patterns of aether flow around topological defects (vortices), not inherent objects but processes---unifying attributes under fluid dynamics. The dynamics naturally separate into five fundamental modes: \textbf{SUCK} (irrotational flow creating attractive pressure gradients for gravity), \textbf{SHAKE} (circulation at speed $c$ maintaining vortex stability and rest energy $E=mc^2$), \textbf{SWIRL} (4D helical spiral motion sourcing EM via phase structure), \textbf{DRAG} (3D frame-dragging effects indicating rotation), and \textbf{WAVE} (oscillatory modes carrying energy as waves, distinguishing 3D gravitational waves from 4D-stabilized photons). Certain elements, particularly the mechanism for electromagnetic emergence (Section 2.3), remain preliminary and are presented as working hypotheses consistent with the mathematical structure, with conceptual refinements via SWIRL's helical meshing/clashing for attraction/repulsion.
 
@@ -54,6 +55,8 @@ The $4D\to3D$ projection of codimension-2 defects necessitates non-standard dime
 \item Standard 3D conventions $[M^{1/2} L^{-3/2}]$ fail at vortex intersections
 \end{enumerate}
 
+Note that this differs from the standard 3D GP scaling of $[L^{-3/2}]$ (or with mass $[M^{1/2} L^{-3/2}]$), as it reflects the codimension-2 defects in 4D appearing surface-like, ensuring consistent projection to 3D points without extraneous mass dimensions. This choice is verified dimensionally in Table \ref{tab:notation} and supports the quintet modes, e.g., SWIRL's helical phase projecting to EM.
+
 This unconventional choice ensures dimensional consistency throughout the projection mechanism (detailed in Section 2.7) and has been verified through comprehensive symbolic analysis. This scaling supports quintet modes, e.g., SWIRL's helical phase in 4D sheets projecting to 3D EM, DRAG's enhanced circulation.
 
 \subsubsection{The Six Postulates}
@@ -61,7 +64,7 @@ This unconventional choice ensures dimensional consistency throughout the projec
 We postulate a mathematical structure with these properties and explore its consequences. These axioms provide a compressible 4D medium (P-1) with sources via vortex sinks (P-2), distinct propagation modes (P-3) to handle effective speeds mathematically, flow decomposition (P-4) separating scalar and vector components, quantized topological features (P-5) with geometric enhancements including phase windings for emergent properties, and discrete vortex projection (P-6) yielding particle-like sources in 3D. The dual modes in P-3 are particularly noteworthy: longitudinal waves in the bulk may propagate at speeds potentially exceeding the emergent transverse speed $c$, but observable effects are confined to $c$ through projections, preserving mathematical consistency with causality (detailed in later subsections). All equations have been dimensionally verified using SymPy, ensuring internal coherence.
 
 \begin{tcolorbox}
-\textbf{Postulate 1 (Compressible 4D medium with GP dynamics):} Physically, this provides the basic ``ocean'' medium where vortices can form, with compressibility allowing density deficits that mimic mass. Mathematically: Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$; Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$; Barotropic EOS: $P = (g/2) \rho_{4D}^2 / m$. The continuity equation ensures mass conservation in the 4D medium, while Euler describes momentum balance, with ``SUCK'' dominating pressure gradients.
+\textbf{Postulate 1 (Compressible 4D medium with GP dynamics):} Physically, this provides the basic ``ocean'' medium where vortices can form, with compressibility allowing density deficits that mimic mass. Mathematically: Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$; Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$; Barotropic EOS: $P = (g/2) \rho_{4D}^2/m$. The continuity equation ensures mass conservation in the 4D medium, while Euler describes momentum balance, with ``SUCK'' dominating pressure gradients.
 
 \textbf{Postulate 2 (Vortex sinks drain into extra dimension):} This introduces the ``drains'' that create attractive flows, mimicking gravity through inward suck. Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$; Sink strength: $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi^2$.
 
@@ -69,7 +72,7 @@ We postulate a mathematical structure with these properties and explore its cons
 
 \textbf{Postulate 4 (Helmholtz decomposition (suck + swirl)):} This mathematically separates attractive flows (SUCK) from rotational effects (SWIRL/DRAG). $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$. This decomposition separates ``SUCK'' (irrotational, scalar) from ``SWIRL/DRAG'' (solenoidal, vector).
 
-\textbf{Postulate 5 (Quantized vortices with 4-fold projection):} This provides the topological defects that act as particles, with quantization ensuring discrete properties. Circulation: $\Gamma = n \kappa$ where $\kappa = h / m$; Enhanced: $\Gamma_{\text{obs}} = 4 \Gamma$ (derived in Section 2.7); Vortices as tori/sheets with phase windings; helical twists $\theta + \tau w$ for SWIRL (emergent properties like charge $q = -4 (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi})$, preliminary); enables DRAG observables.
+\textbf{Postulate 5 (Quantized vortices with 4-fold projection):} This provides the topological defects that act as particles, with quantization ensuring discrete properties. Circulation: $\Gamma = n \kappa$ where $\kappa = 2\pi \hbar / m$;\footnote{This ensures $2\pi$ phase winding aligns with angular momentum quantization.} Enhanced: $\Gamma_{\text{obs}} = 4 \Gamma$ (derived in Section 2.7); Vortices as tori/sheets with phase windings; helical twists $\theta + \tau w$ for emergent properties like charge $q = -4 (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi})$; enables DRAG observables.
 
 \textbf{Postulate 6 (Discrete vortex projection):} This maps 4D structures to 3D points, creating particle-like behavior. The 4D$\to$3D projection sums over discrete vortex intersections rather than continuous integration: $\rho_{3D} = \sum_i$ (discrete deficits), not $\int dw$ (continuous). Vortex sheets pierce $w=0$ at isolated points, yielding particle-like sources.
 \end{tcolorbox}
@@ -183,7 +186,7 @@ $\omega$ & Kelvin wave frequency for ``WAVE'' modes & $[T^{-1}]$ & $[T^{-1}]$ \\
 
 \subsubsection{Derivation from Aether Dynamics}
 
-From the foundational postulates (P-1 through P-6), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. The equations separate into scalar (SUCK), vector (SWIRL/DRAG), and oscillatory (SHAKE/WAVE) sectors, with EM emerging preliminarily in the vector via SWIRL twists. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into irrotational (scalar) and solenoidal (vector) components, with quantized circulation and helical twists (P-5) providing sources. The dynamics naturally separate into irrotational (SUCK), solenoidal (SWIRL/DRAG), and oscillatory (SHAKE/WAVE) modes, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex quintet forms.
+From the foundational postulates (P-1 through P-6), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. The equations separate into scalar (SUCK), vector (SWIRL/DRAG), and oscillatory (SHAKE/WAVE) sectors, with EM emerging preliminarily in the vector via SWIRL twists. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into irrotational (scalar $\Phi$ $[L^2 T^{-1}]$) and solenoidal (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) components, with quantized circulation and helical twists (P-5) providing sources. The dynamics naturally separate into irrotational (SUCK), solenoidal (SWIRL/DRAG), and oscillatory (SHAKE/WAVE) modes, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex quintet forms.
 
 The derivation begins with the 4D equations from P-1 and P-2, now coupled to the vortex core condition $\Psi=0$ at the defect position, incorporating helical twists:
 
@@ -199,7 +202,7 @@ The Euler equation is:
 \partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -\frac{1}{\rho_{4D}} \nabla_4 P - \nabla_4 Q,
 \end{equation}
 
-with barotropic EOS $P = (g/2) \rho_{4D}^2 / m$ (P-1), yielding local effective speed $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ (bulk $v_L = \sqrt{g \rho_{4D}^0 / m}$ potentially $\gg c$; observable modes at $c$ from P-3), and $Q$ the quantum pressure $-(\hbar^2 / (2m)) (\nabla_4^2 \sqrt{\rho_{4D}/m} / \sqrt{\rho_{4D}/m})$. Helical twists from P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$ for SWIRL, sourcing EM currents preliminarily; normal to vortex $\mathbf{n}$, scaled by $c$ for observable shear; enables DRAG). The vorticity $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ arises from P-5 phase windings $\theta = n\phi + \tau w$, where $\tau$ sources EM currents (detailed in 2.3). Helical twists in SWIRL explain chiral vorticity, consistent with Kerr BH magnetic fields scaling with spin (B $\propto$ a, e.g., M87* a$\approx$0.9 strong jets vs. Sgr A* a$\approx$0.1 weak).
+with barotropic EOS $P = (g/2) \rho_{4D}^2 / m$. Here, $m$ is the effective boson mass in the GP description, ensuring $[P] = [M L^{-2} T^{-2}]$ with $[g] = [L^6 T^{-2}]$ and $[\rho_{4D}] = [M L^{-4}]$ (yielding local effective speed $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ (bulk $v_L = \sqrt{g \rho_{4D}^0 / m}$ potentially $\gg c$; observable modes at $c$ from P-3), and $Q$ the quantum pressure $-(\hbar^2 / (2m)) (\nabla_4^2 \sqrt{\rho_{4D}/m} / \sqrt{\rho_{4D}/m})$. Helical twists from P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$ for SWIRL, sourcing EM currents preliminarily; normal to vortex $\mathbf{n}$, scaled by $c$ for observable shear; enables DRAG). The vorticity $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ arises from P-5 phase windings $\theta = n\phi + \tau w$, where $\tau$ sources EM currents (detailed in 2.3). Helical twists in SWIRL explain chiral vorticity, consistent with Kerr BH magnetic fields scaling with spin (B $\propto$ a, e.g., M87* a$\approx$0.9 strong jets vs. Sgr A* a$\approx$0.1 weak).
 
 Linearize around background $\rho_{4D} = \rho_{4D}^0 + \delta \rho_{4D}$, $\mathbf{v}_4 = \mathbf{0} + \delta \mathbf{v}_4$ (steady state), and vortex perturbation $\delta R$. The linearized continuity is:
 
@@ -299,7 +302,7 @@ where $\mathbf{J}_{\text{mass}} = \rho_{\text{body}} \mathbf{V}$ $[M L^{-2} T^{-
 
 \subsubsection{SHAKE and WAVE Components}
 
-Both gravitational waves and photons emerge from the quintet modes: SHAKE represents the circulatory flow maintaining vortex stability and rest energy ($E = m c^2$), while WAVE corresponds to oscillatory disturbances propagating at speed $c$, differing in their dimensional character (3D classical for gravitational waves, 4D-stabilized particle-like for photons). See tsunami principle (Section 2.5) for WAVE propagation versus bulk adjustments. The treatment separates SHAKE as the essential circulation preventing vortex collapse under aether pressure, quantified by circulation $\Gamma = n \kappa$ where $\kappa = h / m$. WAVE uses the d'Alembertian for transverse perturbations from vortex oscillations:
+Both gravitational waves and photons emerge from the quintet modes: SHAKE represents the circulatory flow maintaining vortex stability and rest energy $E = m c^2$, while WAVE corresponds to oscillatory disturbances propagating at speed $c$, differing in their dimensional character (3D classical for gravitational waves, 4D-stabilized particle-like for photons). See tsunami principle (Section 2.5) for WAVE propagation versus bulk adjustments. The treatment separates SHAKE as the essential circulation preventing vortex collapse under aether pressure, quantified by circulation $\Gamma = n \kappa$ where $\kappa = h / m$. WAVE uses the d'Alembertian for transverse perturbations from vortex oscillations:
 
 \begin{equation}
 \Box h_{\mu\nu} = -\frac{16\pi G}{c^4} T_{\mu\nu}^{\text{quad}} \quad (\text{for GW, classical 3D WAVE}),
@@ -311,10 +314,12 @@ Both gravitational waves and photons emerge from the quintet modes: SHAKE repres
 
 where $\Box = \partial_t^2 / c^2 - \nabla^2$. Gravitational waves and photons differ in coupling and character: mass asymmetries for GW (SUCK perturbations, classical wave-like without quantization), charge for photons (SWIRL oscillations, particle-like packets). This predicts no observable ``gravitons'' as discrete particles, as GW spread classically in 3D without 4D confinement. The tsunami principle (Section 2.5) distinguishes bulk longitudinal adjustments ($v_L > c$, unobservable SUCK/SHAKE) from observable transverse WAVE at $c$, with WAVE as the surface ripple versus bulk SUCK rush. To derive these, consider the linearized GP for transverse perturbations on vortices: The Kelvin wave dispersion $\omega^2 = c^2 k^2 + \omega_0^2$ (with cutoff $\omega_0 \sim v_L / \xi_c$), projecting to the d'Alembertian form for far-field radiation. For GW, quadrupole sources arise from vortex motion asymmetries; for photons, current from helical oscillations (preliminary SWIRL). SHAKE unifies stability across gravity and EM as the energy to sustain deficits, while WAVE handles propagation. SymPy confirms the wave solutions and dispersion relations; code at \url{https://github.com/trevnorris/vortex-field}.
 
+In SHAKE, the circulatory mode acts as a photon-like excitation with energy $E = mc^2$, anchoring in 4D to counter collapse via resonance with the aether frequency $\sqrt{g \rho}$. This maintains vortex stability against pressure, with annihilation releasing $2mc^2$ as WAVE packets. Depletion ($\rho \to 0$) mismatches resonance, causing photon escape and instability.
+
 \subsection{Electromagnetic Emergence from Helical Vortices (Preliminary Framework)}
 
 \subsubsection{The Challenge and Our Proposal}
-While gravity emerges naturally from 3D drainage in our framework, electromagnetic phenomena require additional structure. We propose that EM represents a fundamentally 4D phenomenon whose 3D projection we observe. This approach builds on the topological defects (vortices) in the 4D compressible superfluid, where helical twists in the phase structure introduce additional dynamics that manifest as electromagnetic effects in the projected 3D slice.
+While gravity emerges naturally from 3D drainage effect in our framework, electromagnetic phenomena require additional structure. We propose that EM represents a fundamentally 4D phenomenon whose 3D projection we observe. This approach builds on the topological defects (vortices) in the 4D compressible superfluid, where helical twists in the phase structure introduce additional dynamics that manifest as electromagnetic effects in the projected 3D slice.
 
 \textbf{Key Insight:} The century-long difficulty in unifying gravity and electromagnetism may stem not from their being fundamentally different forces, but from their being different dimensional manifestations:
 \begin{itemize}
@@ -332,7 +337,7 @@ While introduced phenomenologically, this value emerges naturally from bulk vort
 \[
 \Omega_0 = \sqrt{4 \pi G \rho_{\text{crit}}} \approx 2.4 \times 10^{-18}.
 \]
-(code at \url{https://github.com/trevnorris/vortex-field}). Recent cosmology papers support this (e.g., arXiv:2503.13525 on rotation solving Hubble tension; arXiv:2312.07791 on tilted universes allowing $\sim H_0$ rotation without CMB violation). This is validated by black hole astrophysics: Rotating Kerr black holes (e.g., M87* with spin parameter $a \approx 0.9$) exhibit strong magnetic fields ($\sim 10^4 - 10^8$ Gauss) and jets via the Blandford-Znajek mechanism, scaling with $a$, while non-rotating Schwarzschild black holes show only weak fields ($\sim 10^2 - 10^3$ Gauss) from external accretion, confirming rotation enables SWIRL's EM effects.
+(code at \url{https://github.com/trevnorris/vortex-field}). Recent cosmology papers support this (e.g., arXiv:2503.13525 on rotation solving Hubble tension; arXiv:2312.07791 on tilted universes allowing $\sim H_0$ rotation without CMB violation). This is validated by black hole astrophysics: Rotating Kerr black holes (e.g., M87* with spin parameter $a \approx0.9$) exhibit strong magnetic fields ($\sim 10^4 - 10^8$ Gauss) and jets via the Blandford-Znajek mechanism, scaling with $a$, while non-rotating Schwarzschild black holes show only weak fields ($\sim 10^2 - 10^3$ Gauss) from external accretion, confirming rotation enables SWIRL's EM effects.
 
 \textbf{Phase structure:} $\theta = n\phi + \tau w$
 \begin{itemize}
@@ -358,7 +363,7 @@ where the integral accounts for helical twists. Projection to 3D hypersurface at
 \[
 F = \frac{\rho_{4D} \xi_h^3 \Gamma_1 \Gamma_2 h_1 h_2}{4\pi r^2} \hat{r}.
 \]
-This form emerges from the velocity-induced motion of one vortex in the field of another, with the helicity product $h_1 h_2$ determining the sign: positive for repulsion (same helicity), negative for attraction. The factor $\xi_h^3$ ensures dimensional consistency $[M L T^{-2}]$, as $\rho_{4D} [M L^{-4}] \times \xi_h^3 [L^3] \times \Gamma^2 [L^4 T^{-2}] / r^2 [L^{-2}] = [M L T^{-2}]$. The factor incorporates the 4-fold enhancement from Section 2.7, with geometric factors absorbed into the coupling constant. Critical analysis: This matches Coulomb form qualitatively, but the derivation relies on linear approximation; nonlinear effects at close range ($r \sim \xi_h$) may introduce deviations, consistent with testable predictions in Section 2.10.
+This form emerges from the velocity-induced motion of one vortex in the field of another, with the helicity product $h_1 h_2$ determining the sign: positive for repulsion (same helicity), negative for attraction. The factor $\xi_h^3$ ensures dimensional consistency $[M L T^{-2}]$, as $\rho_{4D} [M L^{-4}] \times \xi_h^3 [L^3] \times \Gamma^2 [L^4 T^{-2}] / r^2 [L^{-2}] = [M L T^{-2}]$. The factor incorporates the 4-fold enhancement from Section 2.7, with geometric factors absorbed into the coupling constant. Critical analysis: This matches Coulomb form qualitatively, but the derivation relies on linear approximation; nonlinear effects at close range ($r \sim \xi_h$) may introduce deviations, consistent with testable predictions.
 
 Comparing to Coulomb's law $F = k q_1 q_2 / r^2$, the effective charge emerges as:
 \[
@@ -375,9 +380,9 @@ with the sign from helicity and magnitude from vortex parameters. Dimensional an
 \subsubsection{Open Questions}
 We acknowledge significant open questions, particularly around the foundational assumptions and derivations:
 \begin{itemize}
-\item Why should universal rotation $\Omega_0 \approx H_0$? (Currently phenomenological, though linked to critical density; requires deeper cosmological integration)
-\item What determines which vortices acquire helicity? (Potential ties to topological stability in P-5, but mechanism for selection unclear)
-\item Can Maxwell's equations be derived explicitly? (Current framework yields Coulomb-like laws, but full gauge theory and dynamics need rigorous projection from GP equation)
+\item Why should universal rotation $\Omega_0 \approx H_0$? (Currently phenomenological, though linked to critical density; requires deeper cosmological integration---hypothesis: arises from bulk vorticity equilibrium in the compressible medium, balancing cosmic inflows.)
+\item What determines which vortices acquire helicity? (Potential ties to topological stability in P-5, but mechanism for selection unclear---hypothesis: photon anchoring in SHAKE enforces twist for charged particles, absent in untwisted dark matter vortices.)
+\item Can Maxwell's equations be derived explicitly? (Current framework yields Coulomb-like laws, but full gauge theory and dynamics need rigorous projection from GP equation---hypothesis: Incorporate photon modes in SHAKE/WAVE for full derivation.)
 \end{itemize}
 These questions motivate future research rather than invalidating the framework, as the core mathematical consistency (e.g., dimensional emergence, force forms) holds independently.
 
@@ -532,18 +537,7 @@ This dual propagation ensures:
 We call bulk density adjustments propagating at $v_L > c$ ``tsunamis''---they establish fields rapidly but remain unobservable, like ocean depth changes vs surface waves.
 
 \begin{tcolorbox}[title=Why Two Speeds Without Membranes]
-Early versions of this framework added physical membranes at vortex cores
-to explain $c \neq v_L$. We discovered this was unnecessary---the same 4D medium
-naturally supports two propagation modes:
-
-\begin{itemize}
-\item Bulk density waves: Entire medium responds (speed $v_L$)
-\item Vortex oscillations: Kelvin waves on defects (speed $c$)
-\end{itemize}
-
-Like how ocean water supports both pressure waves (fast, through bulk)
-and surface waves (slower, confined to interface), no separate structures
-needed!
+Early versions required explicit 3D membranes, but our discrete projection (P-6) eliminates this: Vortex intersections create effective ``surface tension'' dynamically, with Kelvin waves as natural observables. The 4D bulk provides the medium for fast adjustments without artificial structures.
 \end{tcolorbox}
 
 \subsubsection{Mathematical Demonstration}
@@ -572,13 +566,7 @@ These travel at speed $c$ and are directly detectable.
 
 Here $\nabla_4^2 \equiv \partial^2/\partial x^2 + \partial^2/\partial y^2 + \partial^2/\partial z^2 + \partial^2/\partial w^2$ acts on all four spatial coordinates.
 
-\begin{tikzpicture}
-\draw (0,0) -- (4,4) node[above] {$v_L$ cone (wide)};
-\draw (0,0) -- (2,4) node[above] {$c$ cone (narrow)};
-\draw (0,0) node[below] {event};
-\end{tikzpicture}
-
-\captionof{figure}{Spacetime diagram showing $v_L$ cone (wide) vs $c$ cone (narrow), with observable vs field establishment.}
+The 4D Laplacian $\nabla_4^2 = \partial^2/\partial x^2 + \partial^2/\partial y^2 + \partial^2/\partial z^2 + \partial^2/\partial w^2$ acts on all four spatial coordinates.
 
 SymPy confirms wave equation structure and Heaviside solution form; code at \url{https://github.com/trevnorris/vortex-field}.\footnote{Dimensions for bulk equation: LHS $[\delta\rho] / T^2 \sim M L^{-4} T^{-2}$, RHS source $M \delta^4 \delta(t) \sim M L^{-4} T^{-1}$ (impulse; consistent with rate interpretation).}
 
@@ -862,7 +850,7 @@ $\omega$ & Kelvin wave frequency for shake modes & Derived & From vortex dynamic
 \hline
 $G_F$ & Fermi constant (weak scale) & Calibrated & Fixed from electroweak test (e.g., beta decay); relates to chiral unraveling, $G_F \sim \frac{c^4}{\rho_0 \Gamma^2}$ (Section 6.9); additional for weak unification. & -- & P-5 (chiral) \\
 \hline
-$\tau$ & Twist density along extra dimension (SWIRL) & Derived & From helical phase (P-5): Determines charge magnitude/sign; preliminary for EM. & -- [L^{-1}] & P-5 \\
+$\tau$ & Twist density along extra dimension (SWIRL) & Derived & From helical phase (P-5): Determines charge magnitude/sign; preliminary for EM. & -- $[L^{-1}]$ & P-5 \\
 \hline
 Frame-dragging rate & Rate of rotational drag (DRAG) & Derived & Proportional to angular momentum; from vector equation, scales with spin (e.g., Kerr BH Lense-Thirring). & -- & P-4, P-5 \\
 \hline
@@ -973,56 +961,17 @@ Composites benefit from helical combinations in SWIRL for emergent EM properties
 }
 \medskip
 
-\subsection{Testable Predictions}
+\subsection{Direct Predictions from the Framework}
 
-A key strength of this framework is its specific, falsifiable predictions, tied to the quintet modes (SUCK, SHAKE, SWIRL, DRAG, WAVE) and particles as flow patterns. These include near-term observational tests, laboratory experiments, and cosmological signatures, with new predictions from SWIRL/DRAG correlations and WAVE distinctions.
+A key strength of this framework is its specific, falsifiable predictions, tied to the quintet modes (SUCK, SHAKE, SWIRL, DRAG, WAVE) and particles as flow patterns. These include direct consequences from the mathematical core, focusing on foundational distinctions derived from the postulates.
 
-\subsubsection{Near-Term Tests (Current Technology)}
-\textbf{Modified atomic spectra near black holes}
 \begin{itemize}
-\item Prediction: $\delta\lambda/\lambda \sim 10^{-6}$ excess shift at Sgr A*
-\item Method: GRAVITY/VLTI observations
-\item Distinguishable from GR: 1-10\% excess from $v_{\text{eff}}$ variation in SUCK/WAVE modes
-\item \textbf{This is a clear, falsifiable prediction}
+\item \textbf{Dark matter vortex structure}: From P-5 (quantized vortices without helical twists) and P-2 (sinks for SUCK/gravity only), dark matter manifests as untwisted vortices, yielding linear/spiral patterns in large-scale structure versus CDM cusps. Observable via JWST + Gaia astrometry, distinguishable from standard dark matter models by qualitatively different distributions.
+\item \textbf{Rotation-Magnetism Scaling}: From SWIRL/DRAG modes (P-4/P-5), electromagnetic field strength scales with SWIRL intensity; faster-spinning particles have stronger EM interactions via helical structure. Method: High-precision measurements of spinning charged particles or black hole analogs; validation tie-in: Consistent with Kerr black holes (e.g., M87* with spin parameter $a \approx 0.9$ shows strong magnetic fields scaling with spin).
+\item \textbf{Gravitational Waves vs. Photons}: From SHAKE/WAVE distinctions (P-3/P-5), GW are classical 3D waves (WAVE, no quantization, no gravitons as particles); photons are 4D-stabilized packets (always quantized). Method: Gravitational wave detectors (LIGO) vs. photon experiments; search for graviton signatures; distinguishable by never observing discrete gravitons.
 \end{itemize}
 
-\subsubsection{Cosmological Signatures}
-\textbf{Dark matter vortex structure}
-\begin{itemize}
-\item Prediction: Linear/spiral patterns vs CDM cusps, as untwisted vortices (gravitational SUCK only, no SWIRL EM)
-\item Observable: JWST + Gaia astrometry
-\item Distinguishes from standard dark matter models
-\item \textbf{Qualitatively different large-scale structure}
-\end{itemize}
-
-\subsubsection{Micro Frame-Dragging Effects}
-\textbf{Frame-dragging from particle rotation}
-\begin{itemize}
-\item Prediction: Electrons create $\sim 10^{-50}$ rad/s frame-dragging via DRAG, contributing to fine structure in atomic spectra
-\item Method: Precision QED tests or atomic clocks
-\item Distinguishable: Might affect anomalous magnetic moment measurements
-\item \textbf{Testable correlation between particle spin and DRAG observables}
-\end{itemize}
-
-\subsubsection{Rotation-Magnetism Scaling}
-\textbf{Electromagnetic strength scaling with rotation}
-\begin{itemize}
-\item Prediction: EM field strength scales with SWIRL intensity and DRAG magnitude; faster-spinning particles (higher DRAG) have stronger EM interactions via helical structure
-\item Method: High-precision measurements of spinning charged particles or black hole analogs
-\item Validation tie-in: Consistent with Kerr black holes (e.g., M87* with $a \approx 0.9$ shows strong magnetic fields scaling with spin)
-\item \textbf{Predicts observable scaling in particle physics experiments}
-\end{itemize}
-
-\subsubsection{Gravitational Waves vs. Photons}
-\textbf{Distinction in wave nature}
-\begin{itemize}
-\item Prediction: GW are classical 3D waves (WAVE, no quantization, no gravitons as particles); photons are 4D-stabilized packets (always quantized)
-\item Method: Gravitational wave detectors (LIGO) vs. photon experiments; search for graviton signatures
-\item Distinguishable: Never observe discrete gravitons
-\item \textbf{Qualitatively different propagation and quantization}
-\end{itemize}
-
-These predictions provide clear experimental targets, many validated conceptually by black hole astrophysics (e.g., rotation-magnetism in Kerr BHs). Falsification of any would require framework revision.
+These core predictions illustrate the framework's internal consistency; broader insights and applications follow in Section [X].
 
 \subsection{Summary}
 
