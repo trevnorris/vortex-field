@@ -1,4 +1,15 @@
-\section{Emergent Particle Masses: First Major Result}
+\section{Emergent Particle Masses: First Major Result}\label{sec:emergent-particles}
+
+\noindent\textit{Background density convention:} we use $\rho_0 := \rho_{3D}^0$ for the projected 3D background density; in the core-projection thickness one has $\rho_{3D}^0 = \rho_{4D}^0\,\xi_c$, so $\rho_0 = \rho_{4D}^0\,\xi_c$.
+
+% --- Notation & Conventions (inserted) ---
+\subsection*{Notation and Conventions}
+We use $\phi=\frac{1+\sqrt{5}}{2}\approx 1.618$ for the golden ratio. Symbols $\phi$ appearing in earlier drafts are replaced by $\phi$ to avoid collision with generic scalar fields.
+We distinguish the core/coherence healing length $\xi_c$ from the helical/twist scale $\xi_h$. Unless explicitly stated otherwise, a bare $\xi_c$ denotes $\xi_c$ in this section.
+We keep $\hbar$ and $m$ explicit throughout; where earlier drafts set $\hbar=m=1$, we restore them for dimensional clarity.
+We apply the 4-fold projection factor to \emph{sources} (circulation and currents), not to test-particle laws; this keeps $\mathbf{a}=-\nabla\Phi+\mathbf{v}\times\mathbf{B}_g$ in standard form. See the framework (Postulate P-5) for the projection geometry derivation.
+% --- end Notation & Conventions ---
+
 
 \subsection{Overview: Variables and Parameters}
 
@@ -17,6 +28,7 @@ In our model, particles are topological defects—vortices—in a 4D superfluid,
 \begin{itemize}
 \item \textbf{Mass} emerges from circulation-driven density deficits, with hierarchies following golden ratio scaling
 \item \textbf{Charge} arises from helical phase twists and 4-fold projection geometry
+Throughout, electric charges are normalized to the framework's effective charge calibration (Gaussian-cgs); the fractional values ($\pm e/3,\ \pm 2e/3$) refer to this $e$.
 \item \textbf{Spin} derives from vortex angular momentum and braiding patterns
 \item \textbf{Color} reflects three-fold symmetries in fractional circulation
 \item \textbf{Stability} depends on topological closure (closed loops stable, open strands confined)
@@ -44,9 +56,11 @@ Open Strands & Fractional phase winding & Echoes & Unstable, fractional charge, 
 
 The Standard Model's six quarks may not be fundamental but rather represent recurring patterns in how echo strands combine. The 100+ known hadrons likely correspond to various braiding configurations of echoes at different generational levels, with quantum numbers determined by the specific braiding topology.
 
-We model particles as topological defects in a 4D compressible superfluid, where masses emerge as density deficits in vortex cores, balanced by the aether's tension, as derived from the Gross-Pitaevskii (GP) energy functional (P-1) and postulates in Section 2 (P-1 to P-5). Tension, arising from nonlinear repulsion ($\frac{g}{2} |\Psi|^4$) and quantum dispersion ($\frac{\hbar^2}{2m} |\nabla_4 \Psi|^2$), resists stretching from circulation-driven drainage (P-2), stabilizing vortices like toroidal sheets (leptons, baryons) or transient strands (quarks, echoes). Physically, particles are whirlpools in a 4D ocean: closed tori project as point-like entities in the 3D slice at $w=0$, with quantized circulation $\Gamma = n \kappa$ ($\kappa = \frac{h}{m}$, P-5) inducing deficits that manifest as mass. The GP functional, $E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\nabla_4 \Psi|^2 + \frac{g}{2} |\Psi|^4 \right]$, governs stability, with healing length $\xi = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$ setting the core scale. A 4-fold circulation enhancement ($\Gamma_{\text{obs}} = 4\Gamma$, P-5) amplifies energy, while dual wave modes (P-3) ensure propagation at $c = \sqrt{T / \sigma}$ (transverse, with surface tension $T \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2}$, $\sigma = \rho_{4D}^0 \xi^2$) and local slowing at $v_{\text{eff}} = \sqrt{\frac{g \rho_{4D}^{\text{local}}}{m}}$, mimicking gravity.
+We model particles as topological defects in a 4D compressible superfluid, where masses emerge as density deficits in vortex cores, balanced by the aether's tension, as derived from the Gross-Pitaevskii (GP) energy functional (P-1) and postulates in Section 2 (P-1 to P-5). Tension, arising from nonlinear repulsion ($\frac{g}{2} |\Psi|^4$) and quantum dispersion ($\frac{\hbar^2}{2m} |\nabla_4 \Psi|^2$), resists stretching from circulation-driven drainage (P-2), stabilizing vortices like toroidal sheets (leptons, baryons) or transient strands (quarks, echoes). Physically, particles are whirlpools in a 4D ocean: closed tori project as point-like entities in the 3D slice at $w=0$, with quantized circulation $\Gamma = n \kappa$ ($\kappa = \frac{h}{m}$, P-5) inducing deficits that manifest as mass. The GP functional, $E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\nabla_4 \Psi|^2 + \frac{g}{2} |\Psi|^4 \right]$, governs stability, with healing length $\xi_c = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$ setting the core scale. A 4-fold circulation enhancement ($\Gamma_{\text{obs}} = 4\Gamma$, P-5) amplifies energy, while dual wave modes (P-3) ensure propagation at $c = \sqrt{T / \sigma}$ (transverse, with surface tension $T \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2}$, $\Sigma = \rho_{4D}^0 \, \xi_c^2$) and local slowing at $v_{\text{eff}} = \sqrt{\frac{g \rho_{4D}^{\text{local}}}{m}}$, mimicking gravity.
 
-Masses are computed as $m \approx \rho_0 V_{\text{deficit}}$, where $\rho_0 = \rho_{4D}^0 \xi$ is the projected background density, and $V_{\text{deficit}} \approx \pi \xi^2 \cdot 2\pi R$ for toroidal vortices (or adjusted for quarks/baryons). Stability stems from tension balancing stretch, with the golden ratio $\phi = \frac{1 + \sqrt{5}}{2} \approx 1.618$ emerging from energy minimization to prevent resonant reconnections (Section 2.5). Charges arise from helical twists, adjusted by 4D projection factors. Curvature effects in the vortex sheet (mean curvature $H \approx \frac{1}{2R}$) add a bending energy correction, refining generational scaling. All derivations are verified symbolically using SymPy (code at \url{https://github.com/trevnorris/vortex-field}), with minimal calibrations (e.g., $m_e = 0.511$ MeV for leptons, $m_t = 172.69$ GeV, $m_b = 4.18$ GeV for quarks, proton = 938.27 MeV, Lambda = 1115.68 MeV for baryons, $\Delta m^2$ for neutrinos) ensuring predictive power.
+Masses are computed as $m \approx \rho_0 V_{\text{deficit}}$, where $\rho_0 = \rho_{4D}^0 \xi_c$ is the projected background density, and $V_{\text{deficit}} \approx \pi \xi_c^2 \cdot 2\pi R$ for toroidal vortices (or adjusted for quarks/baryons). Stability stems from tension balancing stretch, with the golden ratio $\phi = \frac{1 + \sqrt{5}}{2} \approx 1.618$ emerging from energy minimization to prevent resonant reconnections (Section 2.5). Charges arise from helical twists, adjusted by 4D projection factors. Curvature effects in the vortex sheet (mean curvature $H \approx \frac{1}{2R}$) add a bending energy correction, refining generational scaling. All derivations are verified symbolically using SymPy (code at \url{https://github.com/trevnorris/vortex-field}), with minimal calibrations (e.g., $m_e = 0.511$ MeV for leptons, $m_t = 172.69$ GeV, $m_b = 4.18$ GeV for quarks, proton = 938.27 MeV, Lambda = 1115.68 MeV for baryons, $\Delta m^2$ for neutrinos) ensuring predictive power.
+Here $\rho_0 = \rho_{4D}^0 \, \xi_c$ is the projected background density from the 4D medium.
+
 
 Table~\ref{tab:variables} summarizes parameters, their physical roles, derivations, and anchors.
 
@@ -66,9 +80,9 @@ All & $n = 0,1,2,\dots$ & Generation winding number (extra phase windings in vor
 \hline
 Leptons/ Neutrinos & $p = \phi$ & Scaling exponent for vortex radius growth & Derived from $A_5$ symmetry in GP energy minimization & None \\
 Leptons & $\epsilon \approx 0.0625$ & Tension overlap correction for braiding (stabilizes higher-generation vortices) & Derived from logarithmic overlap, $\epsilon = \ln(2)/\phi^5 \approx 0.693 / 11.09$ (SymPy integral of $u \sech^2 u$) & $m_e = 0.511$ MeV \\
-Leptons & $\delta \approx 0.004 n^2$ & Curvature correction for vortex sheet bending & Derived from bending energy $\delta E \sim \frac{T \xi^2 n^2}{R}$, $T \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2}$ (SymPy minimize) & None \\
+Leptons & $\delta \approx 0.004 n^2$ & Curvature correction for vortex sheet bending & Derived from bending energy $\delta E \sim \frac{T \xi_c^2 n^2}{R}$, $T \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2}$ (SymPy minimize) & None \\
 Leptons & $a_n$ & Normalized vortex radius ($a_0 = 1$) & $(2n+1)^\phi (1 + \epsilon n(n-1) - \delta)$ & None \\
-Neutrinos & $w_{\text{offset}} \approx 0.393 \xi$ & Chiral offset in extra dimension $w$ (suppresses neutrino mass via tension-driven $w$-projection) & Derived from helical twist $\theta_{\text{twist}} = \pi / \sqrt{\phi}$, $w_{\text{offset}} = \xi / (2 \sqrt{\phi})$ (SymPy) & $\Delta m^2_{21} \approx 7.5 \times 10^{-5}$ eV$^2$ \\
+Neutrinos & $w_{\text{offset}} \approx 0.393 \xi_c$ & Chiral offset in extra dimension $w$ (suppresses neutrino mass via tension-driven $w$-projection) & Derived from helical twist $\theta_{\text{twist}} = \pi / \sqrt{\phi}$, $w_{\text{offset}} = \xi_h / (2 \sqrt{\phi})$ (SymPy) & $\Delta m^2_{21} \approx 7.5 \times 10^{-5}$ eV$^2$ \\
 \hline
 \multicolumn{5}{|c|}{\textbf{Quark Parameters}} \\
 \hline
@@ -81,7 +95,7 @@ Quarks & $\eta_n$ & Leakage factor for instability ($\eta_n \approx \Lambda_{\te
 \multicolumn{5}{|c|}{\textbf{Baryon Parameters}} \\
 \hline
 Baryons & $a_l \approx 2.734$ & Light quark radius in baryon braids & Calibrated to baryon masses & Proton = 938.27 MeV, Lambda = 1115.68 MeV \\
-Baryons & $\kappa \approx 15.299$ & Base deficit coefficient for vortex sheet & Derived from deficit integral, $\approx 4 \pi \rho_{4D}^0 \xi^2 / 8.71$ (SymPy) & Same \\
+Baryons & $\kappa \approx 15.299$ & Base deficit coefficient for vortex sheet & Derived from deficit integral, $\approx 4 \pi \rho_{4D}^0 \xi_c^2 / 8.71$ (SymPy) & Same \\
 Baryons & $\zeta \approx 0.288$ & Overlap factor for mixed quark interactions, adjusted for curvature & Derived as $\kappa / (\phi^2 \times 20.3) - 0.005$, curvature shift (SymPy) & None \\
 Baryons & $a_s = \phi a_l$ & Strange quark radius & Derived from golden ratio scaling & None \\
 Baryons & $\kappa_s = \kappa \phi^{-2}$ & Strange deficit coefficient & Derived & None \\
@@ -93,8 +107,8 @@ Baryons & $\beta = \frac{1}{2\pi} \approx 0.159$ & Logarithmic interaction multi
 \hline
 EM General & $\tau \approx \frac{1}{\sqrt{\phi} R_n}$ & Twist density along vortex torus & Derived from phase winding, $\theta_{\text{twist}} / (2\pi R_n)$ & None \\
 EM General & $\theta_{\text{twist}} \approx \frac{2\pi}{\sqrt{\phi}}$ & Total helical twist angle per vortex loop & Derived from chiral symmetry scaling & None \\
-Charged Leptons & $f_{\text{proj}} \approx 1 + \left(\frac{R_n}{\xi}\right)^{\phi - 1}$ & Projection factor for charge enhancement & Derived from 4D $w$-extension scaling & None \\
-Neutrinos & $\text{supp} \approx \exp\left( - \beta \left(\frac{w_{\text{offset}}}{\xi}\right)^2 \right)$ & Charge suppression factor & Derived from exponential decay in $w$-offset & None \\
+Charged Leptons & $f_{\text{proj}} \approx 1 + \left(\frac{R_n}{\xi_c}\right)^{\phi - 1}$ & Projection factor for charge enhancement & Derived from 4D $w$-extension scaling & None \\
+Neutrinos & $\text{supp} \approx \exp\left( - \beta \left(\frac{w_{\text{offset}}}{\xi_c}\right)^2 \right)$ & Charge suppression factor & Derived from exponential decay in $w$-offset & None \\
 Neutrinos & $\beta \approx 2$ & Suppression exponent for tangential projection & Derived from EM vs. mass projection strength & None \\
 \hline
 \end{tabularx}
@@ -115,14 +129,15 @@ We derive the key shared parameters to ensure transparency and consistency.
   \phi^2 = \phi + 1 \implies \phi^5 = \phi^4 \cdot \phi = (\phi^2 \cdot \phi^2) \cdot \phi = (3\phi + 2) \cdot \phi = 3\phi^2 + 2\phi = 5\phi + 3 \approx 11.090.
   \]
   This governs radius scaling (\(a_n \propto (2n+1)^\phi\)) and braiding overlaps.
+See Appendix~\ref{app:phi-fixed-point} for a proof via the $T(x)=1+1/x$ fixed-point lemma and its stability bound.
 
-\item \textbf{Tension Overlap (\(\epsilon\))}: For leptons and quarks, braiding increases core overlap, adding a tension penalty to the GP energy. The overlap integral for the core density \(\rho_{4D} \approx \rho_{4D}^0 \sech^2\left(\frac{r}{\sqrt{2} \xi}\right)\) is:
+\item \textbf{Tension Overlap (\(\epsilon\))}: For leptons and quarks, braiding increases core overlap, adding a tension penalty to the GP energy. The overlap integral for the core density \(\rho_{4D} \approx \rho_{4D}^0 \sech^2\left(\frac{r}{\sqrt{2}\,\xi_c}\right)\) is:
   \[
-  \delta E \propto \rho_{4D}^0 v_{\text{eff}}^2 \int_0^\infty \sech^4\left(\frac{r}{\sqrt{2} \xi}\right) \, dr \cdot R.
+  \delta E \propto \rho_{4D}^0 v_{\text{eff}}^2 \int_0^\infty \sech^4\left(\frac{r}{\sqrt{2}\,\xi_c}\right) \, dr \cdot R.
   \]
-  Substitute \(u = \frac{r}{\sqrt{2} \xi}\), \(dr = \sqrt{2} \xi \, du\):
+  Substitute \(u = \frac{r}{\sqrt{2}\,\xi_c}\), \(dr = \sqrt{2} \xi_c \, du\):
   \[
-  \int_0^\infty \sech^4(u) \, \sqrt{2} \xi \, du = \sqrt{2} \xi \cdot \frac{4}{3}.
+  \int_0^\infty \sech^4(u) \, \sqrt{2} \xi_c \, du = \sqrt{2} \xi_c \cdot \frac{4}{3}.
   \]
   For kinetic overlap, use logarithmic cutoff: \(\int_0^\infty u \sech^2(u) \, du = \ln 2 \approx 0.693\). Scaled by braiding depth \(\phi^5 \approx 11.090\) (from hierarchical twists):
   \[
@@ -132,17 +147,17 @@ We derive the key shared parameters to ensure transparency and consistency.
 
 \item \textbf{Curvature Correction (\(\delta\))}: Vortex sheets (codimension-2 in 4D) curve with mean curvature \(H \approx \frac{1}{2R}\). Bending energy:
   \[
-  \delta E = \kappa_b \int H^2 \, dA \approx \left(T \xi^2\right) \cdot \frac{n^2}{4 R^2} \cdot 4\pi^2 R \xi = \pi^2 T \xi^3 \frac{n^2}{R},
+  \delta E = \kappa_b \int H^2 \, dA \approx \left(T \xi_c^2\right) \cdot \frac{n^2}{4 R^2} \cdot 4\pi^2 R \xi_c = \pi^2 T \xi_c^3 \frac{n^2}{R},
   \]
-  where \(\kappa_b \sim T \xi^2\), \(T \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2}\), area \(dA \approx 4\pi^2 R \xi\). Add to energy:
+  where \(\kappa_b \sim T \xi_c^2\), \(T \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2}\), area \(dA \approx 4\pi^2 R \xi_c\). Add to energy:
   \[
-  E(R) = \frac{\rho_{4D}^0 (4 n \kappa)^2}{4\pi} \ln\left(\frac{R}{\xi}\right) + \pi \xi^2 g \rho_{4D}^0 R + \gamma n^2 \xi^3 \rho_{4D}^0 v_L^2 \frac{1}{R}.
+  E(R) = \frac{\rho_{4D}^0 (4 n \kappa)^2}{4\pi} \ln\left(\frac{R}{\xi_c}\right) + \pi \xi_c^2 g \rho_{4D}^0 R + \gamma n^2 \xi_c^3 \rho_{4D}^0 v_L^2 \frac{1}{R}.
   \]
   Minimize:
   \[
-  \frac{dE}{dR} = \frac{\rho_{4D}^0 (4 n \kappa)^2}{4\pi R} + \pi \xi^2 g \rho_{4D}^0 - \gamma n^2 \xi^3 \rho_{4D}^0 v_L^2 \frac{1}{R^2} = 0.
+  \frac{dE}{dR} = \frac{\rho_{4D}^0 (4 n \kappa)^2}{4\pi R} + \pi \xi_c^2 g \rho_{4D}^0 - \gamma n^2 \xi_c^3 \rho_{4D}^0 v_L^2 \frac{1}{R^2} = 0.
   \]
-  Let \(A = \frac{\rho_{4D}^0 (4 n \kappa)^2}{4\pi}\), \(B = \pi \xi^2 g \rho_{4D}^0\), \(C = \gamma n^2 \xi^3 \rho_{4D}^0 v_L^2\). Solve:
+  Let \(A = \frac{\rho_{4D}^0 (4 n \kappa)^2}{4\pi}\), \(B = \pi \xi_c^2 g \rho_{4D}^0\), \(C = \gamma n^2 \xi_c^3 \rho_{4D}^0 v_L^2\). Solve:
   \[
   R = \frac{A + \sqrt{A^2 + 4 B C}}{2 B}.
   \]
@@ -154,11 +169,11 @@ We derive the key shared parameters to ensure transparency and consistency.
 
 \item \textbf{Neutrino Offset (\(w_{\text{offset}}\))}: Helical twist \(\theta_{\text{twist}} = \frac{\pi}{\sqrt{\phi}}\) balances tension against chiral penalty. Energy:
   \[
-  \delta E_{\text{chiral}} = \rho_{4D}^0 v_{\text{eff}}^2 \pi \xi^2 \left( \frac{\theta_{\text{twist}}}{2\pi} \right)^2, \quad \delta E_w = \rho_{4D}^0 v_{\text{eff}}^2 \pi \xi^2 \frac{(w / \xi)^2}{2}.
+  \delta E_{\text{chiral}} = \rho_{4D}^0 v_{\text{eff}}^2 \pi \xi_c^2 \left( \frac{\theta_{\text{twist}}}{2\pi} \right)^2, \quad \delta E_w = \rho_{4D}^0 v_{\text{eff}}^2 \pi \xi_c^2 \frac{(w / \xi_c)^2}{2}.
   \]
   Minimize \(\delta E = \delta E_{\text{chiral}} + \delta E_w\):
   \[
-  \left( \frac{\pi / \sqrt{\phi}}{2\pi} \right)^2 = \frac{(w / \xi)^2}{2} \implies w_{\text{offset}} = \frac{\xi}{2 \sqrt{\phi}} \approx 0.393 \xi.
+  \left( \frac{\pi / \sqrt{\phi}}{2\pi} \right)^2 = \frac{(w / \xi_c)^2}{2} \implies w_{\text{offset}} = \frac{\xi_c}{2 \sqrt{\phi}} \approx 0.393 \xi_c.
   \]
   SymPy confirms \(\sqrt{\phi} \approx 1.272\), \(\frac{1}{2 \sqrt{\phi}} \approx 0.393\).
 \end{itemize}
@@ -176,9 +191,9 @@ We derive the key shared parameters to ensure transparency and consistency.
 \subsection{Lepton Mass Ladder}
 \label{sec:leptons}
 
-Leptons (electron, muon, tau) are modeled as stable, single-tube toroidal vortex sheets in a 4D compressible superfluid, where vortices pierce the 3D slice at $w=0$ as point-like entities while extending symmetrically into the extra dimension $w$ for stability. Each vortex resembles a closed-loop ``garden hose'' in a 4D ocean, with the core (where density $\rho_{4D} \to 0$ over healing length $\xi$) creating a density deficit that manifests as mass. Tension in the aether—defined as the energy cost for deforming the density profile away from its equilibrium sech² shape—resists stretching of the core, balancing quantized circulation $\Gamma = n \kappa$ ($n$ the generation index, $\kappa = h / m$, from P-5) that drives inward aether flow against nonlinear repulsion. This tension arises specifically from the Gross-Pitaevskii dispersion term resisting gradient-induced stretching and the repulsion term resisting density rarefaction. The 4-fold projection enhancement ($\Gamma_{\text{obs}} = 4\Gamma$, P-5) amplifies kinetic energy, allowing larger stable tori for higher generations without reconnection instabilities. Physically, the electron is the smallest stable whirlpool, resisting collapse via quantum pressure; the muon incorporates additional windings, like a twisted hose; and the tau, a larger ring, nears the limit where braiding tension risks fraying.
+Leptons (electron, muon, tau) are modeled as stable, single-tube toroidal vortex sheets in a 4D compressible superfluid, where vortices pierce the 3D slice at $w=0$ as point-like entities while extending symmetrically into the extra dimension $w$ for stability. Each vortex resembles a closed-loop ``garden hose'' in a 4D ocean, with the core (where density $\rho_{4D} \to 0$ over healing length $\xi_c$) creating a density deficit that manifests as mass. Tension in the aether—defined as the energy cost for deforming the density profile away from its equilibrium sech² shape—resists stretching of the core, balancing quantized circulation $\Gamma = n \kappa$ ($n$ the generation index, $\kappa = h / m$, from P-5) that drives inward aether flow against nonlinear repulsion. This tension arises specifically from the Gross-Pitaevskii dispersion term resisting gradient-induced stretching and the repulsion term resisting density rarefaction. The 4-fold projection enhancement ($\Gamma_{\text{obs}} = 4\Gamma$, P-5) amplifies kinetic energy, allowing larger stable tori for higher generations without reconnection instabilities. Physically, the electron is the smallest stable whirlpool, resisting collapse via quantum pressure; the muon incorporates additional windings, like a twisted hose; and the tau, a larger ring, nears the limit where braiding tension risks fraying.
 
-The mass arises from the deficit volume, $m_n \approx \rho_0 V_{\text{deficit}}$, where $\rho_0 = \rho_{4D}^0 \xi$ is the projected background density (P-1, P-3), and $V_{\text{deficit}} \approx \pi \xi^2 \cdot 2\pi R$ for a torus of radius $R$. Stability is ensured by minimizing the GP energy functional, with the golden ratio $\phi = (1 + \sqrt{5})/2 \approx 1.618$ emerging from braiding constraints to prevent resonant reconnections (Section 2.5). The lepton mass formula is anchored to the electron mass ($0.5109989461$ MeV), enabling predictions for the muon, tau, and a hypothetical fourth lepton. Below, we derive the lepton mass formula step-by-step, ensuring dimensional consistency and verifying with SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
+The mass arises from the deficit volume, $m_n \approx \rho_0 V_{\text{deficit}}$, where $\rho_0 = \rho_{4D}^0 \xi_c$ is the projected background density (P-1, P-3), and $V_{\text{deficit}} \approx \pi \xi_c^2 \cdot 2\pi R$ for a torus of radius $R$. Stability is ensured by minimizing the GP energy functional, with the golden ratio $\phi = (1 + \sqrt{5})/2 \approx 1.618$ emerging from braiding constraints to prevent resonant reconnections (Section 2.5). The lepton mass formula is anchored to the electron mass ($0.5109989461$ MeV), enabling predictions for the muon, tau, and a hypothetical fourth lepton. Below, we derive the lepton mass formula step-by-step, ensuring dimensional consistency and verifying with SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
 
 \subsubsection{Derivation}
 \begin{enumerate}
@@ -186,43 +201,43 @@ The mass arises from the deficit volume, $m_n \approx \rho_0 V_{\text{deficit}}$
    \[
    E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\nabla_4 \Psi|^2 + \frac{g}{2} |\Psi|^4 \right],
    \]
-   where $m$ is the boson mass, $g$ the interaction strength, and $\rho_{4D} = m |\Psi|^2$. For a toroidal vortex sheet (codimension-2 defect, P-5), the core has $\rho_{4D} \approx \rho_{4D}^0 \sech^2(r / \sqrt{2} \xi)$, with $\xi = \hbar / \sqrt{2 m g \rho_{4D}^0}$ (Section 2.5). The velocity field is $\mathbf{v}_4 \approx \Gamma_{\text{obs}} \hat{\theta} / (2\pi r_4)$, where $\Gamma_{\text{obs}} = 4 n \kappa$ (4-fold enhancement from direct, hemispherical, and $w$-flow contributions, Section 2.3). Tension, as the aether's resistance to core stretching, balances these terms to maintain the sech² profile.
+   where $m$ is the boson mass, $g$ the interaction strength, and $\rho_{4D} = m |\Psi|^2$. For a toroidal vortex sheet (codimension-2 defect, P-5), the core has $\rho_{4D} \approx \rho_{4D}^0 \sech^2(r / \sqrt{2} \xi_c)$, with $\xi_c = \hbar / \sqrt{2 m g \rho_{4D}^0}$ (Section 2.5). The velocity field is $\mathbf{v}_4 \approx \Gamma_{\text{obs}} \hat{\theta} / (2\pi r_4)$, where $\Gamma_{\text{obs}} = 4 n \kappa$ (4-fold enhancement from direct, hemispherical, and $w$-flow contributions, Section 2.3). Tension, as the aether's resistance to core stretching, balances these terms to maintain the sech² profile.
 
-\item \textbf{Simplified Energy for Torus}: For a torus of radius $R$ (in the 3D slice, extended in $w$), the kinetic term dominates the core’s logarithmic divergence, while the interaction term scales with the deficit volume. Approximating the 4D integral over the core (cross-section $\sim \pi \xi^2$, circumference $2\pi R$; error <10% for $R \gg \xi$ based on SymPy numerical bounds for finite limits), the energy is:
+\item \textbf{Simplified Energy for Torus}: For a torus of radius $R$ (in the 3D slice, extended in $w$), the kinetic term dominates the core’s logarithmic divergence, while the interaction term scales with the deficit volume. Approximating the 4D integral over the core (cross-section $\sim \pi \xi_c^2$, circumference $2\pi R$; error <10% for $R \gg \xi_c$ based on SymPy numerical bounds for finite limits), the energy is:
    \[
-   E(R) = \frac{\rho_{4D}^0 \Gamma_{\text{obs}}^2}{4\pi} \ln\left(\frac{R}{\xi}\right) + \frac{g \rho_{4D}^0}{2} \pi \xi^2 \cdot 2\pi R.
+   E(R) = \frac{\rho_{4D}^0 \Gamma_{\text{obs}}^2}{4\pi} \ln\left(\frac{R}{\xi_c}\right) + \frac{g \rho_{4D}^0}{2} \pi \xi_c^2 \cdot 2\pi R.
    \]
-   - \textbf{Kinetic term}: $|\nabla_4 \psi|^2 \approx (\rho_{4D}^0 / m) (\Gamma_{\text{obs}} / (2\pi r_4))^2$. Integrating over the core ($r_4 \sim \xi$) and circumference ($2\pi R$), the logarithmic factor $\ln(R/\xi)$ arises from vortex self-energy (standard in superfluids; SymPy integrate yields exact ln with <10% error for cutoff at 10ξ). Dimensions: $\rho_{4D}^0 [M L^{-4}] \cdot \Gamma_{\text{obs}}^2 [L^4 T^{-2}] \cdot \ln [1] = [M L^{-2} T^{-2}] \cdot \xi^2 [L^2] = [M T^{-2}]$ (energy per area, consistent with 4D sheet). Tension manifests in the logarithmic resistance to stretching the circulation field.
-   - \textbf{Interaction term}: $|\psi|^4 \approx (\rho_{4D}^0 / m)^2 \sech^4(r / \sqrt{2} \xi)$. Integrating over the core area $\pi \xi^2$ and length $2\pi R$, with $g [L^6 T^{-2}]$, yields $[M L^{-4}] \cdot [L^6 T^{-2}] \cdot [L^2] \cdot [L] = [M T^{-2}]$. SymPy verifies the integral $\int \sech^4(u / \sqrt{2}) \, du \approx 1.333 \sqrt{2} \xi$ (exact for infinite limits), with ~2% error for finite core cutoff at 5ξ. This term embodies tension's repulsion against core compression under stretch.
+   - \textbf{Kinetic term}: $|\nabla_4 \psi|^2 \approx (\rho_{4D}^0 / m) (\Gamma_{\text{obs}} / (2\pi r_4))^2$. Integrating over the core ($r_4 \sim \xi_c$) and circumference ($2\pi R$), the logarithmic factor $\ln(R/\xi_c)$ arises from vortex self-energy (standard in superfluids; SymPy integrate yields exact ln with <10% error for cutoff at 10ξ). Dimensions: $\rho_{4D}^0 [M L^{-4}] \cdot \Gamma_{\text{obs}}^2 [L^4 T^{-2}] \cdot \ln [1] = [M L^{-2} T^{-2}] \cdot \xi_c^2 [L^2] = [M T^{-2}]$ (energy per area, consistent with 4D sheet). Tension manifests in the logarithmic resistance to stretching the circulation field.
+   - \textbf{Interaction term}: $|\psi|^4 \approx (\rho_{4D}^0 / m)^2 \sech^4(r / \sqrt{2} \xi_c)$. Integrating over the core area $\pi \xi_c^2$ and length $2\pi R$, with $g [L^6 T^{-2}]$, yields $[M L^{-4}] \cdot [L^6 T^{-2}] \cdot [L^2] \cdot [L] = [M T^{-2}]$. SymPy verifies the integral $\int \sech^4(u / \sqrt{2}) \, du \approx 1.333 \sqrt{2} \xi_c$ (exact for infinite limits), with ~2% error for finite core cutoff at 5ξ. This term embodies tension's repulsion against core compression under stretch.
 
 \item \textbf{Minimization for Radius}: To find stable configurations, minimize $E(R)$:
    \[
-   \frac{dE}{dR} = \frac{\rho_{4D}^0 \Gamma_{\text{obs}}^2}{4\pi R} + \pi \xi^2 g \rho_{4D}^0 = 0.
+   \frac{dE}{dR} = \frac{\rho_{4D}^0 \Gamma_{\text{obs}}^2}{4\pi R} + \pi \xi_c^2 g \rho_{4D}^0 = 0.
    \]
    Substituting $\Gamma_{\text{obs}} = 4 n \kappa$, $\kappa = h / m$, and $g \rho_{4D}^0 = m v_L^2$ (P-3, $v_L = \sqrt{g \rho_{4D}^0 / m}$), we get:
    \[
-   R_n = \frac{16 n^2 h^2}{\pi^2 m^2 v_L^2 \xi^2} = \frac{16 n^2}{\pi^2} \xi,
+   R_n = \frac{16 n^2 h^2}{\pi^2 m^2 v_L^2 \xi_c^2} = \frac{16 n^2}{\pi^2} \xi_c,
    \]
-   since $v_L = h / (m \xi \sqrt{2})$ from $\xi = h / \sqrt{2 m g \rho_{4D}^0}$. The kinetic energy scales as $\Gamma_{\text{obs}}^2 \propto n^2$ due to quantized circulation $\Gamma_{\text{obs}} = 4n\kappa$ (P-5). However, for higher generations ($n \geq 1$), braiding of vortex sheets introduces additional phase windings, requiring a modified radius scaling to avoid resonant reconnections that destabilize the vortex. This bridges to the golden ratio $\phi \approx 1.618$, derived in Section 2.5 by solving $x^2 = x + 1$, which ensures incommensurable phase alignments and overrides the bare n² scaling for topological protection. Specifically, the n² arises from minimizing the GP energy without braiding constraints, but stability imposes $R_n \propto (2n+1)^\phi$ to prevent reconnection (verified by SymPy: Deviation from n² is <5% for n=1 but grows to 20% for n=2, justifying the rescaling). This reflects the topological necessity of $\phi$ to prevent periodic stress concentrations, akin to quasicrystal symmetries.
+   since $v_L = h / (m \xi_c \sqrt{2})$ from $\xi_c = h / \sqrt{2 m g \rho_{4D}^0}$. The kinetic energy scales as $\Gamma_{\text{obs}}^2 \propto n^2$ due to quantized circulation $\Gamma_{\text{obs}} = 4n\kappa$ (P-5). However, for higher generations ($n \geq 1$), braiding of vortex sheets introduces additional phase windings, requiring a modified radius scaling to avoid resonant reconnections that destabilize the vortex. This bridges to the golden ratio $\phi \approx 1.618$, derived in Section 2.5 by solving $x^2 = x + 1$, which ensures incommensurable phase alignments and overrides the bare n² scaling for topological protection. Specifically, the n² arises from minimizing the GP energy without braiding constraints, but stability imposes $R_n \propto (2n+1)^\phi$ to prevent reconnection (verified by SymPy: Deviation from n² is <5% for n=1 but grows to 20% for n=2, justifying the rescaling). This reflects the topological necessity of $\phi$ to prevent periodic stress concentrations, akin to quasicrystal symmetries.
 
-\item \textbf{Braiding Correction}: Higher generations ($n \geq 1$) introduce braiding tension, modeled as an energy perturbation $\delta E \approx \epsilon n(n-1) R$, where $\epsilon$ arises from core overlaps. The overlap integral for the core density $\rho_{4D} \approx \rho_{4D}^0 \sech^2\left(\frac{r}{\sqrt{2} \xi}\right)$ is:
+\item \textbf{Braiding Correction}: Higher generations ($n \geq 1$) introduce braiding tension, modeled as an energy perturbation $\delta E \approx \epsilon n(n-1) R$, where $\epsilon$ arises from core overlaps. The overlap integral for the core density $\rho_{4D} \approx \rho_{4D}^0 \sech^2\left(\frac{r}{\sqrt{2}\,\xi_c}\right)$ is:
    \[
-   \delta E \propto \rho_{4D}^0 v_{\text{eff}}^2 \int_0^\infty \sech^4\left(\frac{r}{\sqrt{2} \xi}\right) \, dr \cdot R \approx \rho_{4D}^0 v_{\text{eff}}^2 \cdot \frac{4}{3} \sqrt{2} \xi \cdot R.
+   \delta E \propto \rho_{4D}^0 v_{\text{eff}}^2 \int_0^\infty \sech^4\left(\frac{r}{\sqrt{2}\,\xi_c}\right) \, dr \cdot R \approx \rho_{4D}^0 v_{\text{eff}}^2 \cdot \frac{4}{3} \sqrt{2} \xi_c \cdot R.
    \]
-   The correction $\epsilon n(n-1)$ accounts for the energy cost of core overlaps in higher-generation leptons, where additional phase windings (e.g., $n=1$ for muon, $n=2$ for tau) create braided structures. The quadratic term $n(n-1)$ reflects pairwise interactions among windings, increasing the effective deficit volume. The factor $\epsilon \approx \ln(2)/\phi^5 \approx 0.693 / 11.090 \approx 0.0625$ is derived from the overlap integral of the core density profile, where $\ln(2)$ arises from $\int_0^\infty u \sech^2(u) \, du \approx \ln(2)$ (SymPy verified; exact value 0.693147), and $\phi^5$ scales the interaction strength due to the Fibonacci-like hierarchical braiding depth governed by the golden ratio recurrence ($\varphi^5 = 5\varphi + 3 \approx 11.090$, as each generation adds $\varphi$-scaled overlaps up to depth 5 for $n\leq2$). Physically, this is like increased friction in a twisted garden hose, amplifying the vortex’s energy deficit (error <10\% for integral cutoff at $10\xi$). The normalized radius becomes:
+   The correction $\epsilon n(n-1)$ accounts for the energy cost of core overlaps in higher-generation leptons, where additional phase windings (e.g., $n=1$ for muon, $n=2$ for tau) create braided structures. The quadratic term $n(n-1)$ reflects pairwise interactions among windings, increasing the effective deficit volume. The factor $\epsilon \approx \ln(2)/\phi^5 \approx 0.693 / 11.090 \approx 0.0625$ is derived from the overlap integral of the core density profile, where $\ln(2)$ arises from $\int_0^\infty u \sech^2(u) \, du \approx \ln(2)$ (SymPy verified; exact value 0.693147), and $\phi^5$ scales the interaction strength due to the Fibonacci-like hierarchical braiding depth governed by the golden ratio recurrence ($\phi^5 = 5\phi + 3 \approx 11.090$, as each generation adds $\phi$-scaled overlaps up to depth 5 for $n\leq2$). Physically, this is like increased friction in a twisted garden hose, amplifying the vortex’s energy deficit (error <10\% for integral cutoff at $10\xi_c$). The normalized radius becomes:
    \[
    a_n = (2n+1)^\phi \left(1 + \epsilon n(n-1)\right).
    \]
 
 \item \textbf{Curvature Correction}: To account for the 4D embedding of the toroidal sheet, add a bending energy term to $E(R)$:
    \[
-   \delta E = \kappa_b \int H^2 \, dA \approx \kappa_b \cdot (2\pi R \cdot 2\pi \xi) \cdot \left(\frac{1}{2R}\right)^2,
+   \delta E = \kappa_b \int H^2 \, dA \approx \kappa_b \cdot (2\pi R \cdot 2\pi \xi_c) \cdot \left(\frac{1}{2R}\right)^2,
    \]
-   where $H \approx 1/(2R)$ is the mean curvature, $dA \approx 4\pi^2 R \xi$ is the sheet area, and $\kappa_b \sim T \xi^2 \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2} \xi^2$ is the bending rigidity (from GP gradients). Simplifying, $\delta E \approx \gamma n^2 \xi^3 \rho_{4D}^0 v_L^2 / R$, with $\gamma \approx 0.0025$ (dimensional estimate, scaled by braiding $n^2$; SymPy numerical solve for bending-adjusted GP yields $\gamma \approx 0.0025 \pm 0.0005$, or ~20\% uncertainty for varying R). The full energy is now
+   where $H \approx 1/(2R)$ is the mean curvature, $dA \approx 4\pi^2 R \xi_c$ is the sheet area, and $\kappa_b \sim T \xi_c^2 \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2} \xi_c^2$ is the bending rigidity (from GP gradients). Simplifying, $\delta E \approx \gamma n^2 \xi_c^3 \rho_{4D}^0 v_L^2 / R$, with $\gamma \approx 0.0025$ (dimensional estimate, scaled by braiding $n^2$; SymPy numerical solve for bending-adjusted GP yields $\gamma \approx 0.0025 \pm 0.0005$, or ~20\% uncertainty for varying R). The full energy is now
    \[
-   E(R) = \frac{\rho_{4D}^0 \Gamma_{\text{obs}}^2}{4\pi} \ln\left(\frac{R}{\xi}\right) + \pi \xi^2 g \rho_{4D}^0 R + \gamma n^2 \xi^3 \rho_{4D}^0 v_L^2 \frac{1}{R}.
+   E(R) = \frac{\rho_{4D}^0 \Gamma_{\text{obs}}^2}{4\pi} \ln\left(\frac{R}{\xi_c}\right) + \pi \xi_c^2 g \rho_{4D}^0 R + \gamma n^2 \xi_c^3 \rho_{4D}^0 v_L^2 \frac{1}{R}.
    \]
-   Let $A = \frac{\rho_{4D}^0 (4 n \kappa)^2}{4\pi}$, $B = \pi \xi^2 g \rho_{4D}^0$, $C = \gamma n^2 \xi^3 \rho_{4D}^0 v_L^2$. Minimize $dE/dR = A/R + B - C/R^2 = 0$, solved as
+   Let $A = \frac{\rho_{4D}^0 (4 n \kappa)^2}{4\pi}$, $B = \pi \xi_c^2 g \rho_{4D}^0$, $C = \gamma n^2 \xi_c^3 \rho_{4D}^0 v_L^2$. Minimize $dE/dR = A/R + B - C/R^2 = 0$, solved as
    \[
    R = \frac{A + \sqrt{A^2 + 4 B C}}{2 B}.
    \]
@@ -232,9 +247,9 @@ The mass arises from the deficit volume, $m_n \approx \rho_0 V_{\text{deficit}}$
    \]
    with $\delta = 0.00125 n^2$.
 
-\item \textbf{Mass Calculation}: The deficit volume is $V_{\text{deficit}} \approx \pi \xi^2 \cdot 2\pi R_n$, so:
+\item \textbf{Mass Calculation}: The deficit volume is $V_{\text{deficit}} \approx \pi \xi_c^2 \cdot 2\pi R_n$, so:
    \[
-   m_n = \rho_0 V_{\text{deficit}} = \rho_0 \pi \xi^2 \cdot 2\pi R_n, \quad \rho_0 = \rho_{4D}^0 \xi.
+   m_n = \rho_0 V_{\text{deficit}} = \rho_0 \pi \xi_c^2 \cdot 2\pi R_n, \quad \rho_0 = \rho_{4D}^0 \xi_c.
    \]
    Normalizing to the electron ($n=0$, $a_0 = 1$), $m_n = m_e a_n^3$, with $m_e = 0.5109989461$ MeV.
 \end{enumerate}
@@ -277,37 +292,37 @@ Fourth (3) & 16399 & -- & -- & Predicted \\
 
 \subsection{Neutrino Masses and Mixing}
 
-Neutrinos, the neutral counterparts to charged leptons, are modeled as helical variants of single-tube toroidal vortices in a 4D compressible superfluid, with inherent left-handed chirality induced by asymmetric phase twists. Each neutrino resembles a spiraled ``garden hose'' extending along the extra dimension $w$, shifting its energy minimum to $w_n \approx 0.393 \xi \cdot (2n+1)^{-1/\phi^2}$, which suppresses the vortex deficit in the 3D slice at $w=0$, yielding minuscule masses. The chiral twist $\theta_{\text{twist}} = \pi / \sqrt{\phi} \approx 2.47$ enforces parity violation, aligning with propagation to favor reconnections mimicking weak interactions (P-2, P-5). The structure remains topologically stable via closed loops, with controlled flux venting into bulk waves (at $v_L > c$, P-3) without significant 3D loss.
+Neutrinos, the neutral counterparts to charged leptons, are modeled as helical variants of single-tube toroidal vortices in a 4D compressible superfluid, with inherent left-handed chirality induced by asymmetric phase twists. Each neutrino resembles a spiraled ``garden hose'' extending along the extra dimension $w$, shifting its energy minimum to $w_n \approx 0.393 \xi_c \cdot (2n+1)^{-1/\phi^2}$, which suppresses the vortex deficit in the 3D slice at $w=0$, yielding minuscule masses. The chiral twist $\theta_{\text{twist}} = \pi / \sqrt{\phi} \approx 2.47$ enforces parity violation, aligning with propagation to favor reconnections mimicking weak interactions (P-2, P-5). The structure remains topologically stable via closed loops, with controlled flux venting into bulk waves (at $v_L > c$, P-3) without significant 3D loss.
 
-Generations scale with a golden ratio exponent $\phi/2$, reduced from $\phi$ for charged leptons due to helical projection, but a topological phase factor at $n=2$ (for $\nu_\tau$) enhances the mass via a Berry phase from azimuthal mode mixing. The projection mechanism (Section 2.3, P-3) exponentially damps the deficit, with the healing length $\xi$ (P-1) setting the core scale. Mixing angles in the PMNS matrix arise from $A_5$ symmetry in vortex braiding, tied to the golden ratio. Below, we derive the neutrino mass formula and mixing angles step-by-step, ensuring dimensional consistency and verifying with SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
+Generations scale with a golden ratio exponent $\phi/2$, reduced from $\phi$ for charged leptons due to helical projection, but a topological phase factor at $n=2$ (for $\nu_\tau$) enhances the mass via a Berry phase from azimuthal mode mixing. The projection mechanism (Section 2.3, P-3) exponentially damps the deficit, with the healing length $\xi_c$ (P-1) setting the core scale. Mixing angles in the PMNS matrix arise from $A_5$ symmetry in vortex braiding, tied to the golden ratio. Below, we derive the neutrino mass formula and mixing angles step-by-step, ensuring dimensional consistency and verifying with SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
 
 \subsubsection{Derivation}
 \begin{enumerate}
-\item \textbf{Bare Mass and Helical Structure}: The bare neutrino mass $m_{\text{bare},n}$ follows the lepton deficit formula: $m_{\text{bare},n} = \rho_0 V_{\text{deficit}} = \rho_0 \pi \xi^2 \cdot 2\pi R_n$, where $\rho_0 = \rho_{4D}^0 \xi$ is the projected background density (P-1, P-3), and $V_{\text{deficit}} \approx \pi \xi^2 \cdot 2\pi R_n$ for a toroidal vortex. The helical twist $\theta_{\text{twist}} = \pi / \sqrt{\phi}$ arises from $A_5$ symmetry (P-5), ensuring incommensurable phase windings to prevent resonant reconnections (Section 2.5). This twist splits the circulation between the 3D slice and $w$-extension, reducing the effective scaling from $(2n+1)^{2\phi}$ (lepton kinetic energy) to $(2n+1)^{\phi}$, yielding a mass scaling $\propto (2n+1)^{\phi/2}$. Thus:
+\item \textbf{Bare Mass and Helical Structure}: The bare neutrino mass $m_{\text{bare},n}$ follows the lepton deficit formula: $m_{\text{bare},n} = \rho_0 V_{\text{deficit}} = \rho_0 \pi \xi_c^2 \cdot 2\pi R_n$, where $\rho_0 = \rho_{4D}^0 \xi_c$ is the projected background density (P-1, P-3), and $V_{\text{deficit}} \approx \pi \xi_c^2 \cdot 2\pi R_n$ for a toroidal vortex. The helical twist $\theta_{\text{twist}} = \pi / \sqrt{\phi}$ arises from $A_5$ symmetry (P-5), ensuring incommensurable phase windings to prevent resonant reconnections (Section 2.5). This twist splits the circulation between the 3D slice and $w$-extension, reducing the effective scaling from $(2n+1)^{2\phi}$ (lepton kinetic energy) to $(2n+1)^{\phi}$, yielding a mass scaling $\propto (2n+1)^{\phi/2}$. Thus:
    \[
    m_{\text{bare},n} = m_0 (2n+1)^{\phi/2},
    \]
-   with $m_0 = 2\pi^2 \rho_0 \xi^3$ calibrated to $\Delta m^2_{21} \approx 7.5 \times 10^{-5} \, \text{eV}^2$. SymPy verifies the exponent reduction via helical constraints in the GP equation (code at \url{https://github.com/trevnorris/vortex-field}).
+   with $m_0 = 2\pi^2 \rho_0 \xi_c^3$ calibrated to $\Delta m^2_{21} \approx 7.5 \times 10^{-5} \, \text{eV}^2$. SymPy verifies the exponent reduction via helical constraints in the GP equation (code at \url{https://github.com/trevnorris/vortex-field}).
 
 \begin{itemize}
-\item \textbf{Braiding and Curvature Corrections}: Neutrinos have reduced braiding ($\epsilon_\nu \approx 0.0535$) and curvature ($\delta_\nu \approx 0.00077 n^2$) due to the $w$-offset. The chiral twist shifts the core to $w_n = w_{\text{offset}} \cdot (2n+1)^{-1/\phi^2}$, with $w_{\text{offset}} \approx 0.393 \xi$, suppressing the braiding energy $\delta E \propto \rho_{4D}^0 v_{\text{eff}}^2 \int \sech^4(r / \sqrt{2} \xi) \, dr \cdot R$ by $\exp(-(w_n / \xi)^2)$. This yields $\epsilon_\nu = 0.0625 \times \exp(-(0.393)^2) \approx 0.0535$ (SymPy verified). Curvature is reduced by the helical pitch, giving $\delta_\nu \approx 0.00125 n^2 / \phi \approx 0.00077 n^2$. The normalized radius is:
+\item \textbf{Braiding and Curvature Corrections}: Neutrinos have reduced braiding ($\epsilon_\nu \approx 0.0535$) and curvature ($\delta_\nu \approx 0.00077 n^2$) due to the $w$-offset. The chiral twist shifts the core to $w_n = w_{\text{offset}} \cdot (2n+1)^{-1/\phi^2}$, with $w_{\text{offset}} \approx 0.393 \xi_c$, suppressing the braiding energy $\delta E \propto \rho_{4D}^0 v_{\text{eff}}^2 \int \sech^4(r / \sqrt{2} \xi_c) \, dr \cdot R$ by $\exp(-(w_n / \xi_c)^2)$. This yields $\epsilon_\nu = 0.0625 \times \exp(-(0.393)^2) \approx 0.0535$ (SymPy verified). Curvature is reduced by the helical pitch, giving $\delta_\nu \approx 0.00125 n^2 / \phi \approx 0.00077 n^2$. The normalized radius is:
    \[
    a_n = (2n+1)^{\phi/2} (1 + \epsilon_\nu n(n-1) - \delta_\nu).
    \]
 \item \textbf{Chiral Energy}: The helical twist adds a chiral energy penalty:
    \[
-   \delta E_{\text{chiral}} = \rho_{4D}^0 v_{\text{eff}}^2 \pi \xi^2 \left( \frac{\theta_{\text{twist}}}{2\pi} \right)^2 \cdot 4\pi^2 R \xi,
+   \delta E_{\text{chiral}} = \rho_{4D}^0 v_{\text{eff}}^2 \pi \xi_c^2 \left( \frac{\theta_{\text{twist}}}{2\pi} \right)^2 \cdot 4\pi^2 R \xi_c,
    \]
    with $\theta_{\text{twist}} = \pi / \sqrt{\phi} \approx 2.47$. Dimensions: $[M L^{-4}] \cdot [L^2 T^{-2}] \cdot [L^2] \cdot [L^2] = [M L^2 T^{-2}]$. The twist enforces left-handed chirality, with right-handed modes dissipating via reconnections (P-2, P-5), consistent with observed parity violation.
 \end{itemize}
 
 \item \textbf{$w$-Offset Minimization}: The $w$-trap energy, derived from the GP functional (P-1) for displacement along the extra dimension, is:
    \[
-   \delta E_w = \rho_{4D}^0 v_{\text{eff}}^2 \pi \xi^2 (w_n / \xi)^2 \cdot 4\pi^2 R \xi.
+   \delta E_w = \rho_{4D}^0 v_{\text{eff}}^2 \pi \xi_c^2 (w_n / \xi_c)^2 \cdot 4\pi^2 R \xi_c.
    \]
    Minimizing $\delta E = \delta E_{\text{chiral}} + \delta E_w$ by equating the energy contributions (from P-1's gradient and interaction terms, balanced for topological stability per P-5):
    \[
-   \left( \frac{\pi / \sqrt{\phi}}{2\pi} \right)^2 = (w_{\text{offset}} / \xi)^2 \implies w_{\text{offset}} = \frac{\xi}{2 \sqrt{\phi}} \approx 0.393 \xi.
+   \left( \frac{\pi / \sqrt{\phi}}{2\pi} \right)^2 = (w_{\text{offset}} / \xi_c)^2 \implies w_{\text{offset}} = \frac{\xi_c}{2 \sqrt{\phi}} \approx 0.393 \xi_c.
    \]
    The value $\theta_{\text{twist}} = \pi / \sqrt{\phi}$ emerges from $A_5$ symmetry (P-5), ensuring incommensurable phase windings to avoid resonance catastrophes, as derived in Section 2.5 where the golden ratio $\phi$ minimizes reconnection risks via $x^2 = x + 1$. For higher generations, $w_n = w_{\text{offset}} \cdot (2n+1)^{-1/\phi^2}$, with $\gamma = -1/\phi^2 \approx -0.382$, adjusts the helical pitch (SymPy verified).
 
@@ -327,17 +342,17 @@ Generations scale with a golden ratio exponent $\phi/2$, reduced from $\phi$ for
 
    The Berry phase $\pi/\phi^3$ is not fine-tuned but emerges as the unique stable configuration when three constraints intersect: (1) the radial scaling $\phi$ from resonance avoidance, (2) the helical twist $\pi/\sqrt{\phi}$ from chiral-$w$ energy balance, and (3) the requirement for commensurate phase closure in the projected 3D torus. Just as crystalline structures find unique stable configurations, the vortex topology has a single attractor at these golden ratio-based values.
 
-\item \textbf{Mass Suppression}: The $w$-offset reduces the effective circulation to $\Gamma_{\text{eff}} \approx \Gamma \cdot (1 + 2 \exp(-(w_n / \xi)^2))$, suppressing the mass via:
+\item \textbf{Mass Suppression}: The $w$-offset reduces the effective circulation to $\Gamma_{\text{eff}} \approx \Gamma \cdot (1 + 2 \exp(-(w_n / \xi_c)^2))$, suppressing the mass via:
    \[
-   m_{\nu,n} = m_{\text{bare},n} \exp(-(w_n / \xi)^2).
+   m_{\nu,n} = m_{\text{bare},n} \exp(-(w_n / \xi_c)^2).
    \]
    SymPy verifies the suppression factor.
 
 \item \textbf{Complete Mass Formula}: Combining terms:
    \[
-   m_{\nu,n} = m_0 (2n+1)^{\phi/2} \exp(-(w_n / \xi)^2) (1 + \epsilon_\nu n(n-1) - \delta_\nu) (1 + \delta_n),
+   m_{\nu,n} = m_0 (2n+1)^{\phi/2} \exp(-(w_n / \xi_c)^2) (1 + \epsilon_\nu n(n-1) - \delta_\nu) (1 + \delta_n),
    \]
-   with $\delta_0 = \delta_1 = 0$, $\delta_2 \approx 2.200$, $w_n = 0.393 \xi \cdot (2n+1)^{-1/\phi^2}$, $\epsilon_\nu \approx 0.0535$, $\delta_\nu \approx 0.00077 n^2$.
+   with $\delta_0 = \delta_1 = 0$, $\delta_2 \approx 2.200$, $w_n = 0.393 \xi_c \cdot (2n+1)^{-1/\phi^2}$, $\epsilon_\nu \approx 0.0535$, $\delta_\nu \approx 0.00077 n^2$.
 
 \item \textbf{PMNS Mixing Angles}: The solar angle arises from $A_5$ symmetry:
    \[
@@ -359,7 +374,7 @@ Mass-squared differences:
 \item $\Delta m^2_{21} \approx 7.50 \times 10^{-5} \, \text{eV}^2$ (calibrated)
 \item $\Delta m^2_{32} \approx 2.52 \times 10^{-3} \, \text{eV}^2$ (PDG: $2.50 \times 10^{-3}$, 100.8\% agreement).
 \end{itemize}
-This 100.8\% agreement with PDG data uses no free parameters beyond the single calibration to $\Delta m^2_{21}$. Robustness is confirmed by varying $\phi \in [1.602, 1.634]$ (1\%) and $w_n / \xi \in [0.373, 0.413]$ (5\%), altering masses by $\pm 2-2.5\%$, keeping the sum within bounds (SymPy verified). No sterile neutrinos are predicted, as higher $n$ yields excluded masses.
+This 100.8\% agreement with PDG data uses no free parameters beyond the single calibration to $\Delta m^2_{21}$. Robustness is confirmed by varying $\phi \in [1.602, 1.634]$ (1\%) and $w_n / \xi_c \in [0.373, 0.413]$ (5\%), altering masses by $\pm 2-2.5\%$, keeping the sum within bounds (SymPy verified). No sterile neutrinos are predicted, as higher $n$ yields excluded masses.
 
 \begin{table}[h!]
 \centering
@@ -379,7 +394,7 @@ $\nu_\tau$ (2) & 0.05106 & $\sim 0.050$ & -- \\
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result:} Neutrino masses follow $ m_{\nu,n} = m_0 (2n+1)^{\phi/2} \exp(-(w_n/\xi)^2) (1 + \epsilon_\nu n(n-1) - \delta_\nu) (1 + \delta_n) $, with topological enhancement $\delta_2 = \sqrt{(\phi^2 - 1/\phi)^2 + \tan^2(\pi/\phi^3)} \approx 2.200$ from a Berry phase $\pi/\phi^3$ in azimuthal mode mixing. The helical twist $\theta_{\text{twist}} = \pi / \sqrt{\phi}$ emerges from $A_5$ symmetry (P-5) for resonance-free stability. Predicts $\Delta m^2_{32}/\Delta m^2_{21} \approx 33.6$ (vs. PDG 33.3, 100.8\% agreement) using only golden ratio geometry. \\
+\textbf{Key Result:} Neutrino masses follow $ m_{\nu,n} = m_0 (2n+1)^{\phi/2} \exp(-(w_n/\xi_c)^2) (1 + \epsilon_\nu n(n-1) - \delta_\nu) (1 + \delta_n) $, with topological enhancement $\delta_2 = \sqrt{(\phi^2 - 1/\phi)^2 + \tan^2(\pi/\phi^3)} \approx 2.200$ from a Berry phase $\pi/\phi^3$ in azimuthal mode mixing. The helical twist $\theta_{\text{twist}} = \pi / \sqrt{\phi}$ emerges from $A_5$ symmetry (P-5) for resonance-free stability. Predicts $\Delta m^2_{32}/\Delta m^2_{21} \approx 33.6$ (vs. PDG 33.3, 100.8\% agreement) using only golden ratio geometry. \\
 \textbf{Verification:} Mode coupling, Berry phase, and energy balance calculations verified with SymPy; code at \url{https://github.com/trevnorris/vortex-field}.
 \end{minipage}
 }
@@ -437,7 +452,7 @@ The key insight is that leptons achieve topological closure independently, while
 Both neutrinos and echo particles exhibit mass suppression, but through distinct mechanisms tied to their topologies. Neutrinos, as helical closed vortices, suppress their masses via a $w$-offset in the extra dimension, reducing their density deficit in the 3D slice (Section 3.3). Echoes, as open fractional strands, experience mass suppression through destructive phase interference during the 4D$\to$3D projection (Section 2.3). The suppression mechanisms are:
 
 \begin{itemize}
-\item Neutrino suppression: $\exp(-(w/\xi)^2)$, driven by displacement in the extra dimension $w$ (P-3).
+\item Neutrino suppression: $\exp(-(w/\xi_c)^2)$, driven by displacement in the extra dimension $w$ (P-3).
 \item Echo suppression: $|1 + e^{i 2\pi/3} + e^{-i 2\pi/3}|^2 \approx 0.01$, resulting from phase misalignment (P-5).
 \end{itemize}
 
@@ -449,7 +464,7 @@ Table~\ref{tab:echo-neutrino-revised} summarizes the differences.
 \hline
 Aspect & Neutrino & Echo \\
 \hline
-Suppression & $w$-offset ($\exp(-(w/\xi)^2)$) & Phase interference ($|1 + e^{i 2\pi/3} + e^{-i 2\pi/3}|^2$) \\
+Suppression & $w$-offset ($\exp(-(w/\xi_c)^2)$) & Phase interference ($|1 + e^{i 2\pi/3} + e^{-i 2\pi/3}|^2$) \\
 Topology & Helical closed & Fractional open \\
 Charge & Neutral & Fractional ($\pm e/3$, $\pm 2e/3$) \\
 Lifetime & Eternal & Transient ($\sim 10^{-20}$ s) \\
@@ -464,7 +479,7 @@ The key insight is that neutrinos retain eternal stability despite suppression--
 
 \subsubsection{The Mass Suppression Discovery}
 
-The defining feature of echo particles is their extreme mass suppression due to destructive interference in the 4D\(\to\)3D projection, a hallmark of their fractional circulation~\cite{Babaev2002}. For stable particles like leptons, the 4-fold circulation enhancement arises from four contributions (Section 2.3): direct intersection at \(w=0\), upper hemisphere (\(w > 0\)), lower hemisphere (\(w < 0\)), and induced \(w\)-flow. For echo particles, the fractional phase \(\phi(w) = (2\pi/3) \tanh(w/\xi)\) (P-5)~\cite{WikiFractional} introduces misalignment, with the healing length \(\xi\) (P-1) modulating the core profile and projection strength~\cite{Wimmer2020}. The upper hemisphere contributes a phase of \(+2\pi/3\), the lower \(-2\pi/3\), and the \(w\)-flow adds a residual \(\delta\), estimated as \(\delta \approx 0.045\) from the weighted integral \(\int dw \exp(-w^2/\xi^2) \cos\left( (2\pi/3) \tanh(w/\xi) \right) / \int dw \exp(-w^2/\xi^2) \approx 0.45/1.77 \approx 0.254\), scaled to \(\delta \approx 0.045\) for strong suppression in isolated echoes with short strand length \(L \sim \xi\) (numerical approximation, see supplementary SymPy calculations)~\cite{Yang2022}. The variation of $\delta$ with strand length L emerges naturally from the projection integral's dependence on vortex extent, though precise functional forms await detailed topological analysis. The projected circulation is:
+The defining feature of echo particles is their extreme mass suppression due to destructive interference in the 4D\(\to\)3D projection, a hallmark of their fractional circulation~\cite{Babaev2002}. For stable particles like leptons, the 4-fold circulation enhancement arises from four contributions (Section 2.3): direct intersection at \(w=0\), upper hemisphere (\(w > 0\)), lower hemisphere (\(w < 0\)), and induced \(w\)-flow. For echo particles, the fractional phase \(\phi(w) = (2\pi/3) \tanh(w/\xi_c)\) (P-5)~\cite{WikiFractional} introduces misalignment, with the healing length \(\xi_c\) (P-1) modulating the core profile and projection strength~\cite{Wimmer2020}. The upper hemisphere contributes a phase of \(+2\pi/3\), the lower \(-2\pi/3\), and the \(w\)-flow adds a residual \(\delta\), estimated as \(\delta \approx 0.045\) from the weighted integral \(\int dw \exp(-w^2/\xi_c^2) \cos\left( (2\pi/3) \tanh(w/\xi_c) \right) / \int dw \exp(-w^2/\xi_c^2) \approx 0.45/1.77 \approx 0.254\), scaled to \(\delta \approx 0.045\) for strong suppression in isolated echoes with short strand length \(L \sim \xi_c\) (numerical approximation, see supplementary SymPy calculations)~\cite{Yang2022}. The variation of $\delta$ with strand length L emerges naturally from the projection integral's dependence on vortex extent, though precise functional forms await detailed topological analysis. The projected circulation is:
 
 \begin{equation}
 \Gamma_{\text{projected}} = \left( \kappa/3 \right) \left[ 1 + e^{i 2\pi/3} + e^{-i 2\pi/3} + \delta \right],
@@ -482,13 +497,15 @@ Since mass scales as \(m \propto \Gamma^2\)~\cite{Lake2010}, this yields:
 m_{\text{echo}} \propto (0.015 \kappa)^2 \approx 0.000225 m_{\text{unit}},
 \end{equation}
 
-representing a \(\sim 99.98\%\) suppression compared to a full vortex (\(m_{\text{unit}} \propto \kappa^2\))~\cite{Nitta2019}. For example, scaling \(m_{\text{unit}} \approx 6244 \, \text{MeV}\) (to match proton at \(938 \, \text{MeV}\) in composites), a single echo is \(\sim 0.0014 \, \text{MeV}\), and three sum to \(\sim 0.0042 \, \text{MeV}\), implying an amplification of \(\sim 2.2 \times 10^5 \times\) (reduced to \(\sim 1.4 \times 10^5 \times\) with density overlap \(\rho_{\text{body}} / \rho_0 \approx 0.618\)). This overestimates the real \(\sim 104 \times\) (PDG proton \(938 \, \text{MeV}\) vs. bare quark sum \(\sim 9 \, \text{MeV}\)), as \(\delta \propto \xi / L\) increases in composites (\(L \sim 10 \xi\)) to \(\delta \approx 0.15\), yielding \(\sim 3120 \times\) amplification (Section 3.4.5)~\cite{NatComm2023}. This variation in \(\delta\) with vortex topology enables diverse hadron masses without additional parameters~\cite{Wimmer2020}. SymPy confirms: \(\text{Re}[1 + e^{i 2\pi/3} + e^{-i 2\pi/3}] + 0.045 \approx 0.045\), yielding \(\Gamma_{\text{projected}} \approx 0.015 \kappa\) (code at \url{https://github.com/trevnorris/vortex-field}).
+representing a \(\sim 99.98\%\) suppression compared to a full vortex (\(m_{\text{unit}} \propto \kappa^2\))~\cite{Nitta2019}. For example, scaling \(m_{\text{unit}} \approx 6244 \, \text{MeV}\) (to match proton at \(938 \, \text{MeV}\) in composites), a single echo is \(\sim 0.0014 \, \text{MeV}\), and three sum to \(\sim 0.0042 \, \text{MeV}\), implying an amplification of \(\sim 2.2 \times 10^5 \times\) (reduced to \(\sim 1.4 \times 10^5 \times\) with density overlap \(\rho_{\text{body}} / \rho_0 \approx 0.618\)). This overestimates the real \(\sim 104 \times\) (PDG proton \(938 \, \text{MeV}\) vs. bare quark sum \(\sim 9 \, \text{MeV}\)), as \(\delta \propto \xi_c / L\) increases in composites (\(L \sim 10 \xi_c\)) to \(\delta \approx 0.15\), yielding \(\sim 3120 \times\) amplification (Section 3.4.5)~\cite{NatComm2023}. This variation in \(\delta\) with vortex topology enables diverse hadron masses without additional parameters~\cite{Wimmer2020}. SymPy confirms: \(\text{Re}[1 + e^{i 2\pi/3} + e^{-i 2\pi/3}] + 0.045 \approx 0.045\), yielding \(\Gamma_{\text{projected}} \approx 0.015 \kappa\) (code at \url{https://github.com/trevnorris/vortex-field}).
+We define $\rho_{\text{body}} = \sum_i m_i \, \delta^3(\mathbf r - \mathbf r_i)$ as the \emph{positive} lumped source corresponding to localized deficits in $\rho_{3D}$; the uniform background $\rho_0$ only generates a quadratic potential and is subtracted in calibration.
 
-Physically, isolated echoes are ``broken projections''---shadows of stable vortices disrupted by phase conflicts across the 4D structure, with \(\xi\) enhancing suppression for short strands~\cite{Wimmer2020}. This mechanism, akin to vortex array silencing~\cite{Yang2022}, conceptually accounts for the proton's mass emergence, though braiding complexity requires further refinement.
+
+Physically, isolated echoes are ``broken projections''---shadows of stable vortices disrupted by phase conflicts across the 4D structure, with \(\xi_c\) enhancing suppression for short strands~\cite{Wimmer2020}. This mechanism, akin to vortex array silencing~\cite{Yang2022}, conceptually accounts for the proton's mass emergence, though braiding complexity requires further refinement.
 
 \subsubsection{Three-Body Restoration and Baryon Formation}
 
-The instability of isolated echo particles is resolved in composite states, where three echoes at \(120^\circ\) in the 3D slice restore phase alignment, achieving near-full circulation~\cite{Nitta2019}. Each echo contributes a phase sector of \(2\pi/3\), summing to a complete \(2\pi\) phase, mimicking a stable closed vortex~\cite{WikiFractional}. The total circulation for a three-echo composite (e.g., a baryon) accounts for braiding effects that increase the effective strand length \(L \sim 10 \xi\), reducing interference compared to isolated echoes (\(L \sim \xi\))~\cite{Wimmer2020}. Using the projection framework (Section 3.4.4), the composite circulation is estimated with a phase restoration factor adjusted for braiding, where \(\delta \approx 0.15\) (from \(\delta \propto \xi / L\), with \(L \sim 10 \xi\) for proton-like configurations, see supplementary SymPy calculations)~\cite{NatComm2023}. The total circulation is:
+The instability of isolated echo particles is resolved in composite states, where three echoes at \(120^\circ\) in the 3D slice restore phase alignment, achieving near-full circulation~\cite{Nitta2019}. Each echo contributes a phase sector of \(2\pi/3\), summing to a complete \(2\pi\) phase, mimicking a stable closed vortex~\cite{WikiFractional}. The total circulation for a three-echo composite (e.g., a baryon) accounts for braiding effects that increase the effective strand length \(L \sim 10 \xi_c\), reducing interference compared to isolated echoes (\(L \sim \xi_c\))~\cite{Wimmer2020}. Using the projection framework (Section 3.4.4), the composite circulation is estimated with a phase restoration factor adjusted for braiding, where \(\delta \approx 0.15\) (from \(\delta \propto \xi_c / L\), with \(L \sim 10 \xi_c\) for proton-like configurations, see supplementary SymPy calculations)~\cite{NatComm2023}. The total circulation is:
 
 \begin{equation}
 \Gamma_{\text{total}} = 3 \Gamma_{\text{echo}} \left[ 1 + \delta \right],
@@ -512,7 +529,7 @@ compared to a single echo's \(m_{\text{echo}} \propto (0.015 \kappa)^2 \approx 0
 \frac{m_{\text{baryon}}}{m_{\text{echo, sum}}} \approx \frac{1.3225}{0.000225 \cdot 3} \approx 1963 \times,
 \end{equation}
 
-reduced to \(\sim 1213 \times\) with density overlap \(\rho_{\text{body}} / \rho_0 \approx 0.618\)~\cite{Babaev2002}. This overestimates the real \(\sim 104 \times\) (PDG proton \(938 \, \text{MeV}\) vs. bare quark sum \(\sim 9 \, \text{MeV}\)), as \(\delta \approx 0.15\) is specific to proton-like braiding; other hadrons (e.g., Delta) may use larger \(L\), increasing \(\delta \approx 0.2\), yielding \(\sim 104 \times\) with fine-tuning~\cite{NatComm2023}. The variation in \(\delta \propto \xi / L\) with vortex topology enables diverse hadron masses without additional parameters~\cite{Wimmer2020}. SymPy verifies: \(1 + 0.15 = 1.15\), \((1.15)^2 \approx 1.3225\) (code at \url{https://github.com/trevnorris/vortex-field}).
+reduced to \(\sim 1213 \times\) with density overlap \(\rho_{\text{body}} / \rho_0 \approx 0.618\)~\cite{Babaev2002}. This overestimates the real \(\sim 104 \times\) (PDG proton \(938 \, \text{MeV}\) vs. bare quark sum \(\sim 9 \, \text{MeV}\)), as \(\delta \approx 0.15\) is specific to proton-like braiding; other hadrons (e.g., Delta) may use larger \(L\), increasing \(\delta \approx 0.2\), yielding \(\sim 104 \times\) with fine-tuning~\cite{NatComm2023}. The variation in \(\delta \propto \xi_c / L\) with vortex topology enables diverse hadron masses without additional parameters~\cite{Wimmer2020}. SymPy verifies: \(1 + 0.15 = 1.15\), \((1.15)^2 \approx 1.3225\) (code at \url{https://github.com/trevnorris/vortex-field}).
 
 We present this calculation not as a final result but as a \textbf{proof of mechanism}--demonstrating that vortex physics possesses the mathematical structure to bridge the mass gap between constituent quarks (~9 MeV) and baryons (~938 MeV) through phase interference and topological amplification. The precise mapping between vortex configurations and suppression factors remains an open problem, analogous to how early quantum mechanics could explain atomic stability before calculating exact molecular binding energies.
 
@@ -525,7 +542,7 @@ This restoration explains the stability hierarchy of baryons~\cite{Nitta2019}:
 \item \textbf{Delta}: Poor closure, transient at \(\sim 10^{-23} \, \text{s}\).
 \end{itemize}
 
-The key insight is that the proton may be the universe's only truly stable composite, achieving near-perfect three-body phase alignment that mimics a fundamental closed vortex, with \(\xi\)-dependent \(\delta\) enabling mass variation across the hadron spectrum~\cite{Yang2022}. The inability to derive all hadron masses from first principles reflects not a contradiction but incomplete mapping—analogous to knowing $F=ma$ without knowing all force laws.
+The key insight is that the proton may be the universe's only truly stable composite, achieving near-perfect three-body phase alignment that mimics a fundamental closed vortex, with \(\xi_c\)-dependent \(\delta\) enabling mass variation across the hadron spectrum~\cite{Yang2022}. The inability to derive all hadron masses from first principles reflects not a contradiction but incomplete mapping—analogous to knowing $F=ma$ without knowing all force laws.
 
 \subsubsection{The Complexity Challenge}
 
@@ -579,7 +596,7 @@ Like Mendeleev's periodic table with gaps awaiting discovery, our topological fr
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result:} Echo particles, with fractional circulation \(\Gamma_{\text{echo}} = \kappa/3\), undergo \(\sim 99.98\%\) mass suppression via phase interference (\(\Gamma_{\text{projected}} \approx 0.015 \kappa\))~\cite{Babaev2002,WikiFractional}, explaining their instability. Three-body composites restore circulation (\(\Gamma_{\text{total}} \approx 1.466 \kappa\))~\cite{Nitta2019,NatComm2023}, amplifying mass by \(\sim 3120\times\) (post-density correction), with perfect phase alignment yielding proton-like stability. The variation of \(\delta \propto \xi / L\) with vortex topology enables diverse hadron masses, with spectroscopic mapping needed for exact calibration~\cite{Wimmer2020,Yang2022}.
+\textbf{Key Result:} Echo particles, with fractional circulation \(\Gamma_{\text{echo}} = \kappa/3\), undergo \(\sim 99.98\%\) mass suppression via phase interference (\(\Gamma_{\text{projected}} \approx 0.015 \kappa\))~\cite{Babaev2002,WikiFractional}, explaining their instability. Three-body composites restore circulation (\(\Gamma_{\text{total}} \approx 1.466 \kappa\))~\cite{Nitta2019,NatComm2023}, amplifying mass by \(\sim 3120\times\) (post-density correction), with perfect phase alignment yielding proton-like stability. The variation of \(\delta \propto \xi_c / L\) with vortex topology enables diverse hadron masses, with spectroscopic mapping needed for exact calibration~\cite{Wimmer2020,Yang2022}.
 
 \textbf{Verification:} SymPy confirms interference (\(\text{Re}[1 + e^{i 2\pi/3} + e^{-i 2\pi/3}] + 0.045 \approx 0.045\)) and composite enhancement (\(\tan(\pi / (\phi^3 + 1)) \approx 0.686\)); code at \url{https://github.com/trevnorris/vortex-field}.
 \end{minipage}
@@ -588,6 +605,7 @@ Like Mendeleev's periodic table with gaps awaiting discovery, our topological fr
 
 \subsection{Baryons: Three-Echo Phase Restoration}
 \label{sec:baryons}
+ \paragraph{Mass bookkeeping convention.} We define mass via deficit volume in the 3D slice, $m\sim \rho_0 V_{\text{deficit}}>0$. Under three-echo phase restoration, deficits add nonlinearly and the composite \emph{gains} mass relative to the sum of its suppressed constituents. In this sign convention, ``binding'' increases mass; energy conservation is preserved because the background field does work to refill deficits as phases realign.
 
 While echo particles revealed the mechanism of fractional vortices and mass suppression, baryons demonstrate nature's solution to their inherent instability: three-body phase restoration through braided topology. In our framework, baryons are not mysterious bound states held by a ``color force'' but elegant topological configurations where three echo strands braid into a stable, closed vortex sheet in a 4D compressible superfluid. This subsection explains how baryons emerge from the postulates (P-1 to P-5), emphasizing their topological stability and mass generation without attempting to curve-fit exact masses, aligning with our goal to explore the framework's predictive power.
 
@@ -610,11 +628,11 @@ m_{\text{baryon}} = \sum_i \left( m_{\text{echo},i} \times \text{amplification}_
 where:
 \begin{itemize}
 \item $m_{\text{echo},i}$ is the severely suppressed mass of each constituent echo, $\propto (\Gamma_{\text{projected}})^2 \approx (0.015 \kappa)^2$ (Section~\ref{sec:echo}, P-5).
-\item $\text{amplification}_i$ depends on the braiding topology, quantified by $\delta \propto \xi/L$ (P-3, P-5), where $\xi$ is the healing length (P-1) and $L$ is the effective strand length. This amplification arises from the 4D-to-3D projection (P-3), where longer strands ($L \sim 10 \xi$ for baryons) reduce phase interference, enhancing circulation (Section~\ref{sec:echo}).
+\item $\text{amplification}_i$ depends on the braiding topology, quantified by $\delta \propto \xi_c/L$ (P-3, P-5), where $\xi_c$ is the healing length (P-1) and $L$ is the effective strand length. This amplification arises from the 4D-to-3D projection (P-3), where longer strands ($L \sim 10 \xi_c$ for baryons) reduce phase interference, enhancing circulation (Section~\ref{sec:echo}).
 \item $E_{\text{binding}}$ is the energy stored in the braid structure, derived from the GP interaction term (P-1), which resists core compression at braid crossings and contributes to the density deficit.
 \end{itemize}
 
-The profound insight is that different braiding patterns yield different amplification factors. A tightly wound braid (short $L$) retains more suppression, while looser configurations (large $L$) allow greater mass restoration. For example, $\delta \approx 0.15$ for proton-like braids ($L \sim 10 \xi$) yields $\Gamma_{\text{total}} \approx 1.15 \kappa$, amplifying the mass by $\sim 1963\times$ per echo (Section~\ref{sec:echo}, adjusted by density overlap $\rho_{\text{body}} / \rho_0 \approx 0.618$). This variation in $\delta$ with vortex topology, governed by P-3's projection and P-5's quantized circulation, enables the diverse hadron mass spectrum without additional parameters, as verified by SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
+The profound insight is that different braiding patterns yield different amplification factors. A tightly wound braid (short $L$) retains more suppression, while looser configurations (large $L$) allow greater mass restoration. For example, $\delta \approx 0.15$ for proton-like braids ($L \sim 10 \xi_c$) yields $\Gamma_{\text{total}} \approx 1.15 \kappa$, amplifying the mass by $\sim 1963\times$ per echo (Section~\ref{sec:echo}, adjusted by density overlap $\rho_{\text{body}} / \rho_0 \approx 0.618$). This variation in $\delta$ with vortex topology, governed by P-3's projection and P-5's quantized circulation, enables the diverse hadron mass spectrum without additional parameters, as verified by SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
 
 Physically, the proton's $938 \, \text{MeV}$ emerges from $\sim 9 \, \text{MeV}$ of bare quark masses through topological amplification, where mass is a measure of how the 4D superfluid twists upon itself under tension (P-1, P-5).
 
@@ -637,7 +655,7 @@ While the conceptual framework is clear—baryon mass equals amplified echo mass
 
 \begin{enumerate}
 \item \textbf{Braiding Topology}: Each baryon's quantum numbers ($J^{PC}$) map to a specific vortex braiding pattern, governed by P-5's phase quantization and P-1's energy minimization. For example, the proton's $J=1/2^+$ corresponds to a three-strand braid with $120^\circ$ symmetry, but the Delta's $J=3/2^+$ involves a higher-energy configuration.
-\item \textbf{Amplification Factors}: Each pattern yields a unique $\delta \propto \xi/L$ (P-3), requiring detailed 4D Biot-Savart integrals to compute effective strand lengths $L$ (Section~\ref{sec:projection}).
+\item \textbf{Amplification Factors}: Each pattern yields a unique $\delta \propto \xi_c/L$ (P-3), requiring detailed 4D Biot-Savart integrals to compute effective strand lengths $L$ (Section~\ref{sec:projection}).
 \item \textbf{Binding Energy}: $E_{\text{binding}}$, derived from the GP interaction term (P-1), depends on overlap regions at braid crossings, varying with quark combinations (e.g., u/d vs. s).
 \end{enumerate}
 
@@ -657,7 +675,7 @@ Future work must catalog how each braiding pattern maps to amplification factors
 
 \begin{itemize}
 \item Mapping hadron $J^{PC}$ to specific three-echo braids using braid group $B_3$ (P-5).
-\item Computing $\delta \propto \xi/L$ for each configuration via 4D integrals (P-3).
+\item Computing $\delta \propto \xi_c/L$ for each configuration via 4D integrals (P-3).
 \item Predicting exotic states (e.g., tetraquarks) from higher-order braids, testable at LHCb or Belle II.
 \item Calculating decay rates from reconnection dynamics (P-2).
 \end{itemize}
@@ -667,7 +685,7 @@ Like Mendeleev's periodic table with gaps for undiscovered elements, our framewo
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result:} Baryons form via three-echo phase restoration, where $2\pi/3$ phase sectors sum to $2\pi$, transforming destructive interference into constructive reinforcement (P-3, P-5). Masses follow $m_{\text{baryon}} = \sum (m_{\text{echo},i} \times \text{amplification}_i) + E_{\text{binding}}$, with $\text{amplification}_i \propto \xi/L$ (P-3) and $E_{\text{binding}}$ from GP interactions (P-1). The proton's stability reflects perfect phase closure, while others decay due to mismatches (P-2, P-5).
+\textbf{Key Result:} Baryons form via three-echo phase restoration, where $2\pi/3$ phase sectors sum to $2\pi$, transforming destructive interference into constructive reinforcement (P-3, P-5). Masses follow $m_{\text{baryon}} = \sum (m_{\text{echo},i} \times \text{amplification}_i) + E_{\text{binding}}$, with $\text{amplification}_i \propto \xi_c/L$ (P-3) and $E_{\text{binding}}$ from GP interactions (P-1). The proton's stability reflects perfect phase closure, while others decay due to mismatches (P-2, P-5).
 
 \textbf{Verification:} SymPy confirms phase integrals and energy minimization; code at \url{https://github.com/trevnorris/vortex-field}.
 \end{minipage}
@@ -676,9 +694,9 @@ Like Mendeleev's periodic table with gaps for undiscovered elements, our framewo
 
 \subsection{Photons: Transverse Wave Packets in the 4D Superfluid}
 
-Photons emerge as transverse wave excitations in the 4D compressible superfluid---oscillatory perturbations of the order parameter $\psi$ that propagate as pure shear modes without net mass. Unlike vortices (topological defects with density deficits), photons are dynamical waves with zero time-averaged density change, explaining their massless nature. These waves travel through the bulk medium at speed $v_L$ (P-3) but manifest in our 3D slice as transverse oscillations locked to the emergent speed $c = \sqrt{T/\sigma}$, where $T$ is the surface tension and $\sigma = \rho_{4D}^0 \xi^2$ the effective surface density.
+Photons emerge as transverse wave excitations in the 4D compressible superfluid---oscillatory perturbations of the order parameter $\psi$ that propagate as pure shear modes without net mass. Unlike vortices (topological defects with density deficits), photons are dynamical waves with zero time-averaged density change, explaining their massless nature. These waves travel through the bulk medium at speed $v_L$ (P-3) but manifest in our 3D slice as transverse oscillations locked to the emergent speed $c = \sqrt{T/\Sigma}$, where $T$ is the surface tension and $\Sigma = \rho_{4D}^0 \, \xi_c^2$ the effective surface density.
 
-The key insight is that photons represent energy propagating through compression waves in the 4D bulk, but once this energy manifests in the observable 3D slice (the transverse component), it becomes bound by the maximum speed of transverse modes. Visualize a wave traveling along a rope (x-direction) in 4D, but you only see its transverse motion in the (y,z) plane: The rope's bulk vibrations may move faster, but the visible transverse displacement is limited to $c$. Similarly, we observe photons as localized packets despite their extended 4D structure. The extension into the extra dimension $w$ with characteristic width $\Delta w \approx \xi/\sqrt{2}$ acts as a waveguide, preventing long-range dispersion that would occur for pure 3D waves. This 4D stabilization ensures long-range coherence without requiring nonlinear soliton dynamics.
+The key insight is that photons represent energy propagating through compression waves in the 4D bulk, but once this energy manifests in the observable 3D slice (the transverse component), it becomes bound by the maximum speed of transverse modes. Visualize a wave traveling along a rope (x-direction) in 4D, but you only see its transverse motion in the (y,z) plane: The rope's bulk vibrations may move faster, but the visible transverse displacement is limited to $c$. Similarly, we observe photons as localized packets despite their extended 4D structure. The extension into the extra dimension $w$ with characteristic width $\Delta w \approx \xi_c/\sqrt{2}$ acts as a waveguide, preventing long-range dispersion that would occur for pure 3D waves. This 4D stabilization ensures long-range coherence without requiring nonlinear soliton dynamics.
 
 Crucially, photons carry energy through phase excitations without altering vortex core deficits. When absorbed by particles, they change the vortex's internal state (phase winding, circulation mode) without modifying its mass-defining deficit. This explains why both particles and antiparticles can absorb the same photon---the oscillatory nature couples to both circulation directions, unlike the definite handedness of charged vortices. Below, we derive the photon structure from first principles, explain the massless mechanism, and show how this framework naturally predicts electromagnetic phenomena including polarization states and force unification hints.
 
@@ -686,19 +704,22 @@ Crucially, photons carry energy through phase excitations without altering vorte
 \begin{enumerate}
 \item \textbf{Linearized Excitations}: Starting from the Gross-Pitaevskii equation (P-1) linearized around the background $\psi = \sqrt{\rho_{4D}^0/m} + \delta\psi$:
    \[
-   i\hbar \partial_t \delta\psi = -\frac{\hbar^2}{2 m} \nabla_4^2 \delta\psi + \frac{\hbar^2}{2 m \xi^2} \delta\psi.
+   i\hbar \partial_t \delta\psi = -\frac{\hbar^2}{2 m} \nabla_4^2 \delta\psi + \frac{\hbar^2}{2 m \xi_c^2} \delta\psi.
    \]
    Writing $\delta\psi = \sqrt{\rho_{4D}^0/m}(u + iv)$ with real $u,v$ and applying Helmholtz decomposition (P-4), the transverse component $v_\perp$ (with $\nabla \cdot v_\perp = 0$) decouples from longitudinal compression. This yields the wave equation:
    \[
    \partial_{tt} v_\perp - c^2 \nabla^2 v_\perp = 0,
    \]
-   where $c = \sqrt{T/\sigma}$ emerges from the transverse shear mode speed (P-3), independent of local density variations. Dimensions: $[T] = [M T^{-2}]$ (energy/area), $[\sigma] = [M L^{-2}]$ (mass/area), giving $[c] = [L T^{-1}]$. This follows standard Bogoliubov theory for superfluids, where high-momentum excitations become phonon-like. For high-momentum modes (relevant for photons), the dispersion relation is $\omega = ck$ (no dispersion), as derived by solving the full Bogoliubov spectrum and taking the limit $k\xi \gg 1$.
+   where $c = \sqrt{T/\Sigma}$ emerges from the transverse shear mode speed (P-3), independent of local density variations. Dimensions: $[T] = [M T^{-2}]$ (energy/area), $[\sigma] = [M L^{-2}]$ (mass/area), giving $[c] = [L T^{-1}]$. This follows standard Bogoliubov theory for superfluids, where high-momentum excitations become phonon-like. For high-momentum modes (relevant for photons), the dispersion relation is $\omega = ck$ (no dispersion), as derived by solving the full Bogoliubov spectrum and taking the limit $k\xi_c \gg 1$.
+Plugging $T \approx \hbar^2 \rho_{4D}^0/(2 m^2)$ and $\Sigma =\rho_{4D}^0\,\xi_c^2$ gives $\displaystyle c = \frac{\hbar}{\sqrt{2}\,m\,\xi_c}$.
+\emph{Note:} This is a GP-limit estimate; in the full framework we treat $c$ as an empirical calibration, and use this expression only as an illustrative consistency check.
+
 
 \item \textbf{4D Wave Packet Structure}: The solution is a wave packet propagating along $x$ with transverse oscillations:
    \[
-   v_\perp(\mathbf{r}_4, t) = A_0 \cos(kx - \omega t) \exp\left(-\frac{y^2 + z^2 + w^2}{2\xi^2}\right) \hat{\mathbf{e}}_\perp,
+   v_\perp(\mathbf{r}_4, t) = A_0 \cos(kx - \omega t) \exp\left(-\frac{y^2 + z^2 + w^2}{2\xi_c^2}\right) \hat{\mathbf{e}}_\perp,
    \]
-   where $\omega = ck$ (dispersion relation), $A_0$ sets the amplitude, and $\hat{\mathbf{e}}_\perp$ is a unit vector in the $(y,z,w)$ space perpendicular to propagation. The Gaussian envelope with width $\xi$ prevents spreading: Pure 3D waves would diffract, but the $w$-extension provides confinement. To derive the Gaussian width, minimize the transverse energy $\int |\nabla_\perp v_\perp|^2 d^3 r_\perp \approx (\hbar^2 / (2 m)) (3 / (2 \xi^2)) \int |v_\perp|^2 d^3 r_\perp$ against the normalization constraint, yielding $\Delta y = \Delta z = \Delta w \approx \xi / \sqrt{2}$ (SymPy \texttt{minimize} on quadratic potential approximation confirms). Substitute into wave equation: SymPy verification confirms $\omega = ck$ and that the Gaussian width minimizes transverse energy spread while maintaining normalizability (code at \url{https://github.com/trevnorris/vortex-field}).
+   where $\omega = ck$ (dispersion relation), $A_0$ sets the amplitude, and $\hat{\mathbf{e}}_\perp$ is a unit vector in the $(y,z,w)$ space perpendicular to propagation. The Gaussian envelope with width $\xi_c$ prevents spreading: Pure 3D waves would diffract, but the $w$-extension provides confinement. To derive the Gaussian width, minimize the transverse energy $\int |\nabla_\perp v_\perp|^2 d^3 r_\perp \approx (\hbar^2 / (2 m)) (3 / (2 \xi_c^2)) \int |v_\perp|^2 d^3 r_\perp$ against the normalization constraint, yielding $\Delta y = \Delta z = \Delta w \approx \xi_c / \sqrt{2}$ (SymPy \texttt{minimize} on quadratic potential approximation confirms). Substitute into wave equation: SymPy verification confirms $\omega = ck$ and that the Gaussian width minimizes transverse energy spread while maintaining normalizability (code at \url{https://github.com/trevnorris/vortex-field}).
 
 \item \textbf{Zero Mass Mechanism}: The mass arises from net density deficit: $m = \int \delta\rho_{4D} d^4r$. For oscillatory waves:
    \[
@@ -708,7 +729,7 @@ Crucially, photons carry energy through phase excitations without altering vorte
 
 \item \textbf{Observable Projection and Speed Limit}: While energy propagates through the bulk at $v_L > c$, the observable component is the transverse oscillation intersecting the $w=0$ slice. Project by setting $w=0$:
    \[
-   v_\perp^{(3D)}(x,y,z,t) = A_0 \cos(kx - \omega t) \exp\left(-\frac{y^2 + z^2}{2\xi^2}\right) \hat{\mathbf{e}}_{yz},
+   v_\perp^{(3D)}(x,y,z,t) = A_0 \cos(kx - \omega t) \exp\left(-\frac{y^2 + z^2}{2\xi_c^2}\right) \hat{\mathbf{e}}_{yz},
    \]
    where $\hat{\mathbf{e}}_{yz}$ is the projection of $\hat{\mathbf{e}}_\perp$ onto the $(y,z)$ plane. This transverse mode propagates at $c$ regardless of bulk dynamics. The apparent paradox resolves: information travels at $c$ (what we observe), while the underlying field adjusts at $v_L$ (maintaining consistency).
 
@@ -734,19 +755,18 @@ Crucially, photons carry energy through phase excitations without altering vorte
 The transverse wave packet model predicts:
 \begin{itemize}
 \item \textbf{Masslessness}: Zero time-averaged density change, $\langle\delta\rho_{4D}\rangle = 0$
-\item \textbf{Speed}: Fixed at $c = \sqrt{T/\sigma}$ for all frequencies (no dispersion)
-\item \textbf{Stability}: 4D width $\Delta w \approx \xi / \sqrt{2}$ prevents 3D dispersion
+\item \textbf{Speed}: Fixed at $c = \sqrt{T/\Sigma}$ for all frequencies (no dispersion)
+\item \textbf{Stability}: 4D width $\Delta w \approx \xi_c / \sqrt{2}$ prevents 3D dispersion
 \item \textbf{Polarization}: Exactly 2 states from $(y,w) \to (y,z)$ projection
 \item \textbf{Coupling}: Phase resonance enables absorption without mass change
-\item \textbf{Unification hint}: If weak force couples to $w$-component (helical twists as in Section 3.3 for neutrinos), explains hierarchy and parity violation; projection angle between $(y,z)$ and $w$ sets Weinberg angle ($\tan\theta_W \propto \xi/\Delta w$)
+\item \textbf{Unification hint}: If weak force couples to $w$-component (helical twists as in Section 3.3 for neutrinos), explains hierarchy and parity violation; projection angle between $(y,z)$ and $w$ sets Weinberg angle ($\tan\theta_W \propto \xi_c/\Delta w$)
 \end{itemize}
 
-This framework suggests electromagnetic and weak forces may be the same 4D phenomenon viewed from different projections---transverse $(y,z)$ components couple strongly (EM), while $w$-components couple weakly. The universal 4D orientation naturally breaks parity in 3D, and the geometric origin predicts the Weinberg angle from projection ratios. Reference Section 6.9 for the Fermi constant $G_F$.
 
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result:} Photons are transverse wave packets with $v_\perp = A_0 \cos(kx - \omega t) \exp(-(r_\perp^2)/(2\xi^2)) \hat{\mathbf{e}}_\perp$, massless due to $\langle\delta\rho_{4D}\rangle = 0$, stabilized by 4D extension, and locked to speed $c$ in 3D projection despite bulk propagation at $v_L$.
+\textbf{Key Result:} Photons are transverse wave packets with $v_\perp = A_0 \cos(kx - \omega t) \exp(-(r_\perp^2)/(2\xi_c^2)) \hat{\mathbf{e}}_\perp$, massless due to $\langle\delta\rho_{4D}\rangle = 0$, stabilized by 4D extension, and locked to speed $c$ in 3D projection despite bulk propagation at $v_L$.
 
 \textbf{Verification:} SymPy confirms wave equation solutions, zero time-averaged density, and deflection angle; code at \url{https://github.com/trevnorris/vortex-field}.
 \end{minipage}
@@ -757,7 +777,7 @@ This framework suggests electromagnetic and weak forces may be the same 4D pheno
 
 In this subsection, we derive the equivalence between vortex core density deficits and effective particle masses in the projected 3D dynamics, starting directly from the Gross-Pitaevskii (GP) energy functional and hydrodynamic equations (P-1, P-2, P-5) without assuming gravitational constants or circular reasoning. The derivation demonstrates how topological defects (P-5) create localized density depressions in the 4D superfluid (P-1), which, upon projection to 3D (Section 2.3, P-3), source the scalar potential $\Psi$ in the unified field equations (Section 2.2) as if they were positive matter density. Physically, a vortex core acts like a whirlpool in a bathtub: the vortex creates a visible depression in the water surface---a ``deficit'' in the local water level---with a characteristic profile determined by the balance between inward suction from circulation (P-2) and the medium's resistance to compression, or tension (P-1). In our 4D superfluid, vortex cores create analogous density deficits, with tension arising from quantum pressure (the GP kinetic term $\frac{\hbar^2}{2m} |\nabla_4 \Psi|^2$) and nonlinear repulsion ($\frac{g}{2m} |\Psi|^4$) resisting density depletion, akin to the garden hose metaphors for leptons and neutrinos (Sections 3.2 and 3.3). Just as the bathtub depression quantifies the ``missing'' water volume, the vortex deficit integrates to an effective ``mass'' in 3D, underpinning lepton masses (Section 3.2) and contrasting with echo suppression via phase interference (Section 3.5).
 
-The key insight is that the deficit arises purely from tension in the aether---the balance between quantum kinetic dispersion and nonlinear repulsion in the GP functional (P-1)---yielding a universal core profile. To derive this tension explicitly, consider the GP equation near the core: the dispersion term scales as $\frac{\hbar^2}{2 m \xi^2}$ (from second derivatives $\sim 1/\xi^2$), balancing the repulsion $g \rho_{4D}^0 / m$ (linearized at background). This balance defines the healing length $\xi = \hbar / \sqrt{2 m g \rho_{4D}^0}$ (P-1) as the scale where dispersion and repulsion forces equilibrate. Projection geometry (P-3) maps this deficit to the source term $\rho_{\text{body}}$ in the Poisson-like equation $\nabla^2 \Psi = -4\pi G \rho_{\text{body}}$ (static limit, Section 2.2), where the negative sign reflects the equivalence $\rho_{\text{body}} = - \delta \rho_{3D}$ (up to geometric factors absorbed in calibration, Section 2.4). We compute the deficit for a straight vortex line (approximating local core structure) and extend to 4D sheets, incorporating curvature effects to refine the integral, with all steps verified symbolically using SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
+The key insight is that the deficit arises purely from tension in the aether---the balance between quantum kinetic dispersion and nonlinear repulsion in the GP functional (P-1)---yielding a universal core profile. To derive this tension explicitly, consider the GP equation near the core: the dispersion term scales as $\frac{\hbar^2}{2 m \xi_c^2}$ (from second derivatives $\sim 1/\xi_c^2$), balancing the repulsion $g \rho_{4D}^0 / m$ (linearized at background). This balance defines the healing length $\xi_c = \hbar / \sqrt{2 m g \rho_{4D}^0}$ (P-1) as the scale where dispersion and repulsion forces equilibrate. Projection geometry (P-3) maps this deficit to the source term $\rho_{\text{body}}$ in the Poisson-like equation $\nabla^2 \Psi = -4\pi G \rho_{\text{body}}$ (static limit, Section 2.2), where the negative sign reflects the equivalence $\rho_{\text{body}} = - \delta \rho_{3D}$ (up to geometric factors absorbed in calibration, Section 2.4). We compute the deficit for a straight vortex line (approximating local core structure) and extend to 4D sheets, incorporating curvature effects to refine the integral, with all steps verified symbolically using SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
 
 To ensure dimensional rigor, we adopt the convention where the order parameter $\Psi$ has dimensions [L$^{-2}$], satisfying $\rho_{4D} = m |\Psi|^2$ [M L$^{-4}$] with boson mass $m$ [M], consistent with P-1's compressible medium. In some calculations, we use natural units where $m=1$ to simplify expressions, explicitly noted where applied. This convention aligns the GP functional and equations with the 4D framework, avoiding mismatches with standard 3D GP normalizations (e.g., $\Psi$ [M$^{1/2}$ L$^{-3/2}$]).
 
@@ -769,75 +789,76 @@ The GP energy functional is $E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\n
    \[
    E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\nabla_4 \Psi|^2 + \frac{g}{2m} |\Psi|^4 \right],
    \]
-   where $\Psi$ [L$^{-2}$] ensures $\rho_{4D} = m |\Psi|^2$ [M L$^{-4}$], and $g$ [L$^6$ T$^{-2}$] matches the barotropic EOS $P = (g/2) \rho_{4D}^2 / m$ (P-1). Dimensions: kinetic term $\frac{\hbar^2}{2m} |\nabla_4 \Psi|^2$ [M L$^{-2}$ T$^{-2}$] (since $\hbar^2 / (2m)$ [M L^2 T^{-2}], $\nabla_4 \Psi$ [L$^{-3}$], integrated over $d^4 r$ [L^4] gives [M L^2 T^{-2}]); interaction term $\frac{g}{2m} |\Psi|^4$ [M L$^{-2}$ T$^{-2}$] (since g/m [L^6 T^{-2} M^{-1}], |Ψ|^4 [L^{-8}], yielding [M^{-1} L^{-2} T^{-2}] * M = [L^{-2} T^{-2}], but with m=1 in natural units, the [M] is implicit). This functional is minimized by the order parameter $\Psi = \sqrt{\rho_{4D}/m} \, e^{i \theta}$ near a vortex core, where phase $\theta$ winds by $2\pi n$ (circulation $\Gamma = n \kappa$, $\kappa = h / m$, from P-5).
+   where $\Psi$ [L$^{-2}$] ensures $\rho_{4D} = m |\Psi|^2$ $[M L^{-4}]$, and $g$ $[L^6 T^{-2}]$ matches the barotropic EOS $P = (g/2) \rho_{4D}^2 / m$ (P-1). Dimensions: kinetic term $\frac{\hbar^2}{2m} |\nabla_4 \Psi|^2$ $[M L^{-2} T^{-2}]$ (since $\hbar^2 / (2m)$ $[M L^2 T^{-2}]$, $\nabla_4 \Psi$ $[L^{-3}]$, integrated over $d^4 r$ $[L^4]$ gives $[M L^2 T^{-2}]$); interaction term $\frac{g}{2m} |\Psi|^4$ $[M L^{-2} T^{-2}]$ (since $g/m$ $[L^6 T^{-2} M^{-1}]$, $|\Psi|^4$ $[L^{-8}]$, yielding $[M^{-1} L^{-2} T^{-2}] * M = [L^{-2} T^{-2}]$, but with m=1 in natural units, the $[M]$ is implicit). This functional is minimized by the order parameter $\Psi = \sqrt{\rho_{4D}/m} \, e^{i \theta}$ near a vortex core, where phase $\theta$ winds by $2\pi n$ (circulation $\Gamma = n \kappa$, $\kappa = h / m$, from P-5).
 
    For a straight vortex (codimension-2 defect in 4D, approximated as a line in the perpendicular plane for local profile), the amplitude satisfies the stationary GP equation in radial coordinates $r$ (distance in the two perpendicular dimensions):
    \[
    -\frac{\hbar^2}{2 m} \left( \frac{d^2}{dr^2} + \frac{1}{r} \frac{d}{dr} - \frac{n^2}{r^2} \right) f + \frac{g}{m} f^3 = \mu f,
    \]
-   where $\psi = f(r) e^{i n \theta}$, $f(r) \to \sqrt{\rho_{4D}^0 / m}$ [L$^{-2}$] at large $r$, and $\mu$ [L$^2$ T$^{-2}$] is the chemical potential. In natural units ($m=1$), this simplifies, but we retain $m$ for clarity. Dimensions: kinetic term $\frac{\hbar^2}{2 m} \frac{d^2 f}{dr^2}$ [M L$^{-2}$ T$^{-2}$] (since $\hbar^2 / (2m)$ [M L$^2$ T$^{-2}$], $\frac{d^2 f}{dr^2}$ [L$^{-4}$]); interaction $\frac{g}{m} f^3$ [M L$^{-2}$ T$^{-2}$] (since $g/m$ [L$^6$ T$^{-2}$ M$^{-1}$], $f^3$ [L$^{-6}$]); $\mu f$ [M L$^{-2}$ T$^{-2}$]. With $m=1$, all terms balance. Near the core ($r \ll \xi$), $f(r) \propto r^{|n|}$; for healing, the profile is $f(r) = \sqrt{\rho_{4D}^0 / m} \, \tanh(r / \sqrt{2} \xi)$ for $n=1$, yielding density:
+   where $\psi = f(r) e^{i n \theta}$, $f(r) \to \sqrt{\rho_{4D}^0 / m}$ [L$^{-2}$] at large $r$, and $\mu$ [L$^2$ T$^{-2}$] is the chemical potential. In natural units ($m=1$), this simplifies, but we retain $m$ for clarity. Dimensions: kinetic term $\frac{\hbar^2}{2 m} \frac{d^2 f}{dr^2}$ [M L$^{-2}$ T$^{-2}$] (since $\hbar^2 / (2m)$ [M L$^2$ T$^{-2}$], $\frac{d^2 f}{dr^2}$ [L$^{-4}$]); interaction $\frac{g}{m} f^3$ [M L$^{-2}$ T$^{-2}$] (since $g/m$ [L$^6$ T$^{-2}$ M$^{-1}$], $f^3$ [L$^{-6}$]); $\mu f$ [M L$^{-2}$ T$^{-2}$]. With $m=1$, all terms balance. Near the core ($r \ll \xi_c$), $f(r) \propto r^{|n|}$; for healing, the profile is $f(r) = \sqrt{\rho_{4D}^0 / m} \, \tanh(r / \sqrt{2} \xi_c)$ for $n=1$, yielding density:
    \[
-   \rho_{4D}(r) = \rho_{4D}^0 \tanh^2 \left( \frac{r}{\sqrt{2} \xi} \right).
+   \rho_{4D}(r) = \rho_{4D}^0 \tanh^2 \left( \frac{r}{\sqrt{2}\,\xi_c} \right).
    \]
    The perturbation is:
    \[
-   \delta \rho_{4D}(r) = \rho_{4D}(r) - \rho_{4D}^0 = - \rho_{4D}^0 \sech^2 \left( \frac{r}{\sqrt{2} \xi} \right).
+   \delta \rho_{4D}(r) = \rho_{4D}(r) - \rho_{4D}^0 = - \rho_{4D}^0 \sech^2 \left( \frac{r}{\sqrt{2}\,\xi_c} \right).
    \]
    The $\sech^2$ profile arises from tension balancing dispersion and repulsion (P-1), preventing unbounded rarefaction. The healing length is:
    \[
-   \xi = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}},
+   \xi_c = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}},
    \]
-   with dimensions: $\hbar$ [M L$^2$ T$^{-1}$], denominator $\sqrt{m g \rho_{4D}^0}$ = $\sqrt{[\text{M}] [\text{L}^6 \text{T}^{-2}] [\text{M L}^{-4}]}$ = [M L T$^{-1}$], so $\xi$ [L]. SymPy verifies the $\tanh$ profile via numerical solution (\texttt{dsolve}, within 1\% error for $r < 5\xi$).
+   with dimensions: $\hbar$ [M L$^2$ T$^{-1}$], denominator $\sqrt{m g \rho_{4D}^0}$ = $\sqrt{[\text{M}] [\text{L}^6 \text{T}^{-2}] [\text{M L}^{-4}]}$ = [M L T$^{-1}$], so $\xi_c$ [L]. SymPy verifies the $\tanh$ profile via numerical solution (\texttt{dsolve}, within 1\% error for $r < 5\xi_c$).
 
 \item \textbf{Integrated Deficit per Unit Sheet Area with Curvature Refinement} (P-5): For a vortex sheet in 4D (extending in two dimensions, core in the perpendicular plane), the deficit per unit area is obtained by integrating $\delta \rho_{4D}$ over the perpendicular coordinates (cylindrical symmetry in $r$):
    \[
-   \Delta = \int_0^\infty \delta \rho_{4D}(r) \, 2\pi r \, dr = - \rho_{4D}^0 \int_0^\infty \sech^2 \left( \frac{r}{\sqrt{2} \xi} \right) 2\pi r \, dr.
+   \Delta = \int_0^\infty \delta \rho_{4D}(r) \, 2\pi r \, dr = - \rho_{4D}^0 \int_0^\infty \sech^2 \left( \frac{r}{\sqrt{2}\,\xi_c} \right) 2\pi r \, dr.
    \]
-   Substitute $u = r / (\sqrt{2} \xi)$, $r = u \sqrt{2} \xi$, $du = dr / (\sqrt{2} \xi)$:
+   Substitute $u = r / (\sqrt{2} \xi_c)$, $r = u \sqrt{2} \xi_c$, $du = dr / (\sqrt{2} \xi_c)$:
    \[
-   \int_0^\infty \sech^2(u) \, 2\pi \, (u \sqrt{2} \xi) \, \sqrt{2} \xi \, du = 4\pi \xi^2 \int_0^\infty u \sech^2(u) \, du.
+   \int_0^\infty \sech^2(u) \, 2\pi \, (u \sqrt{2} \xi_c) \, \sqrt{2} \xi_c \, du = 4\pi \xi_c^2 \int_0^\infty u \sech^2(u) \, du.
    \]
    The integral evaluates to $\int_0^\infty u \sech^2(u) \, du = \ln 2 \approx 0.693147$ (SymPy: \texttt{integrate(u * sech(u)**2, (u, 0, oo))}). Thus:
    \[
-   \Delta = - \rho_{4D}^0 \cdot 4\pi \xi^2 \ln 2 \approx - \rho_{4D}^0 \cdot 8.710 \xi^2,
+   \Delta = - \rho_{4D}^0 \cdot 4\pi \xi_c^2 \ln 2 \approx - \rho_{4D}^0 \cdot 8.710 \xi_c^2,
    \]
-   with dimensions: $\rho_{4D}^0$ [M L$^{-4}$] $\cdot \xi^2$ [L$^2$] = [M L$^{-2}$], consistent with deficit per unit sheet area for a codimension-2 defect (P-5). The factor $4\pi \ln 2 \approx 8.710$ arises from cylindrical integration ($2\pi r \, dr$) and the $\sech^2$ tail.
+   with dimensions: $\rho_{4D}^0$ [M L$^{-4}$] $\cdot \xi_c^2$ [L$^2$] = [M L$^{-2}$], consistent with deficit per unit sheet area for a codimension-2 defect (P-5). The factor $4\pi \ln 2 \approx 8.710$ arises from cylindrical integration ($2\pi r \, dr$) and the $\sech^2$ tail.
 
-   To account for curvature in toroidal sheets (mean curvature $H \approx 1/(2R)$, $R$ the torus radius), we include a bending energy term $\frac{\hbar^2}{2 m} H^2 |\psi|^2$ in the GP functional (P-1), reflecting higher-order gradients resisting bending, significant for $R \sim 10 \xi$ in higher-generation leptons (Section 3.2). The bending energy broadens the profile to $\rho_{4D}(r) = \rho_{4D}^0 \tanh^2 \left( \frac{r + \delta r}{\sqrt{2} \xi} \right)$, where $\delta r \sim \xi^2 / R \approx 0.1 \xi$ for $R \sim 10 \xi$. The bending energy is:
+   To account for curvature in toroidal sheets (mean curvature $H \approx 1/(2R)$, $R$ the torus radius), we include a bending energy term $\frac{\hbar^2}{2 m} H^2 |\psi|^2$ in the GP functional (P-1), reflecting higher-order gradients resisting bending, significant for $R \sim 10 \xi_c$ in higher-generation leptons (Section 3.2). The bending energy broadens the profile to $\rho_{4D}(r) = \rho_{4D}^0 \tanh^2 \left( \frac{r + \delta r}{\sqrt{2} \xi_c} \right)$, where $\delta r \sim \xi_c^2 / R \approx 0.1 \xi_c$ for $R \sim 10 \xi_c$. The bending energy is:
    \[
-   \delta E \approx \frac{\hbar^2}{2 m} \left( \frac{1}{2R} \right)^2 \rho_{4D}^0 \cdot 4\pi^2 R \xi,
+   \delta E \approx \frac{\hbar^2}{2 m} \left( \frac{1}{2R} \right)^2 \rho_{4D}^0 \cdot 4\pi^2 R \xi_c,
    \]
-   with area $\sim 4\pi^2 R \xi$. Minimizing adjusts $\delta r$, yielding a shifted integral: SymPy numerical integration (\texttt{integrate(u * sech((u + 0.1)/sqrt(2))**2, (u, 0, oo))}) gives $\approx 1.249$, reducing the factor to $\Delta \approx - \rho_{4D}^0 \cdot 8.66 \xi^2$ (relative to $\sqrt{2} \ln 2 \approx 0.980$, a ~0.05 reduction).
+   with area $\sim 4\pi^2 R \xi_c$. Minimizing adjusts $\delta r$, yielding a shifted integral: SymPy numerical integration (\texttt{integrate(u * sech((u + 0.1)/sqrt(2))**2, (u, 0, oo))}) gives $\approx 1.249$, reducing the factor to $\Delta \approx - \rho_{4D}^0 \cdot 8.66 \xi_c^2$ (relative to $\sqrt{2} \ln 2 \approx 0.980$, a ~0.05 reduction).
 
-\item \textbf{Projection to 3D Effective Density} (P-3, P-5): In the 4D-to-3D projection (Section 2.3, P-3), integrate over a slab $|w| < \epsilon \approx \xi$ around $w=0$. For a point-like particle (compact toroidal sheet, size $\ll \xi$), the aggregated deficit appears as a localized 3D source:
+\item \textbf{Projection to 3D Effective Density} (P-3, P-5): In the 4D-to-3D projection (Section 2.3, P-3), integrate over a slab $|w| < \epsilon \approx \xi_c$ around $w=0$. For a point-like particle (compact toroidal sheet, size $\ll \xi_c$), the aggregated deficit appears as a localized 3D source:
    \[
    \delta \rho_{3D} = \frac{\Delta}{2\epsilon},
    \]
-   where $\Delta \approx -8.66 \rho_{4D}^0 \xi^2$ [M L$^{-2}$] is the deficit per unit sheet area, and $2\epsilon \approx 2\xi$ [L] is the slab thickness (P-3). This divides the deficit per unit area by the slab thickness to yield a 3D density [M L$^{-3}$], as the total deficit $\Delta \times A_{\text{sheet}}$ [M] (where $A_{\text{sheet}} \approx \pi \xi^2$ [L$^2$]) is averaged over the slab volume $A_{\text{sheet}} \times 2\xi$. Since $A_{\text{sheet}}$ cancels (the sheet is point-like in 3D), it simplifies to $\Delta / (2\xi)$. Substituting $\Delta$ and $\epsilon \approx \xi$:
+   where $\Delta \approx -8.66 \rho_{4D}^0 \xi_c^2$ [M L$^{-2}$] is the deficit per unit sheet area, and $2\epsilon \approx 2\xi_c$ [L] is the slab thickness (P-3). This divides the deficit per unit area by the slab thickness to yield a 3D density [M L$^{-3}$], as the total deficit $\Delta \times A_{\text{sheet}}$ [M] (where $A_{\text{sheet}} \approx \pi \xi_c^2$ [L$^2$]) is averaged over the slab volume $A_{\text{sheet}} \times 2\xi_c$. Since $A_{\text{sheet}}$ cancels (the sheet is point-like in 3D), it simplifies to $\Delta / (2\xi_c)$. Substituting $\Delta$ and $\epsilon \approx \xi_c$:
    \[
-   \delta \rho_{3D} \approx \frac{-8.66 \rho_{4D}^0 \xi^2}{2\xi} = -4.33 \rho_{4D}^0 \xi.
+   \delta \rho_{3D} \approx \frac{-8.66 \rho_{4D}^0 \xi_c^2}{2\xi_c} = -4.33 \rho_{4D}^0 \xi_c.
    \]
-   Since $\rho_0 = \rho_{4D}^0 \xi$ [M L$^{-3}$] (P-3, Table in mathematical_framework.tex), we get:
+   Since $\rho_0 = \rho_{4D}^0 \xi_c$ $[M L^{-3}]$ (P-3), we get:
    \[
    \delta \rho_{3D} \approx -4.33 \rho_0.
    \]
-   The factor $4.33$ (from $8.66 / 2$) arises from cylindrical geometry and slab averaging (P-3), with hemispherical contributions (upper/lower $w$, Section 2.3, P-5) softening from $2 \ln(4) \approx 2.772$ to $\sim 2.75$ due to curvature. This factor is absorbed into the calibration of $G = c^2 / (4\pi \rho_0 \xi^2)$ (Section 2.4), ensuring no new parameters. The effective matter density is:
+   The factor $4.33$ (from $8.66 / 2$) arises from cylindrical geometry and slab averaging (P-3), with hemispherical contributions (upper/lower $w$, Section 2.3, P-5) softening from $2 \ln(4) \approx 2.772$ to $\sim 2.75$ due to curvature. This factor is absorbed into the calibration of $G = \frac{c^2}{4\pi \, \rho_0 \, \xi_c^2}$ (Section 2.4), ensuring no new parameters. The effective matter density is:
    \[
    \rho_{\text{body}} = - \delta \rho_{3D} \approx 4.33 \rho_0,
    \]
-   where the sign flip ensures deficits source attraction (Section 2.2). In the continuity equation (P-2), sinks $\dot{M}_i \propto m_{\text{core}} \Gamma_i$ aggregate to $\rho_{\text{body}} = \sum \dot{M}_i / (v_{\text{eff}} \xi^2) \delta^3(\mathbf{r})$, matching the deficit rate.
+   where the sign flip ensures deficits source attraction (Section 2.2). In the continuity equation (P-2), sinks $\dot{M}_i \propto m_{\text{core}} \Gamma_i$ aggregate to $\rho_{\text{body}} = \sum \dot{M}_i / (v_{\text{eff}} \xi_c^2) \delta^3(\mathbf{r})$, matching the deficit rate.
 
 \item \textbf{Connection to Field Equations} (P-3): Without assuming $G$, the projected continuity (Section 2.2, P-3) sources the scalar wave:
    \[
-   \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Psi}{\partial t^2} - \nabla^2 \Psi = 4\pi G \rho_{\text{body}},
+   \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Phi}{\partial t^2} - \nabla^2 \Phi = 4\pi G \rho_{\text{body}},
    \]
-   where $4\pi G$ emerges from projection and calibration, $\rho_0 = \rho_{4D}^0 \xi$, and $\xi^2$ normalizes the sink strength to an effective 3D density. Dimensions: LHS [L$^{-1}$ T$^{-2}$] (since $\Psi$ [L$^2$ T$^{-2}$]), RHS $4\pi G \rho_{\text{body}}$ [M$^{-1}$ L$^3$ T$^{-2}$] $\times$ [M L$^{-3}$] = [L$^{-1}$ T$^{-2}$]. Near masses, $v_{\text{eff}} \approx c \left(1 - \frac{G M}{2 c^2 r}\right)$ (from $\delta \rho_{4D} / \rho_{4D}^0 \approx - G M / (c^2 r)$). In the static limit ($\partial_t \Psi \approx 0$), this reduces to $\nabla^2 \Psi = 4\pi G \rho_{\text{body}}$, confirming the equivalence non-circularly. The curvature-refined factor ($\sim 2.75$) enhances consistency with the 4-fold projection enhancement (P-5), mirroring lepton mass calculations (Section 3.2).
+Here, $\Phi$ is the emergent gravitational potential; the GP order parameter remains $\Psi$. We keep the two fields distinct to avoid overload.
+   where $4\pi G$ emerges from projection and calibration, $\rho_0 = \rho_{4D}^0 \xi_c$, and $\xi_c^2$ normalizes the sink strength to an effective 3D density. Dimensions: LHS [L$^{-1}$ T$^{-2}$] (since $\Psi$ [L$^2$ T$^{-2}$]), RHS $4\pi G \rho_{\text{body}}$ [M$^{-1}$ L$^3$ T$^{-2}$] $\times$ [M L$^{-3}$] = [L$^{-1}$ T$^{-2}$]. Near masses, $v_{\text{eff}} \approx c \left(1 - \frac{G M}{2 c^2 r}\right)$ (from $\delta \rho_{4D} / \rho_{4D}^0 \approx - G M / (c^2 r)$). In the static limit ($\partial_t \Phi \approx 0$), this reduces to $\nabla^2 \Phi = 4\pi G \rho_{\text{body}}$, confirming the equivalence non-circularly. The curvature-refined factor ($\sim 2.75$) enhances consistency with the 4-fold projection enhancement (P-5), mirroring lepton mass calculations (Section 3.2).
 \end{enumerate}
 
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result:} Vortex deficits $\delta \rho_{4D} = - \rho_{4D}^0 \sech^2(r / \sqrt{2} \xi)$ integrate to $\Delta \approx -8.66 \rho_{4D}^0 \xi^2$ per unit sheet area (P-5, refined with curvature), projecting to $\rho_{\text{body}} = - \delta \rho_{3D} \approx 4.33 \rho_0$ (P-3) in 3D, sourcing attraction without circular assumptions. This underpins lepton mass calculations (Section 3.2) and contrasts with echo suppression (Section 3.5).
+\textbf{Key Result:} Vortex deficits $\delta \rho_{4D} = - \rho_{4D}^0 \sech^2(r / \sqrt{2} \xi_c)$ integrate to $\Delta \approx -8.66 \rho_{4D}^0 \xi_c^2$ per unit sheet area (P-5, refined with curvature), projecting to $\rho_{\text{body}} = - \delta \rho_{3D} \approx 4.33 \rho_0$ (P-3) in 3D, sourcing attraction without circular assumptions. This underpins lepton mass calculations (Section 3.2) and contrasts with echo suppression (Section 3.5).
 
 \textbf{Physical Interpretation:} The deficit acts like a bathtub drain’s depression, with tension (P-1) balancing circulation-driven rarefaction (P-2), projecting as effective mass in 3D (P-3).
 
@@ -858,38 +879,38 @@ The attraction arises from constructive phase interference between helical twist
 
 \item \textbf{Effective Potential without Curvature}: The interaction energy approximates the superfluid vortex self-energy formula, extended for 4D sheets under tension:
    \[
-   V_{\text{eff}}(d) = \frac{\hbar^2}{2 m d^2} \ln\left(\frac{d}{\xi}\right) + g \rho_{4D}^0 \pi \xi^2 \left( \frac{\delta \theta}{2\pi} \right)^2,
+   V_{\text{eff}}(d) = \frac{\hbar^2}{2 m d^2} \ln\left(\frac{d}{\xi_c}\right) + g \rho_{4D}^0 \pi \xi_c^2 \left( \frac{\delta \theta}{2\pi} \right)^2,
    \]
-   where the first term is attractive logarithmic potential from mutual induction (standard in 2D vortices, scaled to 4D by $1/d^2$ from sheet geometry; dimensions: $[\hbar^2 / m] [M^{-1} L^3 T^{-1}] \cdot \ln [1] / d^2 [L^{-2}] = [M L^{-1} T^{-2}]$, but normalized by $m_\text{aether} = m$). The second term is repulsive twist penalty from phase mismatch, with $\pi \xi^2$ core area and $g \rho_{4D}^0 = m v_L^2$ (P-3; dimensions: $g [L^6 T^{-2}] \cdot \rho_{4D}^0 [M L^{-4}] \cdot \xi^2 [L^2] = [M T^{-2}]$). For proton-electron, $\delta \theta \propto 1/d$, yielding Coulomb-like $1/d^2$ attraction dominant at large $d$, with logarithmic modification for close range. This derives from tension balancing the stretch induced by phase interference.
+   where the first term is attractive logarithmic potential from mutual induction (standard in 2D vortices, scaled to 4D by $1/d^2$ from sheet geometry; dimensions: $[\hbar^2 / m] [M^{-1} L^3 T^{-1}] \cdot \ln [1] / d^2 [L^{-2}] = [M L^{-1} T^{-2}]$, but normalized by $m_\text{aether} = m$). The second term is repulsive twist penalty from phase mismatch, with $\pi \xi_c^2$ core area and $g \rho_{4D}^0 = m v_L^2$ (P-3; dimensions: $g [L^6 T^{-2}] \cdot \rho_{4D}^0 [M L^{-4}] \cdot \xi_c^2 [L^2] = [M T^{-2}]$). For proton-electron, $\delta \theta \propto 1/d$, yielding Coulomb-like $1/d^2$ attraction dominant at large $d$, with logarithmic modification for close range. This derives from tension balancing the stretch induced by phase interference.
 
-\item \textbf{Incorporating Curvature Correction}: In 4D, the vortex sheets have mean curvature $H \approx 1/(2d)$ at close separation, adding a bending energy term to resist further stretching. The curvature correction is $\delta V \approx \kappa_b H^2 \cdot A$, where $\kappa_b \sim T \xi^2$ (rigidity from tension $T \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2}$), $A \approx \pi \xi^2$ (interaction area), yielding $\delta V \approx T \xi^2 / d$ (dimensions: $T [M T^{-2}] \cdot \xi^2 [L^2] / d [L] = [M L T^{-2}]$, consistent after normalization). The updated potential is
+\item \textbf{Incorporating Curvature Correction}: In 4D, the vortex sheets have mean curvature $H \approx 1/(2d)$ at close separation, adding a bending energy term to resist further stretching. The curvature correction is $\delta V \approx \kappa_b H^2 \cdot A$, where $\kappa_b \sim T \xi_c^2$ (rigidity from tension $T \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2}$), $A \approx \pi \xi_c^2$ (interaction area), yielding $\delta V \approx T \xi_c^2 / d$ (dimensions: $T [M T^{-2}] \cdot \xi_c^2 [L^2] / d [L] = [M L T^{-2}]$, consistent after normalization). The updated potential is
    \[
-   V_{\text{eff}}(d) = \frac{\hbar^2}{2 m d^2} \ln\left(\frac{d}{\xi}\right) + g \rho_{4D}^0 \pi \xi^2 \left( \frac{\alpha}{d \cdot 2\pi} \right)^2 + \frac{\gamma}{d},
+   V_{\text{eff}}(d) = \frac{\hbar^2}{2 m d^2} \ln\left(\frac{d}{\xi_c}\right) + g \rho_{4D}^0 \pi \xi_c^2 \left( \frac{\kappa_e}{d \cdot 2\pi} \right)^2 + \frac{\gamma}{d},
    \]
-   where $\alpha \propto \Gamma_e \Gamma_p$ (Coulomb constant), $\gamma \sim T \xi^2$ (curvature coefficient, $\gamma \approx 0.01 \hbar^2 / m$ from dimensional estimate). Tension sets the coefficients by balancing GP terms under curved geometry.
+   where $\kappa_e \propto \Gamma_e \Gamma_p$ (Coulomb constant), $\gamma \sim T \xi_c^2$ (curvature coefficient, $\gamma \approx 0.01 \hbar^2 / m$ from dimensional estimate). Tension sets the coefficients by balancing GP terms under curved geometry.
 
    To find the minimum, compute the derivative:
    \[
-   \frac{d V_{\text{eff}}}{dd} = -\frac{\hbar^2}{m d^3} \ln\left(\frac{d}{\xi}\right) + \frac{\hbar^2}{2 m d^3} - 2 g \rho_{4D}^0 \pi \xi^2 \left( \frac{\alpha}{d \cdot 2\pi} \right)^2 \frac{1}{d} - \frac{\gamma}{d^2} = 0.
+   \frac{d V_{\text{eff}}}{dd} = -\frac{\hbar^2}{m d^3} \ln\left(\frac{d}{\xi_c}\right) + \frac{\hbar^2}{2 m d^3} - 2 g \rho_{4D}^0 \pi \xi_c^2 \left( \frac{\kappa_e}{d \cdot 2\pi} \right)^2 \frac{1}{d} - \frac{\gamma}{d^2} = 0.
    \]
    Simplifying (from SymPy output, adjusted for assumptions):
    \[
-   \frac{d V_{\text{eff}}}{dd} = -\frac{\hbar^2 \ln(d/\xi)}{m d^3} + \frac{\hbar^2}{2 m d^3} - \frac{\alpha^2 g \rho_{4D}^0 \xi^2}{2 m d^3 \pi} - \frac{\gamma}{d^2} = 0.
+   \frac{d V_{\text{eff}}}{dd} = -\frac{\hbar^2 \ln(d/\xi_c)}{m d^3} + \frac{\hbar^2}{2 m d^3} - \frac{\kappa_e^2 g \rho_{4D}^0 \xi_c^2}{2 m d^3 \pi} - \frac{\gamma}{d^2} = 0.
    \]
    Multiplying by $d^3$:
    \[
-   -\frac{\hbar^2 \ln(d/\xi)}{m} + \frac{\hbar^2}{2 m} - \frac{\alpha^2 g \rho_{4D}^0 \xi^2}{2 m \pi} - \gamma d = 0.
+   -\frac{\hbar^2 \ln(d/\xi_c)}{m} + \frac{\hbar^2}{2 m} - \frac{\kappa_e^2 g \rho_{4D}^0 \xi_c^2}{2 m \pi} - \gamma d = 0.
    \]
-   Solving numerically (SymPy nsolve or approximation for small $\gamma$): The base solution without $\gamma$ is $d_0 \approx \xi e^{1/2} \approx 1.648 \xi$ (from balancing log and twist terms). With curvature, $d \approx d_0 - 0.01 \xi$ (shift from $-\gamma d$ term, estimated via perturbation $\Delta d \approx -\gamma d_0^2 / (\hbar^2 / m)$).
+   Solving numerically (SymPy nsolve or approximation for small $\gamma$): The base solution without $\gamma$ is $d_0 \approx \xi_c \mathrm e^{1/2} \approx 1.648 \xi_c$ (from balancing log and twist terms). With curvature, $d \approx d_0 - 0.01 \xi_c$ (shift from $-\gamma d$ term, estimated via perturbation $\Delta d \approx -\gamma d_0^2 / (\hbar^2 / m)$).
 
-\item \textbf{Topological Barrier}: For $d < \xi$, braiding mismatch adds energy spike $\Delta E \approx T \Gamma_p^2 \xi^2 \ln(3) / (4\pi)$ (from three-strand tension, Section 2.5), preventing merger. Tension derives this barrier: The stretch penalty integrates over mismatched profiles, with $\ln(3)$ from $\int \sech^4$ overlap for three strands (SymPy: $\int_0^\infty u \sech^4(u) \, du \approx \ln(3)/2$). In 4D, projections smear cores over slab $2\xi$, with hemispherical flows inducing additional repulsion $\sim 2 \ln(4) \approx 2.772$ factor (Section 2.3). Curvature refines: $\Delta E \approx T \Gamma_p^2 \xi^2 \ln(3) / (4\pi) + \kappa_b / \xi$ (bending at core scale), yielding ~1 eV thermal stability.
+\item \textbf{Topological Barrier}: For $d < \xi_c$, braiding mismatch adds energy spike $\Delta E \approx T \Gamma_p^2 \xi_c^2 \ln(3) / (4\pi)$ (from three-strand tension, Section 2.5), preventing merger. Tension derives this barrier: The stretch penalty integrates over mismatched profiles, with $\ln(3)$ from $\int \sech^4$ overlap for three strands (SymPy: $\int_0^\infty u \sech^4(u) \, du \approx \ln(3)/2$). In 4D, projections smear cores over slab $2\xi_c$, with hemispherical flows inducing additional repulsion $\sim 2 \ln(4) \approx 2.772$ factor (Section 2.3). Curvature refines: $\Delta E \approx T \Gamma_p^2 \xi_c^2 \ln(3) / (4\pi) + \kappa_b / \xi_c$ (bending at core scale), yielding ~1 eV thermal stability.
 
 \item \textbf{Contrast with Annihilation}: For $e^+e^-$ (reversed $\Gamma$), $V_{\text{eff}}$ lacks barrier ($\delta \theta \to 0$ at contact), enabling tunneling/merger with $\tau \sim 10^{-10}$ s (positronium). Energy release $2 m_e c^2$ as solitons (photons). Tension mismatch in proton-electron prevents this, as braided topology resists stretch-induced reconnection.
 \end{enumerate}
 
 \subsubsection{Results}
 
-Equilibrium at $d \approx \xi e^{1/2} - 0.01 \xi \sim a_0$ (calibrated to observed Bohr radius $a_0 = 0.529$ \AA~via $\rho_0$ scaling, Section 2.4), with barrier $\Delta E \sim 1$ eV (thermal stability). Predicts no annihilation, matching observations.
+Equilibrium at $d \approx \xi_c \mathrm e^{1/2} - 0.01 \xi_c \sim a_0$ (calibrated to observed Bohr radius $a_0 = 0.529$ \AA~via $\rho_0$ scaling, Section 2.4), with barrier $\Delta E \sim 1$ eV (thermal stability). Predicts no annihilation, matching observations.
 
 \begin{table}[h!]
 \centering
@@ -897,7 +918,7 @@ Equilibrium at $d \approx \xi e^{1/2} - 0.01 \xi \sim a_0$ (calibrated to observ
 \hline
 Quantity & Value & Notes \\
 \hline
-Equilibrium $d$ & $\approx 1.638 \xi$ & Curvature-adjusted from $1.648 \xi$ \\
+Equilibrium $d$ & $\approx 1.638 \xi_c$ & Curvature-adjusted from $1.648 \xi_c$ \\
 Barrier $\Delta E$ & $\sim 1$ eV & Tension-derived, SymPy integral \\
 \hline
 \end{tabular}
@@ -908,9 +929,9 @@ Barrier $\Delta E$ & $\sim 1$ eV & Tension-derived, SymPy integral \\
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result:} Atomic stability from $V_{\text{eff}} \approx \left(\hbar^2 / (2 m d^2)\right) \ln(d/\xi) + g \rho_{4D}^0 \pi \xi^2 (\delta \theta / (2\pi))^2 + \gamma / d$, minimized at Bohr radius via topological mismatch; contrasts with $e^+e^-$ annihilation.
+\textbf{Key Result:} Atomic stability from $V_{\text{eff}} \approx \left(\hbar^2 / (2 m d^2)\right) \ln(d/\xi_c) + g \rho_{4D}^0 \pi \xi_c^2 (\delta \theta / (2\pi))^2 + \gamma / d$, minimized at Bohr radius via topological mismatch; contrasts with $e^+e^-$ annihilation.
 
-\textbf{Verification:} SymPy confirms minimum at $d = \xi e^{1/2} - 0.01 \xi$; code at \url{https://github.com/trevnorris/vortex-field}.
+\textbf{Verification:} SymPy confirms minimum at $d = \xi_c \mathrm e^{1/2} - 0.01 \xi_c$; code at \url{https://github.com/trevnorris/vortex-field}.
 \end{minipage}
 }
 }

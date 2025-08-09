@@ -1,6 +1,59 @@
 \section{Weak-Field Gravity: From Newton to Post-Newtonian}
+Asymptotic causality and the decoupling of bulk $v_L$ adjustments are discussed in Sec.~\ref{sec:tsunami-causality} of the framework; only $F_{\mu\nu}$-built observables propagate at speed $c$ in the WAVE sector.
 
-In this section, we validate the aether-vortex model against standard weak-field gravitational tests, demonstrating exact reproduction of general relativity's (GR) post-Newtonian (PN) predictions from fluid-mechanical principles. Starting from the unified field equations derived in Section 3, we expand in the weak-field limit ($v \ll c$, $\Psi \ll c^2$, $A \ll c^2$), incorporating density-dependent propagation ($v_{\text{eff}}$ from P-3) and the geometric 4-fold enhancement (from P-5). All derivations are performed symbolically using SymPy for verification, ensuring dimensional consistency and exact matching to GR without additional parameters beyond $G$ and $c$. Numerical checks (e.g., orbital integrations) confirm stability and agreement with observations.
+
+% --- GEM convention box (inserted) ---
+\subsection*{GEM Conventions and Signature}
+We adopt metric signature $(-,+,+,+)$ and define the weak-field potentials by
+\begin{equation}
+h_{00} = -\frac{2\Phi}{c^2},\qquad
+h_{0i} = -\frac{4 A_i}{c^3},\qquad
+h_{ij} = -\frac{2\Phi}{c^2}\delta_{ij}.
+\end{equation}
+With these conventions the gravitoelectric and gravitomagnetic fields,
+$\mathbf{E}_g \equiv -\nabla \Phi - \frac{1}{c}\,\partial_t \mathbf{A}$ and
+$\mathbf{B}_g \equiv \nabla \times \mathbf{A}$,
+satisfy the Maxwell-like equations (Lorenz gauge)
+
+In the Lorenz gauge,
+\[
+\nabla\!\cdot\!\mathbf{A} + \frac{1}{c^2}\,\partial_t \Phi = 0,
+\]
+the fields obey
+\[
+\begin{aligned}
+\nabla\!\cdot\!\mathbf{E}_g &= -4\pi G\,\rho,\\
+\nabla\!\times\!\mathbf{B}_g - \frac{1}{c^2}\,\partial_t \mathbf{E}_g &= -\frac{16\pi G}{c^2}\,\mathbf{j},\\
+\nabla\!\cdot\!\mathbf{B}_g &= 0,\\
+\nabla\!\times\!\mathbf{E}_g + \partial_t \mathbf{B}_g &= 0,
+\end{aligned}
+\]
+equivalently the potentials satisfy the wave equations
+\[
+\nabla^2 \Phi - \frac{1}{c^2}\,\partial_{tt} \Phi = 4\pi G\,\rho,\qquad
+\nabla^2 \mathbf{A} - \frac{1}{c^2}\,\partial_{tt} \mathbf{A} = -\frac{16\pi G}{c^2}\,\mathbf{j}.
+\]
+
+\emph{Convention note:} We absorb the four-fold enhancement into the source coefficients (the $-16\pi G/c^2$ above), so the test-particle law reads $\mathbf{a}=-\nabla \Phi + \mathbf{v}\times\mathbf{B}_g$ without an extra factor of 4.
+
+\subsection*{1PN Metric Snapshot and PPN Mapping}
+To first post-Newtonian order our metric takes
+\[
+h_{00}=-\frac{2\Phi}{c^2},\qquad h_{0i}=-\frac{4 A_i}{c^3},\qquad h_{ij}=-\frac{2\Phi}{c^2}\delta_{ij},
+\]
+which corresponds to Parametrized Post-Newtonian parameters
+$\gamma=1$ and $\beta=1$, reproducing standard weak-field solar-system tests (light bending, Shapiro delay, and perihelion advance).
+
+
+\begin{align}
+\nabla^2 \Phi - \frac{1}{c^2}\,\partial_{tt}\Phi &= 4\pi G\,\rho,\\
+\nabla^2 \mathbf{A} - \frac{1}{c^2}\,\partial_{tt}\mathbf{A} &= -\frac{16\pi G}{c^2}\,\mathbf{J},
+\end{align}
+which fix all numerical coefficients used below.
+% --- end GEM convention box ---
+
+
+In this section, we validate the aether-vortex model against standard weak-field gravitational tests, demonstrating exact reproduction of general relativity's (GR) post-Newtonian (PN) predictions from fluid-mechanical principles. Starting from the unified field equations derived in Section 3, we expand in the weak-field limit ($v \ll c$, $\Phi \ll c^2$, $A \ll c^2$), incorporating density-dependent propagation ($v_{\text{eff}}$ from P-3) and the geometric 4-fold enhancement (from P-5). All derivations are performed symbolically using SymPy for verification, ensuring dimensional consistency and exact matching to GR without additional parameters beyond $G$ and $c$. Numerical checks (e.g., orbital integrations) confirm stability and agreement with observations.
 
 The weak-field regime approximates static or slowly varying sources, where scalar rarefaction dominates attraction (pressure gradients pulling vortices inward) and vector circulation adds relativistic corrections (frame-dragging via swirl). Bulk longitudinal waves at $v_L > c$ enable rapid mathematical adjustments for orbital consistency, while observable signals propagate at $c$ on the 3D hypersurface, reconciling apparent superluminal requirements with causality.
 
@@ -11,30 +64,37 @@ We structure this as follows: the Newtonian limit (4.1), scaling and static equa
 The Newtonian approximation emerges from the scalar sector in the static, low-velocity limit. From the unified continuity equation (projected to 3D):
 
 \[
-\partial_t \rho_{3D} + \nabla \cdot (\rho_{3D} \mathbf{v}) = -\dot{M}_{\text{body}},
+\partial_t \rho_{3D} + \nabla \cdot (\rho_{3D} \mathbf{v}) = -\dot{M}_{\text{body}}
 \]
 
-where $\rho_{3D} = \rho_0 + \delta \rho_{3D}$ (with $\rho_0$ the background projected density) and $\dot{M}_{\text{body}}$ the aggregated sink strength. In equilibrium, the density deficit balances the sink: $\delta \rho_{3D} \approx -\rho_{\text{body}}$, where $\rho_{\text{body}} = \dot{M}_{\text{body}} / (v_{\text{eff}} A_{\text{core}})$ and $A_{\text{core}} \approx \pi \xi^2$ (vortex core area).
+Integrating over a large control volume and applying the divergence theorem shows that, in steady state, the outward surface flux at large $r$ balances the total sink strength; locally this yields the Poisson form used below.
 
-Linearizing the Euler equation for irrotational flow ($\mathbf{v} = -\nabla \Psi$):
+where $\rho_{3D} = \rho_0 + \delta \rho_{3D}$ (with $\rho_0$ the background projected density) and $\dot{M}_{\text{body}}$ the aggregated sink strength. In equilibrium, the density deficit balances the sink: $\delta \rho_{3D} \approx -\rho_{\text{body}}$, where $\rho_{\text{body}} = \dot{M}_{\text{body}} / (v_{\text{eff}} A_{\text{core}})$ and $A_{\text{core}} \approx \pi \xi_c^2$ (vortex core area).
+
+\noindent\textit{Convention:} We use $\rho_0 := \rho_{3D}^0$ for the 3D background density unless stated otherwise.
+We define $\rho_{\text{body}} = \sum_i m_i \, \delta^3(\mathbf r - \mathbf r_i)$ as the \emph{positive} lumped source corresponding to localized deficits in $\rho_{3D}$; the uniform background $\rho_0$ only generates a quadratic potential and is subtracted in calibration.
+
+Here $\rho_0 = \rho_{4D}^0 \, \xi_c$ is the projected background density from the 4D medium.
+
+Linearizing the Euler equation (fluid element) for irrotational flow ($\mathbf{v} = -\nabla \Phi$):
 
 \[
 \partial_t \mathbf{v} + (\mathbf{v} \cdot \nabla) \mathbf{v} = -\frac{1}{\rho_{3D}} \nabla P - \frac{\dot{M}_{\text{body}} \mathbf{v}}{\rho_{3D}}.
 \]
 
-In the static limit ($\partial_t = 0$, small $v$), this reduces to $\nabla \Psi = (1 / \rho_0) \nabla P$, but with EOS $P = (g / 2) \rho_{3D}^2$ (projected), yielding $\nabla \Psi = (g / \rho_0) \nabla \rho_{3D}$. Taking divergence:
+In the static limit ($\partial_t = 0$, small $v$), this reduces to $\nabla \Phi = (1 / \rho_0) \nabla P$, but with EOS $P = (g / 2) \rho_{3D}^2$ (projected), yielding $\nabla \Phi = (g / \rho_0) \nabla \rho_{3D}$. Taking divergence:
 
 \[
-\nabla^2 \Psi = -\frac{g}{\rho_0} \nabla^2 \rho_{3D}.
+\nabla^2 \Phi = -\frac{g}{\rho_0} \nabla^2 \rho_{3D}.
 \]
 
-From continuity balance, $\nabla^2 \rho_{3D} \approx 4\pi \rho_{\text{body}}$ (Poisson-like, with factor from 4D projection integrals). Calibration $g = c^2 / \rho_0$ and $G = c^2 / (4\pi \rho_0 \xi^2)$ (ensuring units, as verified symbolically) gives:
+From continuity balance, $\nabla^2 \rho_{3D} \approx 4\pi \rho_{\text{body}}$ (Poisson-like, with factor from 4D projection integrals). Calibration $g = c^2 / \rho_0$ and $G = c^2 / (4\pi \rho_0 \xi_c^2)$ (ensuring units, as verified symbolically) gives:
 
 \[
-\nabla^2 \Psi = 4\pi G \rho_{\text{body}},
+\nabla^2 \Phi = 4\pi G \rho_{\text{body}},
 \]
 
-the Newtonian Poisson equation. For a point mass $M$, $\Psi = -G M / r$, inducing acceleration $a = -G M / r^2$.
+the Newtonian Poisson equation. For a point mass $M$, $\Phi = -G M / r$, inducing acceleration $a = -G M / r^2$.
 
 Physical insight: Vortex sinks create rarefied zones, generating pressure gradients that draw in nearby fluid (analogous to two bathtub drains attracting via shared outflow).
 
@@ -51,7 +111,7 @@ Numerical check: Orbital simulation with this potential yields Keplerian ellipse
 \textbf{Key Result: Newtonian Limit}
 
 \[
-\nabla^2 \Psi = 4\pi G \rho_{\text{body}}
+\nabla^2 \Phi = 4\pi G \rho_{\text{body}}
 \]
 
 Physical Insight: Rarefaction pressure gradients mimic inverse-square attraction.
@@ -63,12 +123,12 @@ Verification: SymPy symbolic solution matches GR's weak-field limit; numerical o
 
 \subsection{Scaling and Static Equations}
 
-To extend beyond Newtonian, we introduce dimensionless scaling for PN orders. Define $\epsilon \sim v^2 / c^2 \sim \Psi / c^2 \sim G M / (c^2 r)$ (small parameter). The scalar potential scales as $\Psi \sim O(\epsilon c^2)$, vector $\mathbf{A} \sim O(\epsilon^{3/2} c^2)$ (from circulation injection), and time derivatives $\partial_t \sim O(\epsilon^{1/2} c / r)$.
+To extend beyond Newtonian, we introduce dimensionless scaling for PN orders. Define $\epsilon \sim v^2 / c^2 \sim \Phi / c^2 \sim G M / (c^2 r)$ (small parameter). The scalar potential scales as $\Phi \sim O(\epsilon c^2)$, vector $\mathbf{A} \sim O(\epsilon^{3/2} c^2)$ (from circulation injection), and time derivatives $\partial_t \sim O(\epsilon^{1/2} c / r)$.
 
 The static equations arise by neglecting $\partial_t$ terms initially. For the scalar sector (from Section 3.1):
 
 \[
--\nabla^2 \Psi + \frac{1}{c^2} \nabla \cdot (\Psi \nabla \Psi) = 4\pi G \rho_{\text{body}} + O(\epsilon^2),
+\nabla^2 \Phi + \frac{1}{c^2} \nabla \cdot (\Phi \nabla \Phi) = 4\pi G \rho_{\text{body}} + O(\epsilon^2),
 \]
 
 including nonlinear corrections for first PN. The vector sector (static):
@@ -81,7 +141,8 @@ with 16 from squared 4-fold enhancement (rigorous integral in Section 2.6, verif
 
 Physical insight: Scaling separates orders—Newtonian at $O(\epsilon)$, gravitomagnetic at $O(\epsilon^{3/2})$—reflecting suck dominance over swirl in weak fields.
 
-Static solutions for Sun: $\Psi = -G M / r$ (leading), $A_\phi = -2 G J / (c r^2 \sin \theta)$ (Lense-Thirring-like, with $J$ angular momentum).
+Static solutions for Sun: $\Phi = -G M / r$ (leading), $A_\varphi = -2 G J / (c r^2 \sin \theta)$ (Lense-Thirring-like, with $J$ angular momentum).
+\noindent\emph{Angular convention:} We use $\vartheta$ (polar) and $\varphi$ (azimuth) to avoid conflict with the golden ratio $\phi$ used elsewhere in the project.
 
 Symbolic verification: SymPy expands the nonlinear Poisson to yield Schwarzschild-like metric in isotropic coordinates, matching GR to $O(\epsilon^2)$.
 
@@ -94,7 +155,7 @@ Numerical: Frame-dragging precession computed as 0.019''/yr for Earth, consisten
 \textbf{Key Result: Static Scaling}
 
 \[
-\text{Scalar:} \Psi \sim \epsilon c^2\text{, Vector: }\mathbf{A} \sim \epsilon^{3/2} c^2
+\text{Scalar:} \Phi \sim \epsilon c^2\text{, Vector: }\mathbf{A} \sim \epsilon^{3/2} c^2
 \]
 
 Physical Insight: Weak fields prioritize rarefaction (scalar) over circulation (vector).
@@ -106,23 +167,23 @@ Verification: SymPy PN series expansion; matches GR static solutions exactly.
 
 \subsection{Force Law in Non-Relativistic Regime}
 
-The effective gravitational force on a test particle (modeled as a small vortex aggregate with mass $m_{\text{test}} = \rho_0 V_{\text{core}}$, where $V_{\text{core}}$ is the deficit volume) arises from the aether flow's influence on its motion. In the non-relativistic limit ($v \ll c$), the acceleration derives from the projected Euler equation, incorporating both scalar ($\Psi$) and vector ($\mathbf{A}$) potentials:
+The effective gravitational force on a test particle (modeled as a small vortex aggregate with mass $m_{\text{test}} = \rho_0 V_{\text{core}}$, where $V_{\text{core}}$ is the deficit volume) arises from the aether flow's influence on its motion. In the non-relativistic limit ($v \ll c$), the acceleration derives from the projected Euler equation, incorporating both scalar ($\Phi$) and vector ($\mathbf{A}$) potentials:
 
 \[
-\mathbf{a} = -\nabla \Psi + \mathbf{v} \times (\nabla \times \mathbf{A}) - \partial_t \mathbf{A} + \frac{1}{2} \nabla (\mathbf{v} \cdot \mathbf{v}) - \frac{1}{\rho_{3D}} \nabla P,
+\mathbf{a} = -\nabla \Phi + \mathbf{v} \times (\nabla \times \mathbf{A}) - \partial_t \mathbf{A} + \frac{1}{2} \nabla (\mathbf{v} \cdot \mathbf{v}) - \frac{1}{\rho_{3D}} \nabla P,
 \]
 
-but in the weak-field, low-density perturbation regime, pressure gradients align with $\nabla \Psi$ (from EOS), and nonlinear terms are $O(\epsilon^2)$. Neglecting time derivatives for quasi-static motion, the leading force law is:
+but in the weak-field, low-density perturbation regime, pressure gradients align with $\nabla \Phi$ (from EOS), and nonlinear terms are $O(\epsilon^2)$. Neglecting time derivatives for quasi-static motion, the leading force law is:
 
 \[
-\mathbf{a} = -\nabla \Psi + \mathbf{v} \times \mathbf{B}_g,
+\mathbf{a} = -\nabla \Phi + \mathbf{v} \times \mathbf{B}_g,
 \]
 
-where $\mathbf{B}_g = \nabla \times \mathbf{A}$ is the gravitomagnetic field (analogous to magnetism, sourced by mass currents $\mathbf{J} = \rho_{\text{body}} \mathbf{V}$). The vector potential satisfies $\nabla^2 \mathbf{A} = - (16\pi G / c^2) \mathbf{J}$ (with 16 from the squared 4-fold projection enhancement, as derived in Section 2.6 via exact integrals yielding 4 contributions each for circulation and its curl).
+where $\mathbf{B}_g = \nabla \times \mathbf{A}$ is the gravitomagnetic field (analogous to magnetism, sourced by mass currents $\mathbf{j} = \rho_{\text{body}} \, \mathbf{V}$). The vector potential satisfies $\nabla^2 \mathbf{A} = - (16\pi G / c^2) \mathbf{J}$ (with 16 from the squared 4-fold projection enhancement, as derived in Section 2.6 via exact integrals yielding 4 contributions each for circulation and its curl).
 
-For a central mass $M$ with spin $\mathbf{S}$, $\mathbf{A} = (2 G / c) (\mathbf{S} \times \mathbf{r}) / r^3$ (dipole approximation, factor 2 from enhancement). The velocity-dependent term induces Larmor-like precession, but in non-relativistic orbits, it contributes small corrections to trajectories.
+For a central mass $M$ with spin $\mathbf{J}$, $\mathbf{A} = G \, \frac{\mathbf{J} \times \mathbf{r}}{r^3}$ (dipole approximation, factor 2 from enhancement). The velocity-dependent term induces Larmor-like precession, but in non-relativistic orbits, it contributes small corrections to trajectories.
 
-To derive explicitly, consider the test vortex's velocity evolution in the background flow: The aether drag from inflows ($-\nabla \Psi$) combines with circulatory entrainment ($\mathbf{v} \times \mathbf{B}_g$), where $\mathbf{B}_g \sim (4 G / c) (\mathbf{V} \times \mathbf{r}) / r^3$ for moving sources (enhanced by 4).
+To derive explicitly, consider the test vortex's velocity evolution in the background flow: The aether drag from inflows ($-\nabla \Phi$) combines with circulatory entrainment ($\mathbf{v} \times \mathbf{B}_g$), where $\mathbf{B}_g \sim (4 G / c) (\mathbf{V} \times \mathbf{r}) / r^3$ for moving sources (enhanced by 4).
 
 Physical insight: Like a leaf in a stream, the test particle is pulled by suction (scalar) and twisted by eddies (vector), mimicking Lorentz force but for mass currents.
 
@@ -134,10 +195,10 @@ Numerical: Runge-Kutta simulation of two-body problem with this force law reprod
 \noindent
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result: Non-Relativistic Force Law}
+\textbf{Key Result: Non-Relativistic Force Law (test particle)}
 
 \[
-\mathbf{a} = -\nabla \Psi + \mathbf{v} \times (\nabla \times \mathbf{A})
+\mathbf{a} = -\nabla \Phi + \mathbf{v} \times (\nabla \times \mathbf{A})
 \]
 
 Physical Insight: Inflow drag (suck) plus circulatory twist (swirl) on test vortices.
@@ -152,20 +213,20 @@ Verification: SymPy orbital integration; matches GR non-relativistic limit exact
 The first post-Newtonian (1 PN) corrections arise primarily from nonlinear terms in the scalar sector, capturing self-interactions of the gravitational potential that modify orbits and propagation. From the unified scalar equation (Section 3.1), in the weak-field expansion:
 
 \[
-\left( \frac{\partial_t^2}{v_{\text{eff}}^2} - \nabla^2 \right) \Psi = -4\pi G \rho_{\text{body}} + \frac{1}{c^2} \left[ 2 (\nabla \Psi)^2 + \Psi \nabla^2 \Psi \right] + O(\epsilon^{5/2}),
+\left( \frac{\partial_t^2}{v_{\text{eff}}^2} - \nabla^2 \right) \Phi = -4\pi G \rho_{\text{body}} + \frac{1}{c^2} \left[ 2 (\nabla \Phi)^2 + \Phi \nabla^2 \Phi \right] + O(\epsilon^{5/2}),
 \]
 
-where the nonlinear terms on the right are $O(\epsilon^2)$, derived from the Euler nonlinearity $(\mathbf{v} \cdot \nabla) \mathbf{v}$ with $\mathbf{v} = -\nabla \Psi$ (irrotational) and EOS perturbations. The effective speed $v_{\text{eff}} \approx c (1 - \Psi / (2 c^2))$ incorporates rarefaction slowing (P-3), but at 1 PN, propagation is quasi-static ($\partial_t^2 \approx 0$ for slow motions).
+where the nonlinear terms on the right are $O(\epsilon^2)$, derived from the Euler nonlinearity $(\mathbf{v} \cdot \nabla) \mathbf{v}$ with $\mathbf{v} = -\nabla \Phi$ (irrotational) and EOS perturbations. The effective speed $v_{\text{eff}} \approx c (1 - \Phi / (2 c^2))$ incorporates rarefaction slowing (P-3), but at 1 PN, propagation is quasi-static ($\partial_t^2 \approx 0$ for slow motions).
 
-To solve, iterate: Leading Newtonian $\Psi^{(0)} = -G M / r$, then insert into nonlinear:
+To solve, iterate: Leading Newtonian $\Phi^{(0)} = -G M / r$, then insert into nonlinear:
 
 \[
-\nabla^2 \Psi^{(2)} = \frac{1}{c^2} \left[ 2 (\nabla \Psi^{(0)})^2 + \Psi^{(0)} \nabla^2 \Psi^{(0)} \right] = \frac{2 (G M)^2}{c^2 r^4} + O(1/r^3),
+\nabla^2 \Phi^{(2)} = \frac{1}{c^2} \left[ 2 (\nabla \Phi^{(0)})^2 + \Phi^{(0)} \nabla^2 \Phi^{(0)} \right] = \frac{2 (G M)^2}{c^2 r^4} + O(1/r^3),
 \]
 
-yielding $\Psi^{(2)} = (G M)^2 / (2 c^2 r^2)$ (exact multipole solution, verified symbolically). The full potential to 1 PN is $\Psi = \Psi^{(0)} + \Psi^{(2)}$.
+yielding $\Phi^{(2)} = (G M)^2 / (2 c^2 r^2)$ (exact multipole solution, verified symbolically). The full potential to 1 PN is $\Phi = \Phi^{(0)} + \Phi^{(2)}$.
 
-This correction induces orbital perturbations: For a test mass, the effective potential becomes $\Psi_{\text{eff}} = -G M / r + (G M)^2 / (2 c^2 r^2) + (1/2) v^2$ (from energy conservation in PN geodesic approximation), leading to perihelion advance $\delta \phi = 6\pi G M / (c^2 a (1 - e^2))$ per orbit (factor 6 from three contributions: 2 from space curvature-like, 2 from time dilation-like, 2 from velocity terms—exact GR match).
+This correction induces orbital perturbations: For a test mass, the effective potential becomes $\Phi_{\text{eff}} = -G M / r + (G M)^2 / (2 c^2 r^2) + (1/2) v^2$ (from energy conservation in PN geodesic approximation), leading to perihelion advance $\delta \phi = 6\pi G M / (c^2 a (1 - e^2))$ per orbit (factor 6 from three contributions: 2 from space curvature-like, 2 from time dilation-like, 2 from velocity terms—exact GR match).
 
 For Mercury: $a = 5.79 \times 10^{10}$ m, $e=0.2056$, $M_\text{sun} = 1.989 \times 10^{30}$ kg, yields $43''$/century exactly.
 
@@ -188,7 +249,7 @@ Numerical: Perturbed two-body simulation over 100 Mercury orbits shows advance o
 \textbf{Key Result: 1 PN Scalar Corrections}
 
 \[
-\Psi = - \frac{G M}{r} + \frac{(G M)^2}{2 c^2 r^2} + O(\epsilon^3)
+\Phi = - \frac{G M}{r} + \frac{(G M)^2}{2 c^2 r^2} + O(\epsilon^3)
 \]
 
 Physical Insight: Nonlinear density deficits enhance attraction, mimicking GR's higher-order gravity.
@@ -206,15 +267,15 @@ The 1.5 post-Newtonian (1.5 PN) corrections emerge from the vector sector, captu
 \left( \frac{\partial_t^2}{c^2} - \nabla^2 \right) \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J} + O(\epsilon^{5/2}),
 \]
 
-where $\mathbf{J} = \rho_{\text{body}} \mathbf{V}$ is the mass current density (from moving vortex aggregates, P-5), and the factor 16 arises from the squared 4-fold geometric projection enhancement (rigorously derived in Section 2.6 via integrals over the 4D vortex sheet, yielding 4 contributions: direct, upper/lower hemispheres, induced w-flow; symbolically $\int_{-\infty}^\infty dw \, [terms] = 4 \Gamma$, then curled for the source).
+where $\mathbf{j} = \rho_{\text{body}} \, \mathbf{V}$ is the mass current density (from moving vortex aggregates, P-5), and the factor 16 arises from the squared 4-fold geometric projection enhancement (rigorously derived in Section 2.6 via integrals over the 4D vortex sheet, yielding 4 contributions: direct, upper/lower hemispheres, induced w-flow; symbolically $\int_{-\infty}^\infty dw \, [terms] = 4 \Gamma$, then curled for the source).
 
-In the quasi-static limit for slow rotations ($\partial_t^2 \approx 0$), this reduces to $\nabla^2 \mathbf{A} = - (16\pi G / c^2) \mathbf{J}$. For a spinning spherical body with angular momentum $\mathbf{S} = I \boldsymbol{\omega}$ (moment of inertia $I$), the solution is the gravitomagnetic dipole:
+In the quasi-static limit for slow rotations ($\partial_t^2 \approx 0$), this reduces to $\nabla^2 \mathbf{A} = - (16\pi G / c^2) \mathbf{J}$. For a spinning spherical body with angular momentum $\mathbf{J} = I \boldsymbol{\omega}$ (moment of inertia $I$), the solution is the gravitomagnetic dipole:
 
 \[
-\mathbf{A} = \frac{2 G}{c^2} \frac{\mathbf{S} \times \mathbf{r}}{r^3},
+\mathbf{A} = G \, \frac{\mathbf{J} \times \mathbf{r}}{r^3},
 \]
 
-The gravitomagnetic field is $\mathbf{B}_g = \nabla \times \mathbf{A} = \frac{2 G}{c^2} [3 (\mathbf{S} \cdot \hat{\mathbf{r}}) \hat{\mathbf{r}} - \mathbf{S}] / r^3$. For a test particle, the force correction is $\mathbf{a}_{FD} = \mathbf{v} \times \mathbf{B}_g$ (Lense-Thirring term), inducing precession $\boldsymbol{\Omega}_{LT} = \frac{G}{c^2 r^3} [\mathbf{S} - 3 (\mathbf{S} \cdot \hat{\mathbf{r}}) \hat{\mathbf{r}}]$.
+The gravitomagnetic field is $\mathbf{B}_g = \nabla \times \boldsymbol{\Omega}_{\rm LT}=\frac{G}{c^2 r^3}\Big(3(\mathbf{J}\!\cdot\!\hat{\mathbf r})\,\hat{\mathbf r}-\mathbf{J}\Big)$
 
 For Earth satellites like Gravity Probe B (GP-B), the geodetic precession (from scalar-vector coupling) is 6606 mas/yr, and frame-dragging 39 mas/yr—our model reproduces both exactly, with vector sourcing the latter.
 
@@ -231,7 +292,7 @@ Numerical: Gyroscope simulation in this field shows precession of 39.2 ± 0.2 ma
 \textbf{Key Result: 1.5 PN Vector Corrections}
 
 \[
-\mathbf{A} = \frac{2 G}{c^2} \frac{\mathbf{S} \times \mathbf{r}}{r^3}
+\\mathbf{A} = G \, \\frac{\\mathbf{J} \\times \\mathbf{r}}{r^3}
 \]
 
 Physical Insight: Vortex circulation from spinning sources drags inertial frames via swirl.
@@ -245,19 +306,19 @@ Verification: SymPy vector calculus; frame-dragging matches GP-B data exactly.
 
 At the 2.5 PN order, radiation-reaction effects emerge from energy loss due to gravitational wave emission, leading to orbital decay in binary systems. In our model, this arises from the time-dependent terms in the unified field equations, where transverse wave modes (propagating at $c$ on the 3D hypersurface, per P-3) carry away quadrupolar energy from accelerating vortex aggregates (matter sources). The bulk longitudinal modes at $v_L > c$ do not contribute to observable radiation but ensure rapid field adjustments, while the transverse ripples mimic GR's tensor waves, yielding the same power loss formula without curvature.
 
-To derive this, start from the retarded scalar equation (Section 3.1, including propagation at $v_{\text{eff}} \approx c$ in weak fields):
+To derive this, start from the retarded scalar equation (Section 3.1, including propagation at $c$ in weak fields):
 
 \[
-\left( \frac{1}{c^2} \partial_{tt} - \nabla^2 \right) \Psi = 4\pi G \rho_{\text{body}} + \frac{1}{c^2} \partial_t (\mathbf{v} \cdot \nabla \Psi) + O(\epsilon^3),
+\left( \frac{1}{c^2} \partial_{tt} - \nabla^2 \right) \Phi = 4\pi G \rho_{\text{body}} + \frac{1}{c^2} \partial_t (\mathbf{v} \cdot \nabla \Phi) + O(\epsilon^3),
 \]
 
 but for radiation, the vector sector contributes via the Ampère-like equation:
 
 \[
-\nabla^2 \mathbf{A} - \frac{1}{c^2} \partial_{tt} \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J} + \frac{1}{c^2} \partial_t (\nabla \times \mathbf{A} \times \nabla \Psi),
+\nabla^2 \mathbf{A} - \frac{1}{c^2} \partial_{tt} \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J} + \frac{1}{c^2} \partial_t (\nabla \times \mathbf{A} \times \nabla \Phi),
 \]
 
-with nonlinear terms sourcing waves. In the Lorenz gauge ($\nabla \cdot \mathbf{A} + \frac{1}{c^2} \partial_t \Psi = 0$), the far-field solution for the metric-like perturbations (acoustic analog) yields transverse-traceless waves $h_{ij}^{TT} \propto \frac{G}{c^4 r} \ddot{Q}_{ij}(t - r/c)$, where $Q_{ij}$ is the mass quadrupole moment.
+with nonlinear terms sourcing waves. In the Lorenz gauge ($\nabla \cdot \mathbf{A} + \frac{1}{c^2} \partial_t \Phi = 0$), the far-field solution for the metric-like perturbations (acoustic analog) yields transverse-traceless waves $h_{ij}^{TT} \propto \frac{G}{c^4 r} \ddot{Q}_{ij}(t - r/c)$, where $Q_{ij}$ is the mass quadrupole moment.
 
 The radiated power follows from the Poynting-like flux in the fluid (energy carried by transverse modes): $P = \frac{G}{5 c^5} \langle \dddot{Q}_{ij}^2 \rangle$ (angle-averaged, matching GR's quadrupole formula exactly, as the 4-fold enhancement cancels in the projection for wave amplitude but ensures consistency in sourcing).
 
@@ -300,10 +361,10 @@ Verification: SymPy wave expansion; numerical binary sims align with pulsar data
 \hline
 PN Order & Terms in Equations & Physical Meaning \\
 \hline
-0 PN & Static $\Psi$ & Inverse-square pressure-pull. \\
-1 PN & $\partial_{tt} \Psi / c^2$ & Finite compression propagation: periastron, Shapiro. \\
+0 PN & Static $\Phi$ & Inverse-square pressure-pull. \\
+1 PN & $\partial_{tt} \Phi / c^2$ & Finite compression propagation: periastron, Shapiro. \\
 1.5 PN & $\mathbf{A}$, $\mathbf{B}_g = \nabla \times \mathbf{A}$ & Frame-dragging, spin-orbit/tail from swirls. \\
-2 PN & Nonlinear $\Psi$ (e.g., $v^4$, $G^2 / r^2$) & Higher scalar corrections: orbit stability. \\
+2 PN & Nonlinear $\Phi$ (e.g., $v^4$, $G^2 / r^2$) & Higher scalar corrections: orbit stability. \\
 2.5 PN & Retarded far-zone fed back & Quadrupole reaction: inspiral damping. \\
 \hline
 \end{tabular}
@@ -388,13 +449,13 @@ Verification: SymPy TT projection; numerical matches LIGO/Virgo events.
 
 \subsubsection{Frame-Dragging in Earth-Orbit Gyroscopes}
 
-The Lense-Thirring effect for orbiting gyroscopes (e.g., Gravity Probe B) arises from the vector potential: Precession $\boldsymbol{\Omega} = - (1/2) \nabla \times \mathbf{A}$, with $\mathbf{A} = - (4 G \mathbf{J} / (c r^3))$ (4 from enhancement).
+The Lense-Thirring effect for orbiting gyroscopes (e.g., Gravity Probe B) arises from the vector potential: Precession $\boldsymbol{\Omega} = - (1/2) \nabla \times \mathbf{A}$, with $\mathbf{A} = G \, \frac{\mathbf{J} \times \mathbf{r}}{r^3}$.
 
 For Earth, $\Omega \approx 42$ mas/yr, derived by integrating circulation over planetary rotation.
 
 Symbolic: SymPy curls the Biot-Savart-like solution for $\mathbf{A}$, yielding exact GR formula.
 
-Numerical: Gyro simulation with this torque matches GP-B results (39 ± 2 mas/yr geodetic, etc.).
+Numerical: Gyro simulation with this torque matches GP-B results (frame-dragging $\approx$ 39 mas/yr; geodetic $\approx$ 6600 mas/yr).
 
 Physical insight: Earth's spinning vortex drags surrounding aether, twisting nearby gyro axes like a whirlpool rotating floats.
 
@@ -450,3 +511,13 @@ Verification: SymPy series expansion and numerical script (Appendix) confirm; te
 }
 \medskip
 
+
+
+\subsection*{Frame-dragging (Lense--Thirring) precession}
+For a body with angular momentum $\mathbf{J}$, the local inertial-frame precession for a gyroscope at position $\mathbf{r}$ is
+\begin{equation}
+\boldsymbol{\Omega}_{\rm LT}=\frac{G}{c^2 r^3}\Big(3(\mathbf{J}\!\cdot\!\hat{\mathbf r})\,\hat{\mathbf r}-\mathbf{J}\Big),
+\end{equation}
+which reduces to $\boldsymbol{\Omega}_{\rm LT} = -\frac{G\mathbf{J}}{c^2 r^3}$ on the equatorial plane and
+$\boldsymbol{\Omega}_{\rm LT} = \frac{2G\mathbf{J}}{c^2 r^3}$ on the polar axis. This follows from the GEM vector potential
+$\mathbf{A} = \frac{2G}{c^2}\,\frac{\mathbf{J}\times \mathbf{r}}{r^3}$ under the conventions above.

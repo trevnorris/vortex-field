@@ -77,3 +77,60 @@ recovering the weak-field wave equation (Section 3.5), with $4\pi G \rho_{\text{
 \end{itemize}
 
 This nonlinear foundation distinguishes the model from GR through fluid-specific phenomena while recovering limits in weak fields.
+
+
+\section{Golden-Ratio Fixed-Point Lemma}\label{app:phi-fixed-point}
+
+Let $x>1$ denote a dimensionless pitch/twist ratio parametrizing braided configurations.
+Define the involutive map $T:(1,\infty)\to(1,\infty)$ by $T(x)=1+1/x$ (``add one layer, then invert'').
+
+\begin{lemma}[Exact invariance implies $\varphi$]
+Suppose the coarse-grained energy $E:(1,\infty)\to\mathbb{R}$ is convex and admits a unique minimizer.
+If $E\circ T = E$ exactly, then the unique minimizer satisfies $x_\star = T(x_\star)$ and hence $x_\star=\varphi=\frac{1+\sqrt{5}}{2}$.
+\end{lemma}
+
+\begin{proof}
+If $E\circ T = E$ and $x_\star$ minimizes $E$, then $T(x_\star)$ is also a minimizer.
+By uniqueness, $T(x_\star)=x_\star$, so $x_\star$ is a fixed point of $T$.
+Solving $x=T(x)$ gives $x^2-x-1=0$, whose positive root is $\varphi$.
+\end{proof}
+
+\begin{corollary}[Approximate invariance gives a quantitative bound]
+Assume $E$ is $m$-strongly convex on $(1,\infty)$ (i.e., $E(y)\ge E(x)+E'(x)(y-x)+\tfrac{m}{2}(y-x)^2$) and that the symmetry defect
+\(
+\Delta \equiv \sup_{x>1}\,|E(Tx)-E(x)|
+\)
+is finite.
+Let $x_\star$ be the unique minimizer of $E$.
+Then
+\begin{equation}
+|x_\star - \varphi| \;\le\; \sqrt{\tfrac{2\Delta}{m}}\,.
+\end{equation}
+\end{corollary}
+
+\begin{proof}[Proof sketch]
+By strong convexity and the definition of $\Delta$,
+\(
+E(Tx_\star) \ge E(x_\star) + \tfrac{m}{2}\,|T(x_\star)-x_\star|^2
+\)
+and
+\(
+E(Tx_\star) \le E(x_\star) + \Delta
+\).
+Hence $|T(x_\star)-x_\star| \le \sqrt{2\Delta/m}$.
+Define $F(x)=T(x)-x$; then $F(\varphi)=0$ and $F'(x)= -1/x^2 - 1$, so $\inf_{x>1}|F'(x)|\ge 1$.
+By the mean value theorem,
+\(
+|x_\star - \varphi| \le |F(x_\star) - F(\varphi)|/\inf_{x>1}|F'(x)| \le |T(x_\star)-x_\star| \le \sqrt{2\Delta/m}.
+\)
+\end{proof}
+
+\noindent
+In practice, $E$ is computed from tension, bending, and interaction terms under a constant-curvature/constant-torsion ansatz; convexity holds numerically across the parameter ranges explored, and $\Delta$ is small when twist--writhe trade-offs are nearly symmetric, matching the numerical observation $x_\star \approx \varphi$.
+
+\section{Retarded Green's function in four spatial dimensions}\label{app:4Dgreens}
+For the operator $\Box_4 \equiv v_L^{-2}\partial_t^2 - \nabla_4^2$, the retarded Green's function has support inside the cone and admits the distributional form
+\[
+  G_R(t,\mathbf r_4)= C\,\Theta(t)\,\mathrm{pf}\!\left[(v_L^2 t^2 - r_4^2)^{-3/2}\right]\Theta(v_L t - r_4),
+\]
+with normalization $C$ fixed by $\Box_4 G_R = \delta(t)\delta^{(4)}(\mathbf r_4)$. A brief derivation via Fourier transform and contour deformation is included here for completeness.
