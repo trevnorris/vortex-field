@@ -35,8 +35,9 @@ Before presenting the formal postulates, consider this analogy: Imagine you're f
 
 Both phenomena involve the same water, but they represent fundamentally different physics. Our framework captures this duality: gravitational fields are like the bulk rush filling the cavity (established rapidly via SUCK, unobservable locally per equivalence), while gravitational waves/photons are like the tsunami (propagating at $c$ via WAVE, observable). SHAKE maintains the ``whirlpool'' defect stability, SWIRL adds helical EM if rotation present (validated by Kerr BH magnetic fields scaling with spin), DRAG indicates rotation. This duality aligns with the tsunami principle detailed in Section 2.5. Similar to black holes: Non-rotating (Schwarzschild) show no intrinsic magnetic fields ($\sim 10^2 - 10^3$ Gauss from accretion only), while rotating (Kerr) exhibit strong fields ($\sim 10^4 - 10^8$ Gauss) scaling with spin $a$, confirming rotation enables SWIRL EM.
 
-Same medium, different physics---no separate structures needed!
+Same medium, different physics---no separate structures needed.
 
+\medskip
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (6,0) node[right] {bulk redistribution at $v_L$ (unobservable SUCK/SHAKE)};
 \draw[thick,dashed] (0,1) -- (6,1) node[right] {surface wave at $c$ (observable WAVE)};
@@ -108,7 +109,7 @@ The postulates are summarized in the following table:
 \hline
 \textbf{P-4} & Helmholtz decomposition (suck + swirl) & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ & SUCK + SWIRL/DRAG \\
 \hline
-\textbf{P-5} & Quantized vortices with 4-fold projection & Circulation: $\Gamma = n \kappa$ where $\kappa = h / m$ & SWIRL/DRAG (with WAVE) \\
+\textbf{P-5} & Quantized vortices with 4-fold projection & Circulation: $\Gamma = n \kappa$ where $\kappa = 2 \pi \hbar / m$ & SWIRL/DRAG (with WAVE) \\
 & & Enhanced: $\Gamma_{\text{obs}} = 4 \Gamma$ (derived in Section 2.7) &  \\
 & & Vortices as tori/sheets with phase windings; helical twists $\theta + \tau w$ for emergent properties like charge $q = -4 (\hbar / (m c)) (\tau \Gamma) / (2 \sqrt{\phi})$ &  \\
 \hline
@@ -153,7 +154,7 @@ $c$ & Emergent light speed (vortex modes) & --- & $[L T^{-1}]$ \\
 \hline
 $\Gamma$ & Quantized circulation & $[L^2 T^{-1}]$ & $[L^2 T^{-1}]$ \\
 \hline
-$\kappa$ & Quantum of circulation, $\kappa = h / m$ & $[L^2 T^{-1}]$ & $[L^2 T^{-1}]$ \\
+$\kappa$ & Quantum of circulation, $\kappa = 2 \pi \hbar / m$ & $[L^2 T^{-1}]$ & $[L^2 T^{-1}]$ \\
 \hline
 $\dot{M}_i$ & Sink strength at vortex core $i$, $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi_c^2$ & $[M T^{-1}]$ & --- \\
 \hline
@@ -302,7 +303,7 @@ where $\mathbf{J}_{\text{mass}} = \rho_{\text{body}} \mathbf{V}$ $[M L^{-2} T^{-
 
 \subsubsection{SHAKE and WAVE Components}
 
-Both gravitational waves and photons emerge from the quintet modes: SHAKE represents the circulatory flow maintaining vortex stability and rest energy $E = m c^2$, while WAVE corresponds to oscillatory disturbances propagating at speed $c$, differing in their dimensional character (3D classical for gravitational waves, 4D-stabilized particle-like for photons). See tsunami principle (Section 2.5) for WAVE propagation versus bulk adjustments. The treatment separates SHAKE as the essential circulation preventing vortex collapse under aether pressure, quantified by circulation $\Gamma = n \kappa$ where $\kappa = h / m$. WAVE uses the d'Alembertian for transverse perturbations from vortex oscillations:
+Both gravitational waves and photons emerge from the quintet modes: SHAKE represents the circulatory flow maintaining vortex stability and rest energy $E = m c^2$, while WAVE corresponds to oscillatory disturbances propagating at speed $c$, differing in their dimensional character (3D classical for gravitational waves, 4D-stabilized particle-like for photons). See tsunami principle (Section 2.5) for WAVE propagation versus bulk adjustments. The treatment separates SHAKE as the essential circulation preventing vortex collapse under aether pressure, quantified by circulation $\Gamma = n \kappa$ where $\kappa = 2 \pi \hbar / m$. WAVE uses the d'Alembertian for transverse perturbations from vortex oscillations:
 
 \begin{equation}
 \Box h_{\mu\nu} = -\frac{16\pi G}{c^4} T_{\mu\nu}^{\text{quad}} \quad (\text{for GW, classical 3D WAVE}),
@@ -334,9 +335,11 @@ This dimensional distinction offers a new perspective on the unification puzzle,
 We propose that a Coriolis-like effect from rotation $\Omega_0$ in the z-w plane creates helical vortex configurations, with the helicity direction determining electric charge sign. This mechanism explains how charges of the same sign repel despite all vortices creating inward drainage---the helical structures in 4D either mesh (opposite helicity, attraction) or clash (same helicity, repulsion) when projected to our 3D hypersurface. SWIRL's 4D helical structure is the essence of EM: The modified GPE with rotation is $i\partial_t\Psi = [-\nabla_4^2/2 + g|\Psi|^2 - \mu - \Omega_0\cdot L]\Psi$, leading to helical vortex solutions with phase $\theta = n\phi + \tau w$, where $\partial\theta/\partial w = \tau$ and circulation in 4D includes w-component: $v_w = (\hbar/m)\tau$. Helicity $h = \text{sign}(\tau) = \pm1$ determines charge sign.
 
 While introduced phenomenologically, this value emerges naturally from bulk vorticity equilibrium. In GP dynamics, global rotation arises from minimizing the energy functional with angular momentum conservation. For a homogeneous medium ($\rho_{4D}^0$ uniform), the lowest-energy state with non-zero vorticity (to stabilize defects, P-5) induces a slow rotation via the Friedmann-like equation from P-1, adapted to rotation (inspired by G\"{o}del metric). Setting $\rho \sim \rho_{\text{crit}}$ (critical density $\sim 8.7 \times 10^{-27}$ kg/m$^3$) yields $\Omega_0 \sim \sqrt{4\pi G \rho_{\text{crit}}} \approx 2.4 \times 10^{-18}$ rad/s, matching the Hubble scale $H_0 \approx 2.3 \times 10^{-18}$ s$^{-1}$. This derives $\Omega_0$ from density scales, linking to Hubble via cosmological equilibrium (P-3 dual modes ensure no back-reaction on $c$). SymPy verifies:
-\[
+
+\begin{equation}
 \Omega_0 = \sqrt{4 \pi G \rho_{\text{crit}}} \approx 2.4 \times 10^{-18}.
-\]
+\end{equation}
+
 (code at \url{https://github.com/trevnorris/vortex-field}). Recent cosmology papers support this (e.g., arXiv:2503.13525 on rotation solving Hubble tension; arXiv:2312.07791 on tilted universes allowing $\sim H_0$ rotation without CMB violation). This is validated by black hole astrophysics: Rotating Kerr black holes (e.g., M87* with spin parameter $a \approx0.9$) exhibit strong magnetic fields ($\sim 10^4 - 10^8$ Gauss) and jets via the Blandford-Znajek mechanism, scaling with $a$, while non-rotating Schwarzschild black holes show only weak fields ($\sim 10^2 - 10^3$ Gauss) from external accretion, confirming rotation enables SWIRL's EM effects.
 
 \textbf{Phase structure:} $\theta = n\phi + \tau w$
@@ -356,19 +359,25 @@ While introduced phenomenologically, this value emerges naturally from bulk vort
 
 \subsubsection{Mathematical Consistency}
 While the physical mechanism remains preliminary, the mathematical structure maintains consistency. Starting from 4D vortex interaction energy, the Biot-Savart law in 4D with helical sources is given by
-\[
+
+\begin{equation}
 \mathbf{v}_4(\mathbf{r}_4) = \frac{\Gamma}{4\pi} \int \frac{(\mathbf{r}_4 - \mathbf{r}_4') \times d\mathbf{l}_4'}{|\mathbf{r}_4 - \mathbf{r}_4'|^3},
-\]
+\end{equation}
+
 where the integral accounts for helical twists. Projection to 3D hypersurface at $w = 0$ yields the effective force between projected points:
-\[
+
+\begin{equation}
 F = \frac{\rho_{4D} \xi_h^3 \Gamma_1 \Gamma_2 h_1 h_2}{4\pi r^2} \hat{r}.
-\]
+\end{equation}
+
 This form emerges from the velocity-induced motion of one vortex in the field of another, with the helicity product $h_1 h_2$ determining the sign: positive for repulsion (same helicity), negative for attraction. The factor $\xi_h^3$ ensures dimensional consistency $[M L T^{-2}]$, as $\rho_{4D} [M L^{-4}] \times \xi_h^3 [L^3] \times \Gamma^2 [L^4 T^{-2}] / r^2 [L^{-2}] = [M L T^{-2}]$. The factor incorporates the 4-fold enhancement from Section 2.7, with geometric factors absorbed into the coupling constant. Critical analysis: This matches Coulomb form qualitatively, but the derivation relies on linear approximation; nonlinear effects at close range ($r \sim \xi_h$) may introduce deviations, consistent with testable predictions.
 
 Comparing to Coulomb's law $F = k q_1 q_2 / r^2$, the effective charge emerges as:
-\[
+
+\begin{equation}
 q_{\text{eff}} \sim h \times \Gamma \times (\rho_{4D} \xi_h^3)^{1/2},
-\]
+\end{equation}
+
 with the sign from helicity and magnitude from vortex parameters. Dimensional analysis confirms [charge] units emerge correctly in Gaussian system, as $(\rho_{4D} \xi_h^3)^{1/2} [M^{1/2} L^{-1/2}] \times \Gamma [L^2 T^{-1}] = [M^{1/2} L^{3/2} T^{-1}]$. Critical note: This identification assumes $k = 1/(4\pi)$ in Gaussian units, consistent with the framework's geometric factors, but requires calibration of $\rho_{4D}$ to match observed $\alpha$.
 
 \begin{enumerate}
@@ -662,7 +671,7 @@ where $r_4 = \sqrt{\rho^2 + w^2}$ and $\Gamma$ is the circulation, with far-fiel
 \dot{M}_i = \rho_{4D}^0 \sum v_w \, dA_w \approx \rho_{4D}^0 \Gamma \xi_c^2,
 \end{equation}
 
-where the sum approximates the core cross-section times average velocity (SymPy integrations confirm the flux approximation, yielding exact factors independent of cutoff). Here, $\Gamma = n \kappa$ with $\kappa = h / m$ (from GP phase quantization in P-1). Reconnections act as ``valves,'' releasing flux into bulk modes, with energy barriers
+where the sum approximates the core cross-section times average velocity (SymPy integrations confirm the flux approximation, yielding exact factors independent of cutoff). Here, $\Gamma = n \kappa$ with $\kappa = 2 \pi \hbar / m$ (from GP phase quantization in P-1). Reconnections act as ``valves,'' releasing flux into bulk modes, with energy barriers
 
 \begin{equation}
 \Delta E \approx \rho_{4D}^0 \Gamma^2 \xi_c^2 \ln(L / \xi_c) / (4\pi)
@@ -698,7 +707,13 @@ Assuming symmetry ($\rho(0^+) = \rho(0^-) = \rho_{\text{inj}}$, injected from si
 
 where the $e^{-\gamma t}$ term accounts for transient decay of initial conditions (optional for pure steady-state analysis, set to 1 if $\partial_t = 0$ globally). This satisfies the equation for $w \neq 0$ (SymPy-solved: substitute into ODE confirms exact).
 
-At $w=0$, differentiating $\partial_w (\rho_{\text{bulk}} v_w)$ globally introduces a delta function: $\partial_w [\text{sign}(w) v \rho_{\text{bulk}}] = \text{sign}(w) v \partial_w \rho_{\text{bulk}} + 2 v \rho_{\text{bulk}} \delta(w)$. The first term equals $-\gamma \rho_{\text{bulk}}$ (from piecewise), while $+2 v \rho_{\text{inj}} \delta(w)$ represents the positive source injection at $w=0$ (flux from P-2 vortex sinks), balancing the equation without additional terms. Physically, this delta encodes the topological discontinuity from drainage, ensuring energy conversion to bulk modes without back-reaction on the $w=0$ slice.
+At $w=0$, differentiating $\partial_w (\rho_{\text{bulk}} v_w)$ globally introduces a delta function:
+
+\begin{equation}
+\partial_w [\text{sign}(w) v \rho_{\text{bulk}}] = \text{sign}(w) v \partial_w \rho_{\text{bulk}} + 2 v \rho_{\text{bulk}} \delta(w)    
+\end{equation}
+
+The first term equals $-\gamma \rho_{\text{bulk}}$ (from piecewise), while $+2 v \rho_{\text{inj}} \delta(w)$ represents the positive source injection at $w=0$ (flux from P-2 vortex sinks), balancing the equation without additional terms. Physically, this delta encodes the topological discontinuity from drainage, ensuring energy conversion to bulk modes without back-reaction on the $w=0$ slice.
 
 This ensures constant background $\rho_{4D}^0$ and $\dot{G} = 0$, consistent with bounds $|\dot{G}/G| \lesssim 10^{-13} \, \mathrm{yr}^{-1}$. WAVE energy (Kelvin waves) dissipates similarly, converting to bulk modes or photons, preserving total energy in 4D. Twists preserve topology (P-5), conserving charge.
 
@@ -727,6 +742,7 @@ cancelling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$ (aggregate deficits
 
 Twists in SWIRL add no net background (neutral on average), preserving the balance. WAVE vibrations (Kelvin waves) contribute a small positive energy density to $\langle \rho \rangle$ (as $\rho_{\text{vib}} / c^2$), but this is microscopic and averages out cosmologically, maintaining the equilibrium. The tsunami principle reinforces this: bulk flows are unfelt locally (we move with them), while observable changes propagate at $c$.
 
+\medskip
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
@@ -791,71 +807,76 @@ Having established the projection mechanism that yields geometric enhancements l
 
 The primary calibration arises in the scalar sector (SUCK), where the gravitational constant $G$ emerges from the far-field limit of the scalar field equation (derived in Section 2.2):
 
-\[
+\begin{equation}
 \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Phi}{\partial t^2} - \nabla^2 \Phi = 4\pi G \rho_{\text{body}}.
-\]
+\end{equation}
 
 In the static limit, this reduces to the Newtonian Poisson equation, $\nabla^2 \Phi = 4\pi G \rho_{\text{body}}$, where $\rho_{\text{body}}$ is the effective matter density from aggregated vortex deficits. The coefficient $4\pi G$ results from discrete summing over vortex intersections (Section 2.7), with the background density $\rho_0 = \rho_{4D}^0 \xi_c$ (projected 3D density, with $\xi_c$ microscopic core scale). Specifically, linearizing the 4D continuity around $\rho_{4D} = \rho_{4D}^0 + \delta \rho_{4D}$ and projecting yields the source term, where the calibration is fixed by:
 
-\boxed{
+\begin{equation}
 G = \frac{c^2}{4\pi \bar{n} \bar{m} \xi_c^2}
-}
+\end{equation}
 
 as derived from matching the far-field to the Newtonian limit (e.g., Cavendish experiment). Here, $\bar{n}$ is the vortex density (number per unit volume, derived from cosmology as $\bar{n} \approx \rho_{\text{critical}} / m_{\text{avg}}$, where $\rho_{\text{critical}}$ is the critical density of the universe), $\bar{m}$ is the average deficit mass per vortex (microscopic scale), and $\xi_c$ (healing length, [L]) acts as the effective core regularization scale, not a free parameter but derived from P-1 as $\xi_c = \hbar / \sqrt{2 m g \rho_{4D}^0}$. This expression locks the overall scale, ensuring higher-order post-Newtonian (PN) corrections (e.g., perihelion advance, Section 4) emerge without additional inputs, as verified symbolically with SymPy (code available at \url{https://github.com/trevnorris/vortex-field}).
 
 In the vector sector (SWIRL/DRAG), the coefficient in the field equation:
 
-\[
+\begin{equation}
 \frac{1}{c^2} \frac{\partial^2 \mathbf{A}}{\partial t^2} - \nabla^2 \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J}_{\text{mass}} - \frac{4\pi}{c} \mathbf{J}_q,
-\]
+\end{equation}
 
 decomposes as $\frac{16\pi G}{c^2} = 4 \times 4 \times \frac{\pi G}{c^2}$. The first factor of 4 arises from the geometric projection of the 4D vortex sheet (Section 2.7, P-5), where four contributions (direct intersection, upper/lower hemispherical projections, and induced $w$-flow) each yield circulation $\Gamma$, summing to $\Gamma_{\text{obs}} = 4\Gamma$. The second factor of 4 reflects the gravitomagnetic scaling inherent to vortex dynamics, aligning with relativistic frame-dragging predictions (e.g., Lense-Thirring precession, tied to DRAG as rotation indicator) without adjustment. This decomposition is exact, as confirmed by symbolic integration of the 4D Biot-Savart law (Section 2.7), and ensures the vector sector matches general relativity's predictions precisely, with SWIRL's helical component sourcing the EM term (preliminary).
 
-\boxed{
+\begin{equation}
 \frac{16\pi G}{c^2} = 4 \times 4 \times \frac{\pi G}{c^2}
-}
+\end{equation}
 
 The parameters are summarized in Table~\ref{tab:parameters}, distinguishing those derived from postulates (e.g., $\xi_c$, 4-fold factor) from those calibrated ($G$, $c$, $\rho_0$). The postulates contribute as follows: P-1 (GP dynamics) provides $\xi_c$ and $v_L = \sqrt{g \rho_{4D}^0 / m}$; P-3 defines dual wave modes ($v_L$, $c$, $v_{\text{eff}}$); P-5 yields the 4-fold factor and quantized circulation $\Gamma = n \kappa$; and $\rho_0$ follows from projection. The golden ratio $\phi = \frac{1 + \sqrt{5}}{2}$ emerges from energy minimization (Section 2.9), solving the recurrence $x^2 = x + 1$, a geometric feature of vortex braiding. The twist angle $\theta_{\text{twist}} = \pi / \sqrt{\phi}$ (for emergent charge) is derived from chiral winding in P-5. The fine structure constant $\alpha^{-1} = 360 \phi^{-2} - 2 \phi^{-3} + (3 \phi)^{-5}$ emerges from twist dilution and projections, as detailed in the emergent electromagnetism section (preliminary). The Fermi constant $G_F$ (for weak interactions) is noted as a potential fourth calibration, hinted in later sections, but gravity and electromagnetism require only $G$, $c$, and $\rho_0$. Parameters tie to the quintet: e.g., $G$ for SUCK, 4-fold for SWIRL/DRAG, $\omega$ for SHAKE/WAVE.
-
 \begin{table}[H]
 \centering
 \small
-\begin{tabularx}{\linewidth}{|p{1.5cm}|p{2cm}|l|X|p{3cm}|p{3cm}|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|p{3cm}|X|p{2cm}|p{2cm}|}
 \hline
-Parameter & Description & Derived/Calibrated & Justification/Notes & Anchor/Value & Ties to Postulate \\
+\multicolumn{5}{|c|}{\textbf{Calibrated}} \\
 \hline
-$G$ & Newton's constant & Calibrated & Fixed from weak-field test (e.g., Cavendish); from scalar equation far-field, $G = \frac{c^2}{4\pi \bar{n} \bar{m} \xi_c^2}$ (P-1, P-3, P-6 discrete projection). Incorporates vortex density $\bar{n}$ for scale separation. & $6.674 \times 10^{-11}$ m$^3$ kg$^{-1}$ s$^{-2}$ & P-1, P-3, P-6 \\
+Parameter & Description & Justification/Notes & Anchor/Value & Ties to Postulate \\
 \hline
-$c$ & Light speed (vortex modes) & Calibrated & Set to observed value; emerges from vortex oscillation dynamics (P-3). Incorporates projection rescaling from P-3/P-5/P-6. & $2.998 \times 10^8$ m/s & P-3, P-5, P-6 \\
+$G$ & Newton's constant & Fixed from weak-field test (e.g., Cavendish); from scalar equation far-field, $G = \frac{c^2}{4\pi \bar{n} \bar{m} \xi_c^2}$ (P-1, P-3, P-6 discrete projection). Incorporates vortex density $\bar{n}$ for scale separation. & $6.674 \times 10^{-11}$ m$^3$ kg$^{-1}$ s$^{-2}$ & P-1, P-3, P-6 \\
 \hline
-$\rho_0$ & Projected background density & Calibrated & Fixed from cosmology; from projection: $\rho_0 = \rho_{4D}^0 \xi_c$ (P-1, P-3). & [derived value] kg/m$^3$ & P-1, P-3 \\
+$c$ & Light speed (vortex modes) & Set to observed value; emerges from vortex oscillation dynamics (P-3). Incorporates projection rescaling from P-3/P-5/P-6. & $2.998 \times 10^8$ m/s & P-3, P-5, P-6 \\
 \hline
-$\xi_c$ & Core healing length (fundamental drainage scale) & Derived & From GP (P-1): $\xi_c = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$; Planck-scale, no macro role in $G$. Sets quantum-classical transition. & $\approx 10^{-15}$ m & P-1 \\
+$\rho_0$ & Projected background density & Fixed from cosmology; from projection: $\rho_0 = \rho_{4D}^0 \,\xi_c$ (P-1, P-3). & [derived value] kg/m$^3$ & P-1, P-3 \\
 \hline
-$\xi_h$ & Helical twist scale (electromagnetic interaction scale) & Derived & From twist structure (P-5): atomic-scale for EM manifestations. & $\approx 10^{-11}$ m & P-5 \\
+$G_F$ & Fermi constant (weak scale) & Fixed from electroweak test (e.g., beta decay); relates to chiral unraveling, $G_F \sim \frac{c^4}{\rho_0 \Gamma^2}$ (Section 6.9); additional for weak unification. & -- & P-5 (chiral) \\
 \hline
-4-fold factor & Circulation/ projection enhancement & Derived & Geometric (P-5): Integrals in Section 2.7 yield 4 (direct + 2 hemispheres + w-flow); numerically verified (SymPy, appendix). Topological fixed point. & Exactly 4 & P-5 \\
+\multicolumn{5}{|c|}{\textbf{Derived}} \\
 \hline
-$\phi$ & Golden ratio in braiding & Derived & From energy minimization (Section 2.9): $x^2 = x + 1$, yields $\phi = \frac{1 + \sqrt{5}}{2}$; emerges naturally, akin to natural packing. & $\approx 1.618$ & P-5 (braiding) \\
+Parameter & Description & Justification/Notes & Anchor/Value & Ties to Postulate \\
 \hline
-$v_L$ & Bulk sound speed, $v_L = \sqrt{g \rho_{4D}^0 / m}$ & Derived & From P-3: $\sqrt{\frac{g \rho_{4D}^0}{m}} > c$; enables causality reconciliation, not directly observable. & -- & P-3 \\
+$\xi_c$ & Core healing length (fundamental drainage scale) & From GP (P-1): $\xi_c = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}$; Planck-scale, no macro role in $G$. Sets quantum-classical transition. & $\approx 10^{-15}$ m & P-1 \\
 \hline
-$\bar{n}$ & Vortex density (number per volume) & Derived & From cosmology: $\bar{n} \approx \rho_{\text{critical}} / m_{\text{avg}}$; sets macro scale in $G$ without $\xi_c$ dependence (P-6). & -- & P-6 \\
+$\xi_h$ & Helical twist scale (electromagnetic interaction scale) & From twist structure (P-5): atomic-scale for EM manifestations. & $\approx 10^{-11}$ m & P-5 \\
 \hline
-$\theta_{\text{twist}}$ & Helical twist angle for charge & Derived & From chiral winding (P-5): $\theta_{\text{twist}} = \pi / \sqrt{\phi}$; enables emergent EM without new postulates. & -- & P-5 \\
+4-fold factor & Circulation/projection enhancement & Geometric (P-5): Integrals in Section 2.7 yield 4 (direct + 2 hemispheres + w-flow); numerically verified (SymPy, appendix). Topological fixed point. & Exactly 4 & P-5 \\
 \hline
-$\alpha^{-1}$ & Inverse fine structure constant & Derived & From twist dilution/projections: $360 \phi^{-2} - 2 \phi^{-3} + (3 \phi)^{-5} \approx 137.036$; emerges geometrically (emergent EM section, preliminary). & $\approx 137.036$ & P-5 (twists) \\
+$\phi$ & Golden ratio in braiding & From energy minimization (Section 2.9): $x^2 = x + 1$, yields $\phi = \frac{1 + \sqrt{5}}{2}$; emerges naturally, akin to natural packing. & $\approx 1.618$ & P-5 (braiding) \\
 \hline
-$\omega$ & Kelvin wave frequency for shake modes & Derived & From vortex dynamics: $\omega \sim v_L / \xi_c$; ties to rest energy. & -- & P-3, P-5 \\
+$v_L$ & Bulk sound speed, $v_L = \sqrt{g \rho_{4D}^0 / m}$ & From P-3: $\sqrt{\frac{g \rho_{4D}^0}{m}} > c$; enables causality reconciliation, not directly observable. & -- & P-3 \\
 \hline
-$G_F$ & Fermi constant (weak scale) & Calibrated & Fixed from electroweak test (e.g., beta decay); relates to chiral unraveling, $G_F \sim \frac{c^4}{\rho_0 \Gamma^2}$ (Section 6.9); additional for weak unification. & -- & P-5 (chiral) \\
+$\bar{n}$ & Vortex density (number per volume) & From cosmology: $\bar{n} \approx \rho_{\text{critical}} / m_{\text{avg}}$; sets macro scale in $G$ without $\xi_c$ dependence (P-6). & -- & P-6 \\
 \hline
-$\tau$ & Twist density along extra dimension (SWIRL) & Derived & From helical phase (P-5): Determines charge magnitude/sign; preliminary for EM. & -- $[L^{-1}]$ & P-5 \\
+$\theta_{\text{twist}}$ & Helical twist angle for charge & From chiral winding (P-5): $\theta_{\text{twist}} = \pi / \sqrt{\phi}$; enables emergent EM without new postulates. & -- & P-5 \\
 \hline
-Frame-dragging rate & Rate of rotational drag (DRAG) & Derived & Proportional to angular momentum; from vector equation, scales with spin (e.g., Kerr BH Lense-Thirring). & -- & P-4, P-5 \\
+$\alpha^{-1}$ & Inverse fine structure constant & From twist dilution/projections: $360 \phi^{-2} - 2 \phi^{-3} + (3 \phi)^{-5} \approx 137.036$; emerges geometrically (emergent EM section, preliminary). & $\approx 137.036$ & P-5 (twists) \\
+\hline
+$\omega$ & Kelvin wave frequency for shake modes & From vortex dynamics: $\omega \sim v_L / \xi_c$; ties to rest energy. & -- & P-3, P-5 \\
+\hline
+$\tau$ & Twist density along extra dimension (SWIRL) & From helical phase (P-5): Determines charge magnitude/sign; preliminary for EM. & -- $[L^{-1}]$ & P-5 \\
+\hline
+Frame-dragging rate & Rate of rotational drag (DRAG) & Proportional to angular momentum; from vector equation, scales with spin (e.g., Kerr BH Lense–Thirring). & -- & P-4, P-5 \\
 \hline
 \end{tabularx}
-\caption{Parameters in the model, distinguishing derived (from postulates/GP) vs. calibrated (from experiments). No ad-hoc fits beyond standard constants. Parameters tie to quintet: e.g., $G$ for SUCK, 4-fold for SWIRL/DRAG, $\omega$ for SHAKE/WAVE.}
+\caption{Parameters in the model, grouped by origin: calibrated (experimental) vs.\ derived (theoretical). No ad-hoc fits beyond standard constants.}
 \label{tab:parameters}
 \end{table}
 
@@ -929,9 +950,11 @@ With discrete projections, the energy functionals apply per vortex, aggregated o
 In braided vortex arrangements---where codimension-2 defects (P-5) entangle phase windings in the compressible 4D medium (P-1)---stability against reconnection emerges as a topological necessity. For hierarchical loops with radius ratio $x = R_{n+1}/R_n$, the golden ratio $\phi = (1 + \sqrt{5})/2$ (derived in Section 2.1.6) is not merely optimal but a requirement for survival, satisfying the recurrence $x^2 = x + 1$.
 
 The emergence of the golden ratio from energy minimization is mathematically robust, though the specific form of the energy functional:
-\[
+
+\begin{equation}
 E(x) = \frac{(x-1)^2}{2} - \ln x
-\]
+\end{equation}
+
 is motivated by physical arguments (overlap penalty + topological repulsion) rather than derived from first principles. Future work should establish a more rigorous connection to the Gross-Pitaevskii energy.
 
 This arises from the need to avoid \textbf{resonance catastrophes}: Rational ratios $x = p/q$ induce periodic stress concentrations via resonant coupling between levels, where every $q$ rotations of level $n+1$ align with $p$ rotations of level $n$, leading to reconnections that dissipate via drainage (P-2) or bulk modes (P-3). The golden ratio's maximal irrationality---its continued fraction $[1; 1, 1, \ldots]$ converges slowest---ensures no resonances occur, providing perfect topological protection.

@@ -1,0 +1,79 @@
+\appendix
+\section{Nonlinear Scalar Field Equation}
+
+This appendix provides a detailed derivation of the nonlinear extension of the scalar field equation, as used in the weak-field approximations throughout the main text. The equations are derived from the foundational postulates, particularly P-1 (compressible 4D medium with Gross-Pitaevskii dynamics) and P-3 (dual wave modes with density-dependent propagation). We focus on the irrotational sector for potential flow, assuming far-field neglect of quantum pressure and vector contributions; these can be reincorporated for core-scale or gravitomagnetic analyses. The derivation assumes a barotropic equation of state (EOS) projected from 4D, with effective speed $v_{\text{eff}}^2 = K \rho_{4D}$ where $K = g/m$.
+
+Physically, this nonlinear equation governs unsteady compressible potential flow in the projected aether: time-varying potentials induce compression waves that propagate at variable speeds due to local rarefaction, while convective terms steepen inflows, potentially forming shock-like structures. Near aggregated vortex sinks (modeling massive bodies), density gradients slow $v_{\text{eff}}$, mimicking relativistic effects without invoking curvature.
+
+\subsection{Projected Continuity Equation}
+
+Begin with the 4D continuity equation from P-1:
+\[
+\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0,
+\]
+incorporating vortex sinks from P-2 as localized drainage terms $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$. Projecting to 3D (via integration over $w \sim \xi$, with $\rho_{3D} \approx \rho_{4D} \xi$ and aggregated sinks $\dot{M}_{\text{body}}$):
+\[
+\partial_t \rho_{3D} + \nabla \cdot (\rho_{3D} \mathbf{v}) = -\dot{M}_{\text{body}}(\mathbf{r}, t).
+\]
+For irrotational flow (P-4: $\mathbf{v} = -\nabla \Psi$):
+\[
+\partial_t \rho_{3D} - \nabla \cdot (\rho_{3D} \nabla \Psi) = -\dot{M}_{\text{body}}.
+\]
+
+\subsection{Projected Euler Equation}
+
+The 4D Euler equation is:
+\[
+\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -\frac{1}{\rho_{4D}} \nabla_4 P - \frac{\dot{M}_{\text{body}} \mathbf{v}_4}{\rho_{4D}}.
+\]
+Projecting to 3D and assuming irrotationality ($\mathbf{a} = \partial_t \mathbf{v} = -\nabla \Psi$):
+\[
+-\partial_t \nabla \Psi + (\nabla \Psi \cdot \nabla) \nabla \Psi = -\frac{1}{\rho_{3D}} \nabla P + \frac{\dot{M}_{\text{body}} \nabla \Psi}{\rho_{3D}}.
+\]
+For barotropic EOS $P = (K/2) \rho_{4D}^2$ (projected as $P_{\text{eff}} \approx (K/2) (\rho_{3D}^2 / \xi^2)$), the pressure gradient integrates to enthalpy $h = \int dP / \rho_{4D} = K \rho_{4D}$.
+
+\subsection{Streamline Integration and Bernoulli Form}
+
+Integrate the Euler equation along streamlines (standard for potential barotropic flow):
+\[
+\partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 + K \rho_{4D} = F(t) + \int \frac{\dot{M}_{\text{body}}}{\rho_{3D}} \, ds,
+\]
+where $F(t)$ is a gauge function and the sink integral is localized near cores (neglected far-field for wave propagation). Gauging $F(t) = 0$:
+\[
+\rho_{4D} = -\frac{1}{K} \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right).
+\]
+(The negative sign ensures positive $\Psi$ yields deficits $\rho_{4D} < \rho_{4D}^0$.) With $\rho_{3D} \approx \rho_{4D} \xi$:
+\[
+\rho_{3D} = -\frac{\xi}{K} \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right).
+\]
+
+\subsection{Substitution into Continuity}
+
+Substitute into the continuity equation:
+\[
+\partial_t \left[ -\frac{\xi}{K} \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right) \right] - \nabla \cdot \left[ -\frac{\xi}{K} \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right) \nabla \Psi \right] = -\dot{M}_{\text{body}}.
+\]
+Multiplying by $-K / \xi$:
+\[
+\partial_t \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right) + \nabla \cdot \left[ \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right) \nabla \Psi \right] = \frac{K}{\xi} \dot{M}_{\text{body}}.
+\]
+This quasilinear second-order PDE includes quadratic and cubic nonlinearities from convection and variable $v_{\text{eff}}$.
+
+\subsection{Linear Regime Reduction}
+
+In the linear limit ($\delta \Psi \ll 1$, $\rho_{3D} = \rho_0 + \delta \rho_{3D}$, $\delta \rho_{3D} = -(\rho_0 / c^2) \partial_t \delta \Psi$), calibrate $K / \xi = c^2 / \rho_0$ (far-field $v_{\text{eff}} = c$):
+\[
+\frac{1}{c^2} \partial_t^2 \Psi - \nabla^2 \Psi = 4\pi G \rho_{\text{body}},
+\]
+recovering the weak-field wave equation (Section 3.5), with $4\pi G \rho_{\text{body}} = (c^2 / \rho_0) \dot{M}_{\text{body}}$.
+
+\subsection{Extensions and Applications}
+
+\begin{itemize}
+\item \textbf{Vector Coupling}: For frame-dragging, add solenoidal terms: $\mathbf{a} = -\nabla \Psi + \partial_t (\nabla \times \mathbf{A})$.
+\item \textbf{Quantum Pressure}: Near cores, include $-\frac{\hbar^2}{2m \rho_{4D}} \nabla (\nabla^2 \sqrt{\rho_{4D}})$ in Euler for stability.
+\item \textbf{Strong-Field Horizons}: Steady-state ($\partial_t \Psi = 0$) yields $|\nabla \Psi| = \sqrt{K \rho_{4D}}$ at ergospheres, calibrating to $r_s \approx 2GM/c^2$.
+\item \textbf{Numerical Solves}: Finite differences can evolve $\Psi(t,\mathbf{r})$ for mergers or perturbations, predicting chromatic GW effects.
+\end{itemize}
+
+This nonlinear foundation distinguishes the model from GR through fluid-specific phenomena while recovering limits in weak fields.
