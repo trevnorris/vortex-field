@@ -1,0 +1,165 @@
+\section{Electromagnetism from projected circulation (with everyday pictures)}
+\label{sec:EM_projection}
+
+We show that the electromagnetic (EM) field on the physical slice $\Pi=\{w=0\}$ arises from the projected kinematics of a 4D aether and its continuity. The \emph{homogeneous} Maxwell equations are kinematic/topological identities of the projected circulation; the \emph{inhomogeneous} pair follow from slice continuity plus a simple linear closure. Physical constants are fixed by the static Coulomb limit and the wave speed $c$, yielding the standard Maxwell system. Throughout we add everyday pictures so a reader can track the physics without following every derivation.
+
+\subsection{What the fields are, in math and in pictures}
+Let $u(\mathbf x,w,t)$ be the aether velocity in $\mathbb{R}^4$ and $\Omega=\nabla\!\times u$ its (spatial) vorticity. Project onto $\Pi$ and Helmholtz–decompose the induced slice velocity $v(\mathbf x,t)$ as
+\[
+v(\mathbf x,t)=\nabla\phi(\mathbf x,t)+\nabla\times\mathbf A(\mathbf x,t),
+\]
+with $\nabla\!\cdot\!\mathbf A=0$ for convenience. We \emph{define} the EM fields by
+\begin{equation}
+\mathbf B := \nabla\times\mathbf A,
+\qquad
+\mathbf E := -\,\partial_t \mathbf A \;-\; \nabla \Phi,
+\label{eq:EM_defs}
+\end{equation}
+where $\Phi$ is the slice potential associated with the continuity sector.
+
+\paragraph{Everyday pictures.}
+\begin{itemize}
+  \item \textbf{Hills and valleys (potential piece).} On $\Pi$ imagine a gentle height map: tiny ``hills'' where the aether is slightly in excess, tiny ``valleys'' where it's slightly depleted. The downhill push is $\mathbf E_{\text{pot}}=-\nabla\Phi$. Positive charge $\Rightarrow$ hilltop; negative charge $\Rightarrow$ valley. Field lines go from hills to valleys.
+  \item \textbf{Whirlpools (solenoidal piece).} The aether forms swirls that partly live in the 4D bulk; their 3D shadow is $\mathbf B=\nabla\times\mathbf A$. When the swirl pattern \emph{changes in time}, it drags a loop-like electric field: $\mathbf E_{\text{ind}}=-\partial_t\mathbf A$. Faraday's law is simply: changing swirl $\Rightarrow$ curling $\mathbf E$.
+  \item \textbf{Charging a capacitor (bulk bridge).} Between two plates, some aether briefly ``steps into'' the $w$ direction to keep continuity. On the slice this shows up as a time-changing $\mathbf E$ that carries current even through vacuum: the displacement current.
+\end{itemize}
+
+\subsection{Two EM laws that are pure kinematics}
+By construction,
+\begin{equation}
+\nabla\!\cdot\!\mathbf B = 0,
+\qquad
+\nabla\times\mathbf E + \partial_t \mathbf B = 0.
+\label{eq:homogeneous}
+\end{equation}
+These are identities on $\Pi$: divergence of a curl vanishes, and $-\partial_t(\nabla\times\mathbf A)$ cancels the curl of $-\partial_t\mathbf A$. 
+
+\paragraph{Everyday pictures.}
+\begin{itemize}
+  \item \textbf{$\nabla\!\cdot\!\mathbf B=0$:} whirlpools have centers but not endpoints --- like eddies in a river; no ``loose ends'' to source or sink $\mathbf B$.
+  \item \textbf{Faraday's law:} wave a magnet near a wire loop and watch the galvanometer wiggle. Changing swirl $\to$ chasing loop field $\to$ current.
+\end{itemize}
+
+\subsection{Where sources come from: continuity and the bulk bridge}
+Let $\rho(\mathbf x,t)$ be the projected aether excess density on $\Pi$ and $\mathbf J(\mathbf x,t)$ the in-slice transport current. A thin pillbox straddling $\Pi$ turns 4D continuity into
+\begin{equation}
+\partial_t \rho + \nabla\!\cdot\!\mathbf J \;=\; -\,\Big[J_w\Big]_{w=0^-}^{0^+},
+\label{eq:slice_continuity}
+\end{equation}
+with $J_w$ the normal flux into/out of the bulk. We close the potential sector by the minimal linear, local response
+\begin{equation}
+-\nabla^2 \Phi = \frac{\rho}{\varepsilon_0},
+\qquad
+\text{so that}\quad
+\nabla\!\cdot\!\big(\partial_t\mathbf E_{\text{pot}}\big)=\frac{1}{\varepsilon_0}\,\partial_t\rho,
+\label{eq:closure}
+\end{equation}
+and we \emph{identify} the normal flux with the displacement current supplied by the time-varying potential sector,
+\begin{equation}
+\Big[J_w\Big]_{w=0^-}^{0^+} \;=\; -\,\varepsilon_0\,\nabla\!\cdot\!\partial_t\mathbf E_{\text{pot}}.
+\label{eq:displacement_identification}
+\end{equation}
+Combining \eqref{eq:EM_defs}–\eqref{eq:displacement_identification} yields the inhomogeneous pair
+\begin{equation}
+\nabla\!\cdot\!\mathbf E = \frac{\rho}{\varepsilon_0},
+\qquad
+\nabla\times \mathbf B - \mu_0 \varepsilon_0\,\partial_t \mathbf E = \mu_0\,\mathbf J.
+\label{eq:inhomogeneous}
+\end{equation}
+
+\paragraph{Everyday pictures.}
+\begin{itemize}
+  \item \textbf{Gauss's law: hills/valleys make arrows.} Pile a bit of aether on the slice (a hill) and the downhill arrows $\mathbf E$ point outward; scoop some out (a valley) and arrows point inward.
+  \item \textbf{Amp\`ere–Maxwell: current or changing hill-tilt makes swirl.} Push a steady stream along the slice ($\mathbf J$) and you wind $\mathbf B$ around it; tilt the height map in time ($\partial_t\mathbf E$ between capacitor plates) and you wind $\mathbf B$ the same way --- the bulk bridge guarantees there is no break in the circuit.
+\end{itemize}
+
+\subsection{Fixing the constants and waves}
+Taking the curl of Amp\`ere–Maxwell and using \eqref{eq:homogeneous} gives vacuum waves
+\[
+\big(\nabla^2 - \tfrac{1}{c^2}\partial_{tt}\big)\mathbf E=0,
+\qquad
+\big(\nabla^2 - \tfrac{1}{c^2}\partial_{tt}\big)\mathbf B=0,
+\]
+provided
+\begin{equation}
+c^2=\frac{1}{\mu_0\varepsilon_0}.
+\label{eq:c_relation}
+\end{equation}
+We take $c$ to be the measured wave speed (light in vacuum), which fixes the product $\mu_0\varepsilon_0$. The static Coulomb limit of \eqref{eq:closure} fixes $\varepsilon_0$; then $\mu_0$ follows from \eqref{eq:c_relation}.
+
+\paragraph{Everyday picture.} 
+\textbf{Ripples on a stretched sheet.} The sheet tension sets the wave speed; here the combination $\mu_0\varepsilon_0$ sets $c$. Once you know $c$ and the static push between charges (Coulomb), all constants are pinned.
+
+\subsection{Energy flow (Poynting theorem), told like a story}
+Dot $\mathbf E$ into Amp\`ere–Maxwell, dot $\mathbf B$ into Faraday, subtract, and rearrange:
+\[
+\partial_t \Big(\tfrac{\varepsilon_0}{2}\,|\mathbf E|^2 + \tfrac{1}{2\mu_0}\,|\mathbf B|^2\Big)
++ \nabla\!\cdot\!\Big(\tfrac{1}{\mu_0}\,\mathbf E\times \mathbf B\Big)
+= -\,\mathbf J\!\cdot\!\mathbf E.
+\]
+\textbf{Conveyor-belt picture:} the crossed fields $\mathbf E\times\mathbf B$ are a belt carrying energy through space; the belt unloads onto charges at rate $\mathbf J\!\cdot\!\mathbf E$.
+
+\subsection{Thickness and accuracy (why Maxwell is so good)}
+If the 4D transition band is smooth, even, and thin of width $\xi$ in $w$, replacing the sharp projection by a convolution changes the induced fields by
+\[
+\Delta(\cdot)=O\!\big((\xi/\ell)^2\big)
+\]
+when probed on length $\ell$ on $\Pi$ (second-moment Taylor estimate), matching the curvature/thickness control used elsewhere. This is why the textbook Maxwell theory works so well over a vast range: corrections are quadratically suppressed by the small ratio $\xi/\ell$.
+
+\subsection{Beyond-Maxwell predictions and falsifiable tests}
+\label{subsec:EM_predictions}
+The homogeneous laws \eqref{eq:homogeneous} are exact (topology). Any deviation must come from the \emph{closure} of the potential/continuity sector. A smooth, even transition profile of width $\xi$ and (optionally) a finite bulk-exchange time $\tau$ give the following leading, \emph{scale-suppressed} effects. Each comes with a clean scaling law, so null results set direct bounds on $\xi$ and $\tau$.
+
+\paragraph{A. Static near-field: tiny universal Coulomb correction.}
+A minimal local closure augments Poisson by the next even derivative:
+\begin{equation}
+\big(-\nabla^2 + \alpha\,\xi^2 \nabla^4 + \cdots\big)\,\Phi
+=\frac{\rho}{\varepsilon_0},\qquad \alpha=O(1).
+\end{equation}
+For a point charge,
+\begin{equation}
+\Phi(r)=\frac{q}{4\pi\varepsilon_0 r}
+\Big[1-\alpha\,\tfrac{\xi^2}{2r^2}+O\big((\xi/r)^4\big)\Big],
+\quad
+\Rightarrow\quad
+|\mathbf E|=\frac{q}{4\pi\varepsilon_0 r^2}\Big[1-\alpha\,\tfrac{3\xi^2}{2r^2}+\cdots\Big].
+\end{equation}
+\emph{Test:} precision force/field measurements in ultra-clean nanogaps (AFM/STM-style). A null at fractional precision $\delta$ at gap $r$ implies $\xi \lesssim r\sqrt{\delta}$.
+
+\paragraph{B. Vacuum wave dispersion at very high frequency.}
+Finite thickness yields the first isotropic, Lorentz-breaking correction
+\begin{equation}
+\omega^2=c^2 k^2\Big[1+\sigma\,(k\xi)^2+O\big((k\xi)^4\big)\Big],\qquad \sigma=O(1),
+\end{equation}
+so the group velocity $v_g\simeq c\big[1+\tfrac{3}{2}\sigma\,(k\xi)^2\big]$.
+\emph{Test:} dual-color ultra-stable optical cavities or femto/atto-second time-of-flight over meter-scale vacuum paths; look for a $\propto\lambda^{-2}$ shift. Null $\Rightarrow$ bound on $\xi$ (and $\sigma$).
+
+\paragraph{C. Ultrafast transients: even-in-time displacement memory.}
+A causal, non-dissipative bulk exchange gives
+\begin{equation}
+\varepsilon(\omega)=\varepsilon_0\Big[1+\beta\,(\omega\tau)^2+O\big((\omega\tau)^4\big)\Big],\qquad \beta=O(1),
+\end{equation}
+equivalently a $\tau^2\partial_{tt}\mathbf E$ correction in time domain.
+\emph{Test:} THz time-domain spectroscopy of ultrafast parallel-plate nanocapacitors; fit phase curvature $\propto(\omega\tau)^2$ (even in $\omega$). Null $\Rightarrow$ bound on $\tau$.
+
+\paragraph{D. Nanoscale boundaries: universal cavity mode shifts.}
+Effective boundary conditions pick up an $O(\xi)$ slip in tight confinement (transverse scale $a$), giving
+\begin{equation}
+\frac{\Delta f}{f}=+\gamma\Big(\frac{\xi}{a}\Big)^2 + O\big((\xi/a)^4\big),\qquad \gamma=O(1),
+\end{equation}
+independent of polarization at this order.
+\emph{Test:} compare families of high-$Q$ dielectric or photonic-crystal nanocavities as $a$ is scaled; look for the quadratic trend after subtracting known systematics.
+
+\paragraph{E. Strong-field nonlinearity with a definite sign.}
+Field energy slightly perturbs aether density, feeding back into the closure and producing a Kerr-like index
+\begin{equation}
+n(I)\simeq 1+n_2 I,\qquad n_2>0 \ \ \text{(sign fixed by positive compressibility)}.
+\end{equation}
+\emph{Test:} high-finesse cavity self-phase modulation in ultra-high vacuum using multi-GW/cm$^2$ pulses. Compare against the tiny QED Heisenberg–Euler baseline; here the leading symmetry matches (no birefringence at this order) but the \emph{sign} is fixed and the magnitude scales with $\xi,\tau$.
+
+\paragraph{Reading the scalings.}
+A single small spatial scale $\xi$ and (optionally) a small temporal scale $\tau$ control all departures: statics $\propto(\xi/r)^2$, dispersion $\propto(k\xi)^2$, confinement $\propto(\xi/a)^2$, ultrafast memory $\propto(\omega\tau)^2$, and a weak, fixed-sign nonlinearity. Multiple nulls across these orthogonal handles rapidly squeeze $(\xi,\tau)$, or a positive signal would over-constrain the same pair.
+
+\paragraph{Bottom line.}
+Maxwell's equations emerge cleanly on the slice; if Nature implements the projection through a perfectly sharp interface, $\xi,\tau\!\to\!0$ and no deviations appear. If the transition is merely very thin/fast, the tests above bound $(\xi,\tau)$ directly.
+

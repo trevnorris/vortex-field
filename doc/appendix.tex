@@ -134,3 +134,74 @@ For the operator $\Box_4 \equiv v_L^{-2}\partial_t^2 - \nabla_4^2$, the retarded
   G_R(t,\mathbf r_4)= C\,\Theta(t)\,\mathrm{pf}\!\left[(v_L^2 t^2 - r_4^2)^{-3/2}\right]\Theta(v_L t - r_4),
 \]
 with normalization $C$ fixed by $\Box_4 G_R = \delta(t)\delta^{(4)}(\mathbf r_4)$. A brief derivation via Fourier transform and contour deformation is included here for completeness.
+
+\section{Mollified projection: second-moment expansion and leading corrections}
+\label{app:mollified}
+
+We quantify how a finite transition width $\xi$ in the bulk direction $w$ modifies slice fields. Throughout, $\eta_\xi(w)=\xi^{-1}\eta(w/\xi)$ is an \emph{even}, smooth mollifier with unit mass $\int\eta=1$ and finite second moment
+\[
+\mu_2:=\int_{-\infty}^{\infty} s^2\,\eta(s)\,ds=O(1).\tag{D.1}
+\]
+
+\subsection{Projected kernel: $O\big((\xi/\rho)^2\big)$ control}
+For the azimuthal kernel used in the circulation/grav sector,
+\[
+K_\rho(w)=\frac{\rho^2}{(\rho^2+w^2)^{3/2}},\qquad I(\rho)=\int_{-\infty}^{\infty}K_\rho(w)\,dw=2,\tag{D.2}
+\]
+the mollified integral is $I_\xi(\rho)=\int (\eta_\xi*K_\rho)(w)\,dw= \int K_\rho(w)\,dw$ by Fubini, so the \emph{value} is unchanged. What changes is any \emph{local sampling} of $K_\rho$ in $w$, which appears in intermediate steps. A standard even-moment Taylor estimate gives
+\[
+\big|(\eta_\xi*K_\rho)(w)-K_\rho(w)\big|
+\le \frac{\mu_2\,\xi^2}{2}\,\big\|\partial_w^2K_\rho\big\|_{L^\infty(w-\delta,w+\delta)}
+=O\!\big((\xi/\rho)^2\big),\tag{D.3}
+\]
+since $\partial_w^2K_\rho=O(\rho^{-2})$ for $|w|\lesssim \rho$. Consequently, any quantity built from $K_\rho$ and probed on in-plane scale $\ell\sim\rho$ inherits the same $O((\xi/\ell)^2)$ accuracy. This justifies the error terms used in the main text.
+
+\subsection{Static potential: local closure and its small-$\xi$ form}
+On the slice, the potential sector is closed by a linear, local operator acting on $\Phi$ and sourced by $\rho$,
+\[
+\mathcal{L}_\xi[\Phi]=\frac{\rho}{\varepsilon_0},\qquad
+\mathcal{L}_\xi=-\nabla^2+\sum_{m\ge 2} a_{2m}\,\xi^{2m-2}\,\nabla^{2m},\tag{D.4}
+\]
+where even derivatives appear because $\eta_\xi$ is even. Truncating at the first nontrivial order gives the minimal model
+\[
+\big(-\nabla^2+\alpha\,\xi^2\nabla^4\big)\Phi=\frac{\rho}{\varepsilon_0},\qquad \alpha=O(1).\tag{D.5}
+\]
+In Fourier space ($\hat f(\mathbf k)$), this reads
+\[
+\hat\Phi(\mathbf k)=\frac{\hat\rho(\mathbf k)}{\varepsilon_0}\,\frac{1}{k^2\,(1+\alpha\xi^2 k^2)}.\tag{D.6}
+\]
+For a point source, $\hat\rho=q$, partial fractions yield
+\[
+\frac{1}{k^2(1+\alpha\xi^2 k^2)}=\frac{1}{k^2}-\frac{1}{1+\alpha\xi^2 k^2},\tag{D.7}
+\]
+and the inverse transform gives the Yukawa–regularized Green function
+\[
+\Phi(r)=\frac{q}{4\pi\varepsilon_0\,r}\Big(1-e^{-r/L}\Big),\qquad L:=\sqrt{\alpha}\,\xi.\tag{D.8}
+\]
+Thus: (i) the singularity is smoothed at $r\!\lesssim\!L$; (ii) for $r\!\gg\!L$, the correction is exponentially small, recovering Coulomb. Any polynomial-in-$\xi$ correction in the static far field must therefore arise from \emph{geometry-induced multipoles} (e.g., near boundaries), not from the local, isotropic closure itself.
+
+\paragraph*{Remark (contact structure).} Expanding \eqref{eq:A.6} at small $k$,
+\[
+\hat\Phi=\frac{\hat\rho}{\varepsilon_0}\Big(\frac{1}{k^2}-\alpha\xi^2+O(k^2\xi^4)\Big),\tag{D.9}
+\]
+shows that beyond the Coulomb term, the leading analytic piece is $k$-independent and transforms to a contact (delta-like) contribution localized on sources. Away from sources, the static field remains Coulombic to this order.
+
+\subsection{Waves: dispersion to leading order}
+Allowing a finite exchange time $\tau$ in the displacement sector, the constitutive response in $(\omega,\mathbf k)$ takes the even form
+\[
+\varepsilon(\omega,\mathbf k)=\varepsilon_0\Big[1+\beta(\omega\tau)^2+\sigma (k\xi)^2+O\big((\omega\tau)^4,(k\xi)^4\big)\Big],\tag{D.10}
+\]
+with $\beta,\sigma=O(1)$. In vacuum ($\rho=\mathbf J=0$) the wave equation becomes
+\[
+k^2-\frac{\omega^2}{c^2}\,\Big[1+\beta(\omega\tau)^2+\sigma (k\xi)^2\Big]=0,\tag{D.11}
+\]
+so to leading order
+\[
+\omega^2=c^2 k^2\Big[1+\sigma (k\xi)^2+\beta (\omega\tau)^2\Big]
+\;\Rightarrow\;
+v_g=\frac{\partial\omega}{\partial k}=c\Big[1+\tfrac{3}{2}\sigma (k\xi)^2+\tfrac{1}{2}\beta (\omega\tau)^2\Big].\tag{D.12}
+\]
+This is the $\lambda^{-2}$ (spatial) and even-in-time $(\omega\tau)^2$ dispersion quoted in the EM section, preserving the homogeneous Maxwell identities exactly.
+
+\subsection{Takeaway}
+An even, thin transition profile produces \emph{quadratically suppressed} corrections controlled by $\xi$ (space) and $\tau$ (time). Statics: Coulomb is recovered outside sources, with near-field regularization at scale $L\sim\xi$ and exponentially small far-field deviations from the minimal local closure \eqref{eq:A.5}. Waves: the leading, falsifiable departures are the isotropic dispersions \eqref{eq:A.12}, scaling as $(k\xi)^2$ and $(\omega\tau)^2$.
