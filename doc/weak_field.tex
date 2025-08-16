@@ -34,7 +34,6 @@ equivalently the potentials satisfy the wave equations
 \nabla^2 \mathbf{A} - \frac{1}{c^2}\,\partial_{tt} \mathbf{A} = -\frac{16\pi G}{c^2}\,\mathbf{j}.
 \]
 
-\emph{Convention note:} We absorb the four-fold enhancement into the source coefficients (the $-16\pi G/c^2$ above), so the test-particle law reads $\mathbf{a}=-\nabla \Phi + \mathbf{v}\times\mathbf{B}_g$ without an extra factor of 4.
 
 \subsection*{1PN Metric Snapshot and PPN Mapping}
 To first post-Newtonian order our metric takes
@@ -53,7 +52,7 @@ which fix all numerical coefficients used below.
 % --- end GEM convention box ---
 
 
-In this section, we validate the aether-vortex model against standard weak-field gravitational tests, demonstrating exact reproduction of general relativity's (GR) post-Newtonian (PN) predictions from fluid-mechanical principles. Starting from the unified field equations derived in Section 3, we expand in the weak-field limit ($v \ll c$, $\Phi \ll c^2$, $A \ll c^2$), incorporating density-dependent propagation ($v_{\text{eff}}$ from P-3) and the geometric 4-fold enhancement (from P-5). All derivations are performed symbolically using SymPy for verification, ensuring dimensional consistency and exact matching to GR without additional parameters beyond $G$ and $c$. Numerical checks (e.g., orbital integrations) confirm stability and agreement with observations.
+In this section, we validate the aether-vortex model against standard weak-field gravitational tests, demonstrating exact reproduction of general relativity's (GR) post-Newtonian (PN) predictions from fluid-mechanical principles. Starting from the unified field equations derived in Section 3, we expand in the weak-field limit ($v \ll c$, $\Phi \ll c^2$, $A \ll c^2$), incorporating density-dependent propagation ($v_{\text{eff}}$ from P-3). All derivations are performed symbolically using SymPy for verification, ensuring dimensional consistency and exact matching to GR without additional parameters beyond $G$ and $c$. Numerical checks (e.g., orbital integrations) confirm stability and agreement with observations.
 
 The weak-field regime approximates static or slowly varying sources, where scalar rarefaction dominates attraction (pressure gradients pulling vortices inward) and vector circulation adds relativistic corrections (frame-dragging via swirl). Bulk longitudinal waves at $v_L > c$ enable rapid mathematical adjustments for orbital consistency, while observable signals propagate at $c$ on the 3D hypersurface, reconciling apparent superluminal requirements with causality.
 
@@ -137,7 +136,15 @@ including nonlinear corrections for first PN. The vector sector (static):
 \nabla^2 \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J},
 \]
 
-with 16 from squared 4-fold enhancement (rigorous integral in Section 2.6, verified as $\int = 4 \Gamma$ per component).
+with the factor $16\pi G/c^2$ from linearized GR (standard GEM normalization).
+
+\paragraph{GEM normalization from linearized GR.}
+The coefficient $16\pi G/c^2$ in the vector equation arises from linearized general relativity. 
+In the Lorenz gauge with trace-reversed metric $\bar{h}_{\mu\nu}$, the linearized Einstein 
+equation gives $\square\bar{h}_{\mu\nu} = -16\pi G T_{\mu\nu}/c^4$. With the standard GEM 
+definitions $\mathbf{A}_g = -c^2\bar{\mathbf{h}}_{0i}/4$, this yields 
+$\nabla^2\mathbf{A}_g = -16\pi G\mathbf{J}/c^2$, fixing the coefficient independently 
+of any projection factors.
 
 Physical insight: Scaling separates orders—Newtonian at $O(\epsilon)$, gravitomagnetic at $O(\epsilon^{3/2})$—reflecting suck dominance over swirl in weak fields.
 
@@ -179,7 +186,7 @@ but in the weak-field, low-density perturbation regime, pressure gradients align
 \mathbf{a} = -\nabla \Phi + \mathbf{v} \times \mathbf{B}_g,
 \]
 
-where $\mathbf{B}_g = \nabla \times \mathbf{A}$ is the gravitomagnetic field (analogous to magnetism, sourced by mass currents $\mathbf{j} = \rho_{\text{body}} \, \mathbf{V}$). The vector potential satisfies $\nabla^2 \mathbf{A} = - (16\pi G / c^2) \mathbf{J}$ (with 16 from the squared 4-fold projection enhancement, as derived in Section 2.6 via exact integrals yielding 4 contributions each for circulation and its curl).
+where $\mathbf{B}_g = \nabla \times \mathbf{A}$ is the gravitomagnetic field (analogous to magnetism, sourced by mass currents $\mathbf{j} = \rho_{\text{body}} \, \mathbf{V}$). The vector potential satisfies $\nabla^2 \mathbf{A} = - (16\pi G / c^2) \mathbf{J}$ (standard weak-field GEM normalization from linearized GR).
 
 For a central mass $M$ with spin $\mathbf{J}$, $\mathbf{A} = G \, \frac{\mathbf{J} \times \mathbf{r}}{r^3}$ (dipole approximation, factor 2 from enhancement). The velocity-dependent term induces Larmor-like precession, but in non-relativistic orbits, it contributes small corrections to trajectories.
 
@@ -267,7 +274,7 @@ The 1.5 post-Newtonian (1.5 PN) corrections emerge from the vector sector, captu
 \left( \frac{\partial_t^2}{c^2} - \nabla^2 \right) \mathbf{A} = -\frac{16\pi G}{c^2} \mathbf{J} + O(\epsilon^{5/2}),
 \]
 
-where $\mathbf{j} = \rho_{\text{body}} \, \mathbf{V}$ is the mass current density (from moving vortex aggregates, P-5), and the factor 16 arises from the squared 4-fold geometric projection enhancement (rigorously derived in Section 2.6 via integrals over the 4D vortex sheet, yielding 4 contributions: direct, upper/lower hemispheres, induced w-flow; symbolically $\int_{-\infty}^\infty dw \, [terms] = 4 \Gamma$, then curled for the source).
+where $\mathbf{j} = \rho_{\text{body}} \, \mathbf{V}$ is the mass current density (from moving vortex aggregates, P-5), where the coefficient $16\pi G/c^2$ is the standard GEM normalization from linearized general relativity.
 
 In the quasi-static limit for slow rotations ($\partial_t^2 \approx 0$), this reduces to $\nabla^2 \mathbf{A} = - (16\pi G / c^2) \mathbf{J}$. For a spinning spherical body with angular momentum $\mathbf{J} = I \boldsymbol{\omega}$ (moment of inertia $I$), the solution is the gravitomagnetic dipole:
 
@@ -320,7 +327,7 @@ but for radiation, the vector sector contributes via the Ampère-like equation:
 
 with nonlinear terms sourcing waves. In the Lorenz gauge ($\nabla \cdot \mathbf{A} + \frac{1}{c^2} \partial_t \Phi = 0$), the far-field solution for the metric-like perturbations (acoustic analog) yields transverse-traceless waves $h_{ij}^{TT} \propto \frac{G}{c^4 r} \ddot{Q}_{ij}(t - r/c)$, where $Q_{ij}$ is the mass quadrupole moment.
 
-The radiated power follows from the Poynting-like flux in the fluid (energy carried by transverse modes): $P = \frac{G}{5 c^5} \langle \dddot{Q}_{ij}^2 \rangle$ (angle-averaged, matching GR's quadrupole formula exactly, as the 4-fold enhancement cancels in the projection for wave amplitude but ensures consistency in sourcing).
+The radiated power follows from the Poynting-like flux in the fluid (energy carried by transverse modes): $P = \frac{G}{5 c^5} \langle \dddot{Q}_{ij}^2 \rangle$ (angle-averaged, matching GR's quadrupole formula exactly through consistent normalization).
 
 For a binary system (masses $m_1, m_2$, semi-major $a$, eccentricity $e$), the period decay is:
 
@@ -469,7 +476,7 @@ Physical insight: Earth's spinning vortex drags surrounding aether, twisting nea
 \Omega = 3 G \mathbf{J} / (2 c^2 r^3)
 \]
 
-(exact, with 4-fold yielding GR factor)
+(exact GR weak-field normalization)
 
 Physical Insight: Vortex circulation induces rotational drag.
 
@@ -486,7 +493,7 @@ While the aether-vortex model exactly reproduces standard weak-field tests as sh
 
 In the model, eclipses align the vortex sinks of the Sun and Moon as seen from Earth, enhancing the effective drainage through geometric overlap in the 4D projection. Normally, isolated sinks create static rarefied zones treated as point-like in the far field, but alignment projects additional contributions from the extended vortex sheets (along $w$), making the effective source more distributed and boosting the local deficit $\delta \rho_{3D}$ transiently.
 
-To derive this rigorously, we approximate the Sun's aggregate vortex structure as a uniform thin disk of radius $R_\text{sun}$ (effective sheet scale) and surface density $\sigma = M_\text{sun} / (\pi R_\text{sun}^2)$, representing the projected 4D extensions during alignment. The on-axis gravitational acceleration is $g_{\text{disk}} = 2 \pi G \sigma \left(1 - \frac{d}{\sqrt{d^2 + R_\text{sun}^2}}\right)$, where $d$ is the Earth-Sun distance. This is compared to the point-mass approximation $g_{\text{point}} = G M_\text{sun} / d^2$. The anomaly is $\Delta g = |g_{\text{disk}} - g_{\text{point}}|$, which expands for $d \gg R_\text{sun}$ as $\Delta g \approx \frac{3}{4} \frac{G M_\text{sun} R_\text{sun}^2}{d^4}$ (leading-order term from series expansion, symbolically verified). Here, the amplification factor $f_{\text{amp}} \approx \frac{3}{4} (R_\text{sun}/d)^2$ emerges geometrically from the disk integration, analogous to the 4D hemispherical projections (Section 2.6) contributing coherent terms during alignment. Using solar values ($M_\text{sun} = 1.9885 \times 10^{30}$ kg, $R_\text{sun} = 6.957 \times 10^8$ m, $d = 1.496 \times 10^{11}$ m), this yields $\Delta g \approx 9.6 \times 10^{-8}$ m/s$^2$ or ~10 $\mu$Gal.
+To derive this rigorously, we approximate the Sun's aggregate vortex structure as a uniform thin disk of radius $R_\text{sun}$ (effective sheet scale) and surface density $\sigma = M_\text{sun} / (\pi R_\text{sun}^2)$, representing the projected 4D extensions during alignment. The on-axis gravitational acceleration is $g_{\text{disk}} = 2 \pi G \sigma \left(1 - \frac{d}{\sqrt{d^2 + R_\text{sun}^2}}\right)$, where $d$ is the Earth-Sun distance. This is compared to the point-mass approximation $g_{\text{point}} = G M_\text{sun} / d^2$. The anomaly is $\Delta g = |g_{\text{disk}} - g_{\text{point}}|$, which expands for $d \gg R_\text{sun}$ as $\Delta g \approx \frac{3}{4} \frac{G M_\text{sun} R_\text{sun}^2}{d^4}$ (leading-order term from series expansion, symbolically verified). Here, the amplification factor $f_{\text{amp}} \approx \frac{3}{4} (R_\text{sun}/d)^2$ emerges from the extended disk integration during alignment. Using solar values ($M_\text{sun} = 1.9885 \times 10^{30}$ kg, $R_\text{sun} = 6.957 \times 10^8$ m, $d = 1.496 \times 10^{11}$ m), this yields $\Delta g \approx 9.6 \times 10^{-8}$ m/s$^2$ or ~10 $\mu$Gal.
 
 Physical insight: Like two drains aligning to create a stronger pull, the eclipse focuses subsurface flows from the extended sheet, inducing a brief "tug" measurable as a gravity variation over ~1-2 hours.
 
