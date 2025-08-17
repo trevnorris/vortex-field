@@ -3,6 +3,30 @@
 
 We show that the electromagnetic (EM) field on the physical slice $\Pi=\{w=0\}$ arises from the projected kinematics of a 4D aether and its continuity. The \emph{homogeneous} Maxwell equations are kinematic/topological identities of the projected circulation; the \emph{inhomogeneous} pair follow from slice continuity plus a simple linear closure. Physical constants are fixed by the static Coulomb limit and the wave speed $c$, yielding the standard Maxwell system. Throughout we add everyday pictures so a reader can track the physics without following every derivation.
 
+\subsection{Topological charge and projected electromagnetism}
+\label{sec:projected-em:charge}
+
+\paragraph{Threading charge in the transition slab.}
+Let $\Omega_{\mathrm{TP}}=\Pi\times(-\ell_{\mathrm{TP}}/2,\ell_{\mathrm{TP}}/2)_w$ be the transition-phase slab.
+For any large loop $C_R\subset\Omega_{\mathrm{TP}}$ with a spanning surface contained in the slab, define
+\begin{equation}
+\label{eq:Q-threading}
+Q \;:=\; \frac{1}{\kappa}\,\lim_{R\to\infty}\oint_{C_R}\mathbf v\cdot d\boldsymbol\ell.
+\end{equation}
+If the defect core is closed within $\Omega_{\mathrm{TP}}$, then $Q\in\mathbb Z$ and is invariant under smooth deformations of $C_R$ staying inside the slab. If the core intersects and exits the slab (a through-strand), $Q=0$.
+
+\paragraph{Neutrino neutrality with drag.}
+A neutrino corresponds to a defect whose core does not close within $\Omega_{\mathrm{TP}}$; thus $Q=0$ even though the solenoidal component of the projected flow and the slice-integrated angular momentum (“drag”) can be nonzero. This resolves the “drag $\Rightarrow$ swirl $\Rightarrow$ charge” tension: drag is dynamical, charge is topological.
+
+\paragraph{Coupling strength versus topological charge.}
+For through-strands with $Q=0$, projected EM \emph{fields} can still be induced locally in matter via weak polarization/drag couplings. We parametrize their strength—not the charge—by
+\begin{equation}
+\label{eq:SEM}
+S_{\rm EM}(\zeta)\;=\;\exp\!\big[-\beta_{\rm EM}\,\zeta^{\,p}\big],\qquad
+\zeta:=\Delta w/\xi_c,\ \ p\in\{2,4\},\ \ \beta_{\rm EM}=O(1\!-\!10),
+\end{equation}
+which depends on slab overlap. This factor modulates neutral-current–like effects (e.g., tiny polarization or phonon channels) but leaves the binary, topological nature of $Q$ unchanged.
+
 \subsection{What the fields are, in math and in pictures}
 Let $u(\mathbf x,w,t)$ be the aether velocity in $\mathbb{R}^4$ and $\Omega=\nabla\!\times u$ its (spatial) vorticity. Project onto $\Pi$ and Helmholtz–decompose the induced slice velocity $v(\mathbf x,t)$ as
 \[
