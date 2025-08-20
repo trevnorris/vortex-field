@@ -33,6 +33,19 @@ Fields on $\Pi$ are organized into a solenoidal component that carries the circu
 \paragraph{Outline and related results.}
 Subsequent sections apply the projection principle and kernel identities to derive practical expressions for observables on $\Pi$, quantify finite–core and curvature corrections, and state verification procedures amenable to numerical checks. For hierarchical vortex energetics that lead to the appearance of the golden ratio, a full derivation is provided externally in Norris (2025) \cite{Norris2025GoldenRatio}; this manuscript references that result where relevant without reproducing its proof.
 
+\begin{tcolorbox}[title=Terminology spine (plain language)]
+\textbf{Intake} (gravity-like): gentle, charge-blind inflow every core has.
+\textbf{Slope} (Coulomb piece of $\,\mathbf E$): the standing hill/valley pattern written by an oriented link.
+\textbf{Eddies} (the $\mathbf B$ field): the on-slice circulation map (whirls with no loose ends), organized by motion/drag.
+\textbf{Twist} (hidden maintenance): a tiny cross-slab circulation at the core that keeps the rim open; gives a weak $1/r^3$ dipole at rest.
+\textbf{Induction} (loop $\,\mathbf E$): the ring-shaped push that appears when eddies change in time.
+\textbf{Drag} (organizer of $\mathbf B$): the sideways tug a moving core exerts on the medium; it organizes on-slice Eddies.
+\end{tcolorbox}
+
+\emph{Note:} Intake, Slope, Eddies, and Twist are the core four; Drag organizes Eddies, and Induction is the loop-$\mathbf E$ that appears when Eddies change in time.
+
+\textit{Do-not-confuse:} Twist (hidden, maintenance) $\neq$ Eddies (visible $\mathbf B$); Slope (Coulomb) $\neq$ Induction (loop $\mathbf E$); Intake (gravity) $\neq$ Drag (organizer of $\mathbf B$).
+
 \subsection{Foundational Postulates}
 \label{sec:foundational-postulates}
 
@@ -113,13 +126,15 @@ When hierarchical energetics are discussed, the appearance of the retarded Green
 \subsection{Motivation, Regime of Validity, and Conventions}
 \label{sec:motivation-conventions}
 
-We model spacetime as a 4D compressible superfluid---an aether---where all forces and particles emerge from the dynamics of topological defects called vortices. Just as whirlpools in water create observable effects through their fluid motion, vortices in the aether manifest as particles and fields. The dynamics naturally separate into five fundamental modes. These modes align with our intuitive quintet:
+We model spacetime as a 4D compressible superfluid---an aether---where all forces and particles emerge from the dynamics of topological defects called vortices. Just as whirlpools in water create observable effects through their fluid motion, vortices in the aether manifest as particles and fields. The dynamics naturally separate into a small set of spine concepts:
 \begin{itemize}
-\item \textbf{SUCK}: irrotational flow creating attractive pressure gradients (gravity)
-\item \textbf{SHAKE}: circulation maintaining vortex against pressure for stability/rest energy
-\item \textbf{SWIRL}: 4D helical spiral inducing EM effects
-\item \textbf{DRAG}: 3D rotational effects like frame-dragging indicating rotation
-\item \textbf{WAVE}: oscillatory modes carrying energy as waves, 3D for GW/photons differing in 4D stabilization
+  \item \textbf{Intake}: charge-blind inward draw into every core (gravity analog).
+  \item \textbf{Slope}: standing hill/valley on the slice written by an oriented link (Coulomb part of $\mathbf E$).
+  \item \textbf{Eddies}: on-slice whirls with no loose ends (the magnetic field $\mathbf B$), organized by motion/Drag.
+  \item \textbf{Twist}: hidden cross-slab circulation at the rim (maintenance; gives a tiny $1/r^3$ dipole at rest).
+  \item \textbf{Drag}: organizer of $\mathbf B$; sideways tug a moving core exerts on the medium; organizes on-slice Eddies.
+  \item \textbf{Induction}: loop-shaped $\mathbf E$ that appears when Eddies change in time (Faraday piece).
+  \item \textbf{Waves}: propagating Slope+Eddies ripples (photons); transverse metric waves for gravity (GWs).
 \end{itemize}
 \paragraph{Regime of validity.} All Lorentz-covariant statements below refer to the long-wavelength transverse WAVE sector. Gauge-invariant observables built from $F_{\mu\nu}$ propagate at speed $c$. Bulk adjustments at $v_L\gg c$ are either pure gauge or enter observables only at higher order in $(\xi_c/L)$. For bookkeeping we define small parameters
 \[
@@ -130,20 +145,20 @@ We model spacetime as a 4D compressible superfluid---an aether---where all force
 \]
 and work to leading order in $(\varepsilon_\xi,\varepsilon_v,\varepsilon_\omega,\varepsilon_\rho)$. Static near-zone statements correspond to $\varepsilon_\omega\to0$ at fixed $(\varepsilon_\xi,\varepsilon_v,\varepsilon_\rho)$. No claim is made of full Lorentz symmetry of the underlying medium.
 
-The irrotational flow (``SUCK'') creates attractive pressure gradients analogous to gravity. The circulation (``SHAKE'') maintains stability. The 4D helical (``SWIRL'') induces EM. The solenoidal (``DRAG'') induces rotational effects like frame-dragging. Oscillatory modes (``WAVE'') carry energy as waves, manifesting as gravitational waves or photons.
+Intake is the gentle, charge-blind inflow every core sources (gravity-like). Slope is the standing hill/valley electric piece written by an oriented link. On the slice, magnetic effects are Eddies (organized by Drag); at rest a tiny hidden Twist lives at the rim and gives only a weak $1/r^3$ dipole. Changing Eddies produce loop electric fields (Induction). Waves are the propagating ripples in these fields: photons for EM; transverse metric waves for gravity.
 
-While we use standard notation for scalar potentials ($\Phi$), we \emph{do not} overload the vector potential: the electromagnetic potential is $A^\mu_{\text{EM}}$, and any gravitomagnetic vector potential (if used) is written $\mathcal A^\mu$ with its own coupling. We adopt Lorenz gauge $\partial_\mu A^\mu_{\text{EM}}=0$ for EM; for the GEM vector formalism, we use $\nabla\!\cdot\!\boldsymbol{\mathcal A}=0$.
+We write the gravitational scalar potential as $\Phi_g$ (Intake sector). In the EM sector, we denote the scalar as $\Phi_{\text{Slope}}$ (short: $\phi$ in tables). We \emph{do not} overload the vector potential: the electromagnetic potential is $A^\mu_{\text{EM}}$, and any gravitomagnetic vector potential (if used) is written $\mathcal A^\mu$ with its own coupling. We adopt Lorenz gauge $\partial_\mu A^\mu_{\text{EM}}=0$ for EM; for the GEM vector formalism, we use $\nabla\!\cdot\!\boldsymbol{\mathcal A}=0$.
 
 \subsubsection{Physical Motivation}
 
 Before presenting the formal postulates, consider this analogy: Imagine you're floating in the ocean when an underwater tectonic shift opens a cavity far away. Two distinct things happen:
 
 \begin{enumerate}
-\item \textbf{Bulk redistribution}: Water quickly rushes in to fill the cavity, adjusting the ocean level everywhere through inward flows (SUCK). If you had a perfect pressure sensor, you'd detect this pressure gradient instantly. But floating on the surface, you don't feel it---you move with the water.
+\item \textbf{Bulk redistribution}: Water quickly rushes in to fill the cavity, adjusting the ocean level everywhere through inward flows (Intake). If you had a perfect pressure sensor, you'd detect this pressure gradient instantly. But floating on the surface, you don't feel it---you move with the water.
 \item \textbf{Surface wave}: Later, a tsunami wave arrives (WAVE), which you definitely feel as it lifts and drops you.
 \end{enumerate}
 
-Both phenomena involve the same water, but they represent fundamentally different physics. Our framework captures this duality: gravitational fields are like the bulk rush filling the cavity (established rapidly via SUCK, unobservable locally per equivalence), while gravitational waves/photons are like the tsunami (propagating at $c$ via WAVE, observable). SHAKE maintains the ``whirlpool'' defect stability, SWIRL adds helical EM if rotation present, DRAG indicates rotation. This duality aligns with the tsunami principle detailed in Section 2.5.\footnote{An isolated, non-rotating (Schwarzschild) black hole has no magnetic dipole moment unless it carries net charge; astrophysically, any charge neutralizes rapidly, so large-scale fields arise only when rotation and surrounding plasma enable field amplification and jet launching (consistent with the SWIRL mechanism here).}
+Both phenomena involve the same water, but they represent fundamentally different physics. Our framework captures this duality: gravitational fields are like the bulk rush filling the cavity (established rapidly via Intake, unobservable locally per equivalence), while gravitational waves/photons are like the tsunami (propagating at $c$ as Waves, observable). Near-rim Slope maintains the ``whirlpool'' defect stability; motion/Drag organizes Eddies for EM if rotation is present. This duality aligns with the tsunami principle detailed in Section 2.5.\footnote{An isolated, non-rotating (Schwarzschild) black hole has no magnetic dipole moment unless it carries net charge; astrophysically, any charge neutralizes rapidly, so large-scale fields arise only when rotation and surrounding plasma enable field amplification and jet launching (consistent with the Eddies/Drag mechanism here).}
 
 \subsubsection{Apparent instantaneity and causality check}\label{sec:tsunami-causality}
 
@@ -151,8 +166,8 @@ Same medium, different physics---no separate structures needed. Retarded solutio
 
 \medskip
 \begin{tikzpicture}
-\draw[thick] (0,0) -- (6,0) node[right] {bulk redistribution at $v_L$ (unobservable SUCK/SHAKE)};
-\draw[thick,dashed] (0,1) -- (6,1) node[right] {surface wave at $c$ (observable WAVE)};
+\draw[thick] (0,0) -- (6,0) node[right] {bulk redistribution at $v_L$ (unobservable Intake/Twist)};
+\draw[thick,dashed] (0,1) -- (6,1) node[right] {surface wave at $c$ (observable photon waves/GWs)};
 \draw[->] (3,-0.5) -- (3,1.5) node[midway,right] {same medium};
 \end{tikzpicture}
 
@@ -180,7 +195,7 @@ The $4D\to3D$ projection of codimension-2 defects necessitates non-standard dime
 \item Standard 3D conventions $[M^{1/2} L^{-3/2}]$ fail at vortex intersections
 \end{enumerate}
 
-Note that this differs from the standard 3D GP scaling of $[L^{-3/2}]$ (or with mass $[M^{1/2} L^{-3/2}]$), as it reflects the codimension-2 defects in 4D appearing surface-like, ensuring consistent projection to 3D points without extraneous mass dimensions. This choice is verified dimensionally in Table \ref{tab:notation} and supports the quintet modes, e.g., SWIRL's helical phase projecting to EM and DRAG's circulation.
+Note that this differs from the standard 3D GP scaling of $[L^{-3/2}]$ (or with mass $[M^{1/2} L^{-3/2}]$), as it reflects the codimension-2 defects in 4D appearing surface-like, ensuring consistent projection to 3D points without extraneous mass dimensions. This choice is verified dimensionally in Table \ref{tab:notation} and supports the spine modes, e.g., core Twist/Eddies projecting to EM and Drag's circulation.
 
 This unconventional choice ensures dimensional consistency throughout the projection mechanism (detailed in Section 2.7) and has been verified through comprehensive symbolic analysis.
 
@@ -196,21 +211,21 @@ We will also use the cosmological length scale $\lambda_{\text{cosmo}}$, tied to
 \hline
 \# & Verbal Statement & Mathematical Input & Quintet Mode \\
 \hline
-\textbf{P-1} & Compressible 4D medium with GP dynamics & Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$ & SUCK/SHAKE-dominant \\
+\textbf{P-1} & Compressible 4D medium with GP dynamics & Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$ & Intake/Twist-dominant \\
 & & Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$ &  \\
 & & Barotropic EOS: $P = (g/2) \rho_{4D}^2 / m$ &  \\
 \hline
-\textbf{P-2} & Vortex sinks drain into extra dimension & Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$ & SUCK \\
+\textbf{P-2} & Vortex sinks drain into extra dimension & Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$ & Intake \\
 & & Sink strength: $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi_c^2$ &  \\
 \hline
-\textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \rho_{4D}^0 / m}$ & WAVE (with SUCK/SHAKE) \\
+\textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \rho_{4D}^0 / m}$ & Waves (with Intake/Twist in the bulk) \\
 & & Transverse: $c$ emergent from vortex dynamics &  \\
 & & Effective: $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ &  \\
 \hline
-\textbf{P-4} & Helmholtz decomposition (suck + swirl) & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ & SUCK + SWIRL/DRAG \\
+\textbf{P-4} & Helmholtz decomposition on the slice (Slope potential + Eddies solenoidal), with Intake across the slab. & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ & Slope + Eddies/Drag \\
 \hline
-\textbf{P-5} & Projection invariance of circulation & Circulation: $\Gamma = n \kappa$, $\kappa = 2 \pi \hbar / m$; slice loop linking once measures $\Gamma$; half-spaces contribute $\Gamma/2$ each; potential fields contribute zero & SWIRL/DRAG (with WAVE) \\
-& & Vortices as tori/sheets with phase windings (helical twists $\theta+\tau w$ may encode emergent properties without altering circulation) &  \\
+\textbf{P-5} & Projection invariance of circulation & Circulation: $\Gamma = n \kappa$, $\kappa = 2 \pi \hbar / m$; slice loop linking once measures $\Gamma$; half-spaces contribute $\Gamma/2$ each; potential fields contribute zero & Eddies/Drag (with Waves) \\
+& & Vortices as tori/sheets with \textbf{Twist} (quantized cross-slab circulation; $\theta+\tau w$) that may encode emergent properties without altering circulation &  \\
 \hline
 \textbf{P-6} & Discrete vortex projection & Projection: $\sum_i$ not $\int dw$ & All modes (projection) \\
 & & Vortices intersect at points: $\{(\mathbf{r}_i, w_i)\}$ &  \\
@@ -243,7 +258,7 @@ $P$ & 4D pressure & $[M L^{-2} T^{-2}]$ & --- \\
 \hline
 $\xi_c$ & Core healing length (fundamental drainage scale) & $[L]$ & $[L]$ \\
 \hline
-$\xi_h$ & Helical twist scale (electromagnetic interaction scale) & $[L]$ & $[L]$ \\
+$\xi_h$ & Twist scale (electromagnetic interaction scale) & $[L]$ & $[L]$ \\
 \hline
 $v_L$ & Bulk sound speed, $v_L = \sqrt{g \rho_{4D}^0 / m}$ & $[L T^{-1}]$ & --- \\
 \hline
@@ -263,15 +278,15 @@ $\hbar$ & Reduced Planck's constant (for quantum terms) & $[M L^2 T^{-1}]$ & $[M
 \hline
 $G$ & Newton's gravitational constant, calibrated as $G = c^2 / (4\pi \bar{n} \bar{m} \xi_c^2)$ & --- & $[M^{-1} L^3 T^{-2}]$ \\
 \hline
-$\chi$ & Scalar velocity potential (irrotational ``SUCK'' flow component), with $\mathbf v=\nabla\chi$ & $[L^2 T^{-1}]$ & --- \\
+$\chi$ & Scalar velocity potential (irrotational Intake flow component), with $\mathbf v=\nabla\chi$ & $[L^2 T^{-1}]$ & --- \\
 \hline
-$\Phi$ & Gravitational potential (weak-field sector) & --- & $[L^2 T^{-2}]$ \\
+$\Phi_g$ & Gravitational potential (weak-field sector) & --- & $[L^2 T^{-2}]$ \\
 \hline
-$\mathbf{B}_4$ & Vector velocity potential (solenoidal ``SWIRL/DRAG'' flow component) & $[L^2 T^{-1}]$ & --- \\
+$\mathbf{B}_4$ & Vector velocity potential (solenoidal Eddies/Drag flow component) & $[L^2 T^{-1}]$ & --- \\
 \hline
 $\Psi$ & GP order parameter & $[L^{-2}]$ & --- \\
 \hline
-$\mathbf{A}_{\text{EM}}$ & Electromagnetic vector potential on the slice & --- & $[L T^{-1}]$ \\
+$\mathbf{A}_{\text{EM}}$ & Electromagnetic vector potential on the slice (Eddies vector potential) & --- & $[L T^{-1}]$ \\
 \hline
 $\bar{n}$ & Vortex density (number per unit volume) & $[L^{-3}]$ & $[L^{-3}]$ \\
 \hline
@@ -297,7 +312,7 @@ $\mathcal{K}$ & Local curvature scale of $\Sigma$ (thin/flat uses $\mathcal{K}\r
 \hline
 $\mathbf{v}$ & Velocity field (restricts to $\Pi$ for observables) & $[L T^{-1}]$ & $[L T^{-1}]$ \\
 \hline
-$\phi$ & Slice scalar potential (``drainage'' in Helmholtz split on $\Pi$) & --- & $[L^2 T^{-2}]$ \\
+$\phi\ (\equiv \Phi_{\text{Slope}})$ & Slice Slope (electric) potential on $\Pi$ (Helmholtz gradient piece) & --- & $[L^2 T^{-2}]$ \\
 \hline
 \end{tabularx}
 \caption{Key quantities, their descriptions, and dimensions. All projections incorporate the healing length $\xi_c$ for dimensional consistency between 4D and 3D quantities. Dimensions distinguish core-specific quantities from bulk parameters. Polarization emerges from aligned extensions into the extra dimension $w$ for WAVE stability, yielding two observable polarizations in 3D projections.}
@@ -305,11 +320,11 @@ $\phi$ & Slice scalar potential (``drainage'' in Helmholtz split on $\Pi$) & ---
 \end{table}
 \paragraph{Notation and conventions.}
 We adopt metric signature $(-,+,+,+)$ unless stated otherwise.
-The electromagnetic four-potential is $A^\mu_{\text{EM}}=(\Phi_{\text{EM}}/c,\mathbf A_{\text{EM}})$, with $A_{\mu}^{\text{EM}} = (-\Phi_{\text{EM}}/c,\mathbf A_{\text{EM}})$. For healing lengths, we spell out $\xi_c$ (core/drainage) and $\xi_h$ (helical/EM); we avoid generic $\xi$ and never use $\xi_*$. Densities labeled $\rho_0$ are 3D background densities: $\rho_0 := \rho_{3D}^0$.
+The electromagnetic four-potential is $A^\mu_{\text{EM}}=(\Phi_{\text{Slope}}/c,\mathbf A_{\text{EM}})$, with $A_{\mu}^{\text{EM}} = (-\Phi_{\text{Slope}}/c,\mathbf A_{\text{EM}})$ (\emph{Eddies vector potential}) on the slice. For healing lengths, we spell out $\xi_c$ (core/drainage) and $\xi_h$ (Twist/EM); we avoid generic $\xi$ and never use $\xi_*$. Densities labeled $\rho_0$ are 3D background densities: $\rho_0 := \rho_{3D}^0$.
 
 \subsubsection{Derivation from Aether Dynamics}
 
-From the foundational postulates (P-1 through P-6), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. The equations separate into scalar (SUCK), vector (SWIRL/DRAG), and oscillatory (SHAKE/WAVE) sectors, with EM emerging preliminarily in the vector via SWIRL twists. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into irrotational (scalar $\Phi$ $[L^2 T^{-2}]$) and solenoidal (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) components, with quantized circulation and helical twists (P-5) providing sources. The dynamics naturally separate into irrotational (SUCK), solenoidal (SWIRL/DRAG), and oscillatory (SHAKE/WAVE) modes, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex quintet forms.
+From the foundational postulates (P-1 through P-6), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. The equations separate into scalar (Intake), vector (Eddies/Drag), and time-dependent pieces (Slope/Induction and Waves), with EM emerging on the slice via Eddies organized by Drag and a hidden core Twist. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into irrotational (scalar $\Phi_g$ $[L^2 T^{-2}]$) and solenoidal (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) components, with quantized circulation and core Twist (P-5) providing sources. The dynamics naturally separate into Intake (scalar), Eddies/Drag (solenoidal), and propagating Waves with Slope/Induction, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex quintet forms.
 
 The derivation begins with the 4D equations from P-1 and P-2, now coupled to the vortex core condition $\Psi=0$ at the defect position, incorporating helical twists:
 
@@ -331,7 +346,7 @@ Q(\rho_{4D})=-\frac{\hbar^2}{2m^2}\,\frac{\nabla_4^2\sqrt{\rho_{4D}}}{\sqrt{\rho
 \]
 retained only where core-scale regularization matters (scales $\sim\xi_c$).
 
-Helical twists from P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$ for SWIRL, sourcing EM currents preliminarily; normal to vortex $\mathbf{n}$, scaled by $c$ for observable shear; enables DRAG). The vorticity $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ arises from P-5 phase windings $\theta = n\phi + \tau w$, where $\tau$ sources EM currents (detailed in 2.3).
+Helical twists from P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$ for the hidden \emph{Twist}, sourcing EM currents preliminarily; normal to vortex $\mathbf{n}$, scaled by $c$ for observable shear; enables Drag). The vorticity $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ arises from P-5 phase windings $\theta = n\phi + \tau w$, where $\tau$ sources EM currents (detailed in 2.3).
 
 Linearize around background $\rho_{4D} = \rho_{4D}^0 + \delta \rho_{4D}$, $\mathbf{v}_4 = \mathbf{0} + \delta \mathbf{v}_4$ (steady state), and vortex perturbation $\delta R$. The linearized continuity is:
 
@@ -345,7 +360,7 @@ The linearized Euler (dropping quadratic terms):
 \partial_t \delta \mathbf{v}_4 = -v_{\text{eff}}^2 \nabla_4 (\delta \rho_{4D} / \rho_{4D}^0) - \nabla_4 \delta Q,
 \end{equation}
 
-where $\delta P = v_{\text{eff}}^2 \delta \rho_{4D}$ from EOS linearization (differentiate $P(\rho_{4D})$ at $\rho_{4D}^0$ gives $\partial P / \partial \rho_{4D} = g \rho_{4D}^0 / m = v_L^2$, local $\rho_{4D}^{\text{local}}$ for $v_{\text{eff}}$ near deficits), and $\delta Q$ the perturbation in quantum pressure. This separation highlights SUCK in density perturbations and SWIRL/DRAG in vorticity sources.
+where $\delta P = v_{\text{eff}}^2 \delta \rho_{4D}$ from EOS linearization (differentiate $P(\rho_{4D})$ at $\rho_{4D}^0$ gives $\partial P / \partial \rho_{4D} = g \rho_{4D}^0 / m = v_L^2$, local $\rho_{4D}^{\text{local}}$ for $v_{\text{eff}}$ near deficits), and $\delta Q$ the perturbation in quantum pressure. This separation highlights Intake in density perturbations and Eddies/Drag in vorticity sources.
 
 The vortex dynamics, derived from varying the GP functional with boundary $\Psi=0$ on the defect, yield Kelvin wave equations for oscillations:
 
@@ -353,15 +368,15 @@ The vortex dynamics, derived from varying the GP functional with boundary $\Psi=
 \partial^2 R / \partial t^2 = c^2 \nabla^2 R + f_{\text{bulk}} + \omega^2 \delta R,
 \end{equation}
 
-where the bulk coupling term follows from the defect advecting with the local flow (motivated by superfluid vortex dynamics in P-1 and P-5), $c$ is the emergent speed for Kelvin modes (calibrated, independent of $v_L$), and the oscillatory term $\omega^2 \delta R$ provides harmonic restoring force for SHAKE stability, with $\omega \sim v_L / \xi_c$.
+where the bulk coupling term follows from the defect advecting with the local flow (motivated by superfluid vortex dynamics in P-1 and P-5), $c$ is the emergent speed for Kelvin modes (calibrated, independent of $v_L$), and the oscillatory term $\omega^2 \delta R$ provides harmonic restoring force for near-rim Slope stability, with $\omega \sim v_L / \xi_c$.
 
-Apply Helmholtz decomposition (P-4) to $\delta \mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\Phi$ $[L^2 T^{-2}]$) and incompressible (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) parts, now with oscillatory modulation in the phase. Taking $\nabla_4 \cdot$ on Euler gives:
+Apply Helmholtz decomposition (P-4) to $\delta \mathbf{v}_4 = -\nabla_4 \Phi_g + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\Phi_g$ $[L^2 T^{-2}]$) and incompressible (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) parts, now with oscillatory modulation in the phase. Taking $\nabla_4 \cdot$ on Euler gives:
 
 \begin{equation}
 \partial_t (\nabla_4 \cdot \delta \mathbf{v}_4) = -v_{\text{eff}}^2 \nabla_4^2 (\delta \rho_{4D} / \rho_{4D}^0) - \nabla_4^2 \delta Q,
 \end{equation}
 
-and substituting $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \Phi$ yields the scalar precursor. From linearized continuity:
+and substituting $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \Phi_g$ yields the scalar precursor. From linearized continuity:
 
 \begin{equation}
 \nabla_4 \cdot \delta \mathbf{v}_4 = -\frac{1}{\rho_{4D}^0} \left( \partial_t \delta \rho_{4D} + \sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) \right).
@@ -379,10 +394,10 @@ and substitute the Euler divergence:
 \partial_{tt} \delta \rho_{4D} - \rho_{4D}^0 v_{\text{eff}}^2 \nabla_4^2 (\delta \rho_{4D} / \rho_{4D}^0) = -\sum_i \partial_t \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) + \rho_{4D}^0 \nabla_4^2 \delta Q.
 \end{equation}
 
-Combine with $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \Phi$:
+Combine with $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \Phi_g$:
 
 \begin{equation}
-\partial_{tt} \Phi - v_{\text{eff}}^2 \nabla_4^2 \Phi = v_{\text{eff}}^2 \sum_i \frac{\dot{M}_i}{\rho_{4D}^0} \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) + v_{\text{eff}}^2 \nabla_4^2 \delta Q / \rho_{4D}^0.
+\partial_{tt} \Phi_g - v_{\text{eff}}^2 \nabla_4^2 \Phi_g = v_{\text{eff}}^2 \sum_i \frac{\dot{M}_i}{\rho_{4D}^0} \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) + v_{\text{eff}}^2 \nabla_4^2 \delta Q / \rho_{4D}^0.
 \end{equation}
 
 \begin{tcolorbox}[title=Dimensional Checks]
@@ -397,28 +412,28 @@ The aether determines HOW FAST disturbances propagate locally, not WHERE they pr
 
 \subsubsection{Scalar Sector: Gravitational Attraction}
 
-This sector corresponds to pure SUCK: irrotational flow ($\nabla \times \mathbf{v} = 0$) creating attractive pressure gradients, analogous to the cavity-filling rush of water in the tsunami analogy (inward flow to fill density deficits). This ties to particles as processes: mass emerges from the deficit volume in stable flow patterns around vortices. Contrast with the EM sector (2.3), where sources include helical SWIRL-enhanced circulation (preliminary).
+This sector corresponds to pure Intake: irrotational flow ($\nabla \times \mathbf{v} = 0$) creating attractive pressure gradients, analogous to the cavity-filling rush of water in the tsunami analogy (inward flow to fill density deficits). This ties to particles as processes: mass emerges from the deficit volume in stable flow patterns around vortices. Contrast with the EM sector (2.3), where sources include on-slice Eddies (organized by Drag) with a hidden core Twist at rest.
 
-From the Helmholtz decomposition, the scalar potential $\Phi$ satisfies the wave equation derived from combining the linearized continuity and Euler:
+From the Helmholtz decomposition, the scalar potential $\Phi_g$ satisfies the wave equation derived from combining the linearized continuity and Euler:
 
 \begin{equation}
-\frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Phi}{\partial t^2} - \nabla^2 \Phi = \frac{v_{\text{eff}}^2}{\rho_{4D}^0} \sum_i \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i),
+\frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Phi_g}{\partial t^2} - \nabla^2 \Phi_g = \frac{v_{\text{eff}}^2}{\rho_{4D}^0} \sum_i \dot{M}_i \delta^3(\mathbf{r} - \mathbf{r}_i),
 \end{equation}
 
 after 3D projection (detailed in Section 2.7). In the static limit, this reduces to the Poisson equation:
 
 \begin{equation}
 \label{eq:poisson}
-\nabla^2 \Phi = 4\pi G \rho_{\text{body}},
+\nabla^2 \Phi_g = 4\pi G \rho_{\text{body}},
 \end{equation}
 
 where $\rho_{\text{body}} = \sum_i m_i \delta^3(\mathbf{r} - \mathbf{r}_i)$ is the effective matter density from aggregated deficits, with $m_i \approx \rho_0 V_{\text{deficit}}$ and calibration $G = c^2 / (4\pi \bar{n} \bar{m} \xi_c^2)$ (Section 2.8). For \emph{observable} scalar signals, set $v_{\text{eff}}\to c$; \eqref{eq:poisson} is then understood as the $\omega\to0$ reduction of the retarded solution.
 
-\subsubsection{Vector Sector: SWIRL and DRAG Effects}
+\subsubsection{Vector Sector: Eddies (B) and Drag Effects}
 
-This sector corresponds to SWIRL and DRAG: SWIRL as 4D helical circulation inducing electromagnetic effects (preliminary, via twists), and DRAG as solenoidal circulation ($\nabla \cdot \mathcal A = 0$ for the GEM vector) inducing 3D rotational effects like frame-dragging, analogous to a whirlpool dragging surrounding fluid and indicating rotation that enables SWIRL. For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving vortices (P-5).
+Eddies are the on-slice circulation (magnetic) organized by Drag (motion of linked cores). A tiny, hidden Twist at rest gives only a $1/r^3$ dipole; bulk motion dominates the observable $\mathbf B$. For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving vortices (P-5).
 
-Define a gravitomagnetic proxy $\boldsymbol{\mathcal A} = \sum_i \mathbf{B}_{4,i} / \xi_c$ (dimension $[L T^{-1}]$) for DRAG, and keep the electromagnetic potential distinct as $\mathbf A_{\text{EM}}$ for SWIRL-induced currents. Projection to 3D yields \emph{separate} wave equations:
+Define a gravitomagnetic proxy $\boldsymbol{\mathcal A} = \sum_i \mathbf{B}_{4,i} / \xi_c$ (dimension $[L T^{-1}]$) for Drag, and keep the electromagnetic potential distinct as $\mathbf A_{\text{EM}}$ for currents driven by Eddies (Eddies vector potential). Projection to 3D yields \emph{separate} wave equations:
 \begin{equation}
 \frac{1}{c^2} \frac{\partial^2 \boldsymbol{\mathcal A}}{\partial t^2} - \nabla^2 \boldsymbol{\mathcal A} = -\frac{16\pi G}{c^2}\, \mathbf{J}_{\text{mass}},\qquad
 \mathbf{J}_{\text{mass}}=\rho_{\text{body}}\mathbf V,
@@ -429,9 +444,9 @@ Define a gravitomagnetic proxy $\boldsymbol{\mathcal A} = \sum_i \mathbf{B}_{4,i
 \end{equation}
 so the EM and GEM sectors are not mixed at the level of potentials or couplings.
 
-\subsubsection{SHAKE and WAVE Components}
+\subsubsection{Slope (Coulomb) and Waves}
 
-Both gravitational waves and photons emerge from the quintet modes: SHAKE represents the circulatory flow maintaining vortex stability and rest energy $E = m c^2$, while WAVE corresponds to oscillatory disturbances propagating at speed $c$, differing in their dimensional character (3D classical for gravitational waves, 4D-stabilized particle-like for photons). See tsunami principle (Section 2.5) for WAVE propagation versus bulk adjustments. The treatment separates SHAKE as the essential circulation preventing vortex collapse under aether pressure, quantified by circulation $\Gamma = n \kappa$ where $\kappa = 2 \pi \hbar / m$. WAVE uses the d'Alembertian for transverse perturbations from vortex oscillations:
+Slope (static hill/valley electric piece) and Waves (photons for EM; GWs for gravity). In time-varying situations, changing Eddies create loop electric fields (Induction). The wave sector uses the d'Alembertian for transverse perturbations from vortex oscillations:
 
 \begin{equation}
 \Box h_{\mu\nu} = -\frac{16\pi G}{c^4} T_{\mu\nu}^{\text{quad}} \quad (\text{for GW, classical 3D WAVE}),
@@ -441,19 +456,19 @@ Both gravitational waves and photons emerge from the quintet modes: SHAKE repres
 \Box A^\mu_{\text{EM}} = -\frac{4\pi}{c} J_q^\mu \quad (\text{for photons, 4D-stabilized WAVE}),
 \end{equation}
 
-where $\Box = \partial_t^2 / c^2 - \nabla^2$. Gravitational waves and photons differ in coupling and character: mass asymmetries for GW (SUCK perturbations, classical wave-like without quantization), charge for photons (SWIRL oscillations, particle-like packets). This predicts no observable ``gravitons'' as discrete particles, as GW spread classically in 3D without 4D confinement. The tsunami principle (Section 2.5) distinguishes bulk longitudinal adjustments ($v_L > c$, unobservable SUCK/SHAKE) from observable transverse WAVE at $c$, with WAVE as the surface ripple versus bulk SUCK rush. To derive these, consider the linearized GP for transverse perturbations on vortices: The Kelvin wave dispersion $\omega^2 = c^2 k^2 + \omega_0^2$ (with cutoff $\omega_0 \sim v_L / \xi_c$), projecting to the d'Alembertian form for far-field radiation.
+where $\Box = \partial_t^2 / c^2 - \nabla^2$. Gravitational waves and photons differ in coupling and character: mass asymmetries for GW (Intake perturbations, classical wave-like without quantization), charge for photons (Eddies oscillations, particle-like packets). This predicts no observable ``gravitons'' as discrete particles, as GW spread classically in 3D without 4D confinement. The tsunami principle (Section 2.5) distinguishes bulk longitudinal adjustments ($v_L > c$, unobservable Intake/Twist) from observable transverse Waves at $c$, with Waves as the surface ripple versus bulk Intake rush. To derive these, consider the linearized GP for transverse perturbations on vortices: The Kelvin wave dispersion $\omega^2 = c^2 k^2 + \omega_0^2$ (with cutoff $\omega_0 \sim v_L / \xi_c$), projecting to the d'Alembertian form for far-field radiation.
 
-In SHAKE, the circulatory mode acts as a photon-like excitation with energy $E = mc^2$, anchoring in 4D to counter collapse via resonance with the aether frequency $\sqrt{g \rho}$. This maintains vortex stability against pressure, with annihilation releasing $2mc^2$ as WAVE packets. Depletion ($\rho \to 0$) mismatches resonance, causing photon escape and instability.
+The near-rim Slope sets the stored energy and shape, while the hidden Twist supplies the hoop (keep-open) pressure; together they stabilize the core against tension and Intake. Annihilation releases $2mc^2$ as radiative Waves. Depletion ($\rho \to 0$) mismatches resonance, causing photon escape and instability.
 
 
-\subsection{Electromagnetic Emergence from Helical Vortices}
+\subsection{Electromagnetism as Slope+Eddies from Oriented Links}
 \label{sec:EM-from-helical-vortices}
 
 % ------------------------------------------------------------
 % 30-second story / big picture
 % ------------------------------------------------------------
 \begin{tcolorbox}[title=Plain-language snapshot (30 seconds)]
-Helical twist carried by a vortex \emph{sheet} in $(4{+}1)$D projects in $(3{+}1)$D as electric charge. Sheet \emph{endpoints} in $(3{+}1)$D behave as point charges; moving endpoints are electric currents. The electromagnetic field is the component of a bulk two-form field along the compact direction. Charge is quantized because the twist number is an integer, and charge is conserved because the underlying gauge symmetry enforces a continuity equation.\footnote{We remain agnostic about ontology; the subsection only establishes the mathematical map.}
+Oriented links through the slice write a standing Slope pattern (electric), while motion/Drag organize Eddies (magnetic). Changing Eddies create loop electric fields (Induction). The displacement-current bridge lives in the thin slab to keep continuity exact during transients.\footnote{We remain agnostic about ontology; the subsection only establishes the mathematical map.}
 \end{tcolorbox}
 
 % ------------------------------------------------------------
@@ -467,6 +482,8 @@ Helical twist carried by a vortex \emph{sheet} in $(4{+}1)$D projects in $(3{+}1
   \item Sheet world-volume current \(J^{MNP}\) (conserved 3-form) $\leftrightarrow$ topological data of vortex sheets.
   \item Sheet endpoint in $(3{+}1)$D $\leftrightarrow$ point charge of integer strength \(n\) (sign set by orientation).
   \item Sheet endpoint worldline $\leftrightarrow$ electric 4-current \(j_e^\mu\).
+  \item Oriented link $\leftrightarrow$ integer charge (sign by orientation), writes the Slope profile.
+  \item On-slice Eddies $\leftrightarrow$ magnetic field $\mathbf B$; changing Eddies $\leftrightarrow$ Induction (loop $\mathbf E$).
 \end{itemize}
 \end{tcolorbox}
 
@@ -586,17 +603,17 @@ The microscopic medium admits a natural rest frame, but \emph{gauge-invariant ob
 
 \paragraph{Conventions and scope.}
 (1) We use signature $\eta_{\mu\nu}=\mathrm{diag}(-,+,+,+)$ and Greek indices $\mu,\nu=0,\dots,3$. 
-(2) Electromagnetic-like observables are built from a \emph{single} vector potential $A^\mu=(\Phi/c,\mathbf A)$ with field strength $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$. 
+(2) Electromagnetic-like observables are built from a \emph{single} vector potential $A^\mu=(\Phi_{\text{Slope}}/c,\mathbf A)$ with field strength $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$. 
 (3) If a gravito-electromagnetic sector is also considered, we denote its vector potential distinctly (e.g.\ $\mathcal A^\mu$) or use metric perturbations $h_{\mu\nu}$; we do \emph{not} overload $A^\mu$.
 (4) We work in Gaussian units for EM so that Maxwell's sourced equation reads $\Box A^\mu=-(4\pi/c)\,J^\mu$ in Lorenz gauge $\partial_\mu A^\mu=0$, and the Bianchi identity $\partial_{[\alpha}F_{\beta\gamma]}=0$ holds identically.
 (5) Small parameters controlling all approximations:
 \begin{equation}
 \varepsilon_v=\frac{|\mathbf v_{\rm bg}|}{c},\qquad
-\varepsilon_\Phi=\frac{|\Phi|}{c^2},\qquad
+\varepsilon_{\Phi_g}=\frac{|\Phi_g|}{c^2},\qquad
 \varepsilon_\xi=\frac{\xi_c}{L},\qquad
 \varepsilon_\rho=\frac{\delta\rho}{\rho_0}.
 \end{equation}
-Claims below hold at leading order in $(\varepsilon_\Phi,\varepsilon_v^2,\varepsilon_\xi,\varepsilon_\rho)$ unless noted.
+Claims below hold at leading order in $(\varepsilon_{\Phi_g},\varepsilon_v^2,\varepsilon_\xi,\varepsilon_\rho)$ unless noted.
 
 \paragraph{Field equations, covariance, and invariants.}
 On the observed slice, the Lorenz-gauge system
@@ -611,17 +628,17 @@ is Lorentz covariant: under a standard boost (say along $x$) the components of $
 are frame-invariant. Observable content is therefore independent of any putative medium drift. Causal support follows from the retarded Green's function of $\Box$ (see the appendix discussion of retarded kernels in higher spatial dimension): signal propagation is restricted to the $c$-lightcone, and static Poisson behavior is a limit of the retarded solution.
 
 \paragraph{No observable ``ether wind'' at leading order.}
-Preferred-frame effects can enter (if at all) only through (i) gauge/constraint pieces that cancel in $F_{\mu\nu}$, (ii) post-projection finite-thickness corrections $\mathcal O(\varepsilon_\xi)$, (iii) nonlinear backreaction $\mathcal O(\varepsilon_\Phi)$, or (iv) quadratic drift effects $\mathcal O(\varepsilon_v^2)$. None of these produce a first-order ($\propto \varepsilon_v$) anisotropy in any gauge-invariant observable.
+Preferred-frame effects can enter (if at all) only through (i) gauge/constraint pieces that cancel in $F_{\mu\nu}$, (ii) post-projection finite-thickness corrections $\mathcal O(\varepsilon_\xi)$, (iii) nonlinear backreaction $\mathcal O(\varepsilon_{\Phi_g})$, or (iv) quadratic drift effects $\mathcal O(\varepsilon_v^2)$. None of these produce a first-order ($\propto \varepsilon_v$) anisotropy in any gauge-invariant observable.
 
 \paragraph{Michelson–Morley as a worked test.}
 Consider an interferometer with equal arm lengths $L$ oriented parallel/perpendicular to a putative background drift $\mathbf v_{\rm bg}$. In the emergent Minkowski sector the measured (two-way) light speed is isotropic to $\mathcal O(\varepsilon_v^2)$, and the round-trip times are
 \begin{equation}
-t_{\parallel}=\frac{2L}{c}\Big(1+\tfrac{1}{2}\beta^2\Big)+\mathcal O(\varepsilon_\Phi,\varepsilon_\xi,\beta^4),\qquad
-t_{\perp}=\frac{2L}{c}\Big(1+\tfrac{1}{2}\beta^2\Big)+\mathcal O(\varepsilon_\Phi,\varepsilon_\xi,\beta^4),
+t_{\parallel}=\frac{2L}{c}\Big(1+\tfrac{1}{2}\beta^2\Big)+\mathcal O(\varepsilon_{\Phi_g},\varepsilon_\xi,\beta^4),\qquad
+t_{\perp}=\frac{2L}{c}\Big(1+\tfrac{1}{2}\beta^2\Big)+\mathcal O(\varepsilon_{\Phi_g},\varepsilon_\xi,\beta^4),
 \end{equation}
 with $\beta\equiv|\mathbf v_{\rm bg}|/c$. The leading $\beta^2$ pieces cancel in the time \emph{difference},
 \begin{equation}
-\Delta t \equiv t_{\parallel}-t_{\perp}=\mathcal O(\varepsilon_\Phi,\varepsilon_\xi,\beta^4),
+\Delta t \equiv t_{\parallel}-t_{\perp}=\mathcal O(\varepsilon_{\Phi_g},\varepsilon_\xi,\beta^4),
 \end{equation}
 so the predicted fringe shift is null at the experiment's sensitivity scale—precisely as in special relativity. The same cancellation holds for modern resonator tests of boost/rotation invariance at this order.
 
@@ -629,18 +646,22 @@ so the predicted fringe shift is null at the experiment's sensitivity scale—pr
 At leading order the observable sector exhibits: (i) Lorentz-covariant dynamics with characteristic speed $c$, (ii) isotropy of two-way light speed, and (iii) no direction-dependent variation of effective couplings. Slow secular drifts of global background parameters, if present, would appear only as higher-order, adiabatic effects beyond the scope of this subsection and are not required by the framework.
 
 \paragraph{Summary.}
-The microscopic medium can possess a rest frame without violating relativity tests, because the projected, gauge-invariant fields $(F_{\mu\nu}$ and, analogously, $h_{\mu\nu}$ in the weak-field sector$)$ satisfy Lorentz-covariant, hyperbolic equations with retarded support. Any ``preferred frame'' is unobservable at leading order; putative effects are suppressed by $(\varepsilon_\Phi,\varepsilon_v^2,\varepsilon_\xi,\varepsilon_\rho)$ and are thus beyond the reach of classic interferometric tests.
+The microscopic medium can possess a rest frame without violating relativity tests, because the projected, gauge-invariant fields $(F_{\mu\nu}$ and, analogously, $h_{\mu\nu}$ in the weak-field sector$)$ satisfy Lorentz-covariant, hyperbolic equations with retarded support. Any ``preferred frame'' is unobservable at leading order; putative effects are suppressed by $(\varepsilon_{\Phi_g},\varepsilon_v^2,\varepsilon_\xi,\varepsilon_\rho)$ and are thus beyond the reach of classic interferometric tests.
 
 \subsection{Electromagnetism in the WAVE sector}
 \label{subsec:em_wave}
 
 \paragraph{Scope and units.}
 In this subsection we isolate the electromagnetic (EM) wave sector. We work in \emph{Gaussian--cgs} units and use the standard 4-potential
-\(A^\mu=(\Phi/c,\mathbf A)\), field tensor \(F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu\),
-and physical fields \(\mathbf E=-\nabla\Phi-\tfrac1c\,\partial_t\mathbf A\), \(\mathbf B=\nabla\times\mathbf A\).
+\(A^\mu=(\Phi_{\text{Slope}}/c,\mathbf A)\), field tensor \(F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu\),
+and physical fields \(\mathbf E=-\nabla\Phi_{\text{Slope}}-\tfrac1c\,\partial_t\mathbf A\), \(\mathbf B=\nabla\times\mathbf A\).
 The EM sources are \(J^\mu_{\rm ch}=(c\,\rho_{\rm ch},\,\mathbf J_{\rm ch})\) and obey the
 charge continuity equation \(\partial_t\rho_{\rm ch}+\nabla\!\cdot\!\mathbf J_{\rm ch}=0\).
 \emph{These EM sources and fields are distinct from any gravitational/``GEM'' sector variables, which do not appear here.}
+
+Throughout this subsection we write $\mathbf A \equiv \mathbf A_{\text{EM}}$.
+
+We decompose $\mathbf E = -\nabla \Phi_{\text{Slope}} - \tfrac{1}{c}\,\partial_t \mathbf A$ where $\mathbf B=\nabla\times\mathbf A$ (Eddies). The first term is Slope (Coulomb); the second is Induction (loop electric field).
 
 \paragraph{30-second story (reader guide).}
 This is the \emph{wave} part of the theory: once the EM field content is defined,
@@ -675,11 +696,11 @@ which selects retarded (causal) solutions and ensures a well-defined energy flux
 \subsubsection{Static calibration and Coulomb limit}
 In the static limit (\(\partial_t=0\), localized sources), \eqref{eq:wave_A_Lorenz} reduces to
 \begin{align}
-\nabla^2 \Phi &= -\,4\pi\,\rho_{\rm ch}, &
+\nabla^2 \Phi_{\text{Slope}} &= -\,4\pi\,\rho_{\rm ch}, &
 \nabla^2 \mathbf A &= \mathbf 0 \quad (\text{Lorenz gauge}).
 \end{align}
 For a point charge \(Q\) at the origin,
-\(\Phi(\mathbf r)= Q/r\), \(\mathbf E(\mathbf r)= Q\,\mathbf r/r^3\), \(\mathbf B=\mathbf 0\).
+\(\Phi_{\text{Slope}}(\mathbf r)= Q/r\), \(\mathbf E(\mathbf r)= Q\,\mathbf r/r^3\), \(\mathbf B=\mathbf 0\).
 This \emph{calibrates} the normalization so that all dynamic results reduce to the familiar Coulomb law when \(\partial_t\to0\).
 
 \noindent\emph{Idea:} require the static sector to match measured electrostatics. \;
@@ -688,7 +709,7 @@ This \emph{calibrates} the normalization so that all dynamic results reduce to t
 \subsubsection{Retarded solutions and causality}
 With the radiation condition, the unique solutions of \eqref{eq:wave_A_Lorenz} are the retarded potentials
 \begin{align}
-\Phi(\mathbf x,t) &= \int \frac{\rho_{\rm ch}(\mathbf x',\,t_r)}{|\mathbf x-\mathbf x'|}\,d^3x',\\
+\Phi_{\text{Slope}}(\mathbf x,t) &= \int \frac{\rho_{\rm ch}(\mathbf x',\,t_r)}{|\mathbf x-\mathbf x'|}\,d^3x',\\
 \mathbf A(\mathbf x,t) &= \frac{1}{c}\int \frac{\mathbf J_{\rm ch}(\mathbf x',\,t_r)}{|\mathbf x-\mathbf x'|}\,d^3x',
 \end{align}
 with \emph{retarded time} \(t_r=t-|\mathbf x-\mathbf x'|/c\).
@@ -791,9 +812,9 @@ with the standard conservation laws $\partial_\mu J^\mu_{\rm ch}=0$ and $\partia
 
 \subsection{Conservation Laws and Aether Drainage}
 
-The 4D compressible medium (P-1) ensures global conservation laws hold despite local drainage from vortex sinks (P-2), as flux redirects into the extra dimension without loss. This resolves apparent non-conservation in 3D projections (Section 2.7) while maintaining consistency with dual wave modes (P-3) and quantized topology (P-5). The framework derives these laws from the Gross–Pitaevskii structure (P-1), incorporating boundary conditions for vortex sheets. We shift to discrete projections, aggregating over finite vortex intersections rather than continuous integrals over $w$. This simplifies boundary handling while preserving the original global principles. The quintet integrates naturally: SUCK (drainage) appears as apparent mass removal in 3D but is conserved in 4D via bulk redirection; SWIRL (helicity) preserves topological invariants like charge through phase windings; DRAG conserves angular momentum; SHAKE (circulation) stabilizes cores energetically; WAVE (Kelvin waves) conserves energy by converting to bulk modes or observable radiation (e.g., photons as vortex oscillations).
+The 4D compressible medium (P-1) ensures global conservation laws hold despite local drainage from vortex sinks (P-2), as flux redirects into the extra dimension without loss. This resolves apparent non-conservation in 3D projections (Section 2.7) while maintaining consistency with dual wave modes (P-3) and quantized topology (P-5). The framework derives these laws from the Gross–Pitaevskii structure (P-1), incorporating boundary conditions for vortex sheets. We shift to discrete projections, aggregating over finite vortex intersections rather than continuous integrals over $w$. This simplifies boundary handling while preserving the original global principles. The spine integrates naturally: Intake (drainage) appears as apparent mass removal in 3D but is conserved in 4D via bulk redirection; Twist (topology) preserves invariants like charge through phase windings; Drag conserves angular momentum; Slope stabilizes cores energetically; Waves (Kelvin waves) conserve energy by converting to bulk modes or observable radiation (e.g., photons as vortex oscillations).
 
-Drainage $\equiv$ net flux $\Phi = \int \rho \mathbf{v} \cdot \hat{\mathbf{n}} \, dA$ through a hypersurface at $w = \text{const}$. Drainage creates ``SUCK'' but doesn't deplete the medium, as it draws from the effectively infinite 4D reservoir.
+Drainage $\equiv$ net flux $\Phi = \int \rho \mathbf{v} \cdot \hat{\mathbf{n}} \, dA$ through a hypersurface at $w = \text{const}$. Drainage creates Intake but doesn't deplete the medium, as it draws from the effectively infinite 4D reservoir.
 
 \subsubsection{Global Conservation}
 Although the sinks introduce effective inhomogeneities in the 3D equations, the full 4D continuity ensures no net loss once boundary fluxes are included. Starting from the postulates (P-1, P-2), the 4D continuity equation with localized sinks is
@@ -812,7 +833,7 @@ In the discrete 3D projection (P-6), we aggregate over vortex intersections (no 
 \end{equation}
 Analogous projections apply to the Euler equation, producing effective 3D dynamics with sink sources that appear as mass removal while preserving global conservation in 4D (see Bulk Dissipation below). Physically, this is like discrete underwater drains vanishing water from the surface view, thinning the medium and inducing inflows that mimic attraction. Like a waterfall that never empties the river above, the drainage draws from the 4D structure (reservoir), with re-emergence from bulk modes maintaining balance.
 
-By Noether's theorem, continuous symmetries yield conservation laws. 4D translations preserve total mass–energy when one includes the energy density of non-interacting bulk excitations that carry away the drained flux. Particle creation/annihilation maps to vortex–antivortex processes: creation as pair formation (net drainage balanced), annihilation as conversion of core energy into WAVE radiation or bulk modes, preserving total 4D energy. Quintet conservation includes: SWIRL topology preserves charge; DRAG conserves angular momentum; SHAKE stabilizes energy; WAVE radiates energy.
+By Noether's theorem, continuous symmetries yield conservation laws. 4D translations preserve total mass–energy when one includes the energy density of non-interacting bulk excitations that carry away the drained flux. Particle creation/annihilation maps to vortex–antivortex processes: creation as pair formation (net drainage balanced), annihilation as conversion of core energy into Waves or bulk modes, preserving total 4D energy. Conservation includes: Twist topology preserves charge; Drag conserves angular momentum; Slope stabilizes energy; Waves radiate energy.
 
 \subsubsection{Microscopic Drainage Mechanism}
 At vortex cores, drainage occurs through phase singularities where the order parameter $\Psi=0$ over the healing length $\xi_c$. The phase winds by $2\pi n$, creating flux into the extra dimension. Near the core, a standard circulation estimate gives
@@ -865,27 +886,27 @@ i.e. $\rho_{\text{inj}}$ is fixed by the total injection $\sum_i\dot M_i$ on the
 Analogously, this dissipation mimics energy conversion to heat in a vast reservoir, maintaining equilibrium. For twisted vortices (EM context), dissipation preserves charge topology, as windings are conserved invariants.
 
 \subsubsection{Machian Balance}
-The uniform background $\rho_0$ sources a quadratic potential term. With the scalar-sector convention $\nabla^2 \Phi=-4\pi G\rho_0$,
+The uniform background $\rho_0$ sources a quadratic potential term. With the scalar-sector convention $\nabla^2 \Phi_g=-4\pi G\rho_0$,
 \begin{equation}
-\Phi \supset -\frac{2\pi G \rho_0}{3}\,r^2,
+\Phi_g \supset -\frac{2\pi G \rho_0}{3}\,r^2,
 \end{equation}
 implying
 \begin{equation}
-\mathbf{a} = -\nabla \Phi = \frac{4\pi G \rho_0}{3}\,\mathbf{r}.
+\mathbf{a} = -\nabla \Phi_g = \frac{4\pi G \rho_0}{3}\,\mathbf{r}.
 \end{equation}
 Only potential differences are observable; the quadratic background acts as a gauge-like offset that cancels under global balance. Global inflows from cosmic matter (discrete vortices as flow patterns) provide the counter-term
 \begin{equation}
-\Phi_{\text{global}} \approx \frac{2\pi G \langle \rho \rangle}{3}\, r^2,
+\Phi_{\text{global},g} \approx \frac{2\pi G \langle \rho \rangle}{3}\, r^2,
 \end{equation}
 cancelling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$ (aggregate deficits from vortex flows balancing background). Any residual asymmetry would appear as a tiny secular drift of the effective background potential; within our parameter choices it remains below current bounds on $|\dot G/G|$.
 
-Twists in SWIRL add no net background (neutral on average), preserving the balance. WAVE vibrations (Kelvin waves) contribute a small positive energy density to $\langle \rho \rangle$ (as $\rho_{\text{vib}}/c^2$), but this is microscopic and averages out cosmologically, maintaining equilibrium. The tsunami principle reinforces this: bulk flows are unfelt locally (we move with them), while observable changes propagate at $c$.
+Twist adds no net background (neutral on average), preserving the balance. Waves (Kelvin waves) contribute a small positive energy density to $\langle \rho \rangle$ (as $\rho_{\text{vib}}/c^2$), but this is microscopic and averages out cosmologically, maintaining equilibrium. The tsunami principle reinforces this: bulk flows are unfelt locally (we move with them), while observable changes propagate at $c$.
 
 \medskip
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Insight:} Global conservation is maintained by bulk absorption and matched boundary flux, while Machian inertial frames arise from inflow balances, without ontological claims. The quintet ties this together: SUCK for mass flux, SWIRL for topological charge, DRAG for angular momentum, SHAKE for energetic stability, WAVE for radiative energy—each conserved in 4D.
+\textbf{Key Insight:} Global conservation is maintained by bulk absorption and matched boundary flux, while Machian inertial frames arise from inflow balances, without ontological claims. The spine ties this together: Intake for mass flux, Twist for topological charge, Drag for angular momentum, Slope for energetic stability, Waves for radiative energy—each conserved in 4D.
 \end{minipage}
 }
 }
@@ -973,19 +994,19 @@ Standard weak-field normalizations (e.g., GEM factors $\sim 16\pi G/c^2$ in line
 
 Having established the projection mechanism and its \emph{projection-invariant} slice circulation, we now calibrate the framework to empirical observables with minimal inputs. We adopt \emph{Gaussian cgs} units for electromagnetism throughout this subsection (the SI mapping is straightforward and noted in the table). The model requires only two calibrated parameters---Newton's gravitational constant $G$ and the speed of light $c$---while other quantities are either (a) conventions that fix units/normalizations (not additional parameters), or (b) \emph{derived} from the foundational postulates (P-1 to P-6) and the projection map. In particular, the projected background density $\rho_0$ follows from bulk quantities via $\rho_0=\rho_{4D}^0\,\xi_c$ and is listed under \emph{Derived}.
 
-\paragraph{Scalar (SUCK) sector.}
+\paragraph{Scalar (Intake) sector.}
 The far-field scalar equation (derived in Section 2.2) reads
 \begin{equation}
-\frac{1}{v_{\text{eff}}^{2}}\frac{\partial^{2}\Phi}{\partial t^{2}}-\nabla^{2}\Phi
+\frac{1}{v_{\text{eff}}^{2}}\frac{\partial^{2}\Phi_g}{\partial t^{2}}-\nabla^{2}\Phi_g
  \;=\;4\pi G\,\rho_{\text{body}},
 \end{equation}
-which reduces in the static limit to Poisson's equation $\nabla^2\Phi=4\pi G\rho_{\text{body}}$, with $\rho_{\text{body}}$ the effective matter density from aggregated vortex deficits. Matching the static limit fixes the $4\pi G$ coefficient. Linearizing the 4D continuity about $\rho_{4D}=\rho_{4D}^{0}+\delta\rho_{4D}$ and projecting gives the source term with $\rho_0=\rho_{4D}^{0}\xi_c$. The overall scalar calibration is captured by
+which reduces in the static limit to Poisson's equation $\nabla^2\Phi_g=4\pi G\rho_{\text{body}}$, with $\rho_{\text{body}}$ the effective matter density from aggregated vortex deficits. Matching the static limit fixes the $4\pi G$ coefficient. Linearizing the 4D continuity about $\rho_{4D}=\rho_{4D}^{0}+\delta\rho_{4D}$ and projecting gives the source term with $\rho_0=\rho_{4D}^{0}\xi_c$. The overall scalar calibration is captured by
 \begin{equation}
 G \;=\; \frac{c^{2}}{4\pi\,\bar n\,\bar m\,\xi_c^{2}},
 \end{equation}
 where $\bar n$ is the vortex number density, $\bar m$ the mean deficit mass per vortex, and $\xi_c=\hbar/\sqrt{2mg\rho_{4D}^0}$ from P-1. This locks the normalization so weak-field post-Newtonian corrections follow without extra tuning.
 
-\paragraph{Vector (SWIRL/DRAG, WAVE) sector: EM vs.\ GEM split.}
+\paragraph{Vector (Eddies/Drag, Waves) sector: EM vs.\ GEM split.}
 To keep units and couplings audit-ready, we \emph{do not} overload a single vector potential. We use distinct fields:
 \begin{align}
 \label{eq:GEM-wave}
@@ -1034,7 +1055,7 @@ $\bar n$ & Vortex number density & Enters $G$ relation; cosmological/astrophysic
 \hline
 $\bar m$ & Mean deficit mass per vortex & Microscopic input; enters $G$ relation & --- & P-1, P-6 \\
 \hline
-$\omega$ & Kelvin-wave frequency & $\omega\sim v_L/\xi_c$ (SHAKE/WAVE sector) & --- & P-3, P-5 \\
+$\omega$ & Kelvin-wave frequency & $\omega\sim v_L/\xi_c$ (Waves sector) & --- & P-3, P-5 \\
 \hline
 $T,\ \sigma$ & Effective tension/areal density & Set $c=\sqrt{T/\sigma}$. Choose one from microphysics; the other follows from $c$ & --- & P-3 \\
 \hline
@@ -1061,7 +1082,7 @@ Our key scales are mathematically independent:
 \item $\lambda_{\text{cosmo}}$: set by large-scale matter distribution (enters $\bar n,\bar m$),
 \item $c$: fixed by WAVE-sector dynamics ($c=\sqrt{T/\sigma}$) and calibrated to observation.
 \end{itemize}
-No combination of $\xi_c$ and $\lambda_{\text{cosmo}}$ yields $c$, preventing overconstraint. The tsunami principle allows $v_L\gg c$ for bulk adjustments (SUCK/SHAKE) while keeping gauge-invariant observables strictly causal at $c$ in the WAVE sector.
+No combination of $\xi_c$ and $\lambda_{\text{cosmo}}$ yields $c$, preventing overconstraint. The tsunami principle allows $v_L\gg c$ for bulk adjustments (Intake/Twist) while keeping gauge-invariant observables strictly causal at $c$ in the Waves sector.
 
 \medskip
 \noindent
@@ -1070,7 +1091,7 @@ No combination of $\xi_c$ and $\lambda_{\text{cosmo}}$ yields $c$, preventing ov
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
 \textbf{Key Result:} Minimal calibration fixes $G$ and $c$; the projected density $\rho_0$ and all other parameters follow from postulates and projection. Vector dynamics use distinct fields with standard normalizations: $-\frac{16\pi G}{c^2}J_{\text{mass}}^\mu$ for GEM (Eq.~\eqref{eq:GEM-wave}) and $-\frac{4\pi}{c}J_{q}^\mu$ for EM (Eq.~\eqref{eq:EM-wave}).
 
-\textbf{Physical Interpretation:} The scalar sector calibrates attraction (SUCK); the vector sector carries circulation (DRAG/SWIRL) with weak-field normalizations; helical/twist structure discretizes charge and circulation. Projection invariance ensures no geometric enhancement of slice circulation.
+\textbf{Physical Interpretation:} The scalar sector calibrates attraction (Intake); the vector sector carries circulation (Drag/Eddies) with weak-field normalizations; \emph{Twist} discretizes charge and circulation. Projection invariance ensures no geometric enhancement of slice circulation.
 \end{minipage}
 }
 }
@@ -1111,17 +1132,17 @@ Writing $\Psi=\sqrt{\rho_{4D}/m}\,e^{i\theta}$ gives the hydrodynamic form with 
 \mathbf v_4=\frac{\hbar}{m}\,\nabla_4\theta,\qquad
 \mathbf F_Q \equiv -\nabla_4\!\Big(\frac{\hbar^2}{2m}\,\frac{\nabla_4^2\sqrt{\rho_{4D}/m}}{\sqrt{\rho_{4D}/m}}\Big),
 \]
-so \eqref{eq:E-GP} cleanly encodes the SUCK (deficits), SWIRL/DRAG (circulation/twist), and SHAKE/WAVE (oscillations) contributions via $|\nabla_4\theta|^2$ and $\rho_{4D}^2$.
+so \eqref{eq:E-GP} cleanly encodes the Intake (deficits), Eddies/Drag (circulation/Twist), and Slope/Waves (oscillations) contributions via $|\nabla_4\theta|^2$ and $\rho_{4D}^2$.
 
-\paragraph{Twist energy (helical SWIRL).}
+\paragraph{Twist energy (hidden maintenance).}
 If $\theta$ contains an axial twist along $w$ (extra coordinate), $\theta(\mathbf r_4)=\arg(x+iy)+\tau w$, then the kinetic term contributes a uniform ``twist'' energy density
 \begin{equation}
 E_{\text{twist}} \;=\; \int d^4 r\, \frac{\hbar^2}{2m}\,\rho_{4D}\,(\partial_w\theta)^2
 \;=\; \int d^4 r\, \frac{\hbar^2\,\tau^2}{2m}\,|\Psi|^2 ,
 \end{equation}
-with $\tau$ fixed by boundary/topology (P-5). This raises the cost of charged (twisted) cores relative to neutral ones and naturally splits masses in sectors tied to SWIRL.
+with $\tau$ fixed by boundary/topology (P-5). This raises the cost of charged (twisted) cores relative to neutral ones and naturally splits masses in sectors tied to Twist/Eddies.
 
-\paragraph{Kelvin/SHAKE mode energy (scaling).}
+\paragraph{Kelvin/Slope mode energy (scaling).}
 Kelvin-like core modes of frequency $\omega\sim v_L/\xi_c$ contribute a zero-point piece per core
 \begin{equation}
 E_{\text{shake}} \;\approx\; \tfrac{1}{2}\hbar\omega\,N_{\rm core},
@@ -1175,7 +1196,7 @@ for each radiative field $\Psi$, yielding the global balance
 where $\mathcal W_{\rm exch}$ collects power exchanged with unobserved bulk channels (P-2/P-3). An analogous positive-definite flux holds for linearized gravitational waves (GEM); we do not assign a local energy density to static Newtonian fields.
 
 \paragraph{Topological stability and composites.}
-Quantized circulation (P-5) protects cores; projection invariance ensures drainage (gradient) flows do not alter loop circulation on the slice, so only the solenoidal sector contributes to observable circulation. Braided codimension-2 arrangements avoid low-order resonances, further suppressing reconnection. Where appropriate, charged composites accrue $E_{\text{twist}}$ from helical SWIRL, while SHAKE/WAVE channels govern rotational coupling and radiation. Quantitative hierarchical criteria can be developed from \eqref{eq:E-GP} but are outside the present scope.
+Quantized circulation (P-5) protects cores; projection invariance ensures drainage (gradient) flows do not alter loop circulation on the slice, so only the solenoidal sector contributes to observable circulation. Braided codimension-2 arrangements avoid low-order resonances, further suppressing reconnection. Where appropriate, charged composites accrue $E_{\text{twist}}$ from core Twist, while Slope/Waves channels govern rotational coupling and radiation. Quantitative hierarchical criteria can be developed from \eqref{eq:E-GP} but are outside the present scope.
 
 \medskip
 \noindent
@@ -1190,12 +1211,12 @@ Quantized circulation (P-5) protects cores; projection invariance ensures draina
 
 \subsection{Direct Predictions from the Framework}
 
-A key strength of this framework is its specific, falsifiable predictions, tied to the quintet modes (SUCK, SHAKE, SWIRL, DRAG, WAVE) and particles as flow patterns. These include direct consequences from the mathematical core, focusing on foundational distinctions derived from the postulates.
+A key strength of this framework is its specific, falsifiable predictions, tied to the spine (Intake, Slope, Eddies, Drag, Twist, Waves) and particles as flow patterns. These include direct consequences from the mathematical core, focusing on foundational distinctions derived from the postulates.
 
 \begin{itemize}
-\item \textbf{Dark matter vortex structure}: From P-5 (quantized vortices without helical twists) and P-2 (sinks for SUCK/gravity only), dark matter manifests as untwisted vortices, yielding linear/spiral patterns in large-scale structure versus CDM cusps. Observable via JWST + Gaia astrometry, distinguishable from standard dark matter models by qualitatively different distributions.
-\item \textbf{Rotation-Magnetism Scaling}: From SWIRL/DRAG modes (P-4/P-5), electromagnetic field strength scales with SWIRL intensity; faster-spinning particles have stronger EM interactions via helical structure. Method: High-precision measurements of spinning charged particles or black hole analogs; validation tie-in: Consistent with Kerr black holes (e.g., M87* with spin parameter $a \approx 0.9$ shows strong magnetic fields scaling with spin).
-\item \textbf{Gravitational Waves vs. Photons}: From SHAKE/WAVE distinctions (P-3/P-5), GW are classical 3D waves (WAVE, no quantization, no gravitons as particles); photons are 4D-stabilized packets (always quantized). Method: Gravitational wave detectors (LIGO) vs. photon experiments; search for graviton signatures; distinguishable by never observing discrete gravitons.
+\item \textbf{Dark matter vortex structure}: From P-5 (quantized vortices without helical twists) and P-2 (sinks for Intake/gravity only), dark matter manifests as untwisted vortices, yielding linear/spiral patterns in large-scale structure versus CDM cusps. Observable via JWST + Gaia astrometry, distinguishable from standard dark matter models by qualitatively different distributions.
+\item \textbf{Rotation-Magnetism Scaling}: From Eddies/Drag modes (P-4/P-5), electromagnetic field strength scales with Eddies intensity; faster-spinning particles have stronger EM interactions via oriented links and motion. Method: High-precision measurements of spinning charged particles or black hole analogs; validation tie-in: Consistent with Kerr black holes (e.g., M87* with spin parameter $a \approx 0.9$ shows strong magnetic fields scaling with spin).
+\item \textbf{Gravitational Waves vs. Photons}: From Slope/Waves distinctions (P-3/P-5), GW are classical 3D waves (no quantization, no gravitons as particles); photons are 4D-stabilized packets (always quantized). Method: Gravitational wave detectors (LIGO) vs. photon experiments; search for graviton signatures; distinguishable by never observing discrete gravitons.
 \end{itemize}
 
 These core predictions illustrate the framework's internal consistency; broader insights and applications follow in subsequent sections.
@@ -1210,13 +1231,13 @@ This mathematical framework explores how complex physics might emerge from simpl
 \item Projection invariance of slice circulation (half-space split; potential/drainage gives zero loop contribution)
 \item Resolution of preferred frame problem via Machian principles
 \item Specific, testable predictions
-\item Quintet modes (SUCK, SHAKE, SWIRL, DRAG, WAVE) unifying phenomena
+\item Terminology spine (Intake, Slope, Eddies, Drag, Twist, Waves) unifying phenomena
 \item Particles as stable flow patterns/processes, not inherent objects
 \end{itemize}
 
 \textbf{Novel Insights:}
 \begin{itemize}
-\item Dimensional distinction between gravity (SUCK as 3D drainage) and electromagnetism (SWIRL as 4D helical projection)
+\item Dimensional distinction between gravity (Intake as 3D drainage) and electromagnetism (Eddies on-slice with hidden Twist maintenance)
 \item New perspective on why unification in 3D has failed
 \item Topological and energetic criteria for hierarchical stability in braided vortex structures
 \item Rotation–magnetism correlations validated by black hole astrophysics (e.g., Kerr black holes show strong magnetic fields scaling with spin parameter $a$, absent in non-rotating Schwarzschild)
@@ -1224,7 +1245,7 @@ This mathematical framework explores how complex physics might emerge from simpl
 
 \textbf{Preliminary Elements:}
 \begin{itemize}
-\item Specific mechanism for EM emergence via SWIRL's helical structure (conceptual, with equations pending full derivation from GP)
+\item Specific mechanism for EM emergence via core Twist/helical structure (conceptual, with equations pending full derivation from GP)
 \item Connection between universal rotation and Hubble scale
 \item Detailed derivation of Maxwell equations
 \end{itemize}
