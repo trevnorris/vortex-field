@@ -13,10 +13,12 @@ For any large loop $C_R\subset\Omega_{\mathrm{TP}}$ with a spanning surface cont
 \label{eq:Q-threading}
 Q \;:=\; \frac{1}{\kappa}\,\lim_{R\to\infty}\oint_{C_R}\mathbf v\cdot d\boldsymbol\ell.
 \end{equation}
+% Here \kappa is the circulation quantum of the hidden slab mode; we take
+% \kappa = h/m (m: medium's effective mass parameter) so that \Gamma = n\,\kappa.
 If the defect core is closed within $\Omega_{\mathrm{TP}}$, then $Q\in\mathbb Z$ and is invariant under smooth deformations of $C_R$ staying inside the slab. If the core intersects and exits the slab (a through-strand), $Q=0$.
 
 \paragraph{Neutrino neutrality with drag.}
-A neutrino corresponds to a defect whose core does not close within $\Omega_{\mathrm{TP}}$; thus $Q=0$ even though the solenoidal component of the projected flow and the slice-integrated angular momentum (“drag”) can be nonzero. This resolves the “drag $\Rightarrow$ swirl $\Rightarrow$ charge” tension: drag is dynamical, charge is topological.
+A neutrino corresponds to a defect whose core does not close within $\Omega_{\mathrm{TP}}$; thus $Q=0$ even though the solenoidal (Eddies) component of the projected flow and the slice-integrated angular momentum (“drag”) can be nonzero. This resolves the “drag $\Rightarrow$ Eddies $\Rightarrow$ charge” tension: drag is dynamical, charge is topological.
 
 \paragraph{Coupling strength versus topological charge.}
 For through-strands with $Q=0$, projected EM \emph{fields} can still be induced locally in matter via weak polarization/drag couplings. We parametrize their strength—not the charge—by
@@ -32,7 +34,7 @@ Let $u(\mathbf x,w,t)$ be the aether velocity in $\mathbb{R}^4$ and $\Omega=\nab
 \[
 v(\mathbf x,t)=\nabla\phi(\mathbf x,t)+\nabla\times\mathbf A(\mathbf x,t),
 \]
-with $\nabla\!\cdot\!\mathbf A=0$ for convenience. We \emph{define} the EM fields by
+with $\nabla\!\cdot\!\mathbf A=0$ for convenience (Coulomb gauge). We \emph{define} the EM fields by
 \begin{equation}
 \mathbf B := \nabla\times\mathbf A,
 \qquad
@@ -40,12 +42,23 @@ with $\nabla\!\cdot\!\mathbf A=0$ for convenience. We \emph{define} the EM field
 \label{eq:EM_defs}
 \end{equation}
 where $\Phi$ is the slice potential associated with the continuity sector.
+% Terminology bridge:
+%  - \mathbf A is the Eddies (magnetic) potential; \mathbf B=\nabla\times\mathbf A is the on-slice circulation map.
+%  - \Phi is the Slope (Coulomb) potential; -\nabla\Phi is the potential piece of \mathbf E.
+%  - -\partial_t \mathbf A is the Induction (loop electric) piece of \mathbf E when Eddies change.
+
+\begin{tcolorbox}[title=Plain-language map]
+\textbf{Slope} = the hill/valley (Coulomb) part of $\mathbf E$ from the potential $\Phi$.\\
+\textbf{Eddies} = the magnetic field $\mathbf B=\nabla\times\mathbf A$ (on-slice whirls).\\
+\textbf{Induction} = the loop electric field $-\partial_t\mathbf A$ that appears when Eddies change in time.\\
+\textbf{Displacement-current bridge} = the thin-slab fix that keeps continuity exact across gaps (the “bulk bridge”).
+\end{tcolorbox}
 
 \paragraph{Everyday pictures.}
 \begin{itemize}
-  \item \textbf{Hills and valleys (potential piece).} On $\Pi$ imagine a gentle height map: tiny ``hills'' where the aether is slightly in excess, tiny ``valleys'' where it's slightly depleted. The downhill push is $\mathbf E_{\text{pot}}=-\nabla\Phi$. Positive charge $\Rightarrow$ hilltop; negative charge $\Rightarrow$ valley. Field lines go from hills to valleys.
-  \item \textbf{Whirlpools (solenoidal piece).} The aether forms swirls that partly live in the 4D bulk; their 3D shadow is $\mathbf B=\nabla\times\mathbf A$. When the swirl pattern \emph{changes in time}, it drags a loop-like electric field: $\mathbf E_{\text{ind}}=-\partial_t\mathbf A$. Faraday's law is simply: changing swirl $\Rightarrow$ curling $\mathbf E$.
-  \item \textbf{Charging a capacitor (bulk bridge).} Between two plates, some aether briefly ``steps into'' the $w$ direction to keep continuity. On the slice this shows up as a time-changing $\mathbf E$ that carries current even through vacuum: the displacement current.
+  \item \textbf{Hills and valleys (potential piece).} On $\Pi$ imagine a gentle height map: tiny ``hills'' where the aether is slightly in excess, tiny ``valleys'' where it's slightly depleted. The downhill push is $\mathbf E_{\text{pot}}=-\nabla\Phi$. Positive charge $\Rightarrow$ hilltop; negative charge $\Rightarrow$ valley. Field lines go from hills to valleys. (This is the \textbf{Slope} piece of $\mathbf E$.)
+  \item \textbf{Eddies (magnetic/solenoidal piece).} The aether forms on-slice Eddies (whirls with no loose ends); their field map is $\mathbf B=\nabla\times\mathbf A$. When the Eddies pattern \emph{changes in time}, it drives a loop electric field: $\mathbf E_{\text{ind}}=-\partial_t\mathbf A$ (Induction). Faraday's law: changing Eddies $\Rightarrow$ loop electric field (Induction).
+  \item \textbf{Charging a capacitor (displacement-current bridge).} Between two plates, some aether briefly ``steps into'' the $w$ direction to keep continuity (the “bulk bridge”). On the slice this shows up as a time-changing $\mathbf E$ that carries current even through vacuum: the displacement current.
 \end{itemize}
 
 \subsection{Two EM laws that are pure kinematics}
@@ -61,10 +74,10 @@ These are identities on $\Pi$: divergence of a curl vanishes, and $-\partial_t(\
 \paragraph{Everyday pictures.}
 \begin{itemize}
   \item \textbf{$\nabla\!\cdot\!\mathbf B=0$:} whirlpools have centers but not endpoints --- like eddies in a river; no ``loose ends'' to source or sink $\mathbf B$.
-  \item \textbf{Faraday's law:} wave a magnet near a wire loop and watch the galvanometer wiggle. Changing swirl $\to$ chasing loop field $\to$ current.
+  \item \textbf{Faraday's law:} wave a magnet near a wire loop and watch the galvanometer wiggle. Changing Eddies $\to$ loop electric field (Induction) $\to$ current.
 \end{itemize}
 
-\subsection{Where sources come from: continuity and the bulk bridge}
+\subsection{Where sources come from: continuity and the displacement-current bridge}
 Let $\rho(\mathbf x,t)$ be the projected aether excess density on $\Pi$ and $\mathbf J(\mathbf x,t)$ the in-slice transport current. A thin pillbox straddling $\Pi$ turns 4D continuity into
 \begin{equation}
 \partial_t \rho + \nabla\!\cdot\!\mathbf J \;=\; -\,\Big[J_w\Big]_{w=0^-}^{0^+},
@@ -90,11 +103,14 @@ Combining \eqref{eq:EM_defs}–\eqref{eq:displacement_identification} yields the
 \nabla\times \mathbf B - \mu_0 \varepsilon_0\,\partial_t \mathbf E = \mu_0\,\mathbf J.
 \label{eq:inhomogeneous}
 \end{equation}
+% Reading with our terms:
+%  - \nabla\!\cdot\!\mathbf E = \rho/\varepsilon_0  (Slope/Coulomb piece),
+%  - \nabla\times\mathbf B - \mu_0\varepsilon_0\,\partial_t\mathbf E = \mu_0\,\mathbf J  (Eddies + Induction + bridge).
 
 \paragraph{Everyday pictures.}
 \begin{itemize}
   \item \textbf{Gauss's law: hills/valleys make arrows.} Pile a bit of aether on the slice (a hill) and the downhill arrows $\mathbf E$ point outward; scoop some out (a valley) and arrows point inward.
-  \item \textbf{Amp\`ere–Maxwell: current or changing hill-tilt makes swirl.} Push a steady stream along the slice ($\mathbf J$) and you wind $\mathbf B$ around it; tilt the height map in time ($\partial_t\mathbf E$ between capacitor plates) and you wind $\mathbf B$ the same way --- the bulk bridge guarantees there is no break in the circuit.
+  \item \textbf{Amp\`ere–Maxwell: current or changing hill-tilt makes Eddies.} Push a steady stream along the slice ($\mathbf J$) and you wind $\mathbf B$ around it; tilt the height map in time ($\partial_t\mathbf E$ between capacitor plates) and you wind $\mathbf B$ the same way --- the displacement-current bridge guarantees there is no break in the circuit.
 \end{itemize}
 
 \subsection{Fixing the constants and waves}
@@ -186,4 +202,3 @@ A single small spatial scale $\xi$ and (optionally) a small temporal scale $\tau
 
 \paragraph{Bottom line.}
 Maxwell's equations emerge cleanly on the slice; if Nature implements the projection through a perfectly sharp interface, $\xi,\tau\!\to\!0$ and no deviations appear. If the transition is merely very thin/fast, the tests above bound $(\xi,\tau)$ directly.
-

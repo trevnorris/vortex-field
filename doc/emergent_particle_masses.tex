@@ -1,6 +1,20 @@
 \section{Emergent Particle Masses: First Major Result}\label{sec:emergent-particles}
 
-In this work we model particle species as slender vortex defects of a 4D condensate whose effective, observable fields arise from projection onto the physical slice. Masses are identified with the projected density deficit of these defects (core depletion plus a compressibility/Bernoulli halo), while electric charge is a \emph{topological} invariant associated with how the defect threads the transition-phase slab. The kinematic notions used here follow the framework: “swirl’’ denotes the solenoidal part of the projected flow on the slice, and “drag’’ denotes the slice-integrated angular momentum of the motion; see \emph{Motivation, Regime of Validity, and Conventions} for precise definitions.
+\makebox[\linewidth][c]{%
+\fbox{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\textbf{Terminology bridge.}
+\begin{itemize}
+\item \textbf{Eddies} = on-slice magnetic whirl patterns (from Drag/motion).
+\item \textbf{Twist} = hidden cross-slab maintenance loop at the rim (do not confuse with geometric torsion of strands).
+\item \textbf{Intake} = charge-blind inflow (gravity analog; weak-field potential is $\Phi_g$).
+\item Photons are propagating Slope+Eddies waves; rest energy in particles sits in bound near-core modes (standing Slope + persistent Twist).
+\end{itemize}
+\end{minipage}
+}
+}
+
+In this work we model particle species as slender vortex defects of a 4D condensate whose effective, observable fields arise from projection onto the physical slice. Masses are identified with the projected density deficit of these defects (core depletion plus a compressibility/Bernoulli halo), while electric charge is a \emph{topological} invariant associated with how the defect threads the transition-phase slab. The kinematic notions used here follow the framework: “Eddies’’ denotes the solenoidal part of the projected flow on the slice, and “drag’’ denotes the slice-integrated angular momentum of the motion; see \emph{Motivation, Regime of Validity, and Conventions} for precise definitions.
 
 For a closed, slender loop of radius $R\gg\xi_c$ (with $\xi_c$ the healing/core scale), the working mass template used throughout this paper is
 \begin{equation}
@@ -9,9 +23,9 @@ m(R)\;\approx\;\rho_0\,2\pi R\left[
 C_{\mathrm{core}}\,\xi_c^2\;+\;\frac{\kappa^2}{4\pi\,v_L^2}\,
 \ln\!\left(\frac{R}{a}\right)\right],
 \end{equation}
-where $\rho_0\equiv \rho_{3D}^0=\rho_{4D}^0\,\xi_c$ is the projected background density, $\kappa=2\pi\hbar/m$ is the quantum of circulation, $v_L=\sqrt{g\,\rho_{4D}^0/m}$ is the bulk compressional wave speed of the 4D medium, $a=\alpha\,\xi_c$ is an $O(1)$ inner cutoff, and $C_{\mathrm{core}}=2\pi\ln 2$ is the core-deficit constant obtained from the standard GP/tanh profile. The first term captures the core depletion (per unit length), and the second captures the slow far-field Bernoulli/compressibility contribution; both are projected onto the slice.
+where $\rho_0\equiv \rho_{3D}^0=\rho_{4D}^0\,\xi_c$ is the projected background density, $\kappa=\frac{h}{m}$ is the quantum of circulation, $v_L=\sqrt{g\,\rho_{4D}^0/m}$ is the bulk compressional wave speed of the 4D medium, $a=\alpha\,\xi_c$ is an $O(1)$ inner cutoff, and $C_{\mathrm{core}}=2\pi\ln 2$ is the core-deficit constant obtained from the standard GP/tanh profile. The first term captures the core depletion (per unit length), and the second captures the slow far-field Bernoulli/compressibility contribution; both are projected onto the slice.
 
-\emph{Charge.} In this framework, electric charge is a topological threading number defined within the transition-phase slab; it is quantized only for cores that close entirely inside the slab. Defects that traverse the slab (neutrino-like) can exhibit local swirl/drag yet have $Q=0$; see Sec.~\ref{sec:projected-em:charge} for the formal definition and consequences.
+\emph{Charge.} In this framework, electric charge is a topological threading number defined within the transition-phase slab; it is quantized only for cores that close entirely inside the slab. Defects that traverse the slab (neutrino-like) can exhibit local Eddies/Drag yet have $Q=0$; see Sec.~\ref{sec:projected-em:charge} for the formal definition and consequences.
 
 \paragraph{Units.}
 We retain $\hbar$ and $m$ symbolically in definitional formulas; unless otherwise noted, numerical evaluations set $\hbar=m=1$.
@@ -48,7 +62,7 @@ This subsection lists the symbols and working relations used throughout. Derivat
   \[
   R\quad (R\gg \xi_c\ \text{in the slender limit}).
   \]
-  \item Twist fraction and torsion (per-loop twist $2\pi\chi$):
+  \item Torsion \& helical advance (per-loop helical angle $2\pi\chi$):
   \[
   \chi\in(0,1],\qquad \tau=\frac{\chi}{R}.
   \]
@@ -62,7 +76,7 @@ This subsection lists the symbols and working relations used throughout. Derivat
 
 \paragraph{Quanta and constants.}
 \begin{itemize}
-  \item Quantum of circulation: $\kappa=2\pi\hbar/m$.
+  \item Quantum of circulation: $\kappa=\frac{h}{m}$.
   \item Inner cutoff: $a=\alpha\,\xi_c$ with $\alpha=O(1)$.
   \item Core-deficit constant (from GP profile): $C_{\mathrm{core}}=2\pi\ln 2$.
   \item \emph{Notation hygiene:} we reserve $\kappa$ exclusively for circulation; any additional deficit prefactors are denoted by $\mathcal{K}$ to avoid collision.
@@ -85,7 +99,12 @@ This subsection lists the symbols and working relations used throughout. Derivat
 \end{itemize}
 
 \subsection{Lepton mass ladder and the non-formation of a fourth lepton}\label{sec:leptons}
-% Notation note: use \varphi for any scalar potential; reserve \phi for the golden ratio.
+% Notation note:
+%  - Gravitational potential: \Phi_g
+%  - Electric Slope potential (EM): \Phi
+%  - Angles: \varphi
+%  - Golden ratio: \phi = (1+\sqrt5)/2
+%  - Vector potentials: EM \mathbf{A}; gravity \mathbf{A}_g
 
 \subsubsection{Physical picture}
 In this framework, leptons are quantized vortex rings (closed cores) of the 4D condensate projected into 3D. The electron, muon, and tau correspond to circulation quanta \(n=1,2,3\) with sheet strength
@@ -334,7 +353,7 @@ so if \(n_{\rm crit}\in(3,4)\) the \(n{=}4\) state fails to form and fragments p
 
 \subsection{Neutrino Masses and Mixing}
 
-Neutrinos are modeled as \emph{through-strand} defects: slender vortex cores that \emph{intersect} the transition-phase slab but do not close within it. Consequently their topological charge (threading number) is \emph{zero} even though local swirl and drag on the slice can be nonzero (see Sec.~\ref{sec:projected-em:charge}). Masses in this sector follow the same loop-deficit physics as charged leptons but are \emph{suppressed} by reduced slab overlap caused by a finite lift along the extra dimension $w$.
+Neutrinos are modeled as \emph{through-strand} defects: slender vortex cores that \emph{intersect} the transition-phase slab but do not close within it. Consequently their topological charge (threading number) is \emph{zero} even though local Eddies and Drag on the slice can be nonzero (see Sec.~\ref{sec:projected-em:charge}). Masses in this sector follow the same loop-deficit physics as charged leptons but are \emph{suppressed} by reduced slab overlap caused by a finite lift along the extra dimension $w$.
 
 Throughout we use the standard mass template for a slender loop of radius $R\gg \xi_c$,
 \begin{equation}
@@ -344,7 +363,7 @@ m_{\text{loop}}(R)
 C_{\mathrm{core}}\,\xi_c^2
 +\frac{\kappa^2}{4\pi v_L^2}\ln\!\left(\frac{R}{a}\right)\right],
 \end{equation}
-with $\rho_0=\rho_{4D}^0\,\xi_c$, circulation quantum $\kappa=2\pi\hbar/m$, bulk wave speed $v_L=\sqrt{g\rho_{4D}^0/m}$, inner cutoff $a=\alpha\,\xi_c$ ($\alpha=O(1)$), and $C_{\mathrm{core}}=2\pi\ln 2$.
+with $\rho_0=\rho_{4D}^0\,\xi_c$, circulation quantum $\kappa=\frac{h}{m}$, bulk wave speed $v_L=\sqrt{g\rho_{4D}^0/m}$, inner cutoff $a=\alpha\,\xi_c$ ($\alpha=O(1)$), and $C_{\mathrm{core}}=2\pi\ln 2$.
 
 \subsubsection{Derivation}
 
@@ -353,9 +372,9 @@ Label neutrino modes by $n=0,1,2$. We take a simple monotone geometric ladder
 \begin{equation}
 R_n=R_\star\,a_n,\qquad a_n=2n+1,
 \end{equation}
-and encode helical twist with a \emph{twist fraction} $\chi\in(0,1]$ so that
+and encode helical advance with a \emph{torsion fraction} $\chi\in(0,1]$ so that
 \begin{equation}
-\theta_{\mathrm{twist}}=2\pi\chi,\qquad \tau=\frac{\chi}{R_n}.
+\theta_{\mathrm{helix}}=2\pi\chi,\qquad \tau=\frac{\chi}{R_n}.
 \end{equation}
 The lift rate along $w$ is $dw/ds=\eta_n$ for mode $n$, producing a net offset per circuit
 \begin{equation}
@@ -387,7 +406,7 @@ f_{\rm slab}(\zeta_n)=\exp\!\big[-\beta_m\,\zeta_n^{\,p}\big],
 The scaling \eqref{eq:nu:overlap} follows from the two kinetic penalties computed over the in-slab volume $(2\pi R_n)(\pi\xi_c^2)$:
 \begin{align}
 \delta E_{\mathrm{chiral}} &\simeq \tfrac{1}{2}\,\rho_0\,v_{\mathrm{eff}}^2
-\left(\frac{\theta_{\mathrm{twist}}}{2\pi}\right)^{\!2} (2\pi R_n)(\pi\xi_c^2),\\
+\left(\frac{\theta_{\mathrm{helix}}}{2\pi}\right)^{\!2} (2\pi R_n)(\pi\xi_c^2),\\
 \delta E_{w} &\simeq \tfrac{1}{2}\,\rho_0\,v_{\mathrm{eff}}^2
 \left(\frac{\Delta w_n}{\xi_c}\right)^{\!2} (2\pi R_n)(\pi\xi_c^2),
 \end{align}
@@ -408,7 +427,7 @@ Let $E_n\propto m_{\nu,n}$ and model inter-mode coupling by overlap in $w$ plus 
 V_{nm}=V_0\,\exp\!\Big[-\frac{(\zeta_n-\zeta_m)^2}{2\sigma_\zeta^2}\Big]\,
 \cos\!\big(\Delta\varphi_{nm}\big),
 \end{equation}
-where $\sigma_\zeta$ is a coherence scale and $\Delta\varphi_{nm}$ is the Berry-like phase mismatch accumulated over one helical period (proportional to $\chi$ and any frame twist). For each pair,
+where $\sigma_\zeta$ is a coherence scale and $\Delta\varphi_{nm}$ is the Berry-like phase mismatch accumulated over one helical period (proportional to $\chi$ and any frame rotation). For each pair,
 \begin{equation}
 \tan 2\theta_{nm}=\frac{2|V_{nm}|}{|E_m-E_n|},
 \end{equation}
@@ -480,7 +499,7 @@ Echo particles---our quark/hadron precursors---are qualitatively different from 
 \subsubsection{Topological structure: Z$_3$ monodromy and slab charge}
 \label{sec:echo:topology}
 
-Let $\Omega_{\mathrm{TP}}=\Pi\times(-\ell_{\mathrm{TP}}/2,\ell_{\mathrm{TP}}/2)_w$ be the transition-phase slab (framework conventions). \emph{Topological charge on the slab} is defined in Sec.~\ref{sec:projected-em:charge}; it is an \emph{integer} $Q$ when (and only when) the defect core is \emph{closed within} $\Omega_{\mathrm{TP}}$. Open through-strands have $Q=0$ even if they exhibit local swirl/drag.
+Let $\Omega_{\mathrm{TP}}=\Pi\times(-\ell_{\mathrm{TP}}/2,\ell_{\mathrm{TP}}/2)_w$ be the transition-phase slab (framework conventions). \emph{Topological charge on the slab} is defined in Sec.~\ref{sec:projected-em:charge}; it is an \emph{integer} $Q$ when (and only when) the defect core is \emph{closed within} $\Omega_{\mathrm{TP}}$. Open through-strands have $Q=0$ even if they exhibit local Eddies/Drag.
 
 Echo strands carry instead a \emph{fractional monodromy} relative to a \emph{confinement sheet} $\Sigma_{\mathrm{conf}}\subset\Omega_{\mathrm{TP}}$ that spans the braid:
 \begin{equation}
@@ -703,7 +722,7 @@ Future work: map hadron $J^{PC}$ to specific $B_3$ braids (P-5), compute $\mathc
 }
 
 \paragraph{Energy accounting (formation threshold).}
-Baryon formation requires an energy influx to establish the steady swirl/drag and to nucleate confinement:
+Baryon formation requires an energy influx to establish steady Eddies/Drag and to nucleate confinement:
 \[
 E_{\rm in}+E_{\rm init}=M_{\rm baryon}+E_{\rm rad}+E_{\rm out},\qquad
 E_{\rm in}^{\rm min}\gtrsim \big[M_{\rm baryon}-E_{\rm init}\big]+E_{\rm barrier}.
@@ -754,7 +773,7 @@ Plugging $T \approx \hbar^2 \rho_{4D}^0/(2 m^2)$ and $\Sigma =\rho_{4D}^0\,\xi_c
    \]
    where $\hat{\mathbf{e}}_{yz}$ is the projection of $\hat{\mathbf{e}}_\perp$ onto the $(y,z)$ plane. This transverse mode propagates at $c$ regardless of bulk dynamics. The apparent paradox resolves: information travels at $c$ (what we observe), while the underlying field adjusts at $v_L$ (maintaining consistency).
 
-\item \textbf{Polarization from 4D Orientation}: All photons share a universal 4D orientation, oscillating primarily in the $(y,w)$ plane. For propagation along $x$: $\hat{\mathbf{e}}_\perp = \cos\phi \hat{y} + \sin\phi \hat{w}$ (minimal phase winding in two transverse directions). The projection to $(y,z)$ is $\hat{\mathbf{e}}_{yz} = \cos\phi \hat{y} + \sin\phi \hat{z}$ (assuming rotation symmetry maps $w$ to $z$ in projection).
+\item \textbf{Polarization from 4D Orientation}: All photons share a universal 4D orientation, oscillating primarily in the $(y,w)$ plane. For propagation along $x$: $\hat{\mathbf{e}}_\perp = \cos\varphi \hat{y} + \sin\varphi \hat{w}$ (minimal phase winding in two transverse directions). The projection to $(y,z)$ is $\hat{\mathbf{e}}_{yz} = \cos\varphi \hat{y} + \sin\varphi \hat{z}$ (assuming rotation symmetry maps $w$ to $z$ in projection).
    - Pure $y$-oscillation: vertical linear polarization
    - Rotation via phase: circular polarization
    The $w$-component is hidden, explaining why we see only 2 (not 3) transverse modes. This geometric constraint naturally yields exactly 2 polarization states and explains the absence of longitudinal photons.
@@ -780,7 +799,7 @@ The transverse wave packet model predicts:
 \item \textbf{Stability}: 4D width $\Delta w \approx \xi_c / \sqrt{2}$ prevents 3D dispersion
 \item \textbf{Polarization}: Exactly 2 states from $(y,w) \to (y,z)$ projection
 \item \textbf{Coupling}: Phase resonance enables absorption without mass change
-\item \textbf{Unification hint}: If weak force couples to $w$-component (helical twists as in Section 3.3 for neutrinos), explains hierarchy and parity violation; projection angle between $(y,z)$ and $w$ sets Weinberg angle ($\tan\theta_W \propto \xi_c/\Delta w$)
+\item \textbf{Unification hint}: If weak force couples to $w$-component (helical phases as in Section 3.3 for neutrinos), explains hierarchy and parity violation; projection angle between $(y,z)$ and $w$ sets Weinberg angle ($\tan\theta_W \propto \xi_c/\Delta w$)
 \end{itemize}
 
 
@@ -870,10 +889,10 @@ The GP energy functional is $E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\n
 
 \item \textbf{Connection to Field Equations} (P-3): Without assuming $G$, the projected continuity (Section 2.2, P-3) sources the scalar wave:
    \[
-   \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Phi}{\partial t^2} - \nabla^2 \Phi = 4\pi G \rho_{\text{body}},
+   \frac{1}{v_{\text{eff}}^2} \frac{\partial^2 \Phi_g}{\partial t^2} - \nabla^2 \Phi_g = 4\pi G \rho_{\text{body}},
    \]
-Here, $\Phi$ is the emergent gravitational potential; the GP order parameter remains $\Psi$. We keep the two fields distinct to avoid overload.
-   where $4\pi G$ emerges from projection and calibration, $\rho_0 = \rho_{4D}^0 \xi_c$, and $\xi_c^2$ normalizes the sink strength to an effective 3D density. Dimensions: LHS [L$^{-1}$ T$^{-2}$] (since $\Psi$ [L$^2$ T$^{-2}$]), RHS $4\pi G \rho_{\text{body}}$ [M$^{-1}$ L$^3$ T$^{-2}$] $\times$ [M L$^{-3}$] = [L$^{-1}$ T$^{-2}$]. Near masses, $v_{\text{eff}} \approx c \left(1 - \frac{G M}{2 c^2 r}\right)$ (from $\delta \rho_{4D} / \rho_{4D}^0 \approx - G M / (c^2 r)$). In the static limit ($\partial_t \Phi \approx 0$), this reduces to $\nabla^2 \Phi = 4\pi G \rho_{\text{body}}$, confirming the equivalence non-circularly. The curvature-refined factor ($\sim 2.75$) enhances consistency with the 4-fold projection enhancement (P-5), mirroring lepton mass calculations (Section 3.2).
+Here, $\Phi_g$ is the emergent gravitational potential; the GP order parameter remains $\Psi$. We keep the two fields distinct to avoid overload.
+   where $4\pi G$ emerges from projection and calibration, $\rho_0 = \rho_{4D}^0 \xi_c$, and $\xi_c^2$ normalizes the sink strength to an effective 3D density. Dimensions: LHS [L$^{-1}$ T$^{-2}$] (since $\Psi$ [L$^2$ T$^{-2}$]), RHS $4\pi G \rho_{\text{body}}$ [M$^{-1}$ L$^3$ T$^{-2}$] $\times$ [M L$^{-3}$] = [L$^{-1}$ T$^{-2}$]. Near masses, $v_{\text{eff}} \approx c \left(1 - \frac{G M}{2 c^2 r}\right)$ (from $\delta \rho_{4D} / \rho_{4D}^0 \approx - G M / (c^2 r)$). In the static limit ($\partial_t \Phi_g \approx 0$), this reduces to $\nabla^2 \Phi_g = 4\pi G \rho_{\text{body}}$, confirming the equivalence non-circularly. The curvature-refined factor ($\sim 2.75$) enhances consistency with the 4-fold projection enhancement (P-5), mirroring lepton mass calculations (Section 3.2).
 \end{enumerate}
 
 \makebox[\linewidth][c]{%
@@ -892,11 +911,11 @@ Here, $\Phi$ is the emergent gravitational potential; the GP order parameter rem
 
 Stable atoms, such as hydrogen formed by a proton and electron, emerge from the interplay of vortex structures in the 4D superfluid, where opposite circulations induce attraction without leading to destructive annihilation. In contrast to particle-antiparticle pairs (e.g., electron-positron), where reversed vorticity allows core merger and cancellation, the proton's braided topology (three fractional strands, Section 3.4) mismatches the electron's single-tube structure (Section 3.2), preventing unwinding and creating a geometric barrier. This stability derives from the Gross-Pitaevskii (GP) energy functional (P-1), with 4D projections (P-5) distributing tension across the extra dimension $w$ to maintain separation at Bohr-like radii. Tension, as the aether's resistance to stretching (rarefaction) via GP repulsion ($\frac{g}{2} |\psi|^4$) and dispersion ($\frac{\hbar^2}{2m} |\nabla_4 \psi|^2$), balances the system against overlap-induced stretch penalties. Physically, the electron ``orbits'' the proton like a small whirlpool drawn to a complex eddy, balanced by repulsive drag at close range, without penetrating the braided core due to topological incompatibility.
 
-The attraction arises from constructive phase interference between helical twists, inducing inflows via pressure gradients (P-2, P-4), while repulsion from solenoidal swirl (vector potential $\mathbf{A}$) and quantum pressure prevents collapse. For antiparticles, matched structures enable reconnection and deficit release as solitons (photons, Section 3.7). Below, we derive the effective potential and equilibrium separation step-by-step, ensuring dimensional consistency and verifying with SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
+The attraction arises from constructive phase interference between helical phases, inducing inflows via pressure gradients (P-2, P-4), while repulsion from solenoidal Eddies (vector potential $\mathbf{A}$) and quantum pressure prevents collapse. For antiparticles, matched structures enable reconnection and deficit release as solitons (photons, Section 3.7). Below, we derive the effective potential and equilibrium separation step-by-step, ensuring dimensional consistency and verifying with SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
 
 \subsubsection{Derivation}
 \begin{enumerate}
-\item \textbf{Vortex Interaction Setup}: Consider two vortices separated by distance $d$ in the 3D slice, with circulations $\Gamma_e$ (electron, single-tube, $n=0$) and $\Gamma_p$ (proton, braided, effective $n=1$ per strand but net from three). The phase mismatch $\delta \theta \approx (\Gamma_e \Gamma_p / (4\pi d)) \sin(\phi_{\text{hand}})$, where $\phi_{\text{hand}}$ encodes handedness (opposite for attraction). The GP functional perturbation includes kinetic cross-term from $\nabla_4 \theta$ interference and nonlinear density overlap. Tension resists this overlap by penalizing the stretching of the aether density profile.
+\item \textbf{Vortex Interaction Setup}: Consider two vortices separated by distance $d$ in the 3D slice, with circulations $\Gamma_e$ (electron, single-tube, $n=0$) and $\Gamma_p$ (proton, braided, effective $n=1$ per strand but net from three). The phase mismatch $\delta \theta \approx (\Gamma_e \Gamma_p / (4\pi d)) \sin(\varphi_{\text{hand}})$, where $\varphi_{\text{hand}}$ encodes handedness (opposite for attraction). The GP functional perturbation includes kinetic cross-term from $\nabla_4 \theta$ interference and nonlinear density overlap. Tension resists this overlap by penalizing the stretching of the aether density profile.
 
 \item \textbf{Effective Potential without Curvature}: The interaction energy approximates the superfluid vortex self-energy formula, extended for 4D sheets under tension:
    \[
