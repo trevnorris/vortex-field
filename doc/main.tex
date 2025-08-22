@@ -1,16 +1,25 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \DeclareMathOperator{\sech}{sech}
 \usepackage{amssymb}
+\usepackage{empheq}
 \usepackage{geometry}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{tabularx,ragged2e}
 \usepackage{rotating}
 \usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \usepackage{url}
 \usepackage{float}
 \newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 \geometry{margin=1in}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newenvironment{proof}{\paragraph{Proof:}}{\hfill$\square$}
+\newtheorem{corollary}{Corollary}[theorem]
 \newcommand{\scale}{\sqrt{2}\,\xi}
 \setlength{\fboxsep}{8pt}   % space between frame and content
 \setlength{\fboxrule}{1pt}  % thickness of frame line
@@ -25,5 +34,16 @@
 
 \input{introduction}
 
-\end{document}
+\input{mathematical_framework}
 
+\input{emergent_particle_masses}
+
+\input{weak_field}
+
+\input{projected_em}
+
+\input{appendix}
+
+\input{bibliography}
+
+\end{document}

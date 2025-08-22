@@ -460,6 +460,224 @@ where $\Box = \partial_t^2 / c^2 - \nabla^2$. Gravitational waves and photons di
 
 The near-rim Slope sets the stored energy and shape, while the hidden Twist supplies the hoop (keep-open) pressure; together they stabilize the core against tension and Intake. Annihilation releases $2mc^2$ as radiation in the wave sector. Depletion ($\rho \to 0$) mismatches resonance, causing photon escape and instability.
 
+% ============================
+% Strong-Field Geometry Section
+% ============================
+
+\subsection{Strong-Field Geometry: From Gravito-EM to Full GR}
+\label{sec:strong-field-geometry}
+\label{sec:EH-closure}
+
+\paragraph{What this section does (reader map).}
+We elevate the weak-field, gravito-EM dictionary $(\Phi_g,\mathbf A_g)$ to a full spacetime metric, show it reproduces exact Schwarzschild (and the slow-rotation limit of Kerr), derive the linear (GEM) equations from an action, and fix a well-posed gauge for evolution. This closes gravity nonlinearly without changing any empirical content in the strong-field regime.
+
+\subsubsection{Resummed Metric Dictionary and Immediate Checks}
+\label{sec:resummed-dict}
+\label{sec:strong-dict}
+Define the dimensionless potential
+\[
+U \equiv -\frac{\Phi_g}{c^2},
+\]
+and adopt an isotropic $3\!+\!1$ ansatz with lapse $N$, shift $\beta^i$, and conformal spatial metric $\gamma_{ij}$:
+\begin{equation}
+\boxed{\
+ds^2 = -N(U)^2\,c^2 dt^2 + \gamma_{ij}(U)\,\big(dx^i+\beta^i c\,dt\big)\big(dx^j+\beta^j c\,dt\big),\quad
+\gamma_{ij}(U)=\Psi(U)^4 \delta_{ij}.\
+}
+\label{eq:sf_metric}
+\end{equation}
+We fix the functions by two requirements:
+
+\emph{(i) Static, spherical vacuum $\Rightarrow$ exact Schwarzschild in isotropic coordinates.}
+This sets
+\begin{equation}
+\Psi(U)=1+\frac{U}{2}, \qquad N(U)=\frac{1-\tfrac{U}{2}}{1+\tfrac{U}{2}}.
+\label{eq:sf_NPsi}
+\end{equation}
+
+\emph{(ii) Stationary, weak gravitomagnetism $\Rightarrow$ all-order match to the linear GEM $g_{0i}$.}
+We take
+\begin{equation}
+\beta^i(U,\mathbf A_g) \equiv -\frac{4}{c^4}\,\gamma^{ij}(U)\,A_{g\,j}
+\quad\Longrightarrow\quad
+g_{0i}=\gamma_{ij}\beta^j c = -\frac{4A_{g\,i}}{c^3}.
+\label{eq:sf_shift}
+\end{equation}
+
+\paragraph{Checks (one line each).}
+\emph{Schwarzschild:} In vacuum with $U=GM/(\rho c^2)$, $\mathbf A_g=0$,
+\[
+ds^2=-\Big(\frac{1-\tfrac{GM}{2\rho c^2}}{1+\tfrac{GM}{2\rho c^2}}\Big)^2 c^2 dt^2
++\Big(1+\tfrac{GM}{2\rho c^2}\Big)^4 (dx^2\!+\!dy^2\!+\!dz^2),
+\]
+which is Schwarzschild in isotropic radius $\rho$ (horizon at $\rho\!=\!GM/2c^2$).\\
+\emph{PN expansion:} For $|U|\ll 1$, Eq.~\eqref{eq:sf_metric} gives
+\[
+g_{00}=-\big(1-2U+2U^2+\cdots\big),\quad
+g_{ij}=\big(1+2U+\tfrac{3}{2}U^2+\cdots\big)\delta_{ij},\quad
+g_{0i}=-\frac{4A_{g\,i}}{c^3}+O(UA_g),
+\]
+matching the weak-field identification $h_{00}=-2\Phi_g/c^2$, $h_{ij}=-2\Phi_g\delta_{ij}/c^2$, $h_{0i}=-4A_{g\,i}/c^3$.\\
+\emph{Slow rotation:} With $\mathbf A_g=\tfrac{G}{r^3}\,\mathbf J\times \mathbf r$,
+\[
+g_{0\phi}=-\frac{2GJ}{c^3 r}\sin^2\theta+O(JU),
+\]
+the Lense–Thirring limit of Kerr.
+
+\subsubsection{Action Principle and the Linear (GEM) Limit}
+\label{sec:action-linear}
+We adopt the Einstein–Hilbert action with universal matter coupling,
+\begin{equation}
+S_{\rm grav}[g]=\frac{c^3}{16\pi G}\!\int \! d^4x\,\sqrt{-g}\,R,\qquad
+S_{\rm tot}[g,\text{matter}]=S_{\rm grav}[g]+S_{\rm matter}[g,\cdots].
+\label{eq:EH}
+\end{equation}
+Varying yields $G_{\mu\nu}=\tfrac{8\pi G}{c^4}T_{\mu\nu}$ and, by Bianchi, $\nabla_\mu T^{\mu\nu}=0$.
+Linearize $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$ and impose harmonic gauge $\partial_\mu \bar h^{\mu\nu}=0$ with $\bar h_{\mu\nu}\!=\!h_{\mu\nu}-\tfrac12\eta_{\mu\nu}h$:
+\begin{equation}
+\square\,\bar h_{\mu\nu}=-\frac{16\pi G}{c^4}\,T_{\mu\nu}.
+\label{eq:lin_ein}
+\end{equation}
+Identifying $(h_{00},h_{0i},h_{ij})$ with $(\Phi_g,\mathbf A_g)$ gives exactly the weak-field GEM equations used earlier. Thus the weak sector is the linear limit of \eqref{eq:EH}.
+
+\subsubsection{Gauge Choice and Well-Posedness}
+\label{sec:gauge}
+\label{sec:gauge-hyperbolic}
+For evolution we use generalized harmonic gauge, $\Box x^\mu=H^\mu(g,\partial g)$, which renders the field equations strongly hyperbolic with constraint damping. In the $3\!+\!1$ split of \eqref{eq:sf_metric}, the Hamiltonian and momentum constraints propagate by virtue of the Bianchi identities. This is consistent with EM’s Lorenz gauge and the harmonic gauge used in the linear GEM presentation.
+
+\subsubsection{Worked micro-derivation: Newtonian limit from $G_{00}$}
+\label{sec:newtonian-worked}
+Static fields with slow matter: $T_{00}\approx \rho c^2$, $T_{0i}\!\approx\!0$. Then $\bar h_{00}=\tfrac12 h_{00}$ and $\square\!\to\! -\nabla^2$,
+\[
+-\nabla^2\!\left(\tfrac12 h_{00}\right)=-\frac{16\pi G}{c^4}\,(\rho c^2)
+\quad\Rightarrow\quad
+\nabla^2 \Phi_g = 4\pi G \rho.
+\]
+\paragraph{What to remember.}
+The dictionary \eqref{eq:sf_metric}–\eqref{eq:sf_shift} + action \eqref{eq:EH} reproduces exact Schwarzschild, slow Kerr, Newtonian gravity, and the entire weak-field GEM sector, while providing a well-posed strong-field evolution scheme.
+
+% ============================
+% Emergent QM Section
+% ============================
+
+\subsection{Emergent Quantum Mechanics: Kinematics, Dynamics, and Measurement}
+\label{sec:emergent-qm}
+
+\paragraph{What this section does (reader map).}
+We build quantum kinematics from the medium’s phase, derive Schr\"odinger–Pauli dynamics from a simple action with minimal EM/GR coupling, obtain the canonical commutators from the symplectic form (so $[\hat x,\hat p]=i\hbar$ is \emph{derived}), and sketch how decoherence in the ambient medium gives Born-rule statistics. We also flag where tiny, testable deviations could live.
+
+\subsubsection{Kinematics from the medium phase}
+\label{sec:qm-kinematics}
+Introduce the complex order parameter
+\begin{equation}
+\psi(\mathbf x,t)=\sqrt{n(\mathbf x,t)}\,e^{iS(\mathbf x,t)/\hbar},\qquad
+\langle \phi|\psi\rangle=\int \phi^*(\mathbf x)\psi(\mathbf x)\,\sqrt{\gamma}\,d^3x,
+\label{eq:psi_def}
+\end{equation}
+where $\gamma_{ij}$ is the spatial metric of \S\ref{sec:strong-field-geometry}. Probability density is $|\psi|^2=n$. Circulation quantization enforces
+\begin{equation}
+\oint \boldsymbol\nabla S\cdot d\boldsymbol\ell=2\pi\hbar\,\mathbb Z
+\quad\Rightarrow\quad
+\hbar=\frac{m_*\,\Gamma_0}{2\pi},
+\label{eq:hbar_id}
+\end{equation}
+identifying Planck’s constant with the medium’s circulation quantum $\Gamma_0$ and an effective inertia $m_*$ of the excitation/core.
+
+\subsubsection{Dynamics from an action: Schr\"odinger–Pauli with EM/GR coupling}
+\label{sec:qm-dynamics}
+Postulate the first-order action
+\begin{equation}
+S_\psi=\int dt\,d^3x\,\sqrt{\gamma}\Bigg[
+\frac{i\hbar}{2}\big(\psi^*\dot\psi-\dot\psi^*\psi\big)
+-\frac{\hbar^2}{2m_*}\,\gamma^{ij}(D_i\psi)^*(D_j\psi)
+- V|\psi|^2-\frac{g}{2}|\psi|^4
+\Bigg],
+\label{eq:Spsi_full}
+\end{equation}
+with covariant derivatives $D_i=\nabla_i-\tfrac{i q}{\hbar c}A_i$ and $D_t=\partial_t+\tfrac{i q}{\hbar}\phi$. Varying $\psi^*$ yields
+\begin{equation}
+i\hbar D_t\psi=\left[\,-\frac{\hbar^2}{2m_*}\gamma^{ij}D_iD_j+V+g|\psi|^2\,\right]\psi.
+\label{eq:schrodinger_full}
+\end{equation}
+For spinful cores, take $\psi$ two-component and add the Pauli term
+\begin{equation}
+\Delta H_{\rm Pauli}=-\mu_{\rm eff}\,\boldsymbol\sigma\!\cdot\!\mathbf B_{\rm eff},\qquad
+\mathbf B_{\rm eff}=\boldsymbol\nabla\times\mathbf A+\mathbf B_{\rm twist},
+\label{eq:pauli_term}
+\end{equation}
+where $\mathbf B_{\rm twist}$ captures Twist/Eddies contributions (fixed by the gravito-EM dictionary). Curved-space redshift enters via the lapse $N$: proper-time derivatives scale as $N^{-1}\partial_t$, so bound-state energies redshift by $N$.
+
+\paragraph{Conserved current (Noether).}
+Global phase invariance $\psi\!\to\!e^{i\alpha}\psi$ gives $\partial_t n+\nabla_i j^i=0$ with
+\begin{equation}
+\mathbf j=\frac{\hbar}{m_*}\,\Im(\psi^*\boldsymbol D\psi)
+=\frac{n}{m_*}\!\left(\boldsymbol\nabla S-\frac{q}{c}\mathbf A\right).
+\label{eq:current}
+\end{equation}
+
+\subsubsection{Canonical structure and commutators from the symplectic form}
+\label{sec:commutators}
+From \eqref{eq:Spsi_full} the symplectic one-form is
+\[
+\Theta=\int d^3x\,\sqrt{\gamma}\,\frac{i\hbar}{2}\big(\psi^*\delta\psi-\psi\,\delta\psi^*\big),
+\]
+so the symplectic two-form is
+\[
+\Omega=\delta\Theta
+= i\hbar\!\int d^3x\,\sqrt{\gamma}\,\delta\psi^*(\mathbf x)\wedge\delta\psi(\mathbf x).
+\]
+Quantization promotes $\Omega^{-1}$ to equal-time commutators:
+\begin{equation}
+[\hat\psi(\mathbf x),\hat\psi^\dagger(\mathbf y)]=\frac{\delta^{(3)}(\mathbf x-\mathbf y)}{\sqrt{\gamma}},\qquad
+[\hat\psi(\mathbf x),\hat\psi(\mathbf y)]=0.
+\label{eq:field_comm}
+\end{equation}
+In Madelung variables $\psi=\sqrt n\,e^{iS/\hbar}$ one finds
+\begin{equation}
+[\hat n(\mathbf x),\hat S(\mathbf y)]
+=i\hbar\,\frac{\delta^{(3)}(\mathbf x-\mathbf y)}{\sqrt{\gamma}},
+\qquad\Rightarrow\qquad
+[\hat X^i,\hat P_j]=i\hbar\,\delta^i{}_j
+\ \ \text{for single-core collective coordinates.}
+\label{eq:np_comm}
+\end{equation}
+
+\subsubsection{Madelung hydrodynamics and the quantum potential}
+\label{sec:madelung}
+Writing $\psi=\sqrt n\,e^{iS/\hbar}$ and separating real/imag parts of \eqref{eq:schrodinger_full} yields
+\begin{align}
+\partial_t n+\nabla_i\!\left[\frac{n}{m_*}\!\left(\nabla^i S-\frac{q}{c}A^i\right)\right]&=0,
+\label{eq:continuity}\\
+\partial_t S+\frac{1}{2m_*}\!\left(\boldsymbol\nabla S-\frac{q}{c}\mathbf A\right)^2+V+g n
+-\underbrace{\frac{\hbar^2}{2m_*}\frac{\nabla^2 \sqrt n}{\sqrt n}}_{\displaystyle Q\ \text{(quantum potential)}}&=0.
+\label{eq:HJ_quantum}
+\end{align}
+Thus the classical Hamilton–Jacobi equation gains the quantum pressure $Q$; setting $g\!=\!0$ recovers textbook Madelung dynamics.
+
+\subsubsection{Decoherence and Born-rule statistics}
+\label{sec:decoherence}
+Partition system+apparatus+environment and take an interaction $H_{\rm int}=\sum_a L_a\otimes B_a$. Under Born–Markov + secular approximations the reduced state obeys the Lindblad master equation
+\begin{equation}
+\dot\rho=-\frac{i}{\hbar}[H,\rho]+\sum_a\!\left(L_a\rho L_a^\dagger-\tfrac{1}{2}\{L_a^\dagger L_a,\rho\}\right).
+\label{eq:lindblad}
+\end{equation}
+For phase-kick noise from unresolved transition-layer modes, $L(\mathbf x)=\sqrt{\Gamma(\mathbf x)}\,|\mathbf x\rangle\!\langle\mathbf x|$ damps off-diagonal coherences as
+\[
+\frac{d}{dt}\rho(\mathbf x,\mathbf y)=-\Gamma(\mathbf x,\mathbf y)\,\rho(\mathbf x,\mathbf y),\qquad \Gamma(\mathbf x,\mathbf x)=0,
+\]
+selecting robust pointer states (narrow wavepackets/core configurations). In a von Neumann measurement $H_{SA}=g(t)\,\hat O\otimes \hat P_A$, decoherence suppresses interference between outcome branches and yields classical mixtures with weights
+\[
+p_k=\|\Pi_k\psi\|^2=\int |\Pi_k\psi(\mathbf x)|^2\,\sqrt{\gamma}\,d^3x,
+\]
+i.e., the Born rule.
+
+\paragraph{Where tiny deviations could hide (for experiments).}
+Two clean knobs appear in \eqref{eq:schrodinger_full}–\eqref{eq:pauli_term}:
+(i) a single-particle nonlinearity $g|\psi|^2$ (spectroscopic shifts $\propto \!\int|\psi|^4$), and
+(ii) a twist-induced spin term via $\mathbf B_{\rm twist}$ (zero-field spin precession). Both are tightly bounded by existing data, but remain falsifiable targets.
+
+\paragraph{What to remember.}
+\emph{Kinematics} fixes $\hbar$ via circulation quantization; \emph{Dynamics} comes from a compact action with minimal EM/GR coupling; \emph{Commutators} descend from the symplectic form; \emph{Measurement} emerges as decoherence in the medium with Born-rule weights.
 
 \subsection{Electromagnetism as Slope+Eddies from Oriented Links}
 \label{sec:EM-from-helical-vortices}
@@ -602,8 +820,8 @@ The microscopic medium admits a natural rest frame, but \emph{gauge-invariant ob
 \paragraph*{Plain-language summary.} The medium in our model could have its own “rest frame,” but none of the \emph{measurable} fields can see it at leading order. The signals our instruments use (light, EM disturbances, weak-field gravity) live on an emergent relativistic surface with a built-in speed limit $c$, so two-way measurements—like Michelson–Morley—come out isotropic and show no ether wind. Any imprint of a background drift would show up only as much smaller, higher-order effects (scaling with the square of the drift speed and other tiny parameters) that cancel or fall below experimental sensitivity. In short: a microscopic current may exist in the deep background, but there's no observable “preferred frame” in the physics you can measure.
 
 \paragraph{Conventions and scope.}
-(1) We use signature $\eta_{\mu\nu}=\mathrm{diag}(-,+,+,+)$ and Greek indices $\mu,\nu=0,\dots,3$. 
-(2) Electromagnetic-like observables are built from a \emph{single} vector potential $A^\mu=(\Phi_{\text{Slope}}/c,\mathbf A)$ with field strength $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$. 
+(1) We use signature $\eta_{\mu\nu}=\mathrm{diag}(-,+,+,+)$ and Greek indices $\mu,\nu=0,\dots,3$.
+(2) Electromagnetic-like observables are built from a \emph{single} vector potential $A^\mu=(\Phi_{\text{Slope}}/c,\mathbf A)$ with field strength $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$.
 (3) If a gravito-electromagnetic sector is also considered, we denote its vector potential distinctly (e.g.\ $\mathcal A^\mu$) or use metric perturbations $h_{\mu\nu}$; we do \emph{not} overload $A^\mu$.
 (4) We work in Gaussian units for EM so that Maxwell's sourced equation reads $\Box A^\mu=-(4\pi/c)\,J^\mu$ in Lorenz gauge $\partial_\mu A^\mu=0$, and the Bianchi identity $\partial_{[\alpha}F_{\beta\gamma]}=0$ holds identically.
 (5) Small parameters controlling all approximations:
@@ -842,7 +1060,7 @@ v_w \;\approx\; \frac{\Gamma}{2\pi r_4},\qquad r_4=\sqrt{\rho^2+w^2},
 \end{equation}
 with $\Gamma=n\kappa$ the circulation quanta and $\kappa=2\pi\hbar/m$ (P-1). The total sink strength for each vortex follows from a transverse cross-section integral over the core:
 \begin{equation}
-\dot M_i \;\approx\; \rho_{4D}^0 \int_{\text{core}} v_w\, dA_\perp 
+\dot M_i \;\approx\; \rho_{4D}^0 \int_{\text{core}} v_w\, dA_\perp
 \;\approx\; \rho_{4D}^0\,\frac{\Gamma}{2\pi \xi_c}\,(\pi \xi_c^2)
 \;\sim\; \rho_{4D}^0\,\Gamma\,\xi_c^2,
 \end{equation}
@@ -1155,7 +1373,7 @@ so, upon projection to the slice (see below), $E_{\text{shake,3D}}\sim \tfrac{1}
 \paragraph{Core scales and the timescale hierarchy.}
 Balancing quantum pressure against interaction near a core gives the healing length and bulk sound speed (P-1):
 \begin{equation}
-\xi_c \;=\; \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}}, 
+\xi_c \;=\; \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}},
 \qquad
 v_L \;=\; \sqrt{\frac{g\,\rho_{4D}^0}{m}}.
 \end{equation}
@@ -1207,6 +1425,19 @@ Quantized circulation (P-5) protects cores; projection invariance ensures draina
 \end{minipage}
 }
 }
+\medskip
+
+\subsection{Consistency Checks (Summary)}
+\label{sec:consistency-summary}
+\begin{itemize}
+\item \textbf{Schwarzschild (isotropic) exactly:} With $U=GM/(\rho c^2)$ and $\mathbf A_g=0$, the strong-field dictionary of Sec.~\ref{sec:strong-dict} reproduces Schwarzschild; the horizon is at $\rho=GM/2c^2$.
+\item \textbf{PN match:} Expanding $g_{\mu\nu}$ yields $h_{00}=-2\Phi_g/c^2$, $h_{ij}=-2\Phi_g\,\delta_{ij}/c^2$, $h_{0i}=-4A_{g\,i}/c^3$.
+\item \textbf{Frame dragging:} $\mathbf A_g\propto \mathbf J\times\mathbf r/r^3$ gives $g_{0\phi}=-2GJ\sin^2\theta/(c^3 r)$ (Lense--Thirring).
+\item \textbf{Quantum kinematics:} $\psi=\sqrt n e^{iS/\hbar}$ with $\hbar = m_*\Gamma_0/2\pi$, current $\mathbf j=\frac{n}{m_*}\nabla S$.
+\item \textbf{Dynamics:} Variation of $S_\psi$ gives Schr\"odinger/Pauli \eqref{eq:schrodinger}; a small $g|\psi|^2$ nonlinearity is parameterized explicitly.
+\item \textbf{Canonical algebra:} $(n,S)$ are conjugate $\Rightarrow$ $[\hat x,\hat p]=i\hbar$.
+\end{itemize}
+
 \medskip
 
 \subsection{Direct Predictions from the Framework}

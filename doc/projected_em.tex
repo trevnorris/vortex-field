@@ -130,6 +130,25 @@ We take $c$ to be the measured wave speed (light in vacuum), which fixes the pro
 \paragraph{Everyday picture.} 
 \textbf{Ripples on a stretched sheet.} The sheet tension sets the wave speed; here the combination $\mu_0\varepsilon_0$ sets $c$. Once you know $c$ and the static push between charges (Coulomb), all constants are pinned.
 
+\subsection{Minimal Coupling, EM Stress--Energy, and Light Propagation}
+\label{sec:EM-coupling}
+% SI units in this section; we use \mu_0,\,\varepsilon_0 with c^2 = 1/(\mu_0\varepsilon_0).
+All non-gravitational fields couple universally to $g_{\mu\nu}$ via $\eta\to g$.
+For electromagnetism,
+\begin{equation}
+S_{\rm EM}[g,A]=-\frac{1}{4\mu_0}\int d^4x\,\sqrt{-g}\,F_{\mu\nu}F^{\mu\nu},\qquad
+\nabla_\mu F^{\mu\nu}=\mu_0 J^\nu,\qquad \nabla_{[\alpha}F_{\beta\gamma]}=0.
+\label{eq:EM-covariant}
+\end{equation}
+The stress--energy is
+\begin{equation}
+T^{\mu\nu}_{\rm EM}=\frac{1}{\mu_0}\Big(F^{\mu\alpha}F^\nu{}_\alpha-\frac{1}{4}g^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\Big),
+\label{eq:EM-Tmunu}
+\end{equation}
+and contributes to the total source in Einstein’s equation.
+Light rays follow null geodesics of $g_{\mu\nu}$: $k^\mu k_\mu=0$ and $k^\nu\nabla_\nu k^\mu=0$.
+With the strong-field dictionary of Sec.~\ref{sec:strong-dict}, a static spherical vacuum ($\mathbf A_g=0$) yields Schwarzschild in isotropic coordinates and reproduces standard light deflection and Shapiro delay.
+
 \subsection{Energy flow (Poynting theorem), told like a story}
 Dot $\mathbf E$ into Amp\`ere–Maxwell, dot $\mathbf B$ into Faraday, subtract, and rearrange:
 \[

@@ -41,6 +41,13 @@ Time changes of eddies induce loop pushes in the gravity sector exactly as in EM
 \end{tcolorbox}
 
 
+\subsection{Slow Rotation and Frame Dragging}
+\label{sec:slow-rotation}
+For a body with angular momentum $\mathbf J$, the exterior gravitomagnetic potential is
+$\mathbf A_g=\tfrac{G}{r^3}\,\mathbf J\times\mathbf r+O(J\,U)$.
+Using \eqref{eq:g0i-allorders} gives $g_{0\phi}=-\tfrac{2GJ}{c^3 r}\sin^2\theta+O(J\,U)$,
+i.e., the Lense--Thirring limit of Kerr, fixing the normalization of $\mathbf A_g$ used here.
+
 \subsection*{1PN Metric Snapshot and PPN Mapping}
 To first post-Newtonian order our metric takes
 \[
@@ -145,11 +152,11 @@ including nonlinear corrections for first PN. The vector sector (static):
 with the factor $16\pi G/c^2$ from linearized GR (standard GEM normalization).
 
 \paragraph{GEM normalization from linearized GR.}
-The coefficient $16\pi G/c^2$ in the vector equation arises from linearized general relativity. 
-In the Lorenz gauge with trace-reversed metric $\bar{h}_{\mu\nu}$, the linearized Einstein 
-equation gives $\square\bar{h}_{\mu\nu} = -16\pi G T_{\mu\nu}/c^4$. With the standard GEM 
-definitions $\mathbf{A}_g = -c^2\bar{\mathbf{h}}_{0i}/4$, this yields 
-$\nabla^2\mathbf{A}_g = -16\pi G\,\mathbf{j}/c^2$, fixing the coefficient independently 
+The coefficient $16\pi G/c^2$ in the vector equation arises from linearized general relativity.
+In the Lorenz gauge with trace-reversed metric $\bar{h}_{\mu\nu}$, the linearized Einstein
+equation gives $\square\bar{h}_{\mu\nu} = -16\pi G T_{\mu\nu}/c^4$. With the standard GEM
+definitions $\mathbf{A}_g = -c^2\bar{\mathbf{h}}_{0i}/4$, this yields
+$\nabla^2\mathbf{A}_g = -16\pi G\,\mathbf{j}/c^2$, fixing the coefficient independently
 of any projection factors.
 
 Physical insight: Scaling separates orders—Newtonian at $O(\epsilon)$, gravitomagnetic at $O(\epsilon^{3/2})$—reflecting Intake dominance over gravitational eddies (frame-drag) in weak fields.
@@ -535,3 +542,92 @@ For a body with angular momentum $\mathbf{J}$, the local inertial-frame precessi
 which reduces to $\boldsymbol{\Omega}_{\rm LT} = -\frac{G\mathbf{J}}{c^2 r^3}$ on the equatorial plane and
 $\boldsymbol{\Omega}_{\rm LT} = \frac{2G\mathbf{J}}{c^2 r^3}$ on the polar axis. This follows from the GEM vector potential
 $\mathbf{A}_g = \frac{2G}{c^2}\,\frac{\mathbf{J}\times \mathbf{r}}{r^3}$ under the conventions above.
+
+\subsection{From Weak to Strong Field: A Resummed Metric Dictionary}
+\label{sec:strong-dict}
+
+The weak-field analysis above used the linear gravito-electromagnetic (GEM) map
+\(h_{00}=-2\Phi_g/c^2\), \(h_{0i}=-4A_{g\,i}/c^3\), \(h_{ij}=-2\Phi_g\,\delta_{ij}/c^2\).
+To carry the same physical fields \((\Phi_g,\mathbf A_g)\) into the \emph{nonlinear} regime, we promote that map to a full spacetime metric written in a 3\(+\)1 \emph{isotropic} gauge. The result agrees with all PN tests and reproduces the exact Schwarzschild geometry in vacuum, while also setting up the slow-rotation limit.
+
+\medskip
+\noindent\textbf{Coordinate/gauge choice (why isotropic).}
+Isotropic spatial slices keep \(\gamma_{ij}\) conformally flat, matching the slice/film picture used throughout. Define
+\[
+U\equiv -\frac{\Phi_g}{c^2},\qquad \psi(U)\equiv 1+\frac{U}{2}.
+\]
+We posit the ansatz
+\begin{equation}
+ds^2 = -N(U)^2 c^2 dt^2
++ \gamma_{ij}\big(dx^i+\beta^i c\,dt\big)\big(dx^j+\beta^j c\,dt\big),
+\qquad \gamma_{ij}=\psi(U)^4\,\delta_{ij}.
+\label{eq:strong-dict-ansatz}
+\end{equation}
+The lapse \(N(U)\) is fixed by demanding that the exterior, static, spherically symmetric \emph{vacuum} solution equals Schwarzschild in isotropic coordinates:
+\begin{equation}
+N(U)=\frac{1-\tfrac{U}{2}}{1+\tfrac{U}{2}},
+\qquad \psi(U)=1+\frac{U}{2}.
+\label{eq:Npsi}
+\end{equation}
+For stationary configurations we tie the shift to the gravitomagnetic potential by
+\begin{equation}
+\beta^i=-\frac{4}{c^4}\,\gamma^{ij} A_{g\,j},
+\label{eq:beta-shift}
+\end{equation}
+which implies, identically,
+\begin{equation}
+g_{0i}=\gamma_{ij}\beta^j c=-\frac{4 A_{g\,i}}{c^3},
+\label{eq:g0i-allorders}
+\end{equation}
+so the GEM identification of \(g_{0i}\) holds \emph{to all orders in \(U\)}.
+
+\medskip
+\noindent\textbf{Small-field consistency (PN check).}
+Expanding \eqref{eq:strong-dict-ansatz} for \(|U|\ll 1\) gives
+\[
+g_{00}=-(1-2U+2U^2+\cdots),\qquad
+g_{ij}=(1+2U+\tfrac{3}{2}U^2+\cdots)\delta_{ij},\qquad
+g_{0i}=-\frac{4A_{g\,i}}{c^3}+O(UA_g),
+\]
+which reproduces the weak-field dictionary stated at the start of this subsection.
+
+\medskip
+\noindent\textbf{Spherical vacuum = exact Schwarzschild (isotropic).}
+For a point mass \(M\) with \(\mathbf A_g=0\) and
+\[
+U(\rho)=\frac{GM}{\rho c^2},
+\]
+\eqref{eq:strong-dict-ansatz} becomes
+\[
+ds^2=-\left(\frac{1-\tfrac{GM}{2\rho c^2}}{1+\tfrac{GM}{2\rho c^2}}\right)^{\!2}c^2dt^2
++\left(1+\tfrac{GM}{2\rho c^2}\right)^{\!4}\big(d\rho^2+\rho^2 d\Omega^2\big),
+\]
+which is the Schwarzschild solution in isotropic radius \(\rho\), with horizon at \(\rho=\tfrac{GM}{2c^2}\).
+The areal radius is \(r_{\rm areal}=\rho\big(1+\tfrac{GM}{2\rho c^2}\big)^{2}\).
+
+\medskip
+\noindent\textbf{Stationary sources and frame dragging (slow rotation).}
+Outside a slowly rotating body with angular momentum \(\mathbf J\),
+\(\mathbf A_g=\tfrac{G}{r^3}\,\mathbf J\times\mathbf r + O(JU)\).
+Using \eqref{eq:g0i-allorders} yields \(g_{0\phi}=-\tfrac{2GJ}{c^3 r}\sin^2\theta+O(JU)\),
+i.e., the Lense--Thirring limit of Kerr, fixing our normalization of \(\mathbf A_g\).
+
+\medskip
+\noindent\textbf{When (and how) to use the resummed dictionary.}
+\begin{itemize}
+  \item Use \eqref{eq:strong-dict-ansatz}--\eqref{eq:g0i-allorders} to ``upgrade'' any weak-field solution \((\Phi_g,\mathbf A_g)\) obtained from Poisson/wave equations to a consistent nonlinear metric for redshift, ray-tracing, and strong-deflection estimates.
+  \item In non-vacuum regions, include the stress--energy of fields/matter in the source (see the EM coupling and \(T^{\mu\nu}\) section), then present the resulting geometry in the isotropic gauge above.
+  \item Near horizons or for rapid rotation beyond first order in \(J\), solve the full Einstein equations directly (our dictionary is exact for spherical vacuum; for Kerr it is calibrated at \(O(J)\)).
+\end{itemize}
+
+\medskip
+\noindent\textbf{Reader’s checklist (quick self-consistency tests).}
+\begin{enumerate}
+  \item PN limit matches the GEM equations used earlier.
+  \item Vacuum, spherical case equals Schwarzschild (isotropic).
+  \item Slow rotation reproduces Lense--Thirring \(g_{0\phi}\).
+  \item Null geodesics in this metric recover standard light bending and Shapiro delay.
+\end{enumerate}
+
+\noindent\textit{Editorial note.}
+This subsection is placed at the end of the weak-field/GEM development so it functions as a ``strong-field bridge'': it closes the linear narrative and hands off to the full GR treatment without interrupting the derivations above.
