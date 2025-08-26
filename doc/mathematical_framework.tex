@@ -337,14 +337,11 @@ where $\rho_{4D}$ is the 4D density $[M L^{-4}]$, $\mathbf{v}_4$ the 4-velocity,
 The Euler equation is:
 
 \begin{equation}
-\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -\frac{1}{\rho_{4D}} \nabla_4 P - \nabla_4 Q,
+\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4)\,\mathbf{v}_4
+= -\,\frac{1}{\rho_{4D}}\,\nabla_4 P \;-\; \nabla_4 Q_{\rm reg}(\rho_{4D})\,,
 \end{equation}
 
-with barotropic EOS $P = (g/2) \rho_{4D}^2 / m$. Here, $m$ is the effective boson mass in the GP description, ensuring $[P] = [M L^{-2} T^{-2}]$ with $[g] = [L^6 T^{-2}]$ and $[\rho_{4D}] = [M L^{-4}]$ (yielding local effective speed $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$; bulk $v_L = \sqrt{g \rho_{4D}^0 / m}$ potentially $\gg c$; observable modes at $c$ from P-3). The quantum pressure is taken in Madelung form
-\[
-Q(\rho_{4D})=-\frac{\hbar^2}{2m^2}\,\frac{\nabla_4^2\sqrt{\rho_{4D}}}{\sqrt{\rho_{4D}}},
-\]
-retained only where core-scale regularization matters (scales $\sim\xi_c$).
+with barotropic EOS $P=\tfrac{g}{2}\,\rho_{4D}^2/m$. Here, $m$ is the effective boson mass in the GP description, ensuring $[P]=[M L^{-2}T^{-2}]$ with $[g]=[L^6T^{-2}]$ and $[\rho_{4D}]=[M L^{-4}]$ (yielding local effective speed $v_{\text{eff}}=\sqrt{g\,\rho_{4D}^{\text{local}}/m}$; bulk $v_L=\sqrt{g\,\rho_{4D}^0/m}$ potentially $\gg c$; observable modes at $c$ from P-3). The term $Q_{\rm reg}$ denotes a short-wavelength \emph{dispersive} (Bogoliubov/GP-type) pressure used only for core-scale regularization at lengths $\sim\xi_c$; its slice-level (Madelung) form and interpretation are developed in Sec.~\ref{sec:QM_projection}.
 
 Helical twists from P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$ for the hidden \emph{Twist}, sourcing EM currents preliminarily; normal to vortex $\mathbf{n}$, scaled by $c$ for observable shear; enables Drag). The vorticity $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ arises from P-5 phase windings $\theta = n\phi + \tau w$, where $\tau$ sources EM currents (detailed in 2.3).
 
@@ -460,357 +457,6 @@ where $\Box = \partial_t^2 / c^2 - \nabla^2$. Gravitational waves and photons di
 
 The near-rim Slope sets the stored energy and shape, while the hidden Twist supplies the hoop (keep-open) pressure; together they stabilize the core against tension and Intake. Annihilation releases $2mc^2$ as radiation in the wave sector. Depletion ($\rho \to 0$) mismatches resonance, causing photon escape and instability.
 
-% ============================
-% Strong-Field Geometry Section
-% ============================
-
-\subsection{Strong-Field Geometry: From Gravito-EM to Full GR}
-\label{sec:strong-field-geometry}
-\label{sec:EH-closure}
-
-\paragraph{What this section does (reader map).}
-We elevate the weak-field, gravito-EM dictionary $(\Phi_g,\mathbf A_g)$ to a full spacetime metric, show it reproduces exact Schwarzschild (and the slow-rotation limit of Kerr), derive the linear (GEM) equations from an action, and fix a well-posed gauge for evolution. This closes gravity nonlinearly without changing any empirical content in the strong-field regime.
-
-\subsubsection{Resummed Metric Dictionary and Immediate Checks}
-\label{sec:resummed-dict}
-\label{sec:strong-dict}
-Define the dimensionless potential
-\[
-U \equiv -\frac{\Phi_g}{c^2},
-\]
-and adopt an isotropic $3\!+\!1$ ansatz with lapse $N$, shift $\beta^i$, and conformal spatial metric $\gamma_{ij}$:
-\begin{equation}
-\boxed{\
-ds^2 = -N(U)^2\,c^2 dt^2 + \gamma_{ij}(U)\,\big(dx^i+\beta^i c\,dt\big)\big(dx^j+\beta^j c\,dt\big),\quad
-\gamma_{ij}(U)=\Psi(U)^4 \delta_{ij}.\
-}
-\label{eq:sf_metric}
-\end{equation}
-We fix the functions by two requirements:
-
-\emph{(i) Static, spherical vacuum $\Rightarrow$ exact Schwarzschild in isotropic coordinates.}
-This sets
-\begin{equation}
-\Psi(U)=1+\frac{U}{2}, \qquad N(U)=\frac{1-\tfrac{U}{2}}{1+\tfrac{U}{2}}.
-\label{eq:sf_NPsi}
-\end{equation}
-
-\emph{(ii) Stationary, weak gravitomagnetism $\Rightarrow$ all-order match to the linear GEM $g_{0i}$.}
-We take
-\begin{equation}
-\beta^i(U,\mathbf A_g) \equiv -\frac{4}{c^4}\,\gamma^{ij}(U)\,A_{g\,j}
-\quad\Longrightarrow\quad
-g_{0i}=\gamma_{ij}\beta^j c = -\frac{4A_{g\,i}}{c^3}.
-\label{eq:sf_shift}
-\end{equation}
-
-\paragraph{Checks (one line each).}
-\emph{Schwarzschild:} In vacuum with $U=GM/(\rho c^2)$, $\mathbf A_g=0$,
-\[
-ds^2=-\Big(\frac{1-\tfrac{GM}{2\rho c^2}}{1+\tfrac{GM}{2\rho c^2}}\Big)^2 c^2 dt^2
-+\Big(1+\tfrac{GM}{2\rho c^2}\Big)^4 (dx^2\!+\!dy^2\!+\!dz^2),
-\]
-which is Schwarzschild in isotropic radius $\rho$ (horizon at $\rho\!=\!GM/2c^2$).\\
-\emph{PN expansion:} For $|U|\ll 1$, Eq.~\eqref{eq:sf_metric} gives
-\[
-g_{00}=-\big(1-2U+2U^2+\cdots\big),\quad
-g_{ij}=\big(1+2U+\tfrac{3}{2}U^2+\cdots\big)\delta_{ij},\quad
-g_{0i}=-\frac{4A_{g\,i}}{c^3}+O(UA_g),
-\]
-matching the weak-field identification $h_{00}=-2\Phi_g/c^2$, $h_{ij}=-2\Phi_g\delta_{ij}/c^2$, $h_{0i}=-4A_{g\,i}/c^3$.\\
-\emph{Slow rotation:} With $\mathbf A_g=\tfrac{G}{r^3}\,\mathbf J\times \mathbf r$,
-\[
-g_{0\phi}=-\frac{2GJ}{c^3 r}\sin^2\theta+O(JU),
-\]
-the Lense–Thirring limit of Kerr.
-
-\subsubsection{Action Principle and the Linear (GEM) Limit}
-\label{sec:action-linear}
-We adopt the Einstein–Hilbert action with universal matter coupling,
-\begin{equation}
-S_{\rm grav}[g]=\frac{c^3}{16\pi G}\!\int \! d^4x\,\sqrt{-g}\,R,\qquad
-S_{\rm tot}[g,\text{matter}]=S_{\rm grav}[g]+S_{\rm matter}[g,\cdots].
-\label{eq:EH}
-\end{equation}
-Varying yields $G_{\mu\nu}=\tfrac{8\pi G}{c^4}T_{\mu\nu}$ and, by Bianchi, $\nabla_\mu T^{\mu\nu}=0$.
-Linearize $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$ and impose harmonic gauge $\partial_\mu \bar h^{\mu\nu}=0$ with $\bar h_{\mu\nu}\!=\!h_{\mu\nu}-\tfrac12\eta_{\mu\nu}h$:
-\begin{equation}
-\square\,\bar h_{\mu\nu}=-\frac{16\pi G}{c^4}\,T_{\mu\nu}.
-\label{eq:lin_ein}
-\end{equation}
-Identifying $(h_{00},h_{0i},h_{ij})$ with $(\Phi_g,\mathbf A_g)$ gives exactly the weak-field GEM equations used earlier. Thus the weak sector is the linear limit of \eqref{eq:EH}.
-
-\subsubsection{Gauge Choice and Well-Posedness}
-\label{sec:gauge}
-\label{sec:gauge-hyperbolic}
-For evolution we use generalized harmonic gauge, $\Box x^\mu=H^\mu(g,\partial g)$, which renders the field equations strongly hyperbolic with constraint damping. In the $3\!+\!1$ split of \eqref{eq:sf_metric}, the Hamiltonian and momentum constraints propagate by virtue of the Bianchi identities. This is consistent with EM’s Lorenz gauge and the harmonic gauge used in the linear GEM presentation.
-
-\subsubsection{Worked micro-derivation: Newtonian limit from $G_{00}$}
-\label{sec:newtonian-worked}
-Static fields with slow matter: $T_{00}\approx \rho c^2$, $T_{0i}\!\approx\!0$. Then $\bar h_{00}=\tfrac12 h_{00}$ and $\square\!\to\! -\nabla^2$,
-\[
--\nabla^2\!\left(\tfrac12 h_{00}\right)=-\frac{16\pi G}{c^4}\,(\rho c^2)
-\quad\Rightarrow\quad
-\nabla^2 \Phi_g = 4\pi G \rho.
-\]
-\paragraph{What to remember.}
-The dictionary \eqref{eq:sf_metric}–\eqref{eq:sf_shift} + action \eqref{eq:EH} reproduces exact Schwarzschild, slow Kerr, Newtonian gravity, and the entire weak-field GEM sector, while providing a well-posed strong-field evolution scheme.
-
-% ============================
-% Emergent QM Section
-% ============================
-
-\subsection{Emergent Quantum Mechanics: Kinematics, Dynamics, and Measurement}
-\label{sec:emergent-qm}
-
-\paragraph{What this section does (reader map).}
-We build quantum kinematics from the medium’s phase, derive Schr\"odinger–Pauli dynamics from a simple action with minimal EM/GR coupling, obtain the canonical commutators from the symplectic form (so $[\hat x,\hat p]=i\hbar$ is \emph{derived}), and sketch how decoherence in the ambient medium gives Born-rule statistics. We also flag where tiny, testable deviations could live.
-
-\subsubsection{Kinematics from the medium phase}
-\label{sec:qm-kinematics}
-Introduce the complex order parameter
-\begin{equation}
-\psi(\mathbf x,t)=\sqrt{n(\mathbf x,t)}\,e^{iS(\mathbf x,t)/\hbar},\qquad
-\langle \phi|\psi\rangle=\int \phi^*(\mathbf x)\psi(\mathbf x)\,\sqrt{\gamma}\,d^3x,
-\label{eq:psi_def}
-\end{equation}
-where $\gamma_{ij}$ is the spatial metric of \S\ref{sec:strong-field-geometry}. Probability density is $|\psi|^2=n$. Circulation quantization enforces
-\begin{equation}
-\oint \boldsymbol\nabla S\cdot d\boldsymbol\ell=2\pi\hbar\,\mathbb Z
-\quad\Rightarrow\quad
-\hbar=\frac{m_*\,\Gamma_0}{2\pi},
-\label{eq:hbar_id}
-\end{equation}
-identifying Planck’s constant with the medium’s circulation quantum $\Gamma_0$ and an effective inertia $m_*$ of the excitation/core.
-
-\subsubsection{Dynamics from an action: Schr\"odinger–Pauli with EM/GR coupling}
-\label{sec:qm-dynamics}
-Postulate the first-order action
-\begin{equation}
-S_\psi=\int dt\,d^3x\,\sqrt{\gamma}\Bigg[
-\frac{i\hbar}{2}\big(\psi^*\dot\psi-\dot\psi^*\psi\big)
--\frac{\hbar^2}{2m_*}\,\gamma^{ij}(D_i\psi)^*(D_j\psi)
-- V|\psi|^2-\frac{g}{2}|\psi|^4
-\Bigg],
-\label{eq:Spsi_full}
-\end{equation}
-with covariant derivatives $D_i=\nabla_i-\tfrac{i q}{\hbar c}A_i$ and $D_t=\partial_t+\tfrac{i q}{\hbar}\phi$. Varying $\psi^*$ yields
-\begin{equation}
-i\hbar D_t\psi=\left[\,-\frac{\hbar^2}{2m_*}\gamma^{ij}D_iD_j+V+g|\psi|^2\,\right]\psi.
-\label{eq:schrodinger_full}
-\end{equation}
-For spinful cores, take $\psi$ two-component and add the Pauli term
-\begin{equation}
-\Delta H_{\rm Pauli}=-\mu_{\rm eff}\,\boldsymbol\sigma\!\cdot\!\mathbf B_{\rm eff},\qquad
-\mathbf B_{\rm eff}=\boldsymbol\nabla\times\mathbf A+\mathbf B_{\rm twist},
-\label{eq:pauli_term}
-\end{equation}
-where $\mathbf B_{\rm twist}$ captures Twist/Eddies contributions (fixed by the gravito-EM dictionary). Curved-space redshift enters via the lapse $N$: proper-time derivatives scale as $N^{-1}\partial_t$, so bound-state energies redshift by $N$.
-
-\paragraph{Conserved current (Noether).}
-Global phase invariance $\psi\!\to\!e^{i\alpha}\psi$ gives $\partial_t n+\nabla_i j^i=0$ with
-\begin{equation}
-\mathbf j=\frac{\hbar}{m_*}\,\Im(\psi^*\boldsymbol D\psi)
-=\frac{n}{m_*}\!\left(\boldsymbol\nabla S-\frac{q}{c}\mathbf A\right).
-\label{eq:current}
-\end{equation}
-
-\subsubsection{Canonical structure and commutators from the symplectic form}
-\label{sec:commutators}
-From \eqref{eq:Spsi_full} the symplectic one-form is
-\[
-\Theta=\int d^3x\,\sqrt{\gamma}\,\frac{i\hbar}{2}\big(\psi^*\delta\psi-\psi\,\delta\psi^*\big),
-\]
-so the symplectic two-form is
-\[
-\Omega=\delta\Theta
-= i\hbar\!\int d^3x\,\sqrt{\gamma}\,\delta\psi^*(\mathbf x)\wedge\delta\psi(\mathbf x).
-\]
-Quantization promotes $\Omega^{-1}$ to equal-time commutators:
-\begin{equation}
-[\hat\psi(\mathbf x),\hat\psi^\dagger(\mathbf y)]=\frac{\delta^{(3)}(\mathbf x-\mathbf y)}{\sqrt{\gamma}},\qquad
-[\hat\psi(\mathbf x),\hat\psi(\mathbf y)]=0.
-\label{eq:field_comm}
-\end{equation}
-In Madelung variables $\psi=\sqrt n\,e^{iS/\hbar}$ one finds
-\begin{equation}
-[\hat n(\mathbf x),\hat S(\mathbf y)]
-=i\hbar\,\frac{\delta^{(3)}(\mathbf x-\mathbf y)}{\sqrt{\gamma}},
-\qquad\Rightarrow\qquad
-[\hat X^i,\hat P_j]=i\hbar\,\delta^i{}_j
-\ \ \text{for single-core collective coordinates.}
-\label{eq:np_comm}
-\end{equation}
-
-\subsubsection{Madelung hydrodynamics and the quantum potential}
-\label{sec:madelung}
-Writing $\psi=\sqrt n\,e^{iS/\hbar}$ and separating real/imag parts of \eqref{eq:schrodinger_full} yields
-\begin{align}
-\partial_t n+\nabla_i\!\left[\frac{n}{m_*}\!\left(\nabla^i S-\frac{q}{c}A^i\right)\right]&=0,
-\label{eq:continuity}\\
-\partial_t S+\frac{1}{2m_*}\!\left(\boldsymbol\nabla S-\frac{q}{c}\mathbf A\right)^2+V+g n
--\underbrace{\frac{\hbar^2}{2m_*}\frac{\nabla^2 \sqrt n}{\sqrt n}}_{\displaystyle Q\ \text{(quantum potential)}}&=0.
-\label{eq:HJ_quantum}
-\end{align}
-Thus the classical Hamilton–Jacobi equation gains the quantum pressure $Q$; setting $g\!=\!0$ recovers textbook Madelung dynamics.
-
-\subsubsection{Decoherence and Born-rule statistics}
-\label{sec:decoherence}
-Partition system+apparatus+environment and take an interaction $H_{\rm int}=\sum_a L_a\otimes B_a$. Under Born–Markov + secular approximations the reduced state obeys the Lindblad master equation
-\begin{equation}
-\dot\rho=-\frac{i}{\hbar}[H,\rho]+\sum_a\!\left(L_a\rho L_a^\dagger-\tfrac{1}{2}\{L_a^\dagger L_a,\rho\}\right).
-\label{eq:lindblad}
-\end{equation}
-For phase-kick noise from unresolved transition-layer modes, $L(\mathbf x)=\sqrt{\Gamma(\mathbf x)}\,|\mathbf x\rangle\!\langle\mathbf x|$ damps off-diagonal coherences as
-\[
-\frac{d}{dt}\rho(\mathbf x,\mathbf y)=-\Gamma(\mathbf x,\mathbf y)\,\rho(\mathbf x,\mathbf y),\qquad \Gamma(\mathbf x,\mathbf x)=0,
-\]
-selecting robust pointer states (narrow wavepackets/core configurations). In a von Neumann measurement $H_{SA}=g(t)\,\hat O\otimes \hat P_A$, decoherence suppresses interference between outcome branches and yields classical mixtures with weights
-\[
-p_k=\|\Pi_k\psi\|^2=\int |\Pi_k\psi(\mathbf x)|^2\,\sqrt{\gamma}\,d^3x,
-\]
-i.e., the Born rule.
-
-\paragraph{Where tiny deviations could hide (for experiments).}
-Two clean knobs appear in \eqref{eq:schrodinger_full}–\eqref{eq:pauli_term}:
-(i) a single-particle nonlinearity $g|\psi|^2$ (spectroscopic shifts $\propto \!\int|\psi|^4$), and
-(ii) a twist-induced spin term via $\mathbf B_{\rm twist}$ (zero-field spin precession). Both are tightly bounded by existing data, but remain falsifiable targets.
-
-\paragraph{What to remember.}
-\emph{Kinematics} fixes $\hbar$ via circulation quantization; \emph{Dynamics} comes from a compact action with minimal EM/GR coupling; \emph{Commutators} descend from the symplectic form; \emph{Measurement} emerges as decoherence in the medium with Born-rule weights.
-
-\subsection{Electromagnetism as Slope+Eddies from Oriented Links}
-\label{sec:EM-from-helical-vortices}
-
-% ------------------------------------------------------------
-% 30-second story / big picture
-% ------------------------------------------------------------
-\begin{tcolorbox}[title=Plain-language snapshot (30 seconds)]
-Oriented links through the slice write a standing Slope pattern (electric), while motion/Drag organize Eddies (magnetic). Changing Eddies create loop electric fields (Induction). The displacement-current bridge lives in the thin slab to keep continuity exact during transients.\footnote{We remain agnostic about ontology; the subsection only establishes the mathematical map.}
-\end{tcolorbox}
-
-% ------------------------------------------------------------
-% quick dictionary
-% ------------------------------------------------------------
-\begin{tcolorbox}[title=Quick dictionary (objects \(\leftrightarrow\) meanings)]
-\begin{itemize}
-  \item Bulk 2-form \(B_{MN}=-B_{NM}\) with fieldstrength \(H_{MNP}=\partial_{[M}B_{NP]}\) $\leftrightarrow$ parent gauge field.
-  \item Vector potential \(A_\mu\equiv B_{\mu 4}\) $\leftrightarrow$ electromagnetic potential in $(3{+}1)$D.
-  \item Maxwell tensor \(F_{\mu\nu}\equiv H_{\mu\nu 4}=\partial_\mu A_\nu-\partial_\nu A_\mu\).
-  \item Sheet world-volume current \(J^{MNP}\) (conserved 3-form) $\leftrightarrow$ topological data of vortex sheets.
-  \item Sheet endpoint in $(3{+}1)$D $\leftrightarrow$ point charge of integer strength \(n\) (sign set by orientation).
-  \item Sheet endpoint worldline $\leftrightarrow$ electric 4-current \(j_e^\mu\).
-  \item Oriented link $\leftrightarrow$ integer charge (sign by orientation), writes the Slope profile.
-  \item On-slice Eddies $\leftrightarrow$ magnetic field $\mathbf B$; changing Eddies $\leftrightarrow$ Induction (loop $\mathbf E$).
-\end{itemize}
-\end{tcolorbox}
-
-\subsubsection{Setup and notation}
-We use coordinates $x^M$ with $M=0,1,2,3,4$, where $x^0\equiv t$ and the extra spatial coordinate $x^4$ is compact with circumference $L_4$. Greek indices $\mu,\nu=0,1,2,3$ refer to the observed $(3{+}1)$D slice. We adopt metric signature $(-,+,+,+)$ for statements in $(3{+}1)$D and standard index symmetrization/antisymmetrization conventions. Outside vortex cores, fields are taken $x^4$-independent.
-
-\paragraph*{Idea.} Keep the $x^4$-component of the bulk two-form; it behaves like an electromagnetic vector potential.
-\paragraph*{Result.} Define $A_\mu\equiv B_{\mu 4}$ and $F_{\mu\nu}\equiv H_{\mu\nu 4}$ to obtain the usual Maxwell tensor on the slice.
-
-\subsubsection{Topological sheet current and identities}
-Vortex \emph{sheets} are codimension-2 defects whose world-volumes in $(4{+}1)$D are captured by a conserved 3-form current $J^{MNP}$,
-\begin{equation}
-\partial_M J^{MNP}=0,
-\qquad
-J^{MNP}=-J^{NMP}=\cdots
-\end{equation}
-The parent gauge field is a Kalb--Ramond 2-form $B_{MN}$ with fieldstrength $H=\mathrm d B$, so
-\begin{equation}
-H_{MNP}=\partial_{[M}B_{NP]},
-\qquad
-\partial_{[M}H_{NPQ]}=0\quad\text{(Bianchi)}.
-\end{equation}
-These identities imply ``no magnetic monopoles'' after dimensional reduction: $\mathrm d F=0$ gives $\nabla\!\cdot\!\mathbf B=0$ and Faraday's law.
-
-\subsubsection{Dimensional reduction and identification of $A_\mu$}
-Compactify $x^4\sim x^4+L_4$ and assume $\partial_4$-independence away from cores. Decompose
-\begin{equation}
-B_{MN}\;\longrightarrow\;\{\,B_{\mu\nu}\,,\;B_{\mu 4}\equiv A_\mu\,\},
-\qquad
-F_{\mu\nu}\equiv H_{\mu\nu 4}
-=\partial_\mu A_\nu-\partial_\nu A_\mu.
-\end{equation}
-The remaining components $B_{\mu\nu}$ are heavy/decoupled in this sector (or dual to a scalar not sourced by endpoints), so we drop them here. The minimal bulk dynamics and coupling can be summarized schematically as
-\begin{equation}
-\partial_M H^{MNP}=g_B^{2}\,J^{NP},\qquad \text{with}\quad J^{NP}\equiv J^{NP4} \;\text{(sheet data)}.
-\end{equation}
-Integrating over the compact direction yields Maxwell's equations on the slice,
-\begin{equation}
-\partial_\mu F^{\mu\nu}=g_{\rm eff}^2\, j_e^{\,\nu},
-\qquad
-j_e^{\,\nu}(x)\equiv \int_0^{L_4}\!\mathrm d x^4\; J^{\nu 4}(x,x^4),
-\label{eq:maxwell-from-sheets}
-\end{equation}
-with an effective coupling $g_{\rm eff}^2\propto g_B^2/L_4$ fixed by normalization below.
-
-\begin{tcolorbox}[title=Idea $\to$ Result]
-\textbf{Idea:} The $x^4$-component of the topological sheet current looks like an electric current when viewed from $(3{+}1)$D.\\
-\textbf{Result:} After integrating over $x^4$, Eq.~\eqref{eq:maxwell-from-sheets} is precisely the sourced Maxwell equation.
-\end{tcolorbox}
-
-\subsubsection{Charge quantization from helical twist (Gauss law)}
-Let $\mathcal S^2$ be a 2-sphere in the observed space that encloses a single sheet endpoint of integer twist $n$ (orientation convention stated below). The flux of $\,{}^\star\!F\,$ through $\mathcal S^2$ counts the twist:
-\begin{equation}
-\int_{\mathcal S^2}\!{}^\star F\;=\; q_0\,n,\qquad q_0\equiv \frac{2\pi L_4}{g_B^{2}}\;\;\times\;\,(\text{unit\;choice}).
-\label{eq:gauss-quantization}
-\end{equation}
-Thus electric charge is \emph{topological}: it depends only on the integer $n$, not on core details. We fix the overall sign by the orientation convention: a right-handed helical advance of the sheet along $+x^4$ at the endpoint corresponds to $n>0$ and \emph{positive} charge.
-
-\begin{tcolorbox}
-\textbf{Orientation convention.} ``Positive linking'' (right-handed twist advancing toward $+x^4$) $\Rightarrow$ $n>0$ $\Rightarrow$ positive charge in $(3{+}1)$D.
-\end{tcolorbox}
-
-\subsubsection{Normalization to standard units}
-It is useful to present two equivalent normalizations.
-\begin{enumerate}
-  \item \textbf{Heaviside--Lorentz (natural) units.} Choose the $(3{+}1)$D action
-  \begin{equation}
-  S_{\rm EM}=\int\!\mathrm d^4x\;\Big[-\tfrac{1}{4}\,F_{\mu\nu}F^{\mu\nu}+A_\mu j_e^{\,\mu}\Big],
-  \end{equation}
-  which is achieved by the rescaling $A_\mu\mapsto A_\mu/e$ with
-  \begin{equation}
-  e^{2}=\frac{g_B^{2}}{2L_4} \quad (\text{up to an overall sign fixed by \eqref{eq:gauss-quantization}}).
-  \end{equation}
-  Then a single endpoint with twist $n$ carries physical charge $Q= n\,q_0/e$.
-
-  \item \textbf{SI units.} Write $S_{\rm EM}=\int\!\mathrm d^4x\;\big[\tfrac{\epsilon_0}{2}\,\mathbf E^2-\tfrac{1}{2\mu_0}\,\mathbf B^2 + A_\mu j_e^{\,\mu}\big]$ and rescale so that $\epsilon_0\mu_0=1/c^2$. The same mapping gives $e^2= g_B^{2}/(2L_4)$ while the physical charge unit is $q_0/e$; numerical values are then fixed by the chosen calibration (e.g., set $n=-1$ to reproduce the electron charge).
-\end{enumerate}
-Either choice is fine provided one sticks to it consistently.
-
-\subsubsection{Worked examples (outside cores)}
-\begin{enumerate}
-  \item \textbf{Single endpoint ($n=1$).} Spherical symmetry gives $|\mathbf E|= (q_0/e)/(4\pi r^2)$ (SI) or $|\mathbf E|=(q_0/e)/r^2$ (Heaviside--Lorentz). The magnetic field vanishes for static endpoints.
-  \item \textbf{Dipole ($n=+1$ and $n=-1$ separated by $\mathbf d$).} Far field is the standard dipole: $\mathbf E\approx \tfrac{q_0}{e}\,\tfrac{3(\hat{\mathbf r}\!\cdot\!\mathbf p)\hat{\mathbf r}-\mathbf p}{4\pi r^3}$ with $\mathbf p=\tfrac{q_0}{e}\,\mathbf d$ (SI). Time-dependent motion radiates exactly as in Maxwell theory.
-\end{enumerate}
-
-\subsubsection{FAQ (math-only claims)}
-\begin{itemize}
-  \item \textbf{Why is charge conserved?} Gauge invariance of the parent two-form enforces $\partial_M J^{MNP}=0$, which reduces to $\partial_\mu j_e^{\,\mu}=0$ after integrating over $x^4$.
-  \item \textbf{Why no magnetic monopoles?} The Bianchi identity $\mathrm dH=0$ implies $\mathrm dF=0$, hence $\nabla\!\cdot\!\mathbf B=0$ and Faraday's law.
-  \item \textbf{What sets the size of the charge quantum?} Geometry and coupling: $q_0=2\pi L_4/g_B^{2}$ (then rescaled by $e$ in the chosen unit system). Integer $n$ labels the helical linking number.
-  \item \textbf{Does core microphysics matter?} Not for charge: Eq.~\eqref{eq:gauss-quantization} is topological. Core details enter only in short-distance regularization, not in the flux quantization.
-\end{itemize}
-
-\subsubsection{Numerical recipe (practical use)}
-\begin{enumerate}
-  \item Specify endpoint worldlines $\{x_a^\mu(\tau)\}$ and integers $n_a$ (sign by orientation).
-  \item Build $j_e^{\,\mu}(x)=\sum_a (n_a q_0/e)\int \!\mathrm d\tau\; \dot x_a^{\,\mu}(\tau)\,\delta^{(4)}\big(x-x_a(\tau)\big)$.
-  \item Solve $\partial_\mu F^{\mu\nu}= j_e^{\,\nu}$ and $\partial_{[\alpha}F_{\beta\gamma]}=0$ with retarded Green's functions (Lorenz gauge is convenient): $A^\mu(x)=\int \mathrm d^4x'\, G_{\rm ret}(x-x')\, j_e^{\,\mu}(x')$.
-  \item Report fields in your preferred units; outside cores they are identical to standard Maxwell solutions. Accelerating endpoints (or time-dependent twists) radiate.
-\end{enumerate}
-
-% ------------------------------------------------------------
-% gentle guardrails / reminders
-% ------------------------------------------------------------
-\begin{tcolorbox}
-\textbf{Conventions used here.} (i) $[\Gamma]=L^2/T$ for circulation; (ii) We keep EM and gravitomagnetic sectors strictly separate (no overloading of $A_\mu$); (iii) Orientation: right-handed twist toward $+x^4$ is positive $n$.
-\end{tcolorbox}
-
-
 \subsection{Resolution of the Preferred Frame Problem}
 \label{subsec:preferred-frame}
 
@@ -866,117 +512,6 @@ At leading order the observable sector exhibits: (i) Lorentz-covariant dynamics 
 \paragraph{Summary.}
 The microscopic medium can possess a rest frame without violating relativity tests, because the projected, gauge-invariant fields $(F_{\mu\nu}$ and, analogously, $h_{\mu\nu}$ in the weak-field sector$)$ satisfy Lorentz-covariant, hyperbolic equations with retarded support. Any ``preferred frame'' is unobservable at leading order; putative effects are suppressed by $(\varepsilon_{\Phi_g},\varepsilon_v^2,\varepsilon_\xi,\varepsilon_\rho)$ and are thus beyond the reach of classic interferometric tests.
 
-\subsection{Electromagnetism in the Wave sector}
-\label{subsec:em_wave}
-
-\paragraph{Scope and units.}
-In this subsection we isolate the electromagnetic (EM) wave sector. We work in \emph{Gaussian--cgs} units and use the standard 4-potential
-\(A^\mu=(\Phi_{\text{Slope}}/c,\mathbf A)\), field tensor \(F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu\),
-and physical fields \(\mathbf E=-\nabla\Phi_{\text{Slope}}-\tfrac1c\,\partial_t\mathbf A\), \(\mathbf B=\nabla\times\mathbf A\).
-The EM sources are \(J^\mu_{\rm ch}=(c\,\rho_{\rm ch},\,\mathbf J_{\rm ch})\) and obey the
-charge continuity equation \(\partial_t\rho_{\rm ch}+\nabla\!\cdot\!\mathbf J_{\rm ch}=0\).
-\emph{These EM sources and fields are distinct from any gravitational/``GEM'' sector variables, which do not appear here.}
-
-Throughout this subsection we write $\mathbf A \equiv \mathbf A_{\text{EM}}$.
-
-We decompose $\mathbf E = -\nabla \Phi_{\text{Slope}} - \tfrac{1}{c}\,\partial_t \mathbf A$ where $\mathbf B=\nabla\times\mathbf A$ (Eddies). The first term is Slope (Coulomb); the second is Induction (loop electric field).
-
-\paragraph{30-second story (reader guide).}
-This is the \emph{wave} part of the theory: once the EM field content is defined,
-time-dependent sources launch disturbances that propagate causally with speed \(c\).
-The static limit reproduces Coulomb's law; the time-dependent regime gives retarded fields and radiative energy flux.
-
-\subsubsection{Field equations, gauge, and radiation condition}
-We adopt \emph{Lorenz gauge} \(\partial_\mu A^\mu=0\), which is Lorentz-invariant.
-Maxwell's equations in terms of \(F_{\mu\nu}\) are
-\begin{align}
-\partial_\mu F^{\mu\nu} &= \frac{4\pi}{c}\,J^\nu_{\rm ch}, &
-\partial_{[\alpha}F_{\beta\gamma]} &= 0,
-\end{align}
-and, equivalently, the potentials satisfy the manifestly hyperbolic system
-\begin{equation}
-\left(\frac{1}{c^2}\partial_t^2-\nabla^2\right) A^\mu
-= -\,\frac{4\pi}{c}\,J^\mu_{\rm ch}, \qquad \partial_\mu A^\mu=0,
-\label{eq:wave_A_Lorenz}
-\end{equation}
-valid to leading order in the small parameters of this framework
-\((\varepsilon_\rho,\varepsilon_v^2,\varepsilon_\xi)\) (see Regime of Validity).
-At spatial infinity we impose the \emph{Sommerfeld radiation condition} (outgoing waves only):
-\begin{equation}
-\left(\partial_r - \frac{1}{c}\partial_t\right)\!\big(r\,A^\mu\big) \;\to\; 0
-\quad \text{as}\quad r\to\infty,
-\end{equation}
-which selects retarded (causal) solutions and ensures a well-defined energy flux.
-
-\noindent\emph{Idea:} assume Lorentz covariance, gauge invariance, and linearity for observables. \;
-\emph{Result:} the electromagnetic wave equations \eqref{eq:wave_A_Lorenz} with characteristic speed \(c\).
-
-\subsubsection{Static calibration and Coulomb limit}
-In the static limit (\(\partial_t=0\), localized sources), \eqref{eq:wave_A_Lorenz} reduces to
-\begin{align}
-\nabla^2 \Phi_{\text{Slope}} &= -\,4\pi\,\rho_{\rm ch}, &
-\nabla^2 \mathbf A &= \mathbf 0 \quad (\text{Lorenz gauge}).
-\end{align}
-For a point charge \(Q\) at the origin,
-\(\Phi_{\text{Slope}}(\mathbf r)= Q/r\), \(\mathbf E(\mathbf r)= Q\,\mathbf r/r^3\), \(\mathbf B=\mathbf 0\).
-This \emph{calibrates} the normalization so that all dynamic results reduce to the familiar Coulomb law when \(\partial_t\to0\).
-
-\noindent\emph{Idea:} require the static sector to match measured electrostatics. \;
-\emph{Result:} fix couplings so \(\nabla\!\cdot\!\mathbf E=4\pi\rho_{\rm ch}\) and \(E=Q/r^2\).
-
-\subsubsection{Retarded solutions and causality}
-With the radiation condition, the unique solutions of \eqref{eq:wave_A_Lorenz} are the retarded potentials
-\begin{align}
-\Phi_{\text{Slope}}(\mathbf x,t) &= \int \frac{\rho_{\rm ch}(\mathbf x',\,t_r)}{|\mathbf x-\mathbf x'|}\,d^3x',\\
-\mathbf A(\mathbf x,t) &= \frac{1}{c}\int \frac{\mathbf J_{\rm ch}(\mathbf x',\,t_r)}{|\mathbf x-\mathbf x'|}\,d^3x',
-\end{align}
-with \emph{retarded time} \(t_r=t-|\mathbf x-\mathbf x'|/c\).
-Equivalently, one may use the retarded Green's function formalism (see Appendix on retarded Green's functions).
-
-\noindent\emph{Idea:} allow only outbound disturbances consistent with the light cone. \;
-\emph{Result:} fields at \((\mathbf x,t)\) depend only on past sources inside the backward light cone; no superluminal signaling.
-
-\subsubsection{Energy density, Poynting flux, and radiation}
-The EM energy density and flux in Gaussian units are
-\begin{equation}
-u = \frac{E^2+B^2}{8\pi}, \qquad \mathbf S = \frac{c}{4\pi}\,\mathbf E\times\mathbf B,
-\end{equation}
-and Poynting's theorem holds:
-\begin{equation}
-\partial_t u + \nabla\!\cdot\!\mathbf S = -\,\mathbf J_{\rm ch}\!\cdot\!\mathbf E.
-\end{equation}
-Under the radiation condition, the total power radiated is the surface integral of \(\mathbf S\cdot d\mathbf a\) over a sphere at large \(r\).
-
-\noindent\emph{Idea:} track where source work goes. \;
-\emph{Result:} it leaves as outgoing Poynting flux determined by the retarded fields.
-
-\subsubsection{Tiny worked example: oscillating dipole (far zone)}
-For a localized, time-harmonic electric dipole moment \( \mathbf p(t)=\mathbf p_0\cos\omega t\),
-the leading far-field (\(r\gg\) source size) scales as
-\begin{equation}
-\big|\mathbf E(\mathbf r,t)\big| \sim \frac{\omega^2\,|\mathbf p_0|\,\sin\theta}{c^2\,r}\,
-\cos\!\big(\omega(t-r/c)\big), \qquad
-\big|\mathbf B(\mathbf r,t)\big| \sim \frac{|\mathbf E|}{c},
-\end{equation}
-and the radiated power scales like \(P \propto \omega^4 |\mathbf p_0|^2/c^3\).
-(Exact angular factors and coefficients are standard and omitted here for brevity.)
-
-\paragraph{Dictionary (for quick reading).}
-\begin{itemize}
-\item \(A^\mu\): electromagnetic 4-potential on the observed slice (EM only; no GEM mixing here).
-\item \(F_{\mu\nu}\): field tensor; \(\mathbf E,\mathbf B\) are the measured electric and magnetic fields.
-\item \(J^\mu_{\rm ch}=(c\rho_{\rm ch},\mathbf J_{\rm ch})\): charge/current; obeys \(\partial_\mu J^\mu_{\rm ch}=0\).
-\item \emph{Lorenz gauge}: \(\partial_\mu A^\mu=0\); keeps \eqref{eq:wave_A_Lorenz} manifestly Lorentz-covariant.
-\item \emph{Radiation condition}: only outgoing waves at infinity; selects retarded solutions.
-\end{itemize}
-
-\paragraph{Regime of validity.}
-Throughout this subsection the equations hold to leading order in the small parameters
-\(\varepsilon_\rho=\delta\rho/\rho_0\),
-\(\varepsilon_v=|\mathbf v|/c\),
-\(\varepsilon_\xi=\xi_c/L\);
-subleading corrections enter at \(\mathcal O(\varepsilon_\rho,\varepsilon_v^2,\varepsilon_\xi)\).
-
 \subsection{The Tsunami Principle}
 
 \textbf{Statement.} Bulk density in the 4D medium can re-equilibrate rapidly at a characteristic speed $v_L$ that never appears in gauge-invariant observables. All measurable fields on the observed 3D slice---e.g., electromagnetic $A_\mu$ with $F_{\mu\nu}$, or metric perturbations $h_{\mu\nu}$---propagate causally with retarded Green's functions at the limiting speed $c$. There is no superluminal signaling: fast \emph{setup} in the bulk is not a signal in the observables.
@@ -988,13 +523,12 @@ subleading corrections enter at \(\mathcal O(\varepsilon_\rho,\varepsilon_v^2,\v
 \;=\; -\,M\,\delta^4(\mathbf r_4)\,\delta'(t)\,,
 \label{eq:bulk-tsunami}
 \end{equation}
-where $\mathbf r_4=(x,y,z,w)$, $\nabla_4^2\!\equiv\!\partial_x^2{+}\partial_y^2{+}\partial_z^2{+}\partial_w^2$, and $\delta'(t)$ is the time derivative of the Dirac delta.%
-\footnote{Units audit: $[\delta^4\delta'(t)]=L^{-4}T^{-2}$ so both sides of \eqref{eq:bulk-tsunami} have units $ML^{-4}T^{-2}$. Using $\delta(t)$ without the derivative would be off by one power of $T^{-1}$.}
+where $\mathbf r_4=(x,y,z,w)$, $\nabla_4^2\!\equiv\!\partial_x^2{+}\partial_y^2{+}\partial_z^2{+}\partial_w^2$, and $\delta'(t)$ is the time derivative of the Dirac delta.\footnote{Units audit: $[\delta^4\delta'(t)]=L^{-4}T^{-2}$ so both sides of \eqref{eq:bulk-tsunami} have units $ML^{-4}T^{-2}$. Using $\delta(t)$ without the derivative would be off by one power of $T^{-1}$.}
 The retarded solution is
 \begin{equation}
 \delta\rho(\mathbf r_4,t)\;=\;M\,G^{\rm ret}_{(4)}(\mathbf r_4,t;v_L)\,,
 \end{equation}
-with $G^{\rm ret}_{(4)}$ the retarded Green's function for the 4-spatial-D wave operator. In even spatial dimension the support has a ``tail'' inside the $v_L$ cone; schematically one may write $\delta\rho \sim \Theta(t{-}R/v_L)\,f(R,t)$ with $R\!=\!|\mathbf r_4|$ to emphasize causality of the bulk setup. See Appendix: \emph{Retarded Green's function in four spatial dimensions} for the explicit form and discussion of causal support.
+with $G^{\rm ret}_{(4)}$ the retarded Green's function for the 4-spatial-D wave operator. In even spatial dimension the support has a “tail” inside the $v_L$ cone; schematically one may write $\delta\rho \sim \Theta(t{-}R/v_L)\,f(R,t)$ with $R=|\mathbf r_4|$ to emphasize causality of the bulk setup. See Appendix: \emph{Retarded Green's function in four spatial dimensions} for the explicit form and discussion of causal support.
 
 \medskip
 \noindent\textbf{Observables (causal and retarded).} Gauge-invariant fields measured on the 3D slice obey Lorentz-covariant, hyperbolic equations with characteristic speed $c$ and are taken in Lorenz gauge $\partial_\mu A^\mu=0$ (for EM) and the corresponding linear gauge for $h_{\mu\nu}$. For example,
@@ -1384,11 +918,11 @@ The core relaxation time is
 which is parametrically tiny relative to macroscopic times (e.g., propagation times $r/c$). Thus cores appear quasi-steady while they source retarded fields.
 
 \paragraph{Linear stability (bulk).}
-Linearizing the Euler–Madelung system yields a Bogoliubov dispersion that is stable at all $k$,
+Linearizing the Euler–continuity (GP) system yields a Bogoliubov dispersion that is stable at all $k$,
 \begin{equation}
 \omega^2(k) \;=\; v_L^2\,k^2 \;+\; \frac{\hbar^2}{4m^2}\,k^4,
 \end{equation}
-with the $k^4$ term coming from quantum pressure. A sufficient ``no-Cherenkov'' condition for background drifts is the Landau-type bound
+with the $k^4$ term set by the short-wavelength dispersive pressure. A sufficient “no-Cherenkov” condition for background drifts is the Landau-type bound
 \begin{equation}
 |\mathbf v_{\rm bg}| \;<\; v_L,
 \end{equation}
@@ -1433,9 +967,7 @@ Quantized circulation (P-5) protects cores; projection invariance ensures draina
 \item \textbf{Schwarzschild (isotropic) exactly:} With $U=GM/(\rho c^2)$ and $\mathbf A_g=0$, the strong-field dictionary of Sec.~\ref{sec:strong-dict} reproduces Schwarzschild; the horizon is at $\rho=GM/2c^2$.
 \item \textbf{PN match:} Expanding $g_{\mu\nu}$ yields $h_{00}=-2\Phi_g/c^2$, $h_{ij}=-2\Phi_g\,\delta_{ij}/c^2$, $h_{0i}=-4A_{g\,i}/c^3$.
 \item \textbf{Frame dragging:} $\mathbf A_g\propto \mathbf J\times\mathbf r/r^3$ gives $g_{0\phi}=-2GJ\sin^2\theta/(c^3 r)$ (Lense--Thirring).
-\item \textbf{Quantum kinematics:} $\psi=\sqrt n e^{iS/\hbar}$ with $\hbar = m_*\Gamma_0/2\pi$, current $\mathbf j=\frac{n}{m_*}\nabla S$.
-\item \textbf{Dynamics:} Variation of $S_\psi$ gives Schr\"odinger/Pauli \eqref{eq:schrodinger}; a small $g|\psi|^2$ nonlinearity is parameterized explicitly.
-\item \textbf{Canonical algebra:} $(n,S)$ are conjugate $\Rightarrow$ $[\hat x,\hat p]=i\hbar$.
+\item \textbf{Quantum sector (pointer):} The definition of $\psi$, conserved current, canonical algebra, and the Schr\"odinger/Pauli forms are developed in Sec.~\ref{sec:QM_projection}. Here we keep the framework axiomatic and defer all QM derivations and labels to that section.
 \end{itemize}
 
 \medskip

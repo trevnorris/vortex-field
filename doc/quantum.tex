@@ -1,0 +1,207 @@
+\section{Quantum Sector: Emergence, Operators, and Relativistic Uplift}
+\label{sec:QM_projection}
+
+\paragraph{Reader map.}
+From the same postulates that generate EM and gravity on the slice, we derive standard quantum dynamics by coarse-graining the wave sector of the medium. We begin with an action that yields the Schr\"odinger/Pauli equations (with manifest gauge and gravity couplings), recover the canonical algebra, present the Madelung reduction, discuss measurement/decoherence, and then uplift to Klein--Gordon/Dirac with the strong-field metric dictionary (Sec.~\ref{sec:strong-dict}). We close with distinctive, falsifiable signatures and a calibration table; EM couplings reference Sec.~\ref{sec:EM_projection}.
+
+\begin{tcolorbox}[title=Terminology bridge (QM)]
+\textbf{Twist} = hidden cross-slab maintenance flow; carries spin structure. \\
+\textbf{Eddies} = magnetic whirl map on the slice; sources minimal EM coupling. \\
+\textbf{Slope} = hill/valley potential \(\Phi\) generating the Coulomb piece of \(\mathbf E\). \\
+\textbf{Intake} = charge-blind inflow; enters gravity phases via the strong-field dictionary.
+\end{tcolorbox}
+
+\paragraph{Conventions.}
+We use \(m_*\) for the effective inertial parameter of the excitation, \(\hbar_{\mathrm{eff}}\) for the circulation quantum (set equal to \(\hbar\) after calibration), slice metric \(\gamma_{ij}\) with determinant \(\gamma\), and gauge/gravity covariant derivatives \(D_t, D_i\). EM potentials are \(A_\mu=(\Phi,\mathbf A)\); the gravity metric comes from Sec.~\ref{sec:strong-dict}. Indices \(i,j\) are spatial on the slice.
+
+\subsection{Kinematics from phase and circulation}
+\label{sec:QM_madelung}
+
+Define the complex field
+\begin{equation}
+\psi(\mathbf{x},t) \equiv \sqrt{\rho(\mathbf{x},t)}\,e^{i S(\mathbf{x},t)/\hbar_{\mathrm{eff}}}, 
+\label{eq:psi_polar}
+\end{equation}
+with density \(\rho\ge 0\) and phase \(S\). Quantized circulation around a core fixes \(\hbar_{\mathrm{eff}}\):
+\begin{equation}
+\oint \nabla S \cdot d\boldsymbol{\ell} \;=\; 2\pi n\,\hbar_{\mathrm{eff}}, \qquad n\in\mathbb{Z}.
+\label{eq:circulation-quant}
+\end{equation}
+
+\subsection{Action, equations of motion, and current}
+\label{sec:QM_action}
+
+Consider the gauge- and diffeo-covariant action
+\begin{equation}
+S[\psi] \;=\; \int dt\, d^3x\, \sqrt{\gamma}\;\mathcal{L}_\psi,\qquad
+\mathcal{L}_\psi \;=\; \frac{i\hbar_{\mathrm{eff}}}{2}\!\left(\psi^* D_t\psi - \psi (D_t\psi)^*\right)
+- \frac{\hbar_{\mathrm{eff}}^2}{2m_*}\,\gamma^{ij}(D_i\psi)^*(D_j\psi) - V\,|\psi|^2 ,
+\label{eq:Spsi_full}
+\end{equation}
+with \(D_t=\partial_t + iq\Phi + \text{(gravity connection)}\) and \(D_i=\nabla_i - iqA_i + \text{(spatial spin connection)}\). Varying w.r.t.\ \(\psi^*\) gives the curved, minimally coupled Schr\"odinger equation
+\begin{equation}
+i\hbar_{\mathrm{eff}}\,D_t \psi \;=\; \left[-\,\frac{\hbar_{\mathrm{eff}}^2}{2m_*}\,\gamma^{ij}D_i D_j + V(\mathbf{x},t)\right]\psi
+\;+\; O\!\Big((\xi/\rho)^2 + (\kappa\rho)^2\Big),
+\label{eq:schrodinger}
+\end{equation}
+where \(\xi\) is the core length and \(\kappa\) a slice-curvature scale for the standard remainder bookkeeping.
+
+Global \(U(1)\) symmetry yields the conserved probability current
+\begin{equation}
+\mathbf j \;=\; \frac{\hbar_{\mathrm{eff}}}{2m_* i}\left(\psi^* \nabla \psi - \psi \nabla \psi^* \right) - \frac{q}{m_*}\,\mathbf A\,|\psi|^2,
+\label{eq:current}
+\end{equation}
+and the continuity equation
+\begin{equation}
+\partial_t \rho + \nabla\!\cdot\!\mathbf j \;=\; 0.
+\label{eq:continuity}
+\end{equation}
+
+\subsection{Canonical structure and Ehrenfest}
+\label{sec:QM_ops}
+
+The symplectic form from \eqref{eq:Spsi_full} implies the equal-time brackets for \((\rho,S)\),
+\[
+\{\rho(\mathbf{x}),S(\mathbf{y})\}=\delta^{(3)}(\mathbf{x}-\mathbf{y}) \;\Rightarrow\; [\hat{x}_i,\hat{p}_j]= i\hbar_{\mathrm{eff}}\delta_{ij},\quad \hat{\mathbf p}=-i\hbar_{\mathrm{eff}}\nabla ,
+\]
+i.e.
+\begin{equation}
+[\hat{x}_i,\hat{p}_j] \;=\; i\hbar_{\mathrm{eff}}\delta_{ij}.
+\label{eq:commutator}
+\end{equation}
+With \(\hat H = (\hat{\mathbf p}-q\mathbf A)^2/2m_* + q\Phi + V\), Heisenberg evolution reproduces \eqref{eq:continuity} in expectation (Ehrenfest).
+
+\subsection{Madelung reduction and the quantum potential}
+\label{sec:QM_madelung_detail}
+
+Separating \eqref{eq:schrodinger} into real/imag parts using \eqref{eq:psi_polar} yields
+\begin{align}
+\partial_t \rho + \nabla\!\cdot\!\left(\rho\,\frac{\nabla S - q\mathbf A}{m_*}\right) &= 0, 
+\label{eq:HJ_cont_redux}\\
+\partial_t S + \frac{(\nabla S - q\mathbf A)^2}{2m_*} + q\Phi + V + Q[\rho] &= 0,
+\label{eq:HJ_quantum}
+\end{align}
+with quantum potential
+\begin{equation}
+Q[\rho] \;\equiv\; -\,\frac{\hbar_{\mathrm{eff}}^{2}}{2m_*}\,\frac{\nabla^2\sqrt{\rho}}{\sqrt{\rho}} .
+\label{eq:Q_potential}
+\end{equation}
+Recombining recovers \eqref{eq:schrodinger}.
+
+\subsection{Spin from Twist; Pauli equation (gauge-invariant baseline)}
+\label{sec:QM_spin}
+
+Twist endows the slice wavefunction with a two-component structure \(\Psi=(\psi_\uparrow,\psi_\downarrow)^\top\). Minimal coupling to EM gives the Pauli equation
+\begin{equation}
+i\hbar_{\mathrm{eff}}\,\partial_t \Psi
+= \left[\frac{1}{2m_*}\!\left(-i\hbar_{\mathrm{eff}}\nabla - q\mathbf{A}\right)^2 + q\Phi - \frac{q\,\hbar_{\mathrm{eff}}}{2m_*}\,\frac{g}{2}\,\boldsymbol{\sigma}\!\cdot\!\mathbf{B} \right]\Psi
+\;+\; O\!\left((\xi/\rho)^2\right),
+\label{eq:pauli}
+\end{equation}
+with \(g=2+\delta g\). In this framework, finite slab thickness renormalizes the Pauli coefficient,
+\[
+\delta g \;\sim\; \eta_{\rm tw}\,\frac{\varepsilon^2}{\ell_*^2} + O\!\left(\frac{\varepsilon^4}{\ell_*^4}\right),
+\]
+where \(\ell_*\) is the coarse-graining scale. We \emph{do not} include non-gauge-invariant spin operators in the baseline.
+
+\subsection{Relativistic uplift and gravity coupling}
+\label{sec:QM_relativistic}
+
+The relativistic wave sector linearizes to
+\begin{align}
+(\Box + m_*^2)\,\phi &= 0 \qquad \text{(Klein--Gordon)}, 
+\label{eq:kg}\\
+(i\gamma^\mu D_\mu - m_*)\,\Psi &= 0 \qquad \text{(Dirac)},
+\label{eq:dirac}
+\end{align}
+with \(D_\mu=\partial_\mu + iqA_\mu + \tfrac{1}{4}\omega_{\mu ab}\gamma^{ab}\). The gravity spin connection \(\omega_{\mu ab}\) and metric \(g_{\mu\nu}\) come from Sec.~\ref{sec:strong-dict}. For matter-wave interferometers the phase is the proper-time integral
+\begin{equation}
+\Delta \varphi \;=\; \frac{m_*}{\hbar_{\mathrm{eff}}}\,\Delta \tau \;=\; \frac{m_*}{\hbar_{\mathrm{eff}}}\int_\gamma \!\sqrt{-\,g_{\mu\nu}\,dx^\mu dx^\nu},
+\label{eq:grav-phase}
+\end{equation}
+reducing to the Newtonian form in the weak-field limit.
+
+\subsection{Quantum fields and excitations of the medium}
+\label{sec:QM_qft}
+
+Normal modes define creation/annihilation operators; for a scalar,
+\begin{equation}
+\phi(\mathbf{x},t)=\int \!\frac{d^3k}{(2\pi)^3}\,\frac{1}{\sqrt{2\omega_{\mathbf k}}}\left(a_{\mathbf k}e^{-i\omega t+i\mathbf{k}\cdot\mathbf{x}} + a_{\mathbf k}^\dagger e^{i\omega t-i\mathbf{k}\cdot\mathbf{x}}\right),\qquad [a_{\mathbf k},a_{\mathbf k'}^\dagger]=(2\pi)^3\delta^{(3)}(\mathbf k-\mathbf k').
+\label{eq:mode-expansion}
+\end{equation}
+Mass/dispersion/mixing are developed in Sec.~\ref{sec:emergent-particles}.
+
+\subsection{Measurement, decoherence, and classicality}
+\label{sec:QM_measurement}
+
+Integrating out slab/environmental modes produces a Gaussian dephasing kernel in path separation \(d\):
+\begin{equation}
+\Gamma_{\mathrm{dec}}(d) \;=\; \Gamma_0 \;+\; \gamma_2\, d^2 \;+\; O(d^4), 
+\qquad 
+\gamma_2 \;\propto\; \alpha_{\rm tw}\,\frac{\hbar_{\mathrm{eff}}}{m_*\,\ell_*^4}\left(\frac{\varepsilon}{\ell_*}\right)^{p}.
+\label{eq:decoherence}
+\end{equation}
+Thus, after subtracting standard collisional/thermal channels, any intrinsic slab-coupled decoherence must manifest as a residual \(d^2\) law.
+
+\subsection{Covariant packaging of stress and energy flow}
+\label{sec:QM_covariant}
+
+Define
+\[
+\mathcal{L}_{\psi} = \frac{i\hbar_{\mathrm{eff}}}{2}(\psi^* D_t\psi - \psi (D_t\psi)^*) - \frac{\hbar_{\mathrm{eff}}^2}{2m_*}\gamma^{ij}(D_i\psi)^*(D_j\psi) - V|\psi|^2 .
+\]
+A symmetric (Belinfante-improved) stress tensor is
+\begin{equation}
+T_{\mu\nu}^{(\psi)} = \frac{\hbar_{\mathrm{eff}}^2}{2m_*}\Big[(D_\mu\psi)^* (D_\nu\psi) + (D_\nu\psi)^*(D_\mu\psi)\Big] - g_{\mu\nu}\,\mathcal{L}_{\psi},
+\label{eq:stress}
+\end{equation}
+consistent with EM/gravity couplings used elsewhere.
+
+\subsection{Distinctive predictions and falsifiable handles}
+\label{sec:QM_tests}
+
+\paragraph{(A) High-$k$ dispersion tail (clean, new).}
+At large \(k\), next-gradient terms give
+\begin{equation}
+\omega(\mathbf k) = \frac{\hbar_{\mathrm{eff}} k^2}{2m_*}\left[1 + \beta_4\,\frac{k^2}{k_*^2} + O\!\left(\frac{k^4}{k_*^4}\right)\right], \qquad k_* \sim \xi^{-1}.
+\label{eq:dispersion}
+\end{equation}
+\emph{Test:} Bragg/Talbot interferometry at high \(k\). \emph{Falsify:} bound \(|\beta_4|/k_*^2\).
+
+\paragraph{(B) Intrinsic decoherence residual (geometry law).}
+After standard subtractions, any slab-coupled channel must produce \(\Gamma_{\rm dec}(d)=\Gamma_0+\gamma_2 d^2+\dots\) with \(\gamma_2\) as in \eqref{eq:decoherence}. \emph{Test:} vary slit separation \(d\) at fixed environment; \emph{Falsify:} \(\gamma_2\to 0\) within errors bounds \(\alpha_{\rm tw}(\varepsilon/\ell_*)^p\).
+
+\paragraph{(C) Spin sector (baseline is $\delta g$ only).}
+Finite thickness renormalizes \(g\): \(g=2+\delta g\) with \(\delta g \sim \eta_{\rm tw}(\varepsilon/\ell_*)^2\). \emph{Test:} precision Zeeman/($g$-2) spectroscopy. \emph{Falsify/bound:} \(|\delta g|\) ceiling maps to \(\eta_{\rm tw}\varepsilon^2/\ell_*^2\).
+
+\paragraph{(D) Gravity--QM cross terms.}
+Use \eqref{eq:grav-phase} with the resummed metric (Sec.~\ref{sec:strong-dict}). \emph{Test:} tall-baseline atom interferometers and ring-laser/atom Sagnac hybrids; \emph{Falsify/bound:} agree with GR+Newtonian within errors.
+
+\paragraph{(E) Optional portal: extra AB-like phase.}
+Only if a coupling \(\Delta S=\kappa_{\rm tw}\oint a^{\rm tw}_\mu dx^\mu\) exists. \emph{Test:} EM AB geometry with B-shielding and engineered Twist; \emph{Falsify/bound:} residual phase \(\to 0\Rightarrow |\kappa_{\rm tw}\Phi_{\rm tw}| \lesssim \sigma_\varphi\).
+
+\paragraph{(F) Optional portal: polarization-dependent photon phase.}
+Twist textures could induce a tiny polarization-odd geometric phase. \emph{Test:} high-finesse cavity/Sagnac in Twist-structured region; \emph{Falsify/bound:} null birefringence maps to portal coefficients.
+
+\subsection{Calibration and parameter table}
+\label{sec:QM_calibration}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
+\toprule
+Parameter & Meaning & Calibration handle \\
+\midrule
+\(\hbar_{\mathrm{eff}}\) & circulation quantum & de Broglie fringes; atomic spectra \\
+\(m_*\) & effective inertia & kinematics vs.\ trap frequencies / dispersion \\
+\(\varepsilon\) & slab thickness & interferometric residual \(d^2\) scaling \\
+\(\xi\) & core radius & dispersion tail \(k_*\!\sim\!\xi^{-1}\) in \eqref{eq:dispersion} \\
+\(\eta_{\mathrm{tw}}\) & spin renorm.\ coeff. & precision \(g\)-factor bounds (\(\delta g\)) \\
+\(\beta_4\) & next-gradient coeff. & high-$k$ Bragg/Talbot scans \\
+\(\kappa_{\rm tw}\) & (portal) Twist link & AB residual nulls (optional) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Summary.}
+With \(\hbar_{\mathrm{eff}}\) fixed by circulation \eqref{eq:circulation-quant}, the action \eqref{eq:Spsi_full} yields Schr\"odinger/Pauli \eqref{eq:schrodinger}--\eqref{eq:pauli}, the canonical algebra \eqref{eq:commutator}, and a Madelung reduction \eqref{eq:HJ_quantum}--\eqref{eq:Q_potential}. Gravity phases follow from \eqref{eq:grav-phase}. The model makes clean, testable predictions (\S\ref{sec:QM_tests}) and aligns with EM/gravity sectors (Secs.~\ref{sec:EM_projection}, \ref{sec:strong-dict}); null results map directly to bounds on \(\{\alpha_{\rm tw},\varepsilon,\xi,\eta_{\rm tw},\beta_4,\kappa_{\rm tw}\}\).

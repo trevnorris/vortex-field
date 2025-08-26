@@ -1,4 +1,4 @@
-\section{Weak-Field Gravity: From Newton to Post-Newtonian}
+\section{Gravity: Weak and Strong Field}
 Asymptotic causality and the decoupling of bulk $v_L$ adjustments are discussed in Sec.~\ref{sec:tsunami-causality} of the framework; only $F_{\mu\nu}$-built observables propagate at speed $c$ in the wave sector.
 
 
@@ -631,3 +631,53 @@ i.e., the Lense--Thirring limit of Kerr, fixing our normalization of \(\mathbf A
 
 \noindent\textit{Editorial note.}
 This subsection is placed at the end of the weak-field/GEM development so it functions as a ``strong-field bridge'': it closes the linear narrative and hands off to the full GR treatment without interrupting the derivations above.
+
+% ============================
+% Strong-Field Geometry Section
+% ============================
+
+\subsection{Strong-Field Geometry: From Gravito-EM to Full GR}
+\label{sec:strong-field-geometry}
+
+\paragraph{What this section does (reader map).}
+We elevate the weak-field, gravito-EM dictionary $(\Phi_g,\mathbf A_g)$ to a full spacetime metric, show it reproduces exact Schwarzschild (and the slow-rotation limit of Kerr), derive the linear (GEM) equations from an action, and fix a well-posed gauge for evolution. This closes gravity nonlinearly without changing any empirical content in the strong-field regime.
+
+\subsubsection{Resummed Metric Dictionary (recall) and Immediate Checks}
+\label{sec:resummed-dict}
+Recall the metric dictionary from Sec.~\ref{sec:strong-dict},
+Eqs.~\eqref{eq:strong-dict-ansatz}--\eqref{eq:beta-shift}.
+\emph{Checks (sketch):} (i) Schwarzschild in isotropic coordinates follows by choosing
+$N(U)=\frac{1-\tfrac{U}{2}}{1+\tfrac{U}{2}}$, $\psi(U)=1+\frac{U}{2}$; (ii) PN expansion reproduces the GEM map to all needed orders; (iii) slow rotation gives the $O(J)$ Kerr/Lense--Thirring limit via $g_{0i}=-4A_{g\,i}/c^3$.
+We now turn to the action, gauge, and well-posedness.
+
+\subsubsection{Action Principle and the Linear (GEM) Limit}
+\label{sec:EH-closure}
+\label{sec:action-linear}
+We adopt the Einstein–Hilbert action with universal matter coupling,
+\begin{equation}
+S_{\rm grav}[g]=\frac{c^3}{16\pi G}\!\int \! d^4x\,\sqrt{-g}\,R,\qquad
+S_{\rm tot}[g,\text{matter}]=S_{\rm grav}[g]+S_{\rm matter}[g,\cdots].
+\label{eq:EH}
+\end{equation}
+Varying yields $G_{\mu\nu}=\tfrac{8\pi G}{c^4}T_{\mu\nu}$ and, by Bianchi, $\nabla_\mu T^{\mu\nu}=0$.
+Linearize $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$ and impose harmonic gauge $\partial_\mu \bar h^{\mu\nu}=0$ with $\bar h_{\mu\nu}\!=\!h_{\mu\nu}-\tfrac12\eta_{\mu\nu}h$:
+\begin{equation}
+\square\,\bar h_{\mu\nu}=-\frac{16\pi G}{c^4}\,T_{\mu\nu}.
+\label{eq:lin_ein}
+\end{equation}
+Identifying $(h_{00},h_{0i},h_{ij})$ with $(\Phi_g,\mathbf A_g)$ gives exactly the weak-field GEM equations used earlier. Thus the weak sector is the linear limit of \eqref{eq:EH}.
+
+\subsubsection{Gauge Choice and Well-Posedness}
+\label{sec:gauge}
+For evolution we use generalized harmonic gauge, $\Box x^\mu=H^\mu(g,\partial g)$, which renders the field equations strongly hyperbolic with constraint damping. In the $3\!+\!1$ split of \eqref{eq:strong-dict-ansatz}, the Hamiltonian and momentum constraints propagate by virtue of the Bianchi identities. This is consistent with EM’s Lorenz gauge and the harmonic gauge used in the linear GEM presentation.
+
+\subsubsection{Worked micro-derivation: Newtonian limit from $G_{00}$}
+\label{sec:newtonian-worked}
+Static fields with slow matter: $T_{00}\approx \rho c^2$, $T_{0i}\!\approx\!0$. Then $\bar h_{00}=\tfrac12 h_{00}$ and $\square\!\to\! -\nabla^2$,
+\[
+-\nabla^2\!\left(\tfrac12 h_{00}\right)=-\frac{16\pi G}{c^4}\,(\rho c^2)
+\quad\Rightarrow\quad
+\nabla^2 \Phi_g = 4\pi G \rho.
+\]
+\paragraph{What to remember.}
+The dictionary \eqref{eq:strong-dict-ansatz}--\eqref{eq:beta-shift} + action \eqref{eq:EH} reproduces exact Schwarzschild, slow Kerr, Newtonian gravity, and the entire weak-field GEM sector, while providing a well-posed strong-field evolution scheme.

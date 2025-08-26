@@ -221,3 +221,247 @@ A single small spatial scale $\xi$ and (optionally) a small temporal scale $\tau
 
 \paragraph{Bottom line.}
 Maxwell's equations emerge cleanly on the slice; if Nature implements the projection through a perfectly sharp interface, $\xi,\tau\!\to\!0$ and no deviations appear. If the transition is merely very thin/fast, the tests above bound $(\xi,\tau)$ directly.
+
+\subsection{Electromagnetism as Slope+Eddies from Oriented Links}
+\label{sec:EM-from-helical-vortices}
+
+% ------------------------------------------------------------
+% 30-second story / big picture
+% ------------------------------------------------------------
+\begin{tcolorbox}[title=Plain-language snapshot (30 seconds)]
+Oriented links through the slice write a standing Slope pattern (electric), while motion/Drag organize Eddies (magnetic). Changing Eddies create loop electric fields (Induction). The displacement-current bridge lives in the thin slab to keep continuity exact during transients.\footnote{We remain agnostic about ontology; the subsection only establishes the mathematical map.}
+\end{tcolorbox}
+
+% ------------------------------------------------------------
+% quick dictionary
+% ------------------------------------------------------------
+\begin{tcolorbox}[title=Quick dictionary (objects \(\leftrightarrow\) meanings)]
+\begin{itemize}
+  \item Bulk 2-form \(B_{MN}=-B_{NM}\) with fieldstrength \(H_{MNP}=\partial_{[M}B_{NP]}\) $\leftrightarrow$ parent gauge field.
+  \item Vector potential \(A_\mu\equiv B_{\mu 4}\) $\leftrightarrow$ electromagnetic potential in $(3{+}1)$D.
+  \item Maxwell tensor \(F_{\mu\nu}\equiv H_{\mu\nu 4}=\partial_\mu A_\nu-\partial_\nu A_\mu\).
+  \item Sheet world-volume current \(J^{MNP}\) (conserved 3-form) $\leftrightarrow$ topological data of vortex sheets.
+  \item Sheet endpoint in $(3{+}1)$D $\leftrightarrow$ point charge of integer strength \(n\) (sign set by orientation).
+  \item Sheet endpoint worldline $\leftrightarrow$ electric 4-current \(j_e^\mu\).
+  \item Oriented link $\leftrightarrow$ integer charge (sign by orientation), writes the Slope profile.
+  \item On-slice Eddies $\leftrightarrow$ magnetic field $\mathbf B$; changing Eddies $\leftrightarrow$ Induction (loop $\mathbf E$).
+\end{itemize}
+\end{tcolorbox}
+
+\subsubsection{Setup and notation}
+We use coordinates $x^M$ with $M=0,1,2,3,4$, where $x^0\equiv t$ and the extra spatial coordinate $x^4$ is compact with circumference $L_4$. Greek indices $\mu,\nu=0,1,2,3$ refer to the observed $(3{+}1)$D slice. We adopt metric signature $(-,+,+,+)$ for statements in $(3{+}1)$D and standard index symmetrization/antisymmetrization conventions. Outside vortex cores, fields are taken $x^4$-independent.
+
+\paragraph*{Idea.} Keep the $x^4$-component of the bulk two-form; it behaves like an electromagnetic vector potential.
+\paragraph*{Result.} Define $A_\mu\equiv B_{\mu 4}$ and $F_{\mu\nu}\equiv H_{\mu\nu 4}$ to obtain the usual Maxwell tensor on the slice.
+
+\subsubsection{Topological sheet current and identities}
+Vortex \emph{sheets} are codimension-2 defects whose world-volumes in $(4{+}1)$D are captured by a conserved 3-form current $J^{MNP}$,
+\begin{equation}
+\partial_M J^{MNP}=0,
+\qquad
+J^{MNP}=-J^{NMP}=\cdots
+\end{equation}
+The parent gauge field is a Kalb--Ramond 2-form $B_{MN}$ with fieldstrength $H=\mathrm d B$, so
+\begin{equation}
+H_{MNP}=\partial_{[M}B_{NP]},
+\qquad
+\partial_{[M}H_{NPQ]}=0\quad\text{(Bianchi)}.
+\end{equation}
+These identities imply ``no magnetic monopoles'' after dimensional reduction: $\mathrm d F=0$ gives $\nabla\!\cdot\!\mathbf B=0$ and Faraday's law.
+
+\subsubsection{Dimensional reduction and identification of $A_\mu$}
+Compactify $x^4\sim x^4+L_4$ and assume $\partial_4$-independence away from cores. Decompose
+\begin{equation}
+B_{MN}\;\longrightarrow\;\{\,B_{\mu\nu}\,,\;B_{\mu 4}\equiv A_\mu\,\},
+\qquad
+F_{\mu\nu}\equiv H_{\mu\nu 4}
+=\partial_\mu A_\nu-\partial_\nu A_\mu.
+\end{equation}
+The remaining components $B_{\mu\nu}$ are heavy/decoupled in this sector (or dual to a scalar not sourced by endpoints), so we drop them here. The minimal bulk dynamics and coupling can be summarized schematically as
+\begin{equation}
+\partial_M H^{MNP}=g_B^{2}\,J^{NP},\qquad \text{with}\quad J^{NP}\equiv J^{NP4} \;\text{(sheet data)}.
+\end{equation}
+Integrating over the compact direction yields Maxwell's equations on the slice,
+\begin{equation}
+\partial_\mu F^{\mu\nu}=g_{\rm eff}^2\, j_e^{\,\nu},
+\qquad
+j_e^{\,\nu}(x)\equiv \int_0^{L_4}\!\mathrm d x^4\; J^{\nu 4}(x,x^4),
+\label{eq:maxwell-from-sheets}
+\end{equation}
+with an effective coupling $g_{\rm eff}^2\propto g_B^2/L_4$ fixed by normalization below.
+
+\begin{tcolorbox}[title=Idea $\to$ Result]
+\textbf{Idea:} The $x^4$-component of the topological sheet current looks like an electric current when viewed from $(3{+}1)$D.\\
+\textbf{Result:} After integrating over $x^4$, Eq.~\eqref{eq:maxwell-from-sheets} is precisely the sourced Maxwell equation.
+\end{tcolorbox}
+
+\subsubsection{Charge quantization from helical twist (Gauss law)}
+Let $\mathcal S^2$ be a 2-sphere in the observed space that encloses a single sheet endpoint of integer twist $n$ (orientation convention stated below). The flux of $\,{}^\star\!F\,$ through $\mathcal S^2$ counts the twist:
+\begin{equation}
+\int_{\mathcal S^2}\!{}^\star F\;=\; q_0\,n,\qquad q_0\equiv \frac{2\pi L_4}{g_B^{2}}\;\;\times\;\,(\text{unit\;choice}).
+\label{eq:gauss-quantization}
+\end{equation}
+Thus electric charge is \emph{topological}: it depends only on the integer $n$, not on core details. We fix the overall sign by the orientation convention: a right-handed helical advance of the sheet along $+x^4$ at the endpoint corresponds to $n>0$ and \emph{positive} charge.
+
+\begin{tcolorbox}
+\textbf{Orientation convention.} ``Positive linking'' (right-handed twist advancing toward $+x^4$) $\Rightarrow$ $n>0$ $\Rightarrow$ positive charge in $(3{+}1)$D.
+\end{tcolorbox}
+
+\subsubsection{Normalization to standard units}
+It is useful to present two equivalent normalizations.
+\begin{enumerate}
+  \item \textbf{Heaviside--Lorentz (natural) units.} Choose the $(3{+}1)$D action
+  \begin{equation}
+  S_{\rm EM}=\int\!\mathrm d^4x\;\Big[-\tfrac{1}{4}\,F_{\mu\nu}F^{\mu\nu}+A_\mu j_e^{\,\mu}\Big],
+  \end{equation}
+  which is achieved by the rescaling $A_\mu\mapsto A_\mu/e$ with
+  \begin{equation}
+  e^{2}=\frac{g_B^{2}}{2L_4} \quad (\text{up to an overall sign fixed by \eqref{eq:gauss-quantization}}).
+  \end{equation}
+  Then a single endpoint with twist $n$ carries physical charge $Q= n\,q_0/e$.
+
+  \item \textbf{SI units.} Write $S_{\rm EM}=\int\!\mathrm d^4x\;\big[\tfrac{\epsilon_0}{2}\,\mathbf E^2-\tfrac{1}{2\mu_0}\,\mathbf B^2 + A_\mu j_e^{\,\mu}\big]$ and rescale so that $\epsilon_0\mu_0=1/c^2$. The same mapping gives $e^2= g_B^{2}/(2L_4)$ while the physical charge unit is $q_0/e$; numerical values are then fixed by the chosen calibration (e.g., set $n=-1$ to reproduce the electron charge).
+\end{enumerate}
+Either choice is fine provided one sticks to it consistently.
+
+\subsubsection{Worked examples (outside cores)}
+\begin{enumerate}
+  \item \textbf{Single endpoint ($n=1$).} Spherical symmetry gives $|\mathbf E|= (q_0/e)/(4\pi r^2)$ (SI) or $|\mathbf E|=(q_0/e)/r^2$ (Heaviside--Lorentz). The magnetic field vanishes for static endpoints.
+  \item \textbf{Dipole ($n=+1$ and $n=-1$ separated by $\mathbf d$).} Far field is the standard dipole: $\mathbf E\approx \tfrac{q_0}{e}\,\tfrac{3(\hat{\mathbf r}\!\cdot\!\mathbf p)\hat{\mathbf r}-\mathbf p}{4\pi r^3}$ with $\mathbf p=\tfrac{q_0}{e}\,\mathbf d$ (SI). Time-dependent motion radiates exactly as in Maxwell theory.
+\end{enumerate}
+
+\subsubsection{FAQ (math-only claims)}
+\begin{itemize}
+  \item \textbf{Why is charge conserved?} Gauge invariance of the parent two-form enforces $\partial_M J^{MNP}=0$, which reduces to $\partial_\mu j_e^{\,\mu}=0$ after integrating over $x^4$.
+  \item \textbf{Why no magnetic monopoles?} The Bianchi identity $\mathrm dH=0$ implies $\mathrm dF=0$, hence $\nabla\!\cdot\!\mathbf B=0$ and Faraday's law.
+  \item \textbf{What sets the size of the charge quantum?} Geometry and coupling: $q_0=2\pi L_4/g_B^{2}$ (then rescaled by $e$ in the chosen unit system). Integer $n$ labels the helical linking number.
+  \item \textbf{Does core microphysics matter?} Not for charge: Eq.~\eqref{eq:gauss-quantization} is topological. Core details enter only in short-distance regularization, not in the flux quantization.
+\end{itemize}
+
+\subsubsection{Numerical recipe (practical use)}
+\begin{enumerate}
+  \item Specify endpoint worldlines $\{x_a^\mu(\tau)\}$ and integers $n_a$ (sign by orientation).
+  \item Build $j_e^{\,\mu}(x)=\sum_a (n_a q_0/e)\int \!\mathrm d\tau\; \dot x_a^{\,\mu}(\tau)\,\delta^{(4)}\big(x-x_a(\tau)\big)$.
+  \item Solve $\partial_\mu F^{\mu\nu}= j_e^{\,\nu}$ and $\partial_{[\alpha}F_{\beta\gamma]}=0$ with retarded Green's functions (Lorenz gauge is convenient): $A^\mu(x)=\int \mathrm d^4x'\, G_{\rm ret}(x-x')\, j_e^{\,\mu}(x')$.
+  \item Report fields in your preferred units; outside cores they are identical to standard Maxwell solutions. Accelerating endpoints (or time-dependent twists) radiate.
+\end{enumerate}
+
+% ------------------------------------------------------------
+% gentle guardrails / reminders
+% ------------------------------------------------------------
+\begin{tcolorbox}
+\textbf{Conventions used here.} (i) $[\Gamma]=L^2/T$ for circulation; (ii) We keep EM and gravitomagnetic sectors strictly separate (no overloading of $A_\mu$); (iii) Orientation: right-handed twist toward $+x^4$ is positive $n$.
+\end{tcolorbox}
+
+
+\subsection{Electromagnetism in the Wave sector}
+\label{subsec:em_wave}
+
+\paragraph{Scope and units.}
+In this subsection we isolate the electromagnetic (EM) wave sector. We work in \emph{Gaussian--cgs} units and use the standard 4-potential
+\(A^\mu=(\Phi_{\text{Slope}}/c,\mathbf A)\), field tensor \(F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu\),
+and physical fields \(\mathbf E=-\nabla\Phi_{\text{Slope}}-\tfrac1c\,\partial_t\mathbf A\), \(\mathbf B=\nabla\times\mathbf A\).
+The EM sources are \(J^\mu_{\rm ch}=(c\,\rho_{\rm ch},\,\mathbf J_{\rm ch})\) and obey the
+charge continuity equation \(\partial_t\rho_{\rm ch}+\nabla\!\cdot\!\mathbf J_{\rm ch}=0\).
+\emph{These EM sources and fields are distinct from any gravitational/``GEM'' sector variables, which do not appear here.}
+
+Throughout this subsection we write $\mathbf A \equiv \mathbf A_{\text{EM}}$.
+
+We decompose $\mathbf E = -\nabla \Phi_{\text{Slope}} - \tfrac{1}{c}\,\partial_t \mathbf A$ where $\mathbf B=\nabla\times\mathbf A$ (Eddies). The first term is Slope (Coulomb); the second is Induction (loop electric field).
+
+\paragraph{30-second story (reader guide).}
+This is the \emph{wave} part of the theory: once the EM field content is defined,
+time-dependent sources launch disturbances that propagate causally with speed \(c\).
+The static limit reproduces Coulomb's law; the time-dependent regime gives retarded fields and radiative energy flux.
+
+\subsubsection{Field equations, gauge, and radiation condition}
+We adopt \emph{Lorenz gauge} \(\partial_\mu A^\mu=0\), which is Lorentz-invariant.
+Maxwell's equations in terms of \(F_{\mu\nu}\) are
+\begin{align}
+\partial_\mu F^{\mu\nu} &= \frac{4\pi}{c}\,J^\nu_{\rm ch}, &
+\partial_{[\alpha}F_{\beta\gamma]} &= 0,
+\end{align}
+and, equivalently, the potentials satisfy the manifestly hyperbolic system
+\begin{equation}
+\left(\frac{1}{c^2}\partial_t^2-\nabla^2\right) A^\mu
+= -\,\frac{4\pi}{c}\,J^\mu_{\rm ch}, \qquad \partial_\mu A^\mu=0,
+\label{eq:wave_A_Lorenz}
+\end{equation}
+valid to leading order in the small parameters of this framework
+\((\varepsilon_\rho,\varepsilon_v^2,\varepsilon_\xi)\) (see Regime of Validity).
+At spatial infinity we impose the \emph{Sommerfeld radiation condition} (outgoing waves only):
+\begin{equation}
+\left(\partial_r - \frac{1}{c}\partial_t\right)\!\big(r\,A^\mu\big) \;\to\; 0
+\quad \text{as}\quad r\to\infty,
+\end{equation}
+which selects retarded (causal) solutions and ensures a well-defined energy flux.
+
+\noindent\emph{Idea:} assume Lorentz covariance, gauge invariance, and linearity for observables. \;
+\emph{Result:} the electromagnetic wave equations \eqref{eq:wave_A_Lorenz} with characteristic speed \(c\).
+
+\subsubsection{Static calibration and Coulomb limit}
+In the static limit (\(\partial_t=0\), localized sources), \eqref{eq:wave_A_Lorenz} reduces to
+\begin{align}
+\nabla^2 \Phi_{\text{Slope}} &= -\,4\pi\,\rho_{\rm ch}, &
+\nabla^2 \mathbf A &= \mathbf 0 \quad (\text{Lorenz gauge}).
+\end{align}
+For a point charge \(Q\) at the origin,
+\(\Phi_{\text{Slope}}(\mathbf r)= Q/r\), \(\mathbf E(\mathbf r)= Q\,\mathbf r/r^3\), \(\mathbf B=\mathbf 0\).
+This \emph{calibrates} the normalization so that all dynamic results reduce to the familiar Coulomb law when \(\partial_t\to0\).
+
+\noindent\emph{Idea:} require the static sector to match measured electrostatics. \;
+\emph{Result:} fix couplings so \(\nabla\!\cdot\!\mathbf E=4\pi\rho_{\rm ch}\) and \(E=Q/r^2\).
+
+\subsubsection{Retarded solutions and causality}
+With the radiation condition, the unique solutions of \eqref{eq:wave_A_Lorenz} are the retarded potentials
+\begin{align}
+\Phi_{\text{Slope}}(\mathbf x,t) &= \int \frac{\rho_{\rm ch}(\mathbf x',\,t_r)}{|\mathbf x-\mathbf x'|}\,d^3x',\\
+\mathbf A(\mathbf x,t) &= \frac{1}{c}\int \frac{\mathbf J_{\rm ch}(\mathbf x',\,t_r)}{|\mathbf x-\mathbf x'|}\,d^3x',
+\end{align}
+with \emph{retarded time} \(t_r=t-|\mathbf x-\mathbf x'|/c\).
+Equivalently, one may use the retarded Green's function formalism (see Appendix on retarded Green's functions).
+
+\noindent\emph{Idea:} allow only outbound disturbances consistent with the light cone. \;
+\emph{Result:} fields at \((\mathbf x,t)\) depend only on past sources inside the backward light cone; no superluminal signaling.
+
+\subsubsection{Energy density, Poynting flux, and radiation}
+The EM energy density and flux in Gaussian units are
+\begin{equation}
+u = \frac{E^2+B^2}{8\pi}, \qquad \mathbf S = \frac{c}{4\pi}\,\mathbf E\times\mathbf B,
+\end{equation}
+and Poynting's theorem holds:
+\begin{equation}
+\partial_t u + \nabla\!\cdot\!\mathbf S = -\,\mathbf J_{\rm ch}\!\cdot\!\mathbf E.
+\end{equation}
+Under the radiation condition, the total power radiated is the surface integral of \(\mathbf S\cdot d\mathbf a\) over a sphere at large \(r\).
+
+\noindent\emph{Idea:} track where source work goes. \;
+\emph{Result:} it leaves as outgoing Poynting flux determined by the retarded fields.
+
+\subsubsection{Tiny worked example: oscillating dipole (far zone)}
+For a localized, time-harmonic electric dipole moment \( \mathbf p(t)=\mathbf p_0\cos\omega t\),
+the leading far-field (\(r\gg\) source size) scales as
+\begin{equation}
+\big|\mathbf E(\mathbf r,t)\big| \sim \frac{\omega^2\,|\mathbf p_0|\,\sin\theta}{c^2\,r}\,
+\cos\!\big(\omega(t-r/c)\big), \qquad
+\big|\mathbf B(\mathbf r,t)\big| \sim \frac{|\mathbf E|}{c},
+\end{equation}
+and the radiated power scales like \(P \propto \omega^4 |\mathbf p_0|^2/c^3\).
+(Exact angular factors and coefficients are standard and omitted here for brevity.)
+
+\paragraph{Dictionary (for quick reading).}
+\begin{itemize}
+\item \(A^\mu\): electromagnetic 4-potential on the observed slice (EM only; no GEM mixing here).
+\item \(F_{\mu\nu}\): field tensor; \(\mathbf E,\mathbf B\) are the measured electric and magnetic fields.
+\item \(J^\mu_{\rm ch}=(c\rho_{\rm ch},\mathbf J_{\rm ch})\): charge/current; obeys \(\partial_\mu J^\mu_{\rm ch}=0\).
+\item \emph{Lorenz gauge}: \(\partial_\mu A^\mu=0\); keeps \eqref{eq:wave_A_Lorenz} manifestly Lorentz-covariant.
+\item \emph{Radiation condition}: only outgoing waves at infinity; selects retarded solutions.
+\end{itemize}
+
+\paragraph{Regime of validity.}
+Throughout this subsection the equations hold to leading order in the small parameters
+\(\varepsilon_\rho=\delta\rho/\rho_0\),
+\(\varepsilon_v=|\mathbf v|/c\),
+\(\varepsilon_\xi=\xi_c/L\);
+subleading corrections enter at \(\mathcal O(\varepsilon_\rho,\varepsilon_v^2,\varepsilon_\xi)\).
+
