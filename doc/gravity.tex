@@ -671,6 +671,21 @@ Identifying $(h_{00},h_{0i},h_{ij})$ with $(\Phi_g,\mathbf A_g)$ gives exactly t
 \label{sec:gauge}
 For evolution we use generalized harmonic gauge, $\Box x^\mu=H^\mu(g,\partial g)$, which renders the field equations strongly hyperbolic with constraint damping. In the $3\!+\!1$ split of \eqref{eq:strong-dict-ansatz}, the Hamiltonian and momentum constraints propagate by virtue of the Bianchi identities. This is consistent with EM’s Lorenz gauge and the harmonic gauge used in the linear GEM presentation.
 
+\subsubsection{Gravitational waves (linearized) and energy flux}
+\label{sec:gw-linear}
+In harmonic gauge $\partial^\nu \bar h_{\mu\nu}=0$ with $\bar h_{\mu\nu}=h_{\mu\nu}-\tfrac12\eta_{\mu\nu}h$, linearized Einstein equations read
+\begin{equation}
+\Box\,\bar h_{\mu\nu} \;=\; -\,\frac{16\pi G}{c^4}\,T_{\mu\nu},
+\qquad \Box \equiv \frac{1}{c^2}\partial_t^2-\nabla^2 .
+\label{eq:gw-wave}
+\end{equation}
+In vacuum, $\Box\,\bar h_{\mu\nu}=0$ admits transverse–traceless (TT) solutions that propagate at $c$. Far from sources the averaged energy flux is
+\begin{equation}
+\langle S_{\rm GW}\rangle \;=\; \frac{c^3}{32\pi G}\,\big\langle \dot h^{\rm TT}_{ij}\,\dot h^{\rm TT}_{ij}\big\rangle .
+\label{eq:gw-flux}
+\end{equation}
+Retarded (Sommerfeld) conditions select the outgoing solution family.
+
 \subsubsection{Worked micro-derivation: Newtonian limit from $G_{00}$}
 \label{sec:newtonian-worked}
 Static fields with slow matter: $T_{00}\approx \rho c^2$, $T_{0i}\!\approx\!0$. Then $\bar h_{00}=\tfrac12 h_{00}$ and $\square\!\to\! -\nabla^2$,
