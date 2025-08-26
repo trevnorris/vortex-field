@@ -29,6 +29,13 @@ S_{\rm EM}(\zeta)\;=\;\exp\!\big[-\beta_{\rm EM}\,\zeta^{\,p}\big],\qquad
 \end{equation}
 which depends on slab overlap. This factor modulates neutral-current–like effects (e.g., tiny polarization or phonon channels) but leaves the binary, topological nature of $Q$ unchanged.
 
+\begin{tcolorbox}[title=Scales and small parameters (at a glance)]
+$\xi$ = core radius (microstructure scale), \ \
+$\ell_{\mathrm{TP}}$ = slab thickness, \ \
+$\ell$ = on-slice feature scale.\\
+$\varepsilon_\rho=\xi/\ell$, \ $\varepsilon_\xi=\ell_{\mathrm{TP}}/\ell$, \ $\varepsilon_v=v/c$, \ $\varepsilon_\kappa=\kappa\ell$.
+\end{tcolorbox}
+
 \subsection{What the fields are, in math and in pictures}
 Let $u(\mathbf x,w,t)$ be the aether velocity in $\mathbb{R}^4$ and $\Omega=\nabla\!\times u$ its (spatial) vorticity. Project onto $\Pi$ and Helmholtz–decompose the induced slice velocity $v(\mathbf x,t)$ as
 \[
@@ -69,13 +76,25 @@ By construction,
 \nabla\times\mathbf E + \partial_t \mathbf B = 0.
 \label{eq:homogeneous}
 \end{equation}
-These are identities on $\Pi$: divergence of a curl vanishes, and $-\partial_t(\nabla\times\mathbf A)$ cancels the curl of $-\partial_t\mathbf A$. 
+These are identities on $\Pi$: divergence of a curl vanishes, and $-\partial_t(\nabla\times\mathbf A)$ cancels the curl of $-\partial_t\mathbf A$.
 
 \paragraph{Everyday pictures.}
 \begin{itemize}
   \item \textbf{$\nabla\!\cdot\!\mathbf B=0$:} whirlpools have centers but not endpoints --- like eddies in a river; no ``loose ends'' to source or sink $\mathbf B$.
   \item \textbf{Faraday's law:} wave a magnet near a wire loop and watch the galvanometer wiggle. Changing Eddies $\to$ loop electric field (Induction) $\to$ current.
 \end{itemize}
+
+\subsection{Small parameters and regime of validity (EM)}
+\label{sec:EM_validity}
+We work in the thin–slow–flat slice limit with controlled remainders. Let $\ell$ be the on–slice length scale of interest and $\kappa$ the local curvature of the slice. Define the dimensionless expansion parameters
+\[
+\varepsilon_\rho := \frac{\xi}{\ell},\qquad
+\varepsilon_v := \frac{v}{c},\qquad
+\varepsilon_\xi := \frac{\ell_{\mathrm{TP}}}{\ell},\qquad
+\varepsilon_\kappa := \kappa\,\ell.
+\]
+{\small\emph{Notation note:} here $\varepsilon_\rho$ denotes the geometric smallness $\xi/\ell$. When a density-contrast amplitude is needed in wave-sector derivations, we write it explicitly as $\delta\rho/\rho_0$.}
+All field equations in this section hold to leading order in these small numbers; we indicate remainders schematically as $O(\varepsilon_\rho^2+\varepsilon_v^2+\varepsilon_\xi^2+\varepsilon_\kappa^2)$. For conventions and units (signature, index placement, SI vs. natural units), see Sec.~\ref{sec:motivation-conventions}.
 
 \subsection{Where sources come from: continuity and the displacement-current bridge}
 Let $\rho(\mathbf x,t)$ be the projected aether excess density on $\Pi$ and $\mathbf J(\mathbf x,t)$ the in-slice transport current. A thin pillbox straddling $\Pi$ turns 4D continuity into
@@ -127,7 +146,7 @@ c^2=\frac{1}{\mu_0\varepsilon_0}.
 \end{equation}
 We take $c$ to be the measured wave speed (light in vacuum), which fixes the product $\mu_0\varepsilon_0$. The static Coulomb limit of \eqref{eq:closure} fixes $\varepsilon_0$; then $\mu_0$ follows from \eqref{eq:c_relation}.
 
-\paragraph{Everyday picture.} 
+\paragraph{Everyday picture.}
 \textbf{Ripples on a stretched sheet.} The sheet tension sets the wave speed; here the combination $\mu_0\varepsilon_0$ sets $c$. Once you know $c$ and the static push between charges (Coulomb), all constants are pinned.
 
 \subsection{Minimal Coupling, EM Stress--Energy, and Light Propagation}
@@ -157,6 +176,9 @@ Dot $\mathbf E$ into Amp\`ere–Maxwell, dot $\mathbf B$ into Faraday, subtract,
 = -\,\mathbf J\!\cdot\!\mathbf E.
 \]
 \textbf{Conveyor-belt picture:} the crossed fields $\mathbf E\times\mathbf B$ are a belt carrying energy through space; the belt unloads onto charges at rate $\mathbf J\!\cdot\!\mathbf E$.
+
+\paragraph{Brief note on media.}
+In linear, isotropic media obtained by coarse-graining microstructure on the slice, the macroscopic fields satisfy $\mathbf D=\varepsilon\,\mathbf E$ and $\mathbf H=\mathbf B/\mu$ with constitutive parameters $(\varepsilon,\mu)$ fixed by the local microstate. The derivations mirror the vacuum case with polarization/magnetization currents included in $J^\mu$. A full treatment is deferred; here we restrict to vacuum ($\varepsilon=\varepsilon_0$, $\mu=\mu_0$).
 
 \subsection{Thickness and accuracy (why Maxwell is so good)}
 If the 4D transition band is smooth, even, and thin of width $\xi$ in $w$, replacing the sharp projection by a convolution changes the induced fields by
@@ -218,6 +240,41 @@ n(I)\simeq 1+n_2 I,\qquad n_2>0 \ \ \text{(sign fixed by positive compressibilit
 
 \paragraph{Reading the scalings.}
 A single small spatial scale $\xi$ and (optionally) a small temporal scale $\tau$ control all departures: statics $\propto(\xi/r)^2$, dispersion $\propto(k\xi)^2$, confinement $\propto(\xi/a)^2$, ultrafast memory $\propto(\omega\tau)^2$, and a weak, fixed-sign nonlinearity. Multiple nulls across these orthogonal handles rapidly squeeze $(\xi,\tau)$, or a positive signal would over-constrain the same pair.
+
+\subsubsection{Existing bounds (EM-only)}
+\label{subsec:EM_existing_bounds}
+We summarize how off-the-shelf laboratory precisions already constrain the two transition parameters $(\xi,\tau)$, using the leading scalings stated above. Coefficients $\alpha,\sigma,\beta,\gamma$ are $O(1)$; bounds are shown explicitly with their coefficient dependence.
+
+\begin{itemize}
+  \item \textbf{Near-field Coulomb tests (A).} A fractional null $\delta_{\rm C}$ on the $1/r^2$ law at a plate/AFM gap $r$ implies
+  \[
+  \xi \;\lesssim\; r\,\sqrt{\delta_{\rm C}/|\alpha|}.
+  \]
+  Illustrative numbers: $r\sim 100\,\mathrm{nm}$ with $\delta_{\rm C}\sim10^{-2}$ would give $\xi\lesssim10\,\mathrm{nm}$.
+
+  \item \textbf{Vacuum dispersion from dual-color/TOF (B).} A bound $|\Delta v|/v\le \delta_{\rm D}$ between two nearby optical wavelengths (wavenumber $k=2\pi/\lambda$) yields
+  \[
+  \xi \;\lesssim\; \frac{1}{k}\,\sqrt{\frac{\delta_{\rm D}}{c_\sigma\,|\sigma|}}
+  \;=\; \frac{\lambda}{2\pi}\,\sqrt{\frac{\delta_{\rm D}}{c_\sigma\,|\sigma|}},
+  \]
+  where $c_\sigma$ is an order-unity shape factor set by the precise dispersion expansion used upstream. For example, $\delta_{\rm D}\sim10^{-11}$ at $\lambda\sim1\,\mu\mathrm{m}$ would correspond (formally) to a sub-picometer $\xi$; actual lab systematics decide how tight one trusts this channel.
+
+  \item \textbf{Ultrafast displacement memory (C).} A curvature-in-frequency bound $|\varepsilon(\omega)-\varepsilon_0|/\varepsilon_0\le\delta_\varepsilon$ at angular frequency $\omega$ gives
+  \[
+  \tau \;\lesssim\; \frac{1}{\omega}\,\sqrt{\delta_\varepsilon/|\beta|}.
+  \]
+  Example: at THz ($\omega\!\sim\!2\pi\,\mathrm{THz}$) with $\delta_\varepsilon\sim10^{-3}$ one finds $\tau\lesssim\text{a few }\mathrm{fs}$.
+
+  \item \textbf{Nanophotonic cavity shifts (D).} A polarization-agnostic fractional mode shift null $|\Delta f|/f\le\delta_f$ at transverse scale $a$ implies
+  \[
+  \xi \;\lesssim\; a\,\sqrt{\delta_f/|\gamma|}.
+  \]
+  Example: $\delta_f\sim10^{-5}$ at $a\sim200\,\mathrm{nm}$ would give $\xi\lesssim\text{a few }\mathrm{nm}$.
+
+  \item \textbf{Strong-field nonlinearity (E).} Existing vacuum Kerr searches constrain $n_2$; in this framework that bound maps to a constraint on the (model-dependent) combination of $(\xi,\tau)$ that controls the closure’s intensity dependence. A dedicated derivation is deferred; we note only that present limits already make this channel subdominant to (A)–(D) in the thin/fast regime.
+\end{itemize}
+
+\paragraph{Takeaway.} Even with conservative laboratory precisions, channels (A), (C), and (D) already prefer a very thin and fast transition: $\xi$ well below the on-slice probes used (often \textit{nm}–scale or tighter), and $\tau$ in the \textit{fs} regime or below. Channel (B) can be extremely constraining if one trusts cavity/time-of-flight systematics at the quoted levels; we keep it as a sensitivity lever rather than a hard claim.
 
 \paragraph{Bottom line.}
 Maxwell's equations emerge cleanly on the slice; if Nature implements the projection through a perfectly sharp interface, $\xi,\tau\!\to\!0$ and no deviations appear. If the transition is merely very thin/fast, the tests above bound $(\xi,\tau)$ directly.
@@ -364,6 +421,7 @@ and physical fields \(\mathbf E=-\nabla\Phi_{\text{Slope}}-\tfrac1c\,\partial_t\
 The EM sources are \(J^\mu_{\rm ch}=(c\,\rho_{\rm ch},\,\mathbf J_{\rm ch})\) and obey the
 charge continuity equation \(\partial_t\rho_{\rm ch}+\nabla\!\cdot\!\mathbf J_{\rm ch}=0\).
 \emph{These EM sources and fields are distinct from any gravitational/``GEM'' sector variables, which do not appear here.}
+For conventions and units (signature, index placement), see Sec.~\ref{sec:motivation-conventions}.
 
 Throughout this subsection we write $\mathbf A \equiv \mathbf A_{\text{EM}}$.
 
@@ -388,7 +446,7 @@ and, equivalently, the potentials satisfy the manifestly hyperbolic system
 \label{eq:wave_A_Lorenz}
 \end{equation}
 valid to leading order in the small parameters of this framework
-\((\varepsilon_\rho,\varepsilon_v^2,\varepsilon_\xi)\) (see Regime of Validity).
+\((\varepsilon_\rho,\varepsilon_v^2,\varepsilon_\xi)\) (see Sec.~\ref{sec:EM_validity} and Sec.~\ref{sec:motivation-conventions}).
 At spatial infinity we impose the \emph{Sommerfeld radiation condition} (outgoing waves only):
 \begin{equation}
 \left(\partial_r - \frac{1}{c}\partial_t\right)\!\big(r\,A^\mu\big) \;\to\; 0
@@ -459,9 +517,4 @@ and the radiated power scales like \(P \propto \omega^4 |\mathbf p_0|^2/c^3\).
 \end{itemize}
 
 \paragraph{Regime of validity.}
-Throughout this subsection the equations hold to leading order in the small parameters
-\(\varepsilon_\rho=\delta\rho/\rho_0\),
-\(\varepsilon_v=|\mathbf v|/c\),
-\(\varepsilon_\xi=\xi_c/L\);
-subleading corrections enter at \(\mathcal O(\varepsilon_\rho,\varepsilon_v^2,\varepsilon_\xi)\).
-
+Equations in this wave-sector summary are understood at leading order in the EM small parameters defined in Sec.~\ref{sec:EM_validity}; see also Sec.~\ref{sec:motivation-conventions} for units and index/sign conventions. Subleading corrections enter at $\mathcal O(\varepsilon_\rho^2+\varepsilon_v^2+\varepsilon_\xi^2+\varepsilon_\kappa^2)$.

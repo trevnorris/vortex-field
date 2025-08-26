@@ -42,6 +42,9 @@ Subsequent sections apply the projection principle and kernel identities to deri
 \textbf{Drag} (organizer of $\mathbf B$): the sideways tug a moving core exerts on the medium; it organizes on-slice Eddies.
 \end{tcolorbox}
 
+\paragraph{Electromagnetism (pointer).}
+The full EM projection, field definitions, Maxwell dynamics, covariant packaging, wave equations with retarded solutions, and experimental bounds are presented in Sec.~\ref{sec:EM_projection}.
+
 \emph{Note:} Intake, Slope, Eddies, and Twist are the core four; Drag organizes Eddies, and Induction is the loop-$\mathbf E$ that appears when Eddies change in time.
 
 \textit{Do-not-confuse:} Twist (hidden, maintenance) $\neq$ Eddies (visible $\mathbf B$); Slope (Coulomb) $\neq$ Induction (loop $\mathbf E$); Intake (gravity) $\neq$ Drag (organizer of $\mathbf B$).
@@ -158,7 +161,7 @@ Before presenting the formal postulates, consider this analogy: Imagine you're f
 \item \textbf{Surface wave}: Later, a tsunami wave arrives (wave sector), which you definitely feel as it lifts and drops you.
 \end{enumerate}
 
-Both phenomena involve the same water, but they represent fundamentally different physics. Our framework captures this duality: gravitational fields are like the bulk rush filling the cavity (established rapidly via Intake, unobservable locally per equivalence), while gravitational waves/photons are like the tsunami (propagating at $c$ in the wave sector, observable). Near-rim Slope maintains the ``whirlpool'' defect stability; motion/Drag organizes Eddies for EM if rotation is present. This duality aligns with the tsunami principle detailed in Section 2.5.\footnote{An isolated, non-rotating (Schwarzschild) black hole has no magnetic dipole moment unless it carries net charge; astrophysically, any charge neutralizes rapidly, so large-scale fields arise only when rotation and surrounding plasma enable field amplification and jet launching (consistent with the Eddies/Drag mechanism here).}
+Both phenomena involve the same water, but they represent fundamentally different physics. Our framework captures this duality: gravitational fields are like the bulk rush filling the cavity (established rapidly via Intake, unobservable locally per equivalence), while gravitational waves/photons are like the tsunami (propagating at $c$ in the wave sector, observable). Near-rim Slope maintains the ``whirlpool'' defect stability; motion/Drag organizes Eddies for EM if rotation is present. This duality aligns with the tsunami principle.\footnote{An isolated, non-rotating (Schwarzschild) black hole has no magnetic dipole moment unless it carries net charge; astrophysically, any charge neutralizes rapidly, so large-scale fields arise only when rotation and surrounding plasma enable field amplification and jet launching (consistent with the Eddies/Drag mechanism here).}
 
 \subsubsection{Apparent instantaneity and causality check}\label{sec:tsunami-causality}
 
@@ -417,21 +420,11 @@ This sector corresponds to pure Intake: irrotational flow ($\nabla \times \mathb
 
 Eddies are the on-slice circulation (magnetic) organized by Drag (motion of linked cores). A tiny, hidden Twist at rest gives only a $1/r^3$ dipole; bulk motion dominates the observable $\mathbf B$. For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving vortices (P-5).
 
-For electromagnetism, keep the electromagnetic potential distinct as $\mathbf A_{\text{EM}}$ for currents driven by Eddies (Eddies vector potential). Projection to 3D yields the standard wave/continuity system:
-\begin{equation}
-\frac{1}{c^2} \frac{\partial^2 \mathbf{A}_{\text{EM}}}{\partial t^2} - \nabla^2 \mathbf{A}_{\text{EM}} = -\frac{4\pi}{c}\, \mathbf{J}_q,\qquad
-\partial_t \rho_q+\nabla\!\cdot\!\mathbf J_q=0.
-\end{equation}
+For electromagnetism, keep the electromagnetic potential distinct as $\mathbf A_{\text{EM}}$ for currents driven by Eddies (Eddies vector potential). For the EM wave equations and charge/current continuity, see Sec.~\ref{sec:EM_projection}.
 
 \subsubsection{Slope (Coulomb) and Waves}
 
-Slope (static hill/valley electric piece) and the wave sector (photons for EM). In time-varying situations, changing Eddies create loop electric fields (Induction). The wave sector uses the d'Alembertian for transverse perturbations from vortex oscillations:
-
-\begin{equation}
-\Box A^\mu_{\text{EM}} = -\frac{4\pi}{c} J_q^\mu \quad (\text{for photons, 4D-stabilized wave sector}),
-\end{equation}
-
-where $\Box = \partial_t^2 / c^2 - \nabla^2$. The tsunami principle (Section 2.5) distinguishes bulk longitudinal adjustments ($v_L > c$, unobservable Intake/Twist) from observable transverse waves at $c$ in the wave sector, with the wave sector as the surface ripple versus bulk Intake rush. To derive these, consider the linearized GP for transverse perturbations on vortices: The Kelvin wave dispersion $\omega^2 = c^2 k^2 + \omega_0^2$ (with cutoff $\omega_0 \sim v_L / \xi_c$), projecting to the d'Alembertian form for far-field radiation.
+Slope (static hill/valley electric piece) and the wave sector (photons for EM). In time-varying situations, changing Eddies create loop electric fields (Induction). Wave equations and retarded solutions for EM are developed in Sec.~\ref{subsec:em_wave}. The tsunami principle distinguishes bulk longitudinal adjustments ($v_L > c$, unobservable Intake/Twist) from observable transverse waves at $c$ in the wave sector, with the wave sector as the surface ripple versus bulk Intake rush. To derive these, consider the linearized GP for transverse perturbations on vortices: The Kelvin wave dispersion $\omega^2 = c^2 k^2 + \omega_0^2$ (with cutoff $\omega_0 \sim v_L / \xi_c$), projecting to the d'Alembertian form for far-field radiation.
 
 The near-rim Slope sets the stored energy and shape, while the hidden Twist supplies the hoop (keep-open) pressure; together they stabilize the core against tension and Intake. Annihilation releases $2mc^2$ as radiation in the wave sector. Depletion ($\rho \to 0$) mismatches resonance, causing photon escape and instability.
 
@@ -447,7 +440,7 @@ The microscopic medium admits a natural rest frame, but \emph{gauge-invariant ob
 (1) We use signature $\eta_{\mu\nu}=\mathrm{diag}(-,+,+,+)$ and Greek indices $\mu,\nu=0,\dots,3$.
 (2) Electromagnetic-like observables are built from a \emph{single} vector potential $A^\mu=(\Phi_{\text{Slope}}/c,\mathbf A)$ with field strength $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$.
 (3) If a gravito-electromagnetic sector is also considered, we denote its vector potential distinctly (e.g.\ $\mathcal A^\mu$) or use metric perturbations $h_{\mu\nu}$; we do \emph{not} overload $A^\mu$.
-(4) We work in Gaussian units for EM so that Maxwell's sourced equation reads $\Box A^\mu=-(4\pi/c)\,J^\mu$ in Lorenz gauge $\partial_\mu A^\mu=0$, and the Bianchi identity $\partial_{[\alpha}F_{\beta\gamma]}=0$ holds identically.
+(4) EM unit conventions and Maxwell’s equations are developed in Sec.~\ref{sec:EM_projection}. Here we only fix notation for the field strength $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$.
 (5) Small parameters controlling all approximations:
 \begin{equation}
 \varepsilon_v=\frac{|\mathbf v_{\rm bg}|}{c},\qquad
@@ -509,18 +502,13 @@ The retarded solution is
 with $G^{\rm ret}_{(4)}$ the retarded Green's function for the 4-spatial-D wave operator. In even spatial dimension the support has a “tail” inside the $v_L$ cone; schematically one may write $\delta\rho \sim \Theta(t{-}R/v_L)\,f(R,t)$ with $R=|\mathbf r_4|$ to emphasize causality of the bulk setup. See Appendix: \emph{Retarded Green's function in four spatial dimensions} for the explicit form and discussion of causal support.
 
 \medskip
-\noindent\textbf{Observables (causal and retarded).} Gauge-invariant fields measured on the 3D slice obey Lorentz-covariant, hyperbolic equations with characteristic speed $c$ and are taken in Lorenz gauge $\partial_\mu A^\mu=0$ for EM. For EM on the slice,
-\begin{equation}
-\frac{1}{c^2}\,\partial_t^2 A^\mu(\mathbf r,t)\;-\;\nabla^2 A^\mu(\mathbf r,t)
-= -\,\frac{4\pi}{c}\,J^\mu_{\rm ch}(\mathbf r,t)\,, \quad \partial_\mu A^\mu=0.
-\label{eq:wave-EM}
-\end{equation}
-with the standard conservation law $\partial_\mu J^\mu_{\rm ch}=0$. We impose an outgoing-wave (Sommerfeld) condition at large $r$ (e.g., $(\partial_r-\tfrac1c\partial_t)(r\psi)\!\to\!0$ for each field component $\psi$), which selects the retarded solutions. The effective wave speed $c$ is calibrated by $c=\sqrt{T/\sigma}$ (see the dimensional conventions section for the definitions of the effective tension $T$ and areal density $\sigma$).
+\noindent\textbf{Observables (causal and retarded).} Gauge-invariant fields measured on the 3D slice obey Lorentz-covariant, hyperbolic equations with characteristic speed $c$. For the EM wave equations and retarded solutions, see Sec.~\ref{subsec:em_wave}.
+with the standard conservation law $\partial_\mu J^\mu=0$; for the EM charge current specifically, see Eq.~\ref{eq:slice_continuity} in Sec.~\ref{sec:EM_projection}. We impose an outgoing-wave (Sommerfeld) condition at large $r$ (e.g., $(\partial_r-\tfrac1c\partial_t)(r\psi)\!\to\!0$ for each field component $\psi$), which selects the retarded solutions. The effective wave speed $c$ is calibrated by $c=\sqrt{T/\sigma}$ (see the dimensional conventions section for the definitions of the effective tension $T$ and areal density $\sigma$).
 
 \medskip
 \noindent\emph{Idea $\Rightarrow$ Result (bulk).} Solve \eqref{eq:bulk-tsunami} with the retarded Green's function in 4 spatial dimensions. \emph{Result:} the bulk density re-equilibrates causally inside the $v_L$ cone; this adjustment is not itself an observable on the slice.
 
-\noindent\emph{Idea $\Rightarrow$ Result (observables).} Solve \eqref{eq:wave-EM} with retarded boundary conditions. \emph{Result:} all gauge-invariant observables respond only after $t\ge r/c$; no information propagates faster than $c$.
+\noindent\emph{Idea $\Rightarrow$ Result (observables).} Solve \eqref{eq:wave_A_Lorenz} with retarded boundary conditions. \emph{Result:} all gauge-invariant observables respond only after $t\ge r/c$; no information propagates faster than $c$.
 
 \medskip
 \noindent\textbf{Static limit and apparent ``instantaneity.''} In the near-zone or slowly varying regime ($\omega r/c\!\ll\!1$), the retarded solutions reduce to their familiar static limits (e.g., Poisson/Coulomb), which \emph{look} instantaneous but are actually the $t{-}r/c\!\to\!t$ approximation of retarded fields. The rapid bulk equilibration sets the quasi-static background against which these observables evolve; it does not transmit signals.
@@ -723,13 +711,8 @@ Standard weak-field normalizations (e.g., the usual EM normalizations fixed in t
 
 Having established the projection mechanism and its \emph{projection-invariant} slice circulation, we now calibrate the framework to empirical observables with minimal inputs. We adopt \emph{Gaussian cgs} units for electromagnetism throughout this subsection (the SI mapping is straightforward and noted in the table). The model requires only two calibrated parameters---Newton's gravitational constant $G$ and the speed of light $c$---while other quantities are either (a) conventions that fix units/normalizations (not additional parameters), or (b) \emph{derived} from the foundational postulates (P-1 to P-6) and the projection map. In particular, the projected background density $\rho_0$ follows from bulk quantities via $\rho_0=\rho_{4D}^0\,\xi_c$ and is listed under \emph{Derived}.
 
-\paragraph{Vector (Eddies/Drag, Waves) sector (EM).}
-To keep units and couplings audit-ready, we \emph{do not} overload a single vector potential. For electromagnetism on the slice we use
-\begin{align}
-\label{eq:EM-wave}
-\frac{1}{c^{2}}\partial_t^{2}\,A^{\mu}-\nabla^{2}A^{\mu}&= -\,\frac{4\pi}{c}\,J_{q}^{\mu}, \qquad \partial_{\mu}A^{\mu}=0,
-\end{align}
-which is Maxwell in Gaussian units. Projection invariance implies no additional geometric multipliers: drainage/gradient components on the slice contribute zero to loop circulation; the solenoidal sector carries the observed circulation.
+\paragraph{Vector (Eddies/Drag, Waves).}
+All electromagnetism-specific dynamics, units, and calibrations (field definitions, Maxwell equations, Lorenz gauge, retarded solutions, stress–energy, and tests) now live in Sec.~\ref{sec:EM_projection}. We keep only framework-level conventions here.
 
 \medskip
 
@@ -747,12 +730,6 @@ $G$ & Newton's constant & Fixed by weak-field tests (Cavendish, etc.). From scal
 $c$ & Limiting wave speed on the slice & Set to observed value; fixes wave-sector propagation speed & $2.998\times10^{8}$ m/s & P-3 \\
 \hline
 \multicolumn{5}{|c|}{\textbf{Conventions / Normalizations (not additional parameters)}} \\
-\hline
-EM unit system & Choice of EM units & We adopt \emph{Gaussian cgs} here (Maxwell with $4\pi$). SI mapping via $\epsilon_0,\mu_0$/$Z_0$ is given below & Gaussian (default) & P-3 \\
-\hline
-Coulomb/ radiation normalization & Implied by unit choice & Gaussian: $F=\frac{Q_1Q_2}{r^2}$/$\,4\pi$ in field eqs, $P=\tfrac{2}{3}\frac{q^2 a^2}{c^3}$. In SI: $F=\frac{Q_1Q_2}{4\pi\epsilon_0 r^2}$, $P=\frac{q^2 a^2}{6\pi\epsilon_0 c^3}$ & (implied) & P-3, wave sector \\
-\hline
-Charge unit mapping & Twist charge $\to$ SI charge & Map the topological unit $q_0$ to SI by setting $q_0\equiv e$ (fixes $L_4/g_B^2$). Purely a units choice; no new parameter & $e=1.602\,176\,634\times10^{-19}$ C & P-5 \\
 \hline
 \multicolumn{5}{|c|}{\textbf{Derived (from postulates + projection)}} \\
 \hline
@@ -785,6 +762,8 @@ $g,\ m,\ \rho_{4D}^0$ & Microscopic fluid parameters & Enter $\xi_c$ and $v_L$; 
 \label{tab:parameters}
 \end{table}
 
+\emph{EM unit conventions and normalizations are stated in Sec.~\ref{sec:EM_projection}; this file remains unit-agnostic aside from the appearance of $c$.}
+
 This minimal calibration ($c$) plus unit conventions yields the standard weak-field normalizations in the vector sector. Projection invariance explains the absence of geometric multipliers for slice circulation, while quantized circulation and helical twist set the discrete content (P-2, P-5). For gravity-sector calibration and $G$, see Sec.~\ref{sec:strong-dict}.
 
 \subsubsection{Parameter Independence Verification}
@@ -802,7 +781,7 @@ No combination of $\xi_c$ and $\lambda_{\text{cosmo}}$ yields $c$, preventing ov
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result:} Minimal calibration fixes $c$; the projected density $\rho_0$ and all other parameters follow from postulates and projection. Vector dynamics use standard Maxwell normalization on the slice: $-\frac{4\pi}{c}J_{q}^\mu$ for EM (Eq.~\eqref{eq:EM-wave}). For gravity-sector normalizations and $G$, see Sec.~\ref{sec:strong-dict}.
+\textbf{Key Result:} Minimal calibration fixes $c$; the projected density $\rho_0$ and all other parameters follow from postulates and projection. Vector-sector EM normalizations are standard and summarized in Sec.~\ref{sec:EM_projection}. For gravity-sector normalizations and $G$, see Sec.~\ref{sec:strong-dict}.
 
 \textbf{Physical Interpretation:} The scalar sector calibrates attraction (Intake); the vector sector carries circulation (Drag/Eddies) with weak-field normalizations; \emph{Twist} discretizes charge and circulation. Projection invariance ensures no geometric enhancement of slice circulation.
 \end{minipage}
@@ -947,7 +926,7 @@ This mathematical framework explores how complex physics might emerge from simpl
 \begin{itemize}
 \item Specific mechanism for EM emergence via core Twist/helical structure (conceptual, with equations pending full derivation from GP)
 \item Connection between universal rotation and Hubble scale
-\item Detailed derivation of Maxwell equations
+\item Detailed derivation of Maxwell equations (now consolidated in Sec.~\ref{sec:EM_projection})
 \end{itemize}
 
 We present this framework as a mathematical exploration that offers new perspectives on fundamental physics. While certain elements remain speculative, the mathematical consistency and testable predictions warrant investigation.
