@@ -410,11 +410,10 @@ Dimensions for Euler: LHS $[\partial_t \mathbf{v}_4] = [L T^{-2}]$, $[(\mathbf{v
 The aether determines HOW FAST disturbances propagate locally, not WHERE they propagate from.
 \end{tcolorbox}
 
+
 \subsubsection{Scalar Sector: Gravitational Attraction}
 
 This sector corresponds to pure Intake: irrotational flow ($\nabla \times \mathbf{v} = 0$) creating attractive pressure gradients, analogous to the cavity-filling rush of water in the tsunami analogy (inward flow to fill density deficits). This ties to particles as processes: mass emerges from the deficit volume in stable flow patterns around vortices. Contrast with the EM sector (2.3), where sources include on-slice Eddies (organized by Drag) with a hidden core Twist at rest.
-
-
 
 \subsubsection{Vector Sector: Eddies (B) and Drag Effects}
 
@@ -427,6 +426,52 @@ For electromagnetism, keep the electromagnetic potential distinct as $\mathbf A_
 Slope (static hill/valley electric piece) and the wave sector (photons for EM). In time-varying situations, changing Eddies create loop electric fields (Induction). Wave equations and retarded solutions for EM are developed in Sec.~\ref{subsec:em_wave}. The tsunami principle distinguishes bulk longitudinal adjustments ($v_L > c$, unobservable Intake/Twist) from observable transverse waves at $c$ in the wave sector, with the wave sector as the surface ripple versus bulk Intake rush. To derive these, consider the linearized GP for transverse perturbations on vortices: The Kelvin wave dispersion $\omega^2 = c^2 k^2 + \omega_0^2$ (with cutoff $\omega_0 \sim v_L / \xi_c$), projecting to the d'Alembertian form for far-field radiation.
 
 The near-rim Slope sets the stored energy and shape, while the hidden Twist supplies the hoop (keep-open) pressure; together they stabilize the core against tension and Intake. Annihilation releases $2mc^2$ as radiation in the wave sector. Depletion ($\rho \to 0$) mismatches resonance, causing photon escape and instability.
+
+\subsubsection{Field equations on the slice: sketch and summary}
+\label{sec:field-eqs-framework}
+
+Starting from the 4D continuity/Euler system (P–1–P–2), we linearize about the steady background, apply a Helmholtz split to the perturbation, and project through the slab window $\chi(w)$. Codimension and discrete intersections fix the 4D$\!\to$3D units. On the slice $\Pi$ this yields a scalar intake potential $\Psi$ (irrotational, speed $v_{\text{eff}}$) and a vector eddy potential $\mathbf A$ (solenoidal, speed $c$); sources close by sink content and quantized circulation/defect motion (with twist contributions). The heavy derivations and gauges live in the split papers.
+
+\begin{tcolorbox}
+\textbf{Key equations on the slice $\Pi$.}
+
+\noindent\textbf{Scalar (Intake):}
+\begin{equation}
+\frac{1}{v_{\text{eff}}^{2}}\partial_{tt}\Psi - \nabla^{2}\Psi = \mathcal S_{\Psi}.
+\label{eq:scalar-fw}
+\end{equation}
+
+\noindent\textbf{Vector (Eddies):}
+\begin{equation}
+\frac{1}{c^{2}}\partial_{tt}\mathbf A - \nabla^{2}\mathbf A = \boldsymbol{\mathcal S}_{A}.
+\label{eq:vector-fw}
+\end{equation}
+
+\noindent\textbf{Eddy fields \& identities:}
+\begin{subequations}\label{eq:eddy-block}
+\begin{align}
+\mathbf B_{\text{eddy}} &:= \nabla\times\mathbf A,
+&
+\mathbf E_{\text{eddy}} &:= -\,\partial_t \mathbf A,
+\label{eq:eddy-fields}
+\\
+\nabla\!\cdot\!\mathbf B_{\text{eddy}} &= 0,
+&
+\nabla\times\mathbf E_{\text{eddy}}+\partial_t \mathbf B_{\text{eddy}} &= 0.
+\label{eq:homogeneous-eddy}
+\end{align}
+\end{subequations}
+
+\noindent\textit{Sources}: $\mathcal S_{\Psi}$ from projected sink strength;
+$\boldsymbol{\mathcal S}_{A}$ from quantized circulation/defect motion (twist-coupled).
+\end{tcolorbox}
+
+\paragraph*{Notes \& pointers.}
+Gravity/GEM: Lorenz gauge, Maxwell-like set, potential waves, force law (\S\ref{sec:gauge}, \S\ref{sec:gw-linear}–\S\ref{sec:resummed-dict}).\;
+Projected EM: definitions \eqref{eq:EM_defs}, homogeneous \eqref{eq:homogeneous}, closures and $c$ via \eqref{eq:inhomogeneous}, \eqref{eq:c_relation}, \eqref{eq:wave_A_Lorenz}.\;
+Quantum: minimal coupling, continuity/current, Madelung \(Q\), KG/Dirac (\S\ref{sec:QM_ops}–\S\ref{sec:QM_madelung_detail}, \eqref{eq:schrodinger}, \eqref{eq:current}–\eqref{eq:continuity}, \eqref{eq:Q_potential}, \eqref{eq:kg}–\eqref{eq:dirac}).
+
+
 
 \subsection{Resolution of the Preferred Frame Problem}
 \label{subsec:preferred-frame}
