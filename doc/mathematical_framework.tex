@@ -2,6 +2,18 @@
 
 This work develops a concise mathematical framework for how higher–dimensional vortex structures manifest in three spatial dimensions. The central object is a codimension–2 vortex sheet $\Sigma\subset\mathbb{R}^4$ with sheet strength $\Gamma$, observed on a three–dimensional slice $\Pi=\{w=0\}$. Our aims are to keep assumptions explicit, maintain dimensional consistency, and produce testable statements with controlled error estimates.
 
+\paragraph{Roadmap in pictures.}
+The framework builds around six core physical concepts, each with a concrete analogy:
+\begin{itemize}
+  \item \textbf{Intake}: Like water flowing down a sink drain--gentle, universal inflow
+  \item \textbf{Slope}: Like a standing hill or valley--the electric potential landscape
+  \item \textbf{Eddies}: Like whirlpools in a stream--closed circulation patterns ($\mathbf{B}$ field)
+  \item \textbf{Twist}: Like a torsion spring--hidden cross-slab circulation maintaining the vortex
+  \item \textbf{Induction}: Like a transformer ring--electric loops when magnetic eddies change
+  \item \textbf{Drag}: Like sideways pull through honey--organizes eddies when cores move
+\end{itemize}
+These concepts map directly to observable fields: Intake $\to$ gravity, Slope+Induction $\to$ $\mathbf{E}$ field, Eddies $\to$ $\mathbf{B}$ field, with Twist providing maintenance and Drag organizing motion.
+
 \paragraph{Scope.}
 The framework provides:
 (i) a representation of vortex sheets in $\mathbb{R}^4$ suitable for projection,
@@ -16,7 +28,7 @@ When a small loop $\gamma\subset\Pi$ links the projected intersection $\Sigma\ca
 \oint_{\gamma} \mathbf{v}\cdot d\boldsymbol{\ell}\;=\;\Gamma
 \quad\text{(thin/flat limit),}
 \]
-with the total arising from two equal \emph{half–space} contributions across the slice, each $\Gamma/2$. Potential (drainage) adjustments on the slice are gradient fields and contribute zero to the loop integral.
+with the total arising from two equal \emph{half–space} contributions across the slice, each $\Gamma/2$. Potential (drainage) adjustments on the slice are gradient fields and contribute zero to the loop integral. \textit{If you only remember one thing:} Circulation projects; drainage doesn't.
 
 \paragraph{Kernel normalization (summary).}
 Where an explicit kernel is required, we use the correctly normalized 4D$\to$3D Biot–Savart–type expression for an axially symmetric configuration, yielding the standard azimuthal profile
@@ -26,6 +38,10 @@ v_\theta(\rho)
 =\frac{\Gamma}{2\pi\rho}.
 \]
 The one–sided integrals over $w>0$ and $w<0$ each produce $\Gamma/2$, making the half–space split explicit and consistent with the projection principle above.
+
+\begin{physbox}[title=Orientation note]
+We take $\Gamma>0$ to correspond to circulation given by the right–hand rule around the oriented sheet normal. This fixes the sign in the azimuthal profile.
+\end{physbox}
 
 \paragraph{Decomposition on the slice.}
 Fields on $\Pi$ are organized into a solenoidal component that carries the circulation and a curl–free potential component determined by continuity. Only the solenoidal part contributes to loop integrals; the potential part can influence local velocities and pressures but integrates to zero circulation around closed loops.
@@ -47,7 +63,14 @@ The full EM projection, field definitions, Maxwell dynamics, covariant packaging
 
 \emph{Note:} Intake, Slope, Eddies, and Twist are the core four; Drag organizes Eddies, and Induction is the loop-$\mathbf E$ that appears when Eddies change in time.
 
-\textit{Do-not-confuse:} Twist (hidden, maintenance) $\neq$ Eddies (visible $\mathbf B$); Slope (Coulomb) $\neq$ Induction (loop $\mathbf E$); Intake (gravity) $\neq$ Drag (organizer of $\mathbf B$).
+\begin{tcolorbox}[colback=gray!5,colframe=gray!35!black,arc=1mm,boxrule=0.3pt,left=1mm,right=1mm,top=0.5mm,bottom=0.5mm]
+\textbf{Do-not-confuse:}
+\begin{itemize}
+  \item Twist (hidden, maintenance) $\neq$ Eddies (visible $\mathbf B$)
+  \item Slope (Coulomb) $\neq$ Induction (loop $\mathbf E$)
+  \item Intake (gravity) $\neq$ Drag (organizer of $\mathbf B$)
+\end{itemize}
+\end{tcolorbox}
 
 \subsection{Foundational Postulates}
 \label{sec:foundational-postulates}
@@ -77,6 +100,8 @@ The sheet $\Sigma$ is an oriented $C^2$ two–dimensional surface with bounded c
 \]
 so that local coordinates may be chosen in which $\Sigma$ is well approximated by a flat sheet over $B_\rho$, with geometric errors controlled by $O(\varepsilon_\xi^2+\varepsilon_\kappa^2)$.
 
+\begin{physbox}\textbf{Physical picture:} Think: compressible superfluid; defects = holes where phase winds.\end{physbox}
+
 \paragraph{P-2: Sheet strength and circulation}
 \label{post:P2}
 The sheet carries a constant strength $\Gamma$ (with $[\Gamma]=L^2/T$). The induced tangential velocity on $\Pi$ is solenoidal at leading order, and the circulation around any small loop $\gamma\subset\Pi$ that links $\Sigma$ once (positively) is
@@ -84,6 +109,8 @@ The sheet carries a constant strength $\Gamma$ (with $[\Gamma]=L^2/T$). The indu
 \oint_{\gamma}\mathbf{v}\cdot d\boldsymbol{\ell}\;=\;\Gamma.
 \]
 \emph{Parenthetical conservation note.} This postulate specifies the localized circulation budget at the sheet; global 3D mass/charge continuity is ensured by the 4D description (flux through the $w$–direction acts as the reservoir), so nothing here implies a violation of 3D conservation after projection; see the discussion of continuity in Subsection~\ref{sec:motivation-conventions}.
+
+\begin{physbox}\textbf{Physical picture:} Cores behave like tiny drains into ±w; no depletion on the slice.\end{physbox}
 
 \paragraph{P-3: Slice observables and field decomposition}
 \label{post:P3}
@@ -95,6 +122,8 @@ Observable fields on $\Pi$ are defined by restriction/projection of the 4D field
 \]
 Only $\mathbf{v}_{\mathrm{sol}}$ contributes to loop circulation on $\Pi$ at leading order; $\mathbf{v}_{\mathrm{irrot}}$ contributes to potential (gradient) effects but integrates to zero around closed curves contained in $\Pi$.
 
+\begin{physbox}\textbf{Physical picture:} Bulk re-equilibrates quietly; surface (slice) waves are the photons.\end{physbox}
+
 \paragraph{P-4: Kernel normalization (local axisymmetric model)}
 \label{post:P4}
 In the local \emph{thin/flat} model, the azimuthal velocity profile around a straight segment of $\Sigma$ piercing $\Pi$ is fixed by kernel normalization. With cylindrical coordinates $(\rho,\theta,w)$ adapted to $\Pi$ and the transverse coordinate $w$, the slice azimuthal velocity satisfies
@@ -105,6 +134,8 @@ v_\theta(\rho)
 \]
 with one–sided (half–space) contributions from $w>0$ and $w<0$ each giving $\Gamma/(4\pi\rho)$. This fixes the overall normalization that underlies later line–integral measurements and is consistent with Stokes' theorem on $\Pi$.
 
+\begin{physbox}\textbf{Physical picture:} Local donut slice around a sheet gives the textbook $1/\rho$ swirl.\end{physbox}
+
 \paragraph{P-5: Projection invariance of circulation}
 \label{post:P5}
 The net circulation measured on $\Pi$ is invariant under projection from the 4D configuration: for any loop $\gamma\subset\Pi$ linking $\Sigma$ once (positively),
@@ -113,9 +144,13 @@ The net circulation measured on $\Pi$ is invariant under projection from the 4D 
 \]
 with the sign determined by the convention stated above. Equivalently, the slice circulation is the sum of two equal half–space contributions from $w>0$ and $w<0$ in the local model; the result is \emph{independent} of the choice of tubular neighborhood at the stated order.
 
+\begin{physbox}\textbf{Physical picture:} Any loop linking once reads the same $\Gamma$, regardless of slab thickness.\end{physbox}
+
 \paragraph{P-6: Topology and discreteness of intersections}
 \label{post:P6}
 Intersections of $\Sigma$ with the slice $\Pi$ are topologically discrete (no accumulation points in compact subsets of $\Pi$), and contributions to circulation superpose linearly over multiple intersections/links. Linking number is computed with the stated orientation convention; higher–order geometric effects (finite curvature/thickness) are subleading in $(\varepsilon_\xi,\varepsilon_\kappa)$.
+
+\begin{physbox}\textbf{Physical picture:} Sheets pierce the slice at points--count them, don't average them.\end{physbox}
 
 \paragraph{Reader's guide.}
 For intuition, physical motivation, and unit conventions that complement P-1–P-6, see Subsection~\ref{sec:motivation-conventions}.
@@ -149,6 +184,21 @@ We model spacetime as a 4D compressible superfluid---an aether---where all force
 \]
 and work to leading order in $(\varepsilon_\xi,\varepsilon_v,\varepsilon_\omega,\varepsilon_\rho)$. Static near-zone statements correspond to $\varepsilon_\omega\to0$ at fixed $(\varepsilon_\xi,\varepsilon_v,\varepsilon_\rho)$. No claim is made of full Lorentz symmetry of the underlying medium.
 
+\begin{tcolorbox}[title=Order-of-magnitude anchor,colback=gray!5,colframe=gray!35!black]
+\textbf{Example scale separation:} For $\xi_c \sim 10^{-15}$ m (nuclear scale) and $L \sim 10^{-10}$ m (atomic scale):
+\begin{itemize}
+  \item $\varepsilon_\xi = \xi_c/L \sim 10^{-5} \ll 1$ (thin core)
+  \item $\varepsilon_v = v/c \sim 10^{-3}$ (typical atomic speeds)
+  \item Scale separation factor: $v_L/c \sim 10^{6}$ (bulk vs wave)
+\end{itemize}
+This means bulk adjustments happen quasi-instantaneously compared to light propagation, while remaining causally consistent.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!5,colframe=gray!35!black]
+\textbf{Macroscopic example:} $\xi_c \sim 10^{-9}$ m, $L \sim 10^{-2}$ m $\Rightarrow$
+$\varepsilon_\xi\sim10^{-7}$, $\varepsilon_v\lesssim10^{-6}$, still $v_L/c\gg1$ in bulk models. Same causal ordering applies.
+\end{tcolorbox}
+
 Intake is the gentle, charge-blind inflow every core sources (gravity-like). Slope is the standing hill/valley electric piece written by an oriented link. On the slice, magnetic effects are Eddies (organized by Drag); at rest a tiny hidden Twist lives at the rim and gives only a weak $1/r^3$ dipole. Changing Eddies produce loop electric fields (Induction). The wave sector comprises the propagating ripples in these fields: photons for EM; for gravity waves see Sec.~\ref{sec:strong-dict}.
 
 
@@ -177,16 +227,31 @@ Same medium, different physics---no separate structures needed. Retarded solutio
 \subsubsection{Dimensional Conventions}
 \paragraph{Units and Conventions (EM).} Unless stated otherwise we use Gaussian--cgs units for the electromagnetic field equations and keep $c$ explicit. Thus $\partial_\nu F^{\mu\nu} = (4\pi/c)\, J^\mu$ (Gaussian) $\equiv \mu_0 J^\mu$ (SI). Where $\epsilon$ and $\mu$ appear (e.g., $c = 1/\sqrt{\epsilon\mu}$) they denote effective medium parameters; in Gaussian vacuum set $\epsilon=\mu=1$. When $4\pi$ or $\mu_0,\epsilon_0$ appear elsewhere they refer to the corresponding form of the same relation; we avoid mixing forms within a single derivation.
 
-\paragraph{Speed glossary.} $v_L$ --- bulk aether drift speed (unobservable in local experiments); $c$ --- surface wave speed in the wave sector (observable, fundamental limit); $v_{\text{eff}}$ --- local effective wave speed set by medium parameters when discussing dispersion.
+\paragraph{Speed glossary.} $v_L$ --- bulk aether drift speed (unobservable in local experiments); $c$ --- surface wave speed in the wave sector (observable, fundamental limit); $v_{\text{eff}}$ --- local effective wave speed set by medium parameters when discussing dispersion. Note: $v$ is always the source/observer speed on the slice; $v_L$ never appears in observables except as a separation-of-scales assumption.
 
 \paragraph{Units and normalization.} Unless otherwise noted we set $\hbar=m=1$ and reinstate them when needed for clarity; all formulas are consistent with this choice.
 
-\paragraph{Projection rules (explicit).} We project along the transverse coordinate $w$ with a slab window $\chi(w)$ of width $\sim\xi_c$:
+\paragraph{Projection rules (explicit).} We project along the transverse coordinate $w$ with a slab window $\chi(w)$ of width $\sim\xi_c$ (normalized: $\int\chi(w)\,dw=1$):
 \[
 \rho_{3D}(\mathbf x,t)=\int \rho_{4D}(\mathbf x,w,t)\,\chi(w)\,dw,\qquad
 \int\delta^4(\mathbf r_4-\mathbf r_{4,i})\,dw=\delta^3(\mathbf r-\mathbf r_i).
 \]
 This fixes all 4D$\to$3D dimensions (e.g., $\rho_0=\rho_{4D}^0\,\xi_c$).
+
+\begin{tcolorbox}[title=Units cheat sheet,colback=gray!5,colframe=gray!35!black]
+\begin{tabularx}{\linewidth}{@{}l l X@{}}
+Symbol & Units & Description \\
+\hline
+$\rho_{4D}$ & $M L^{-4}$ & Bulk density \\
+$\rho_{3D}$ & $M L^{-3}$ & Projected density ($\rho_{3D}=\int \rho_{4D}\,dw$) \\
+$\Gamma$ & $L^{2} T^{-1}$ & Sheet strength (circulation) \\
+$\dot M_i$ & $M T^{-1}$ & Sink/source rate at intersection $i$ \\
+$\Psi$ & $L^{-2}$ & Surface-like scalar potential (from projection) \\
+$\mathbf A$ & $L^{-1}$ & Projected vector potential (unit choice: HL units) \\
+$F_{\mu\nu}$ & $T^{-1}$ & Field strength (with $c=1$ convention) \\
+$v_L,\,c$ & $L T^{-1}$ & Bulk equilibration vs. observable wave speed \\
+\end{tabularx}
+\end{tcolorbox}
 
 The $4D\to3D$ projection of codimension-2 defects necessitates non-standard dimensions for the order parameter $\Psi$. This is not an arbitrary choice but a mathematical requirement:
 
@@ -210,29 +275,22 @@ We will also use the cosmological length scale $\lambda_{\text{cosmo}}$, tied to
 
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|c|Y|Y|Y|}
+\small
+\begin{tabularx}{\textwidth}{|c|X|X|X|X|}
 \hline
-\# & Verbal Statement & Mathematical Input & Quintet Mode \\
+\# & Verbal Statement & Mathematical Input & Quintet Mode & Physical Picture \\
 \hline
-\textbf{P-1} & Compressible 4D medium with GP dynamics & Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$ & Intake/Twist-dominant \\
-& & Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$ &  \\
-& & Barotropic EOS: $P = (g/2) \rho_{4D}^2 / m$ &  \\
+\textbf{P-1} & Compressible 4D medium with GP dynamics & Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$ Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$ Barotropic EOS: $P = (g/2) \rho_{4D}^2 / m$ & Intake/Twist-dominant & Compressible superfluid; defects = holes where phase winds \\
 \hline
-\textbf{P-2} & Vortex sinks drain into extra dimension & Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$ & Intake \\
-& & Sink strength: $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi_c^2$ &  \\
+\textbf{P-2} & Vortex sinks drain into extra dimension & Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$ Sink strength: $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi_c^2$ & Intake & Cores = tiny drains into ±w; no depletion on slice \\
 \hline
-\textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \rho_{4D}^0 / m}$ & Waves (with Intake/Twist in the bulk) \\
-& & Transverse: $c$ emergent from vortex dynamics &  \\
-& & Effective: $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ &  \\
+\textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \rho_{4D}^0 / m}$ Transverse: $c$ emergent from vortex dynamics Effective: $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ & Waves (with Intake/Twist in the bulk) & Bulk re-equilibrates quietly; surface waves = photons \\
 \hline
-\textbf{P-4} & Helmholtz decomposition on the slice (Slope potential + Eddies solenoidal), with Intake across the slab. & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ & Slope + Eddies/Drag \\
+\textbf{P-4} & Helmholtz decomposition on the slice (Slope potential + Eddies solenoidal), with Intake across the slab & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ & Slope + Eddies/Drag & Local donut slice around sheet gives textbook $1/\rho$ swirl \\
 \hline
-\textbf{P-5} & Projection invariance of circulation & Circulation: $\Gamma = n \kappa$, $\kappa = 2 \pi \hbar / m$; slice loop linking once measures $\Gamma$; half-spaces contribute $\Gamma/2$ each; potential fields contribute zero & Eddies/Drag (with Waves) \\
-& & Vortices as tori/sheets with \textbf{Twist} (quantized cross-slab circulation; $\theta+\tau w$) that may encode emergent properties without altering circulation &  \\
+\textbf{P-5} & Projection invariance of circulation & Circulation: $\Gamma = n \kappa$, $\kappa = 2 \pi \hbar / m$; slice loop linking once measures $\Gamma$; half-spaces contribute $\Gamma/2$ each; potential fields contribute zero. Vortices as tori/sheets with \textbf{Twist} (quantized cross-slab circulation; $\theta+\tau w$) & Eddies/Drag (with Waves) & Any loop linking once reads same $\Gamma$, regardless of slab thickness \\
 \hline
-\textbf{P-6} & Discrete vortex projection & Projection: $\sum_i$ not $\int dw$ & All modes (projection) \\
-& & Vortices intersect at points: $\{(\mathbf{r}_i, w_i)\}$ &  \\
-& & Observable quantities aggregate discretely &  \\
+\textbf{P-6} & Discrete vortex projection & Projection: $\sum_i$ not $\int dw$ Vortices intersect at points: $\{(\mathbf{r}_i, w_i)\}$ Observable quantities aggregate discretely & All modes (projection) & Sheets pierce slice at points--count them, don't average \\
 \hline
 \end{tabularx}
 \caption{Foundational postulates presented as mathematical axioms.}
@@ -337,6 +395,8 @@ The derivation begins with the 4D equations from P-1 and P-2, now coupled to the
 
 where $\rho_{4D}$ is the 4D density $[M L^{-4}]$, $\mathbf{v}_4$ the 4-velocity, and $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi_c^2$ the sink strength (P-2), with the delta supported on the vortex sheet.
 
+\textit{Physically:} Density piles up along ±w; on the slice this looks like Intake only.
+
 The Euler equation is:
 
 \begin{equation}
@@ -345,6 +405,8 @@ The Euler equation is:
 \end{equation}
 
 with barotropic EOS $P=\tfrac{g}{2}\,\rho_{4D}^2/m$. Here, $m$ is the effective boson mass in the GP description, ensuring $[P]=[M L^{-2}T^{-2}]$ with $[g]=[L^6T^{-2}]$ and $[\rho_{4D}]=[M L^{-4}]$ (yielding local effective speed $v_{\text{eff}}=\sqrt{g\,\rho_{4D}^{\text{local}}/m}$; bulk $v_L=\sqrt{g\,\rho_{4D}^0/m}$ potentially $\gg c$; observable modes at $c$ from P-3). The term $Q_{\rm reg}$ denotes a short-wavelength \emph{dispersive} (Bogoliubov/GP-type) pressure used only for core-scale regularization at lengths $\sim\xi_c$; its slice-level (Madelung) form and interpretation are developed in Sec.~\ref{sec:QM_projection}.
+
+\textit{Physically:} Pressure gradient reshapes Slope; quantum pressure stiffens the rim.
 
 Helical twists from P-5 introduce a chiral term in the vorticity: $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ (twist density $\tau$ for the hidden \emph{Twist}, sourcing EM currents preliminarily; normal to vortex $\mathbf{n}$, scaled by $c$ for observable shear; enables Drag). The vorticity $\nabla_4 \times \mathbf{v}_4 = \Omega_0 + (\tau c) \mathbf{n}$ arises from P-5 phase windings $\theta = n\phi + \tau w$, where $\tau$ sources EM currents (detailed in 2.3).
 
@@ -369,6 +431,8 @@ The vortex dynamics, derived from varying the GP functional with boundary $\Psi=
 \end{equation}
 
 where the bulk coupling term follows from the defect advecting with the local flow (motivated by superfluid vortex dynamics in P-1 and P-5), $c$ is the emergent speed for Kelvin modes (calibrated, independent of $v_L$), and the oscillatory term $\omega^2 \delta R$ provides harmonic restoring force for near-rim Slope stability, with $\omega \sim v_L / \xi_c$.
+
+\textit{Physically:} Rim oscillations = photons; off-resonance energy leaks as radiation.
 
 Apply Helmholtz decomposition (P-4) to $\delta \mathbf{v}_4 = -\nabla_4 \Phi_g + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\Phi_g$ $[L^2 T^{-2}]$) and incompressible (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) parts, now with oscillatory modulation in the phase. Taking $\nabla_4 \cdot$ on Euler gives:
 
@@ -413,15 +477,21 @@ The aether determines HOW FAST disturbances propagate locally, not WHERE they pr
 
 \subsubsection{Scalar Sector: Gravitational Attraction}
 
+\textbf{What you'd measure:} Gravimeter sees $\nabla\Phi_g$ from Intake; redshift as energy stored in Slope. Test masses fall toward cores as deficit regions need filling.
+
 This sector corresponds to pure Intake: irrotational flow ($\nabla \times \mathbf{v} = 0$) creating attractive pressure gradients, analogous to the cavity-filling rush of water in the tsunami analogy (inward flow to fill density deficits). This ties to particles as processes: mass emerges from the deficit volume in stable flow patterns around vortices. Contrast with the EM sector (2.3), where sources include on-slice Eddies (organized by Drag) with a hidden core Twist at rest.
 
 \subsubsection{Vector Sector: Eddies (B) and Drag Effects}
+
+\textbf{What you'd measure:} Moving core drags medium; on-slice map is B-like whirl patterns circling motion. Compass needles align with eddies; charged particles spiral.
 
 Eddies are the on-slice circulation (magnetic) organized by Drag (motion of linked cores). A tiny, hidden Twist at rest gives only a $1/r^3$ dipole; bulk motion dominates the observable $\mathbf B$. For the vector sector, vorticity $\nabla \times \mathbf{v} = \boldsymbol{\omega}$ is sourced by moving vortices (P-5).
 
 For electromagnetism, keep the electromagnetic potential distinct as $\mathbf A_{\text{EM}}$ for currents driven by Eddies (Eddies vector potential). For the EM wave equations and charge/current continuity, see Sec.~\ref{sec:EM_projection}.
 
 \subsubsection{Slope (Coulomb) and Waves}
+
+\textbf{What you'd measure:} Static hill/valley stores energy; modulate the rim → loop-E induction, radiative escape. Voltmeters read potential differences; antennas detect wave ripples.
 
 Slope (static hill/valley electric piece) and the wave sector (photons for EM). In time-varying situations, changing Eddies create loop electric fields (Induction). Wave equations and retarded solutions for EM are developed in Sec.~\ref{subsec:em_wave}. The tsunami principle distinguishes bulk longitudinal adjustments ($v_L > c$, unobservable Intake/Twist) from observable transverse waves at $c$ in the wave sector, with the wave sector as the surface ripple versus bulk Intake rush. To derive these, consider the linearized GP for transverse perturbations on vortices: The Kelvin wave dispersion $\omega^2 = c^2 k^2 + \omega_0^2$ (with cutoff $\omega_0 \sim v_L / \xi_c$), projecting to the d'Alembertian form for far-field radiation.
 
@@ -464,6 +534,22 @@ Starting from the 4D continuity/Euler system (P–1–P–2), we linearize about
 
 \noindent\textit{Sources}: $\mathcal S_{\Psi}$ from projected sink strength;
 $\boldsymbol{\mathcal S}_{A}$ from quantized circulation/defect motion (twist-coupled).
+
+\medskip
+\noindent\textbf{Physical cheat-map:}
+\begin{center}
+\begin{tabularx}{\linewidth}{|l|l|X|}
+\hline
+\textbf{Math Symbol} & \textbf{Physical Name} & \textbf{What it means} \\
+\hline
+$\mathbf{E}_{\text{slope}}$ & Slope & Standing hill/valley pattern from oriented links (Coulomb $\mathbf{E}$) \\
+\hline
+$\mathbf{E}_{\text{loop}}$ & Induction & Ring-shaped electric push when eddies change (Faraday $\mathbf{E}$) \\
+\hline
+$\mathbf{B}_{\text{eddy}}$ & Eddies & On-slice whirls with no loose ends (magnetic field) \\
+\hline
+\end{tabularx}
+\end{center}
 \end{tcolorbox}
 
 \paragraph*{Notes \& pointers.}
@@ -479,7 +565,7 @@ Quantum: minimal coupling, continuity/current, Madelung \(Q\), KG/Dirac (\S\ref{
 \paragraph*{Layering (observables vs.\ micro-mechanics).}
 The microscopic medium admits a natural rest frame, but \emph{gauge-invariant observables on the projected 3+1 slice} do not reveal a global preferred frame to leading order. Excitations propagate on an emergent Minkowski sector with limiting speed $c$, and local inertial behavior is set by distributed sources (Mach-type influence) rather than by access to the medium's micro-rest frame.
 
-\paragraph*{Plain-language summary.} The medium in our model could have its own “rest frame,” but none of the \emph{measurable} fields can see it at leading order. The signals our instruments use (light, EM disturbances, weak-field gravity) live on an emergent relativistic surface with a built-in speed limit $c$, so two-way measurements—like Michelson–Morley—come out isotropic and show no ether wind. Any imprint of a background drift would show up only as much smaller, higher-order effects (scaling with the square of the drift speed and other tiny parameters) that cancel or fall below experimental sensitivity. In short: a microscopic current may exist in the deep background, but there's no observable “preferred frame” in the physics you can measure.
+\paragraph*{Plain-language summary.} The medium in our model could have its own “rest frame,” but none of the \emph{measurable} fields can see it at leading order. The signals our instruments use (light, EM disturbances, weak-field gravity) live on an emergent relativistic surface with a built-in speed limit $c$, so two-way measurements--like Michelson–Morley--come out isotropic and show no ether wind. Any imprint of a background drift would show up only as much smaller, higher-order effects (scaling with the square of the drift speed and other tiny parameters) that cancel or fall below experimental sensitivity. In short: a microscopic current may exist in the deep background, but there's no observable “preferred frame” in the physics you can measure.
 
 \paragraph{Conventions and scope.}
 (1) We use signature $\eta_{\mu\nu}=\mathrm{diag}(-,+,+,+)$ and Greek indices $\mu,\nu=0,\dots,3$.
@@ -520,7 +606,15 @@ with $\beta\equiv|\mathbf v_{\rm bg}|/c$. The leading $\beta^2$ pieces cancel in
 \begin{equation}
 \Delta t \equiv t_{\parallel}-t_{\perp}=\mathcal O(\varepsilon_{\Phi_g},\varepsilon_\xi,\beta^4),
 \end{equation}
-so the predicted fringe shift is null at the experiment's sensitivity scale—precisely as in special relativity. The same cancellation holds for modern resonator tests of boost/rotation invariance at this order.
+so the predicted fringe shift is null at the experiment's sensitivity scale--precisely as in special relativity. The same cancellation holds for modern resonator tests of boost/rotation invariance at this order.
+
+\textbf{Worked number:} For the historical Michelson-Morley setup with $L = 11$ m and Earth's orbital speed $\beta \sim 10^{-4}$:
+\begin{align*}
+\Delta t &= t_{\parallel} - t_{\perp} \sim \frac{2L}{c} \cdot \beta^4 \\
+&\sim \frac{2 \times 11\text{ m}}{3 \times 10^8\text{ m/s}} \times (10^{-4})^4 \\
+&\sim 7 \times 10^{-8}\text{ s} \times 10^{-16} \sim 10^{-23}\text{ s}
+\end{align*}
+This is far below the $\sim 10^{-16}$ s resolution of the original experiment, confirming null result.
 
 \paragraph{What the framework \emph{does} and \emph{does not} predict.}
 At leading order the observable sector exhibits: (i) Lorentz-covariant dynamics with characteristic speed $c$, (ii) isotropy of two-way light speed, and (iii) no direction-dependent variation of effective couplings. Slow secular drifts of global background parameters, if present, would appear only as higher-order, adiabatic effects beyond the scope of this subsection and are not required by the framework.
@@ -528,7 +622,24 @@ At leading order the observable sector exhibits: (i) Lorentz-covariant dynamics 
 \paragraph{Summary.}
 The microscopic medium can possess a rest frame without violating relativity tests, because the projected, gauge-invariant fields $(F_{\mu\nu}$ and, analogously, $h_{\mu\nu}$ in the weak-field sector$)$ satisfy Lorentz-covariant, hyperbolic equations with retarded support. Any ``preferred frame'' is unobservable at leading order; putative effects are suppressed by $(\varepsilon_{\Phi_g},\varepsilon_v^2,\varepsilon_\xi,\varepsilon_\rho)$ and are thus beyond the reach of classic interferometric tests.
 
+\textit{What to picture:} Detectors ride with the bulk reshuffle; only the wavefront at $c$ changes what you see.
+
 \subsection{The Tsunami Principle}
+
+\begin{tcolorbox}[title=Tsunami dictionary,colback=gray!5,colframe=gray!35!black]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Aspect} & \textbf{Bulk tsunami} & \textbf{Observable wave} \\
+\hline
+Driver & Vortex core sink/source & Time-varying fields \\
+Carrier & Density redistribution & EM/gravity waves \\
+Speed & $v_L \gg c$ (unobservable) & $c$ (observable) \\
+\hline
+\end{tabular}
+\end{center}
+Key insight: Same medium, different physics--bulk rush vs surface ripple.
+\end{tcolorbox}
 
 \textbf{Statement.} Bulk density in the 4D medium can re-equilibrate rapidly at a characteristic speed $v_L$ that never appears in gauge-invariant observables. All measurable fields on the observed 3D slice---e.g., electromagnetic $A_\mu$ with $F_{\mu\nu}$, or metric perturbations $h_{\mu\nu}$---propagate causally with retarded Green's functions at the limiting speed $c$. There is no superluminal signaling: fast \emph{setup} in the bulk is not a signal in the observables.
 
@@ -556,7 +667,7 @@ with the standard conservation law $\partial_\mu J^\mu=0$; for the EM charge cur
 \noindent\emph{Idea $\Rightarrow$ Result (observables).} Solve \eqref{eq:wave_A_Lorenz} with retarded boundary conditions. \emph{Result:} all gauge-invariant observables respond only after $t\ge r/c$; no information propagates faster than $c$.
 
 \medskip
-\noindent\textbf{Static limit and apparent ``instantaneity.''} In the near-zone or slowly varying regime ($\omega r/c\!\ll\!1$), the retarded solutions reduce to their familiar static limits (e.g., Poisson/Coulomb), which \emph{look} instantaneous but are actually the $t{-}r/c\!\to\!t$ approximation of retarded fields. The rapid bulk equilibration sets the quasi-static background against which these observables evolve; it does not transmit signals.
+\noindent\textbf{Static limit and apparent ``instantaneity.''} In the near-zone or slowly varying regime ($\omega r/c\!\ll\!1$), the retarded solutions reduce to their familiar static limits (e.g., Poisson/Coulomb), which \emph{look} instantaneous (quasi-static) but are actually the $t{-}r/c\!\to\!t$ approximation of retarded fields. The rapid bulk equilibration sets the quasi-static background against which these observables evolve; it does not transmit signals.
 
 \medskip
 \noindent\textbf{Timeline (causal ordering).}
@@ -668,13 +779,13 @@ Twist adds no net background (neutral on average), preserving the balance. The w
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Insight:} Global conservation is maintained by bulk absorption and matched boundary flux, while Machian inertial frames arise from inflow balances, without ontological claims. The spine ties this together: Intake for mass flux, Twist for topological charge, Drag for angular momentum, Slope for energetic stability, the wave sector for radiative energy—each conserved in 4D.
+\textbf{Key Insight:} Global conservation is maintained by bulk absorption and matched boundary flux, while Machian inertial frames arise from inflow balances, without ontological claims. The spine ties this together: Intake for mass flux, Twist for topological charge, Drag for angular momentum, Slope for energetic stability, the wave sector for radiative energy--each conserved in 4D.
 \end{minipage}
 }
 }
 \medskip
 
-\subsection{4D to 3D Projection Mechanism}
+\subsection{4D→3D Projection Mechanism}
 
 We now make the projection from the $4$-spatial-D description to effective $3$D dynamics precise. The key points are:
 (i) projection is an \emph{integration} over the extra coordinate $w$ (or, equivalently, a \emph{sum} over discrete sheet–slice intersections per P-6);
@@ -713,6 +824,14 @@ where $\mathbf v_{\!\parallel}$ is the component tangent to the slice. If one pr
   \label{eq:slab_projection}
 \end{equation}
 Equation~\eqref{eq:3D_continuity_effective} is the effective continuity law on the slice. In steady/quasi-steady scenarios either $\sum_i\dot M_i=0$ (paired sinks/sources over large scales) or a compensating far-flux $[\rho_{4D}v_w]_{-\infty}^{+\infty}$ balances the budget; we adopt the former unless noted.
+
+\begin{tcolorbox}[title=Thought experiment: Loop meter reading\label{box:loop-meter},colback=gray!5,colframe=gray!35!black]
+Drop a wire loop on the slice; if it links a sheet once, the loop meter reads $\Gamma$. Push the loop up and down (change slab thickness): the reading doesn't change. Why? Each half-space (above/below the slice) contributes $\Gamma/2$, and this split is invariant. The circulation is purely from the solenoidal part--drainage fields along $w$ contribute zero.
+
+\begin{center}
+[Sketch: Loop crossing sheet, with arrows showing $\Gamma/2$ from each half-space]
+\end{center}
+\end{tcolorbox}
 
 \paragraph{Discrete (P-6) viewpoint and apparent matter density.}
 For a finite number of sheet–slice intersections one may use the equivalent discrete projection
@@ -836,7 +955,7 @@ No combination of $\xi_c$ and $\lambda_{\text{cosmo}}$ yields $c$, preventing ov
 
 \subsection{Energy Considerations and Stability}
 
-\textit{30-second story.} Energy in this framework has two ledgers. In the unobserved 4-spatial-D bulk, quantum/gradient and interaction energies govern core formation and ultra-fast equilibration. On the observed 3D slice, gauge-invariant wave sectors carry a \emph{positive} energy that flows out by a Poynting-like flux. The resulting hierarchy—fast core setup, causal wave propagation—yields stable, persistent vortex structures subject to topological constraints.
+\textit{30-second story.} Energy in this framework has two ledgers. In the unobserved 4-spatial-D bulk, quantum/gradient and interaction energies govern core formation and ultra-fast equilibration. On the observed 3D slice, gauge-invariant wave sectors carry a \emph{positive} energy that flows out by a Poynting-like flux. The resulting hierarchy--fast core setup, causal wave propagation--yields stable, persistent vortex structures subject to topological constraints.
 
 We work to leading order in small parameters
 \[
@@ -975,5 +1094,20 @@ This mathematical framework explores how complex physics might emerge from simpl
 \end{itemize}
 
 We present this framework as a mathematical exploration that offers new perspectives on fundamental physics. While certain elements remain speculative, the mathematical consistency and testable predictions warrant investigation.
+
+\textbf{Reader's Checklist:}
+\begin{itemize}
+\item[$\square$] Do I understand what each physical icon means? (Intake, Slope, Eddies, Twist, Drag, Induction)
+\item[$\square$] Can I explain why loops read $\Gamma$ regardless of slab thickness?
+\item[$\square$] Do I see how circulation projects but drainage doesn't?
+\item[$\square$] Can I distinguish bulk tsunami (fast, unobservable) from surface waves (at $c$, observable)?
+\item[$\square$] Do I understand the half-space split ($\Gamma/2$ from each side)?
+\item[$\square$] Can I map the physics to the detailed treatments?
+  \begin{itemize}
+    \item Gravity/weak-field: See gravity.tex (weak/strong dictionary)
+    \item Electromagnetism: See projected\_em.tex (field definitions + Maxwell)
+    \item Quantum mechanics: See quantum.tex (Madelung $Q$, KG/Dirac)
+  \end{itemize}
+\end{itemize}
 
 All calculations have been verified using symbolic computation (SymPy) and numerical simulation, with code publicly available for reproduction and extension.
