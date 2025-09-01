@@ -7,7 +7,7 @@
 - add lambda_cosmo to table in 2.1.3
 - fix xi to xi_* in description just before values table in 2.1.3
 - After Table 2 it only has \xi for healing length, but I thought we had more than one healing length?
-- "The 4D retarded Green’s function (see Appendix A for derivation)" is in 2.3.4, but we don't have that do we?
+- "The 4D retarded Green’s function (see Appendix A for derivation)" is in 2.3.4, but we don't have that.
 - "How can gravitational effects seem" is in 2.4.2 and 2.3.5. same with "causality check". This needs to be cleaned up. which one should stay, and which ones should be removed.
 - should we remove Fermi constant G_F since we aren't doing that work in this paper, since we aren't doing weak force or strong force in this paper (that'll be for another paper)
 - 2.7.1 has lambda_cosmo, but its never used, it also only has xi_c when there's another xi in the paper that should probably be addressed.

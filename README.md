@@ -1,84 +1,70 @@
 # Aether-Vortex Field Equations
 
-A unified fluid model for gravity in flat space, reimagining the luminiferous aether as a compressible superfluid in four-dimensional space.
+A geometric framework modeling particles as quantized vortices in four-dimensional space, yielding precise predictions for particle masses, gravitational phenomena, and quantum mechanics from minimal geometric inputs.
 
 ## Overview
 
-This repository contains the theoretical framework, mathematical derivations, and numerical calculations for an alternative theory of gravity based on superfluid dynamics. Rather than curved spacetime, gravity emerges from fluid mechanical phenomena - particles as vortex structures draining aether into an extra dimension, creating pressure gradients and flows that manifest as gravitational attraction.
+This repository contains a mathematical framework that attempts to address three fundamental mysteries in physics: the origin of particle masses, the weakness of gravity, and quark confinement. By modeling particles as topological defects (quantized vortices) in a four-dimensional medium, the framework derives lepton masses accurate to fractions of a percent, reproduces general relativity, and naturally explains confinement.
 
-## Repository Structure
-
-```
-aether-vortex/
-├── doc/
-│   └── vortex_field_equations.tex    # Main theoretical document (LaTeX)
-└── scripts/
-    ├── derivations/                   # Symbolic mathematics verification
-    │   ├── 4d_superfluid_framework_and_projections.py
-    │   ├── derivation_of_the_scalar_field_equation.py
-    │   ├── derivation_of_the_vector_field_equation.py
-    │   ├── physical_postulates.py
-    │   └── unified_equations_and_force_law.py
-    └── calculations/                  # Numerical predictions & validations
-        ├── 1d_draining_flow.py       # Basic drainage flow analysis
-        ├── 4d_drainage.py            # 4D vortex drainage calculations
-        ├── frame_dragging.py         # Frame-dragging effects (Gravity Probe B)
-        ├── mercury.py                # Mercury perihelion precession
-        └── particle_mass.py          # Vortex-based particle mass calculations
-```
+**Key Achievement**: The model reduces the Standard Model's ~20 free parameters to just a few geometric inputs while making specific, testable predictions that could falsify the theory.
 
 ## Theory Summary
 
-The model postulates that:
-- Space is filled with a 4D compressible superfluid (the "aether")
-- Particles are quantized vortex structures extending into the 4th dimension
-- Gravity arises from aether drainage creating local density variations
-- The framework reproduces General Relativity's predictions while remaining in flat Euclidean space
+### Core Features
+- **Particles as vortices**: Leptons are quantized vortex configurations in 4D space with n=1,2,3 windings
+- **Golden-ratio scaling**: Mass hierarchy emerges from self-similarity: adding helical layers then rescaling by r → 1+1/r
+- **Baryon confinement**: Baryons are single tri-phase vortex loops—"quarks" are inseparable wave phases, not particles
+- **Emergent gravity**: Gravitational effects arise from vortex-induced flows in flat 4D Euclidean space
 
-Key features:
-- **Dual wave modes**: Longitudinal compression waves (potentially faster than light in 4D bulk) and transverse waves (light) at c
-- **Physical intuition**: Effects stem from tangible fluid mechanics rather than abstract curved manifolds
-- **Testable predictions**: Including lab-scale frame-dragging and chromatic shifts in black hole photon spheres
+### Key Predictions
+**Already confirmed:**
+- Lepton masses: electron (exact), muon (-0.18% error), tau (+0.10% error)
+- Mercury perihelion: 43.0"/century (observed: 42.98 ± 0.04)
+- Binary pulsar decay matches observation to parts in 10¹²
+
+**Testable predictions:**
+- **4-lepton anomaly**: Excess production near √s = 33 GeV without narrow resonance
+- **Threefold baryon structure**: F(q) ~ F₀(q) + F₃(q)cos(3φ) in nucleon form factors
+- **No fourth stable lepton**: Would-be 16.48 GeV lepton exceeds stability threshold
+- **Intrinsic decoherence**: Γ(d) = Γ₀ + γ₂d² scaling with path separation
 
 ## Components
 
 ### Documentation (`/doc`)
-- **vortex_field_equations.tex**: Complete theoretical exposition including:
-  - Physical postulates and mathematical framework
-  - Derivation of field equations from fluid dynamics
-  - Post-Newtonian expansions matching GR predictions
-  - Validation against astronomical observations
+- **mathematical_framework.tex**: Complete theoretical exposition and mathematical derivations
+- **introduction.tex**: Author's motivation, problem overview, and key predictions
 
-### Derivations (`/scripts/derivations`)
-Python scripts using SymPy for symbolic verification of theoretical results:
-- Mathematical consistency checks
-- Derivation of scalar and vector field equations
-- Verification of physical postulates and relationships
-- Unified force law derivations
+### Derivations (`/derivations`)
+SymPy-based symbolic mathematics verification:
+- **mathematical_framework/**: Core theoretical derivations, field equations, projection mechanisms
+- **emergent_particle_masses/**: Particle physics applications, mass calculations, photon theory
 
-### Calculations (`/scripts/calculations`)
-Python scripts using NumPy/SciPy for numerical predictions:
-- Mercury's perihelion advance (43 arcseconds/century)
-- Frame-dragging effects matching Gravity Probe B observations
-- Vortex drainage flow patterns
-- Particle mass emergence from vortex core volumes
+### Calculations (`/calculations`) 
+NumPy/SciPy-based numerical predictions and validations:
+- **mathematical_framework/**: Vortex dynamics, stability analysis, parameter studies
+- **emergent_particle_masses/**: Particle mass predictions and experimental comparisons
+
+## What Makes This Different
+
+This framework inverts the typical approach to unification:
+- **Parameter reduction**: Dozens of Standard Model parameters → few geometric inputs
+- **Testable predictions**: Specific energies and signatures that can falsify the theory  
+- **Mathematical simplicity**: Undergraduate fluid mechanics rather than advanced geometry
+- **Conceptual clarity**: Mysterious phenomena like confinement become topological necessities
+
+**Philosophical stance**: This is primarily a tool for discovering mathematical patterns. Whether nature actually employs 4D vortices matters less than the precise correspondences the framework reveals and the constraints it places on any successful theory.
 
 ## Requirements
 
-- LaTeX distribution (for compiling the theoretical document)
-- Python 3.x with:
-  - SymPy (for symbolic mathematics)
-  - NumPy/SciPy (for numerical calculations)
-  - Matplotlib (for visualizations)
+- LaTeX distribution (for compiling documentation)
+- Python 3.x with SymPy, NumPy/SciPy, Matplotlib
 
-## Author
+## Author's Note
 
-Written by Trevor Norris
+*"I am not a physicist. I am a computer programmer who set out to test AI capabilities with a weekend experiment. This paper was never supposed to exist... After weeks of testing increasingly complex phenomena, the model continued delivering precise results. I present this work not as a claim to have found 'the answer,' but as a discovery of remarkable mathematical patterns that demand explanation."*
 
-## Citation
+—From the introduction
 
-If you use this work in your research, please cite:
-```
-Norris, T. (2025). The Aether-Vortex Field Equations: A Unified Fluid Model 
-for Gravity in Flat Space. [Repository/Publication details]
-```
+## Status
+
+**Current focus**: Completing derivations and calculations. The framework successfully explains lepton masses, gravitational phenomena, and baryon confinement, with several testable predictions awaiting experimental verification.

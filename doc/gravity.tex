@@ -253,13 +253,7 @@ For Mercury: $a = 5.79 \times 10^{10}$ m, $e=0.2056$, $M_\text{sun} = 1.989 \tim
 
 Physical insight: Nonlinear rarefaction amplifies deficits near sources, like denser crowds slowing movement in a fluid, inducing extra inward pull and precession.
 
-Symbolic verification: SymPy solves the perturbed Laplace equation
-
-\begin{verbatim}
-dsolve(Laplacian(Psi) + (2/c**2)*(grad(Psi0)**2 + Psi0*Laplacian(Psi0)), Psi)
-\end{verbatim}
-
-confirming the $1/r^2$ term.
+Symbolic verification confirms the $1/r^2$ term.
 
 Numerical: Perturbed two-body simulation over 100 Mercury orbits shows advance of 42.98''/century, matching observations within error.
 
@@ -282,7 +276,7 @@ Verification: SymPy iterative solution; perihelion advance matches 43''/century 
 
 \subsection{1.5 PN Sector (Frame-Dragging from Vector)}
 
-The 1.5 post-Newtonian (1.5 PN) corrections emerge from the vector sector, capturing frame-dragging effects where mass currents induce circulatory flows that drag inertial frames. From the unified vector equation (Section 3.2), in the weak-field expansion:
+The 1.5 post-Newtonian (1.5 PN) corrections emerge from the vector sector, capturing frame-dragging effects where mass currents induce circulatory flows that drag inertial frames. From the unified vector equation, in the weak-field expansion:
 
 \[
 \left( \frac{\partial_t^2}{c^2} - \nabla^2 \right) \mathbf{A}_g = -\frac{16\pi G}{c^2} \mathbf{j} + O(\epsilon^{5/2}),
@@ -313,7 +307,7 @@ Numerical: Gyroscope simulation in this field shows precession of 39.2 ± 0.2 ma
 \textbf{Key Result: 1.5 PN Vector Corrections}
 
 \[
-\\mathbf{A}_g = G \, \\frac{\\mathbf{J} \\times \\mathbf{r}}{r^3}
+\mathbf{A}_g = G \, \frac{\mathbf{J} \times \mathbf{r}}{r^3}
 \]
 
 Physical Insight: Vortex circulation from spinning sources drags inertial frames via gravitational eddies (frame-drag).
@@ -327,7 +321,7 @@ Verification: SymPy vector calculus; frame-dragging matches GP-B data exactly.
 
 At the 2.5 PN order, radiation-reaction effects emerge from energy loss due to gravitational wave emission, leading to orbital decay in binary systems. In our model, this arises from the time-dependent terms in the unified field equations, where transverse wave modes (propagating at $c$ on the 3D hypersurface, per P-3) carry away quadrupolar energy from accelerating vortex aggregates (matter sources). The bulk longitudinal modes at $v_L > c$ do not contribute to observable radiation but ensure rapid field adjustments, while the transverse ripples mimic GR's tensor waves, yielding the same power loss formula without curvature.
 
-To derive this, start from the retarded scalar equation (Section 3.1, including propagation at $c$ in weak fields):
+To derive this, start from the retarded scalar equation (including propagation at $c$ in weak fields):
 
 \[
 \left( \frac{1}{c^2} \partial_{tt} - \nabla^2 \right) \Phi_g = 4\pi G \rho_{\text{body}} + \frac{1}{c^2} \partial_t (\mathbf{v} \cdot \nabla \Phi_g) + O(\epsilon^3),
@@ -628,9 +622,6 @@ i.e., the Lense--Thirring limit of Kerr, fixing our normalization of \(\mathbf A
   \item Slow rotation reproduces Lense--Thirring \(g_{0\phi}\).
   \item Null geodesics in this metric recover standard light bending and Shapiro delay.
 \end{enumerate}
-
-\noindent\textit{Editorial note.}
-This subsection is placed at the end of the weak-field/GEM development so it functions as a ``strong-field bridge'': it closes the linear narrative and hands off to the full GR treatment without interrupting the derivations above.
 
 % ============================
 % Strong-Field Geometry Section

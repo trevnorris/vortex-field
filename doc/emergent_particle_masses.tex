@@ -13,8 +13,9 @@
 \end{minipage}
 }
 }
+\medskip
 
-In this work we model particle species as slender vortex defects of a 4D condensate whose effective, observable fields arise from projection onto the physical slice. Masses are identified with the projected density deficit of these defects (core depletion plus a compressibility/Bernoulli halo), while electric charge is a \emph{topological} invariant associated with how the defect threads the transition-phase slab. The kinematic notions used here follow the framework: “Eddies’’ denotes the solenoidal part of the projected flow on the slice, and “drag’’ denotes the slice-integrated angular momentum of the motion; see \emph{Motivation, Regime of Validity, and Conventions} for precise definitions.
+In this work we model particle species as slender vortex defects of a 4D condensate whose effective, observable fields arise from projection onto the physical slice. Masses are identified with the projected density deficit of these defects (core depletion plus a compressibility/Bernoulli halo), while electric charge is a \emph{topological} invariant associated with how the defect threads the transition-phase slab. The kinematic notions used here follow the framework: “Eddies’’ denotes the solenoidal part of the projected flow on the slice, and “drag’’ denotes the slice-integrated angular momentum of the motion.
 
 For a closed, slender loop of radius $R\gg\xi_c$ (with $\xi_c$ the healing/core scale), the working mass template used throughout this paper is
 \begin{equation}
@@ -759,7 +760,7 @@ Plugging $T \approx \hbar^2 \rho_{4D}^0/(2 m^2)$ and $\Sigma =\rho_{4D}^0\,\xi_c
    \[
    v_\perp(\mathbf{r}_4, t) = A_0 \cos(kx - \omega t) \exp\left(-\frac{y^2 + z^2 + w^2}{2\xi_c^2}\right) \hat{\mathbf{e}}_\perp,
    \]
-   where $\omega = ck$ (dispersion relation), $A_0$ sets the amplitude, and $\hat{\mathbf{e}}_\perp$ is a unit vector in the $(y,z,w)$ space perpendicular to propagation. The Gaussian envelope with width $\xi_c$ prevents spreading: Pure 3D waves would diffract, but the $w$-extension provides confinement. To derive the Gaussian width, minimize the transverse energy $\int |\nabla_\perp v_\perp|^2 d^3 r_\perp \approx (\hbar^2 / (2 m)) (3 / (2 \xi_c^2)) \int |v_\perp|^2 d^3 r_\perp$ against the normalization constraint, yielding $\Delta y = \Delta z = \Delta w \approx \xi_c / \sqrt{2}$ (SymPy \texttt{minimize} on quadratic potential approximation confirms). Substitute into wave equation: SymPy verification confirms $\omega = ck$ and that the Gaussian width minimizes transverse energy spread while maintaining normalizability (code at \url{https://github.com/trevnorris/vortex-field}).
+   where $\omega = ck$ (dispersion relation), $A_0$ sets the amplitude, and $\hat{\mathbf{e}}_\perp$ is a unit vector in the $(y,z,w)$ space perpendicular to propagation. The Gaussian envelope with width $\xi_c$ prevents spreading: Pure 3D waves would diffract, but the $w$-extension provides confinement. To derive the Gaussian width, minimize the transverse energy $\int |\nabla_\perp v_\perp|^2 d^3 r_\perp \approx (\hbar^2 / (2 m)) (3 / (2 \xi_c^2)) \int |v_\perp|^2 d^3 r_\perp$ against the normalization constraint, yielding $\Delta y = \Delta z = \Delta w \approx \xi_c / \sqrt{2}$ (SymPy \texttt{minimize} on quadratic potential approximation confirms). Substitute into wave equation: SymPy verification confirms $\omega = ck$ and that the Gaussian width minimizes transverse energy spread while maintaining normalizability.
 
 \item \textbf{Zero Mass Mechanism}: The mass arises from net density deficit: $m = \int \delta\rho_{4D} d^4r$. For oscillatory waves:
    \[
@@ -788,7 +789,7 @@ Plugging $T \approx \hbar^2 \rho_{4D}^0/(2 m^2)$ and $\Sigma =\rho_{4D}^0\,\xi_c
    \[
    \delta\phi = \frac{4GM}{c^2b},
    \]
-   matching general relativity (predicts 1.75 arcseconds deflection at the solar limb, matching GR and Eddington's 1919 observation within experimental error). Unlike massive particles experiencing $v_{\text{eff}} < c$ in rarefied regions, photons maintain $c$ but follow curved paths. SymPy verifies the deflection integral using geometric optics in the effective metric (code at \url{https://github.com/trevnorris/vortex-field}).
+   matching general relativity (predicts 1.75 arcseconds deflection at the solar limb, matching GR and Eddington's 1919 observation within experimental error). Unlike massive particles experiencing $v_{\text{eff}} < c$ in rarefied regions, photons maintain $c$ but follow curved paths. SymPy verifies the deflection integral using geometric optics in the effective metric.
 \end{enumerate}
 
 \subsubsection{Results and Predictions}
@@ -807,8 +808,6 @@ The transverse wave packet model predicts:
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
 \textbf{Key Result:} Photons are transverse wave packets with $v_\perp = A_0 \cos(kx - \omega t) \exp(-(r_\perp^2)/(2\xi_c^2)) \hat{\mathbf{e}}_\perp$, massless due to $\langle\delta\rho_{4D}\rangle = 0$, stabilized by 4D extension, and locked to speed $c$ in 3D projection despite bulk propagation at $v_L$.
-
-\textbf{Verification:} SymPy confirms wave equation solutions, zero time-averaged density, and deflection angle; code at \url{https://github.com/trevnorris/vortex-field}.
 \end{minipage}
 }
 }
@@ -817,7 +816,7 @@ The transverse wave packet model predicts:
 
 In this subsection, we derive the equivalence between vortex core density deficits and effective particle masses in the projected 3D dynamics, starting directly from the Gross-Pitaevskii (GP) energy functional and hydrodynamic equations (P-1, P-2, P-5) without assuming gravitational constants or circular reasoning. The derivation demonstrates how topological defects (P-5) create localized density depressions in the 4D superfluid (P-1), which, upon projection to 3D (Section 2.3, P-3), source the scalar potential $\Psi$ in the unified field equations (Section 2.2) as if they were positive matter density. Physically, a vortex core acts like a whirlpool in a bathtub: the vortex creates a visible depression in the water surface---a ``deficit'' in the local water level---with a characteristic profile determined by the balance between inward suction from circulation (P-2) and the medium's resistance to compression, or tension (P-1). In our 4D superfluid, vortex cores create analogous density deficits, with tension arising from quantum pressure (the GP kinetic term $\frac{\hbar^2}{2m} |\nabla_4 \Psi|^2$) and nonlinear repulsion ($\frac{g}{2m} |\Psi|^4$) resisting density depletion, akin to the garden hose metaphors for leptons and neutrinos (Sections 3.2 and 3.3). Just as the bathtub depression quantifies the ``missing'' water volume, the vortex deficit integrates to an effective ``mass'' in 3D, underpinning lepton masses (Section 3.2) and contrasting with echo suppression via phase interference (Section 3.5).
 
-The key insight is that the deficit arises purely from tension in the aether---the balance between quantum kinetic dispersion and nonlinear repulsion in the GP functional (P-1)---yielding a universal core profile. To derive this tension explicitly, consider the GP equation near the core: the dispersion term scales as $\frac{\hbar^2}{2 m \xi_c^2}$ (from second derivatives $\sim 1/\xi_c^2$), balancing the repulsion $g \rho_{4D}^0 / m$ (linearized at background). This balance defines the healing length $\xi_c = \hbar / \sqrt{2 m g \rho_{4D}^0}$ (P-1) as the scale where dispersion and repulsion forces equilibrate. Projection geometry (P-3) maps this deficit to the source term $\rho_{\text{body}}$ in the Poisson-like equation $\nabla^2 \Psi = -4\pi G \rho_{\text{body}}$ (static limit, Section 2.2), where the negative sign reflects the equivalence $\rho_{\text{body}} = - \delta \rho_{3D}$ (up to geometric factors absorbed in calibration, Section 2.4). We compute the deficit for a straight vortex line (approximating local core structure) and extend to 4D sheets, incorporating curvature effects to refine the integral, with all steps verified symbolically using SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
+The key insight is that the deficit arises purely from tension in the aether---the balance between quantum kinetic dispersion and nonlinear repulsion in the GP functional (P-1)---yielding a universal core profile. To derive this tension explicitly, consider the GP equation near the core: the dispersion term scales as $\frac{\hbar^2}{2 m \xi_c^2}$ (from second derivatives $\sim 1/\xi_c^2$), balancing the repulsion $g \rho_{4D}^0 / m$ (linearized at background). This balance defines the healing length $\xi_c = \hbar / \sqrt{2 m g \rho_{4D}^0}$ (P-1) as the scale where dispersion and repulsion forces equilibrate. Projection geometry (P-3) maps this deficit to the source term $\rho_{\text{body}}$ in the Poisson-like equation $\nabla^2 \Psi = -4\pi G \rho_{\text{body}}$ (static limit, Section 2.2), where the negative sign reflects the equivalence $\rho_{\text{body}} = - \delta \rho_{3D}$ (up to geometric factors absorbed in calibration, Section 2.4). We compute the deficit for a straight vortex line (approximating local core structure) and extend to 4D sheets, incorporating curvature effects to refine the integral.
 
 To ensure dimensional rigor, we adopt the convention where the order parameter $\Psi$ has dimensions [L$^{-2}$], satisfying $\rho_{4D} = m |\Psi|^2$ [M L$^{-4}$] with boson mass $m$ [M], consistent with P-1's compressible medium. In some calculations, we use natural units where $m=1$ to simplify expressions, explicitly noted where applied. This convention aligns the GP functional and equations with the 4D framework, avoiding mismatches with standard 3D GP normalizations (e.g., $\Psi$ [M$^{1/2}$ L$^{-3/2}$]).
 
@@ -857,7 +856,7 @@ The GP energy functional is $E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\n
    \[
    \int_0^\infty \sech^2(u) \, 2\pi \, (u \sqrt{2} \xi_c) \, \sqrt{2} \xi_c \, du = 4\pi \xi_c^2 \int_0^\infty u \sech^2(u) \, du.
    \]
-   The integral evaluates to $\int_0^\infty u \sech^2(u) \, du = \ln 2 \approx 0.693147$ (SymPy: \texttt{integrate(u * sech(u)**2, (u, 0, oo))}). Thus:
+   The integral evaluates to $\int_0^\infty u \sech^2(u) \, du = \ln 2 \approx 0.693147$. Thus:
    \[
    \Delta = - \rho_{4D}^0 \cdot 4\pi \xi_c^2 \ln 2 \approx - \rho_{4D}^0 \cdot 8.710 \xi_c^2,
    \]
@@ -867,7 +866,7 @@ The GP energy functional is $E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\n
    \[
    \delta E \approx \frac{\hbar^2}{2 m} \left( \frac{1}{2R} \right)^2 \rho_{4D}^0 \cdot 4\pi^2 R \xi_c,
    \]
-   with area $\sim 4\pi^2 R \xi_c$. Minimizing adjusts $\delta r$, yielding a shifted integral: SymPy numerical integration (\texttt{integrate(u * sech((u + 0.1)/sqrt(2))**2, (u, 0, oo))}) gives $\approx 1.249$, reducing the factor to $\Delta \approx - \rho_{4D}^0 \cdot 8.66 \xi_c^2$ (relative to $\sqrt{2} \ln 2 \approx 0.980$, a ~0.05 reduction).
+   with area $\sim 4\pi^2 R \xi_c$. Minimizing adjusts $\delta r$, yielding a shifted integral: SymPy numerical integration gives $\approx 1.249$, reducing the factor to $\Delta \approx - \rho_{4D}^0 \cdot 8.66 \xi_c^2$ (relative to $\sqrt{2} \ln 2 \approx 0.980$, a ~0.05 reduction).
 
 \item \textbf{Projection to 3D Effective Density} (P-3, P-5): In the 4D-to-3D projection (Section 2.3, P-3), integrate over a slab $|w| < \epsilon \approx \xi_c$ around $w=0$. For a point-like particle (compact toroidal sheet, size $\ll \xi_c$), the aggregated deficit appears as a localized 3D source:
    \[
@@ -901,8 +900,6 @@ Here, $\Phi_g$ is the emergent gravitational potential; the GP order parameter r
 \textbf{Key Result:} Vortex deficits $\delta \rho_{4D} = - \rho_{4D}^0 \sech^2(r / \sqrt{2} \xi_c)$ integrate to $\Delta \approx -8.66 \rho_{4D}^0 \xi_c^2$ per unit sheet area (P-5, refined with curvature), projecting to $\rho_{\text{body}} = - \delta \rho_{3D} \approx 4.33 \rho_0$ (P-3) in 3D, sourcing attraction without circular assumptions. This underpins lepton mass calculations (Section 3.2) and contrasts with echo suppression (Section 3.5).
 
 \textbf{Physical Interpretation:} The deficit acts like a bathtub drain’s depression, with tension (P-1) balancing circulation-driven rarefaction (P-2), projecting as effective mass in 3D (P-3).
-
-\textbf{Verification:} SymPy confirms $\int_0^\infty u \sech^2(u) \, du = \ln 2 \approx 0.693147$ (\texttt{integrate(u * sech(u)**2, (u, 0, oo))}), curvature-shifted integral $\approx 1.249$ (\texttt{integrate(u * sech((u + 0.1)/sqrt(2))**2, (u, 0, oo))}), and radial GP solution (\texttt{dsolve}, $\tanh$ within 1\% error); code at \url{https://github.com/trevnorris/vortex-field}.
 \end{minipage}
 }
 }
@@ -911,7 +908,7 @@ Here, $\Phi_g$ is the emergent gravitational potential; the GP order parameter r
 
 Stable atoms, such as hydrogen formed by a proton and electron, emerge from the interplay of vortex structures in the 4D superfluid, where opposite circulations induce attraction without leading to destructive annihilation. In contrast to particle-antiparticle pairs (e.g., electron-positron), where reversed vorticity allows core merger and cancellation, the proton's braided topology (three fractional strands, Section 3.4) mismatches the electron's single-tube structure (Section 3.2), preventing unwinding and creating a geometric barrier. This stability derives from the Gross-Pitaevskii (GP) energy functional (P-1), with 4D projections (P-5) distributing tension across the extra dimension $w$ to maintain separation at Bohr-like radii. Tension, as the aether's resistance to stretching (rarefaction) via GP repulsion ($\frac{g}{2} |\psi|^4$) and dispersion ($\frac{\hbar^2}{2m} |\nabla_4 \psi|^2$), balances the system against overlap-induced stretch penalties. Physically, the electron ``orbits'' the proton like a small whirlpool drawn to a complex eddy, balanced by repulsive drag at close range, without penetrating the braided core due to topological incompatibility.
 
-The attraction arises from constructive phase interference between helical phases, inducing inflows via pressure gradients (P-2, P-4), while repulsion from solenoidal Eddies (vector potential $\mathbf{A}$) and quantum pressure prevents collapse. For antiparticles, matched structures enable reconnection and deficit release as solitons (photons, Section 3.7). Below, we derive the effective potential and equilibrium separation step-by-step, ensuring dimensional consistency and verifying with SymPy (code at \url{https://github.com/trevnorris/vortex-field}).
+The attraction arises from constructive phase interference between helical phases, inducing inflows via pressure gradients (P-2, P-4), while repulsion from solenoidal Eddies (vector potential $\mathbf{A}$) and quantum pressure prevents collapse. For antiparticles, matched structures enable reconnection and deficit release as solitons (photons, Section 3.7). Below, we derive the effective potential and equilibrium separation step-by-step, ensuring dimensional consistency.
 
 \subsubsection{Derivation}
 \begin{enumerate}
@@ -971,7 +968,7 @@ Barrier $\Delta E$ & $\sim 1$ eV & Tension-derived, SymPy integral \\
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
 \textbf{Key Result:} Atomic stability from $V_{\text{eff}} \approx \left(\hbar^2 / (2 m d^2)\right) \ln(d/\xi_c) + g \rho_{4D}^0 \pi \xi_c^2 (\delta \theta / (2\pi))^2 + \gamma / d$, minimized at Bohr radius via topological mismatch; contrasts with $e^+e^-$ annihilation.
 
-\textbf{Verification:} SymPy confirms minimum at $d = \xi_c \mathrm e^{1/2} - 0.01 \xi_c$; code at \url{https://github.com/trevnorris/vortex-field}.
+\textbf{Verification:} SymPy confirms minimum at $d = \xi_c \mathrm e^{1/2} - 0.01 \xi_c$.
 \end{minipage}
 }
 }
