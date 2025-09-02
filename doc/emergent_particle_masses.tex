@@ -167,7 +167,7 @@ M(R)=\frac{E_{\rm def}}{v_L^2}=\frac{\rho_{4D}^0}{2}V_{\rm def}
 =\boxed{\,\pi^2\,c_\Delta\,\rho_{4D}^0\,\xi_c^2\,R\,}\,,
 \label{eq:MR}
 \end{equation}
-with \(c_\Delta=\mathcal O(1)\). 
+with \(c_\Delta=\mathcal O(1)\).
 For \emph{charged leptons}, however, the multi-quantum helical bundle is self-similar across families: both the major radius and the effective bundle radius scale by the same inter-family factor \(a_n\). We encode this by
 \[
 R_n=R_1\,a_n,\qquad \xi_{\rm eff}(n)=\lambda_{\rm b}\,a_n\,\xi_c,
@@ -183,7 +183,7 @@ where \(\phi\) is fixed by the golden-ratio attractor \cite{Norris2025GoldenRati
 \[
 \epsilon\;\approx\;\frac{\ln 2}{\phi^5}\;\approx\;0.0625,
 \]
-while \(\delta\) collects small curvature/tension effects (empirically \(\delta\sim 10^{-3}n^2\) suffices for \(\mu/\tau\)). 
+while \(\delta\) collects small curvature/tension effects (empirically \(\delta\sim 10^{-3}n^2\) suffices for \(\mu/\tau\)).
 \emph{Separation of roles:} \(\xi_c\) controls sinks and dynamics; \(\xi_{\rm eff}(n)\) captures multi-layer depletion only in the ladder mapping.
 
 \begin{table}[h]
@@ -379,7 +379,7 @@ and encode helical advance with a \emph{torsion fraction} $\chi\in(0,1]$ so that
 \end{equation}
 The lift rate along $w$ is $dw/ds=\eta_n$ for mode $n$, producing a net offset per circuit
 \begin{equation}
-\Delta w_n=2\pi R_n\,\eta_n,\qquad 
+\Delta w_n=2\pi R_n\,\eta_n,\qquad
 \zeta_n:=\frac{\Delta w_n}{\xi_c}.
 \end{equation}
 
@@ -481,6 +481,7 @@ $\nu_\tau$ (2) & 0.05106 & $\sim 0.050$ & $+2.12$ \\
 \paragraph{Remarks.}
 (i) The only ingredients beyond the global mass template are the geometric overlap factor $f_{\rm slab}(\zeta)$ and modest, mode-dependent lifts $\eta_n$—both already present in the framework. (ii) Using a single $\eta$ for all modes and allowing a mild change in the ladder $R_n\propto(2n{+}1)^\gamma$ with $\gamma\in[0.9,1.2]$ reproduces the same spectrum within a few percent. (iii) Mixing angles emerge naturally large/small depending on $(\zeta_n-\zeta_m)$ and the small energy splittings; we defer explicit numerical angles to a later numerics section once $(V_0,\sigma_\zeta,\chi)$ are fixed by medium properties.
 
+\medskip
 \makebox[\linewidth][c]{%
 \fbox{%
 \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
@@ -492,246 +493,289 @@ with $R_n=R_\star(2n{+}1)$, $\zeta_n=2\pi R_n\eta_n/\xi_c$, $p\in\{2,4\}$, and $
 }
 }
 
-\subsection{Echo Particles: Fractional Vortices and Topological Confinement}
-\label{sec:echo}
+\subsection{Inside a Baryon: Ontology \& Dynamics}
+\label{sec:baryons-inside}
 
-Echo particles---our quark/hadron precursors---are qualitatively different from leptons and neutrinos. They appear as \emph{open} vortex strands on the slice whose observable properties depend on a \emph{confinement sheet} spanning the braid, rather than on a single closed loop. The richness of the hadron spectrum reflects global, geometry-dependent effects (sheet area, braid layout, curvature) that cannot be captured by a single closed-form mass formula. In this section we lay out the \emph{structural} ingredients: the correct topology (Z$_3$ monodromy vs.\ slab charge), the projection and confinement mechanisms, and a mass functional that explains why detailed numbers inevitably depend on global geometry.
+\paragraph{Object, slab, and counters.}
+A baryon is modeled as a single, slender, closed circulation core (a vortex ring) of radius $R$ and length $L{=}2\pi R$ embedded in the transition slab $\Omega_{\rm TP}$. Two independent integers describe it:
+(i) the \emph{net oriented threading} $Q\in\mathbb Z$ through the slab (electric charge, fixed by closure/linking; cf. Sec.~\ref{sec:projected-em:charge}), and
+(ii) the \emph{azimuthal lobe number} $m\in\mathbb N_0$ of a standing wave riding on the rim (internal pattern).
+Changing $m$ does not change $Q$.
 
-\subsubsection{Topological structure: Z$_3$ monodromy and slab charge}
-\label{sec:echo:topology}
-
-Let $\Omega_{\mathrm{TP}}=\Pi\times(-\ell_{\mathrm{TP}}/2,\ell_{\mathrm{TP}}/2)_w$ be the transition-phase slab (framework conventions). \emph{Topological charge on the slab} is defined in Sec.~\ref{sec:projected-em:charge}; it is an \emph{integer} $Q$ when (and only when) the defect core is \emph{closed within} $\Omega_{\mathrm{TP}}$. Open through-strands have $Q=0$ even if they exhibit local Eddies/Drag.
-
-Echo strands carry instead a \emph{fractional monodromy} relative to a \emph{confinement sheet} $\Sigma_{\mathrm{conf}}\subset\Omega_{\mathrm{TP}}$ that spans the braid:
+\subsubsection{Topology and charge: neutrality made explicit}
+\label{sec:baryons-inside:charge}
+Let $\Gamma$ denote the closed core worldline projected onto the slab.
+The slab charge is the oriented threading (linking) number (see Eq.~\eqref{eq:Q-threading}):
 \begin{equation}
-q \;\equiv\; \frac{1}{2\pi}\oint_{C}\nabla\theta\!\cdot d\boldsymbol\ell \quad \mathrm{mod}\ 3 \;\in\;\{0,1,2\},
-\label{eq:z3}
+Q \;=\; {\rm Lk}[\Gamma,\Omega_{\rm TP}] \;=\; N_{+w} - N_{-w}\,.
+\label{eq:Q-neutral}
 \end{equation}
-where $C$ is a loop whose spanning surface avoids $\Sigma_{\mathrm{conf}}$. A single isolated strand has $q=1$ or $2$ on $\Sigma_{\mathrm{conf}}$, but \emph{no global} slab charge: $Q=0$. Color-neutral \emph{composites} satisfy $q_1+q_2+q_3\equiv 0\ (\mathrm{mod}\ 3)$ and can realize an \emph{integer} slab charge $Q$ on large loops in the slab (the spanning surface cannot be slid off the braid without crossing $\Sigma_{\mathrm{conf}}$).
+Here $N_{+w}$ (resp.\ $N_{-w}$) counts +$w$ (resp.\ $-w$) punctures of the slab by the core. A neutral baryon has $Q{=}0$, realized either by a single $(+w,-w)$ pair of distant punctures or by many microscopic through--back excursions whose oriented counts cancel. The internal lobe structure lives \emph{on the rim} and does not alter $Q$.
 
-\paragraph{Remark (local circulation vs.\ global charge).}
-Near a strand one may speak of a local $2\pi/3$ phase sector (suggesting ``$\kappa/3$'' locally), but Eq.~\eqref{eq:z3} is defined \emph{relative to} $\Sigma_{\mathrm{conf}}$; without the sheet, any large loop can be spanned in $w$ and the global integral that defines $Q$ vanishes. Throughout this section we reserve $Q$ for the slab-global, integer charge; ``fractional'' refers to the Z$_3$ monodromy $q$ on $\Sigma_{\mathrm{conf}}$.
+\subsubsection{Why ``three'' inside a baryon: the internal tri-lobe mode}
+\label{sec:baryons-inside:three}
+Empirically baryons look like ``three things'' to probes; here this arises from a stable $m{=}3$ standing wave on the rim.
 
-\subsubsection{Distinction from leptons: topology and stability}
-\label{sec:echo:vs-leptons}
-
-Leptons are \emph{closed} loops: they possess an integer slab charge $Q\in\mathbb Z$, are topologically protected, and can exist freely. Echo strands are \emph{open} and require a confinement sheet; they cannot exist as free asymptotic states. The table emphasizes the slab-global quantities.
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|l|c|c|}
-\hline
-Aspect & Lepton (closed loop) & Echo (open strand) \\
-\hline
-Topology & Closed core in slab & Through-strand + $\Sigma_{\mathrm{conf}}$ \\
-Slab charge $Q$ & Integer ($\neq 0$ for charged) & $0$ (isolated); integer only in composites \\
-Z$_3$ monodromy $q$ & $0$ & $1$ or $2$ on $\Sigma_{\mathrm{conf}}$ \\
-Stability & Topologically protected & Requires confinement (no free state) \\
-\hline
-\end{tabular}
-\caption{Leptons vs.\ echo strands: global slab charge $Q$ is integer only for closed cores or confined composites; ``fractional'' refers to Z$_3$ monodromy $q$ on the confinement sheet.}
-\label{tab:echo-lepton-revised}
-\end{table}
-
-\subsubsection{Distinction from neutrinos: suppression mechanisms}
-\label{sec:echo:vs-neutrinos}
-
-Neutrinos are \emph{closed} helical loops with $Q=0$ because their cores enter and exit the slab; their masses are suppressed by \emph{slab overlap},
-\[
-f_{\rm slab}(\zeta)=\exp[-\beta_m\,\zeta^{\,p}],\qquad \zeta=\Delta w/\xi_c,\ \ p\in\{2,4\},
-\]
-multiplying the global loop mass template (Eq.~\eqref{eq:mass-template}). Echo strands are \emph{open}; their observable strength on the slice is reduced by \emph{phase-interference} tied to Z$_3$ sectors and by confinement geometry. A convenient summary is
+\paragraph{Rim phase field and its dynamics.}
+Let $s\!\in\![0,L)$ parameterize arclength and $t$ time. The phase of the rim maintenance current is $\theta(s,t)$.
+Its effective 1D Lagrangian (lowest orders allowed by symmetries) is
 \begin{equation}
-S_{\rm phase}(\mathrm{geom}) \;=\; \left|\sum_{j=1}^{N} w_j\,e^{i\varphi_j}\right|^2,\qquad
-\varphi_j\in\{0,\pm 2\pi/3\}\ \text{up to small geometric corrections},
-\label{eq:Sphase}
-\end{equation}
-where the weights $w_j$ encode how the strand’s field projects onto the slab across sectors set by $\Sigma_{\mathrm{conf}}$. In an ideal, symmetric three-sector split $S_{\rm phase}=0$ (perfect cancellation); finite $\xi_c$, curvature, and braid asymmetries produce a small residual $S_{\rm phase}\ll1$.
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|l|c|c|}
-\hline
-Aspect & Neutrino & Echo strand \\
-\hline
-Topology & Closed (enters/exits slab) & Open + $\Sigma_{\mathrm{conf}}$ \\
-Slab charge $Q$ & $0$ & $0$ (isolated) \\
-Suppression & Slab overlap $f_{\rm slab}(\zeta)$ & Phase interference $S_{\rm phase}(\mathrm{geom})\ll 1$ \\
-Asymptotic state & Yes (free) & No (requires composite) \\
-\hline
-\end{tabular}
-\caption{Neutrino vs.\ echo: distinct suppression mechanisms consistent with the framework.}
-\label{tab:echo-neutrino-revised}
-\end{table}
-
-\subsubsection{Mass accounting: why single numbers are hard}
-\label{sec:echo:mass-functional}
-
-We use the same loop/strand mass template as elsewhere, with \(\rho_0=\rho_{4D}^0\,\xi_c\), \(a=\alpha\xi_c\), \(C_{\rm core}=2\pi\ln2\), and \(v_L=\sqrt{g\rho_{4D}^0/m}\):
-\[
-m_{\text{self}}(L;\kappa_i)=\rho_0\,L\!\left[C_{\rm core}\,\xi_c^2+\frac{\kappa_i^{2}}{4\pi v_L^2}\ln\!\frac{L}{a}\right],
-\]
-where \(L\) is the \emph{in-slab} length of a strand and \(\kappa_i\) its local circulation parameter (near a Z$_3$ sector one may write $\kappa_i\!\sim\!\kappa/3$ as a \emph{local} proxy). For a composite (meson- or baryon-like) we then add geometry-global pieces:
-\begin{equation}
-\label{eq:echo-mass-functional}
 \boxed{\;
-\begin{aligned}
-M_{\rm comp}\ \approx\ &
-\underbrace{\sum_{i} m_{\text{self}}(L_i;\kappa_i)}_{\text{self (each strand, in-slab)}}\
-+\ \underbrace{\frac{\rho_0}{2\pi v_L^{2}}\sum_{i<j}\kappa_i\kappa_j\,\mathcal{G}_{ij}}_{\text{pairwise hydrodynamic interaction}}\\
-&+\ \underbrace{T_{\rm conf}\,A(\Sigma_{\rm conf})}_{\text{confinement sheet tension}}\
-+\ \underbrace{K_{\rm bend}\sum_i\!\int \kappa_{\rm geom}^2\,d\ell}_{\text{curvature penalty}}\,,
-\end{aligned}
+\mathcal L_{\rm int}
+= \int_{0}^{L}\!\!ds\,
+\Big[
+\tfrac{I_\theta}{2}\,(\partial_t\theta)^2
+- \tfrac{K_\theta}{2}\,(\partial_s\theta)^2
+- U_3\big(1-\cos 3\theta\big)
+- \chi_3\,\kappa_{\rm geom}(s)\,\cos\!\big(3\theta-\phi_E\big)
+\Big]\,.
 \;}
+\label{eq:L_int}
 \end{equation}
-with $\mathcal{G}_{ij}$ a (logarithmic) geometry factor depending on separations and braid layout, $T_{\rm conf}$ the sheet tension, $A(\Sigma_{\rm conf})$ its area, and $\kappa_{\rm geom}$ the geometric curvature along each strand. If any strand segment walks in $w$, its effective in-slab contribution is further reduced by $f_{\rm slab}(\zeta)$.
+Here $I_\theta$ is the inertia (capacitance) of the rim phase, $K_\theta$ its stiffness, $U_3$ the threefold locking, $\kappa_{\rm geom}$ the loop curvature, and $\phi_E$ the environmental phase of the on-slice field (Slope).
 
-\paragraph{Why no single number.} The dominant composite terms are \emph{global}: interaction $\mathcal{G}_{ij}$ and sheet area $A(\Sigma_{\rm conf})$ depend on the \emph{entire} braid. Different hadrons correspond to different minima of \eqref{eq:echo-mass-functional} over allowed topologies, so a universal closed form is not expected. This is a feature, not a bug: it explains why hadron masses are sensitive to geometry while leptons (simple closed loops) are not.
-
-\subsubsection{Three-body restoration and topological confinement}
-\label{sec:echo:baryons}
-
-A color-neutral triad with $q_1+q_2+q_3\equiv 0$ admits an integer slab charge $Q$ on large loops in the slab: the confinement sheet $\Sigma_{\mathrm{conf}}$ prevents spanning surfaces from sliding off the braid. \emph{Topological confinement} here means: (i) isolated strands are not asymptotic states; (ii) only composites with net Z$_3$ neutrality can realize an integer $Q$; (iii) masses of the composites are set by \eqref{eq:echo-mass-functional} rather than by any single ``effective'' circulation squared. In symmetric configurations the phase cancellations that suppress an isolated strand are lifted (cf.\ $S_{\rm phase}$ in Eq.~\eqref{eq:Sphase}), and the composite’s observable strength is controlled by geometry and sheet tension, not by a single local sector.
-
-\subsubsection{The complexity challenge}
-\label{sec:echo:complexity}
-
-Why are echo masses intrinsically hard?
-
-\begin{itemize}
-\item \textbf{Nonlocal hydrodynamics}: the pairwise term in \eqref{eq:echo-mass-functional} couples strands logarithmically across the entire braid (global $\mathcal{G}_{ij}$).
-\item \textbf{Confinement sheet}: $T_{\rm conf}\,A(\Sigma_{\rm conf})$ is a minimal-surface/free-boundary problem over a braided skeleton.
-\item \textbf{Curvature}: $K_{\rm bend}\!\int\!\kappa_{\rm geom}^2 d\ell$ penalizes tight braids; preferred pitches emerge from competition with $\xi_c$.
-\item \textbf{Projection/overlap}: only in-slab length contributes directly; any $w$-walk is suppressed by $f_{\rm slab}(\zeta)$.
-\item \textbf{Topological constraints}: Z$_3$ neutrality ($q$ sum mod 3) and integer $Q$ for composites restrict reconnections and decay channels.
-\end{itemize}
-
-These points make clear why echo masses are a problem in \emph{global geometry optimization}, not in single-loop calculus.
-
-\subsubsection{Implications and future directions}
-\label{sec:echo:future}
-
-\paragraph{Theory.} Confinement is geometric/topological: Z$_3$ monodromy requires a sheet; integer slab charge $Q$ emerges only in color-neutral composites. ``Gluon-like'' excitations are naturally interpreted as reconnection channels that reconfigure $\Sigma_{\mathrm{conf}}$.
-
-\paragraph{Program (sketch).}
-\begin{enumerate}
-\item \textbf{Mapping}: associate hadron quantum numbers $(J^{PC})$ with braid classes; catalog minimal $\Sigma_{\mathrm{conf}}$ surfaces and their areas.
-\item \textbf{Dynamics}: derive decay rates from reconnection rules (P-2) and sheet reconfiguration pathways; enforce circulation conservation at reconnections.
-\item \textbf{Computation}: for each class, minimize \eqref{eq:echo-mass-functional} over embeddings to predict relative masses; include $f_{\rm slab}(\zeta)$ when segments wander in $w$.
-\item \textbf{Signatures}: larger spatial extent (bigger $A(\Sigma_{\mathrm{conf}})$ or stronger curvature) should correlate with systematic mass shifts across excitations.
-\end{enumerate}
-
-\makebox[\linewidth][c]{%
-\fbox{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key points (structural, not numeric):}
-\begin{itemize}
-\item ``Fractional'' refers to a Z$_3$ monodromy $q$ on a confinement sheet; slab charge $Q$ is integer only for closed cores or confined composites.
-\item Isolated echo strands are not asymptotic states ($Q=0$); composites (meson-/baryon-like) are Z$_3$-neutral and can realize integer $Q$.
-\item Masses follow a global functional \eqref{eq:echo-mass-functional} (self + interaction + sheet tension + curvature), explaining why no universal closed form exists.
-\item Observable strength of single strands is phase-suppressed by $S_{\rm phase}(\mathrm{geom})\ll1$; composites lift this cancellation by geometry.
-\end{itemize}
-\end{minipage}
-}
-}
-
-\subsection{Baryons: Three-Echo Phase Restoration}
-\label{sec:baryons}
- \paragraph{Mass bookkeeping convention.} We define mass via deficit volume in the 3D slice, $m\sim \rho_0 V_{\text{deficit}}>0$. Under three-echo phase restoration, deficits add nonlinearly and the composite \emph{gains} mass relative to the sum of its suppressed constituents. In this sign convention, ``binding'' increases mass; energy conservation is preserved because the background field does work to refill deficits as phases realign.
-
-While echo particles revealed the mechanism of fractional vortices and mass suppression, baryons demonstrate nature's solution to their inherent instability: three-body phase restoration through braided topology. In our framework, baryons are not mysterious bound states held by a ``color force'' but elegant topological configurations where three echo strands braid into a stable, closed vortex sheet in a 4D compressible superfluid. This subsection explains how baryons emerge from the postulates (P-1 to P-5), emphasizing their topological stability and mass generation without attempting to curve-fit exact masses, aligning with our goal to explore the framework's predictive power.
-
-\subsubsection{The Three-Body Solution}
-
-Isolated echo particles, as described in Section~\ref{sec:echo}, suffer \emph{orders-of-magnitude} suppression in their projected mass/fields due to destructive interference in the 4D-to-3D projection (P-3, P-5). Each echo carries \emph{fractional circulation}
-\[
-\Gamma_{\text{echo}}=\pm\,\frac{\kappa}{3},\qquad \kappa=\frac{h}{m}\quad\text{(P-5)},
-\]
-producing $2\pi/3$ phase sectors relative to a confinement sheet (defined below). For an isolated through-strand \emph{without} such a sheet, any large loop in the slab can slide off the core along $w$ and the global line integral vanishes (cf. neutrinos): the macroscopic projection is strongly suppressed.
-
-\paragraph{Z$_3$ monodromy and confinement.}
-Let $\Sigma_{\mathrm{conf}}\subset\Omega_{\mathrm{TP}}$ be a confinement (branch) surface spanning the three-strand braid. For any loop $C$ in the slab whose spanning surface avoids $\Sigma_{\mathrm{conf}}$,
-\[
-q \equiv \frac{1}{2\pi}\oint_C \nabla\theta\cdot d\boldsymbol\ell \ \ \mathrm{mod}\ 3\in\{0,1,2\}.
-\]
-An isolated strand has fractional monodromy ($q=1$ or $2$) but no global topological charge $Q$. A color-neutral three-strand composite obeys $q_1+q_2+q_3\equiv0$ (mod 3) and realizes an \emph{integer} $Q$ on large loops in the slab.
-
-\textbf{Phase Restoration.} When three echoes arrange at $\sim120^\circ$ in the 3D slice (at $w=0$) and braid coherently, their $2\pi/3$ sectors sum to a full $2\pi$ winding relative to $\Sigma_{\mathrm{conf}}$, mimicking a stable closed vortex (Section~\ref{sec:leptons}). The destructive interference that destabilizes isolated echoes becomes constructive reinforcement; the composite’s projected circulation is restored to $\mathcal{O}(\kappa)$ up to braid-geometry corrections. This follows from the phase integral over the composite, where $\oint \nabla \theta \cdot d\mathbf{l}=2\pi$ for the three-strand configuration (P-5). Physically, three ``partial'' twists interlock into a coherent vortex, with stability provided by the GP energy functional (P-1): interaction pressure $\tfrac{g}{2}|\psi|^4$ resists compression and dispersion $\tfrac{\hbar^2}{2m}|\nabla_4\psi|^2$ resists excessive stretching (P-2).
-
-\subsubsection{From Suppression to a Mass Functional}
-
-Rather than an ad-hoc ``amplification,'' we use the same projected mass template as elsewhere, augmented by alignment, interaction, and confinement terms. For three strands with lengths $L_i$ and fractional circulations $\kappa_i=\pm\,\kappa/3$:
+\paragraph{Tri-lobe ground configuration and small oscillations.}
+The locked ground state is $\theta_0(s)=\theta_*+3s/R$ (three evenly spaced lobes).
+Write fluctuations as $\theta(s,t)=\theta_0(s)+\varphi(s,t)$ and Fourier expand
+$\varphi(s,t)=\sum_{m\in\mathbb Z}\varphi_m(t)\,e^{i m s/R}$.
+Linearizing \eqref{eq:L_int} gives the normal-mode dispersion
 \begin{equation}
-\label{eq:baryon-mass-functional}
-M_{\rm baryon}\ \approx\
-f_{\rm align}\,\rho_0\sum_{i=1}^{3} L_i\!\left[C_{\rm core}\,\xi_c^2+\frac{\kappa_i^{2}}{4\pi v_L^{2}}\ln\!\Big(\frac{L_i}{a}\Big)\right]
-+\frac{\rho_0}{2\pi v_L^{2}}\sum_{i<j}\kappa_i\kappa_j\,\mathcal{G}_{ij}
-+T_{\rm conf}\,A(\Sigma_{\rm conf})
-+K_{\rm bend}\sum_{i=1}^{3}\!\int \kappa_{\rm geom}^2\,d\ell,
+\boxed{\;
+\omega_m^2(R) \;=\; \omega_{\rm lock}^2 \;+\; \Big(\tfrac{v_\theta m}{R}\Big)^2\,,\qquad
+v_\theta:=\sqrt{K_\theta/I_\theta}\,,\quad
+\omega_{\rm lock}^2:=\tfrac{9 U_3}{I_\theta}\,,
+\;}
+\label{eq:omega_m}
 \end{equation}
-with $\rho_0=\rho_{4D}^0\,\xi_c$, $a=\alpha\xi_c$, $C_{\rm core}=2\pi\ln 2$, and $v_L=\sqrt{g\rho_{4D}^0/m}$. Here $\mathcal{G}_{ij}$ encodes hydrodynamic geometry (logarithmic separations/braid layout), $T_{\rm conf}\,A(\Sigma_{\rm conf})$ is the confinement-sheet tension (dominant at large scales), and $K_{\rm bend}$ penalizes tight curvature. Coherence/phase restoration is captured by an alignment factor
-\[
-f_{\rm align}=\exp\!\big[-\beta_{\rm align}\,\sigma_\zeta^{\,p}\big],\qquad
-\sigma_\zeta^2 := \tfrac{1}{3}\sum_{i=1}^{3} (\zeta_i-\bar\zeta)^2,\quad \zeta_i:=\Delta w_i/\xi_c,\quad p\in\{2,4\},
-\]
-which approaches $1$ when the three strands share the same $w$-lift (good overlap in the slab) and drops as their $w$-offsets dephase (P-3). This formulation preserves circulation conservation on the slice ($\sum_i\kappa_i=\kappa$) and makes explicit why restoration increases mass: it raises the in-slab fraction and unlocked interaction energy while adding a positive confinement cost.
+so the $m{=}3$ mode has a zero-point cost $\tfrac{1}{2}\hbar\omega_3$ at rest and a ladder $\hbar\omega_3(n_3+\tfrac12)$ for $n_3\!\in\!\mathbb N_0$.
 
-\subsubsection{The Stability Hierarchy}
+\paragraph{Why $m{=}3$ is preferred over $m{=}2$.}
+The $m{=}2$ pattern induces a strong dipole on the slice and thus a larger radiative/field penalty; we encode this by a larger constant $\alpha_2$ in the short-distance bucket (cf.\ below), or equivalently an extra cost term $\Delta E_{\rm dip}\propto d_2^2/R$ with dipole strength $d_2$.
+By contrast $m{=}3$ cancels the leading dipole component; hence $\alpha_3<\alpha_2$, making $m{=}3$ energetically favored for baryons.
 
-The observed hierarchy follows from phase alignment and confinement geometry (P-1, P-2, P-5):
+\subsubsection{Radius selection from competing energies}
+\label{sec:baryons-inside:Rstar}
+The ring radius $R$ is set by a competition between terms that grow with $R$ (line and self-flow) and terms that blow up as $1/R$ (bending, internal zero-point, charge, etc.).
+A compact energy (mass) functional is
+\begin{equation}
+\boxed{\;
+M(R;Q,n_3,\ldots)
+= T\,(2\pi R) \;+\; A\,(2\pi R)\,\ln\!\frac{2\pi R}{a}
+\;+\; \frac{\mathcal C(Q,n_3,\ldots)}{R}
+\;+\; T\,\Delta L(\ldots)\,,
+\;}
+\label{eq:M_collect}
+\end{equation}
+where $T$ is the line tension, $A$ the self-flow coefficient, $a$ a core scale,
+and the $1/R$ ``bucket'' collects $R$-inverse contributions:
+\begin{equation}
+\mathcal C(Q,n_3,\ldots)
+= 2\pi K_{\rm bend}\;+\; \alpha_3 \;+\; \hbar\,\omega_3(R)\,n_3\;+\;\sum_{m\neq3}\alpha_m\;+\;\sum_k \beta_k\;+\;\beta_Q\;+\;\cdots,
+\label{eq:C_bucket}
+\end{equation}
+with bending $K_{\rm bend}$, internal zero-points $\alpha_m$ (with $\alpha_2>\alpha_3$), radial overtones $\beta_k$, and a charge-dependent projected-EM cost $\beta_Q$ (with $\beta_{+1}>\beta_{0}=\beta_{-1}$).
+For modest structures $\Delta L\!\approx\!0$.
 
-\begin{itemize}
-\item \textbf{Proton (uud):} Achieves color-neutral $q_1{+}q_2{+}q_3\equiv0$ and near-optimal phase alignment ($\sigma_\zeta\!\to\!0$), enabling integer $Q$ and a coherent, closed-vortex–like configuration (Section~\ref{sec:leptons}). In the absence of external capture, this topology is stable against reconnections.
-\item \textbf{Neutron (udd):} Also color-neutral, but geometric asymmetry (distinct strand pitches/offsets) yields a small misalignment (finite $\sigma_\zeta$) and slightly higher GP energy, allowing weak reconnection channels that mediate $\beta$-decay on long timescales.
-\item \textbf{Lambda (uds):} A heavier strand alters pitch and $w$-lift, increasing misalignment and interaction costs; the state is short-lived compared to the nucleon due to larger $\sigma_\zeta$ and higher curvature/tension penalties.
-\item \textbf{Delta (uuu):} Identical strands frustrate $120^\circ$ separation and alignment, producing large misalignment and strong hydrodynamic repulsion; the configuration decays rapidly via reconnections (P-2).
-\end{itemize}
+\paragraph{Stationary condition and existence of $R_\ast$.}
+Minimizing \eqref{eq:M_collect} gives
+\begin{equation}
+\boxed{\;
+\partial_R M=0 \;\Rightarrow\;
+2\pi T
++ 2\pi A\Big[1+\ln\!\tfrac{2\pi R_\ast}{a}\Big]
+- \frac{\mathcal C(Q,n_3,\ldots)}{R_\ast^{\,2}}
+\;=\;0\,,
+\;}
+\label{eq:stationary}
+\end{equation}
+with a positive curvature $\partial_R^2 M>0$ at the solution, so each $(Q,n_3,\ldots)$ has a preferred size $R_\ast$ and mass $M_\ast=M(R_\ast;\cdot)$.
+Equation \eqref{eq:stationary} explains the co-variation: increasing the $1/R$ bucket (e.g.\ larger $n_3$) drives $R_\ast$ smaller and thus typically increases $M_\ast$.
 
-\subsubsection{Why We Cannot Yet Predict Exact Masses}
+\subsubsection{Spin and magnetic moments from circulation and texture}
+\label{sec:baryons-inside:spin-mu}
+The total spin is the sum of circulation and internal-mode contributions,
+\begin{equation}
+J \;=\; J_{\rm circ} \;+\; J_{\rm int}\,,
+\qquad
+J_{\rm circ}\;\simeq\; \rho_{\rm eff}\,\kappa\,\pi R_\ast^2\,,
+\qquad
+J_{\rm int}\;\approx\; n_3\,\hbar\;\;(\text{orientation set by phase}),
+\label{eq:Jbudget}
+\end{equation}
+where $\rho_{\rm eff}$ is the effective areal inertia of the slab-coupled flow and $\kappa$ the circulation quantum (P--5).
+The internal $m{=}3$ quanta tend to change $J$ by $\pm1$ depending on their phase relative to the base circulation.
 
-While the conceptual picture is clear, quantitative predictions require solving global geometry:
-
-\begin{enumerate}
-\item \textbf{Braiding topology:} Quantum numbers map to specific three-strand braids subject to $q_1{+}q_2{+}q_3\equiv 0$ (mod 3) and integer $Q$ (P-5), with minima determined by the GP functional (P-1).
-\item \textbf{Alignment and interactions:} $f_{\rm align}$ depends on the $w$-lift variance $\sigma_\zeta$; $\mathcal{G}_{ij}$ requires geometry-aware integrals of the hydrodynamic kernel (P-3).
-\item \textbf{Confinement geometry:} $T_{\rm conf}\,A(\Sigma_{\rm conf})$ is a free-boundary/minimal-area problem over the braided skeleton; $K_{\rm bend}$ adds curvature costs (P-1).
-\end{enumerate}
-
-These are inherently nonlocal and global, akin to needing electronic-structure methods in molecular physics: the mass functional is known, but evaluating it for each braid requires dedicated numerics.
-
-\subsubsection{Implications and Future Directions}
-
-The three-echo restoration mechanism, rooted in P-1, P-3, and P-5, implies:
-
-\begin{enumerate}
-\item \textbf{Confinement is topological:} Isolated fractional strands ($q\!=\!1,2$) cannot realize integer $Q$ on the slab and are energetically suppressed; composites with $q_1{+}q_2{+}q_3\!\equiv\!0$ are the stable objects.
-\item \textbf{Mass generation is geometric:} Baryon masses arise from in-slab deficit (self terms), hydrodynamic interactions, and a positive confinement-tension cost, all enhanced by phase restoration ($f_{\rm align}\!\to\!1$).
-\item \textbf{Stability tracks phase harmony:} Perfect (or near-perfect) phase restoration minimizes the GP functional; misalignment increases tension/interaction costs and opens reconnection/decay channels (P-2).
-\end{enumerate}
-
-Future work: map hadron $J^{PC}$ to specific $B_3$ braids (P-5), compute $\mathcal{G}_{ij}$ and $f_{\rm align}$ for representative geometries (P-3), extract $T_{\rm conf}$ and $K_{\rm bend}$ from controlled setups, and test predictions for exotic multi-strand states and decay rates via reconnection dynamics (P-2).
+The baryon’s magnetic moment follows from the rim current distribution $\mathbf j_\parallel(\mathbf r)$ induced on the slice.
+In thin-ring approximation,
+\begin{equation}
+\mu \;=\; \frac{1}{2}\int d^3r\,\mathbf r\times (\mathbf r\times \mathbf j_\parallel)
+\;\simeq\; I_{\rm eff}\,\pi R_\ast^2\,,
+\qquad
+I_{\rm eff}\;\propto\; Q\,\bar v_\phi/(2\pi R_\ast)\;+\; \delta I_{m{=}3}\,,
+\label{eq:mu}
+\end{equation}
+where $\bar v_\phi$ is the average azimuthal flow speed on the rim and $\delta I_{m{=}3}$ is the $m{=}3$ contribution from lobe asymmetries.
+For $Q\!=\!1$ the first term dominates (proton); for $Q\!=\!0$ the moment is nonzero due to $\delta I_{m{=}3}$ and can acquire the opposite sign when the lobe pattern is $\pi/2$ out of phase with the base flow (neutron-like sign rule).
 
 \medskip
-\makebox[\linewidth][c]{%
-\fbox{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Key Result:} Baryons form via three-echo phase restoration: $2\pi/3$ sectors sum to $2\pi$ relative to a confinement sheet, transforming destructive interference into constructive reinforcement (P-3, P-5). Their masses follow the projected mass template augmented by alignment, interaction, and confinement terms [Eq.~\eqref{eq:baryon-mass-functional}], with $f_{\rm align}$ capturing $w$-lift coherence. Integer $Q$ is realized only for the composite; isolated strands remain neutral on the slab.
+\noindent\textbf{Summary of this subsection.}
+Charge $Q$ is a topological, integer threading (Eq.~\eqref{eq:Q-neutral}); the threefold pattern is an internal standing wave governed by the 1D Lagrangian \eqref{eq:L_int} with dispersion \eqref{eq:omega_m}. The ring size follows from the stationary condition \eqref{eq:stationary} of the compact mass functional \eqref{eq:M_collect}. Spin and magnetic moments arise from circulation plus the $m{=}3$ mode (Eqs.~\eqref{eq:Jbudget}--\eqref{eq:mu}). This provides a complete, physical picture of what lives \emph{inside} a baryon, independent of phenomenological fits.
 
-\textbf{Note on verification:} Phase-closure and energy-minimization checks are consistent with the GP functional structure (P-1) and the topological constraints (P-5).
-\end{minipage}
-}
-}
+\subsection{Baryon Phenomenology: Masses, Moments, and the Catalog}
+\label{sec:baryons-phenomenology}
 
-\paragraph{Energy accounting (formation threshold).}
-Baryon formation requires an energy influx to establish steady Eddies/Drag and to nucleate confinement:
+This subsection turns the internal model of Sec.~\ref{sec:baryons-inside} into predictions and a scalable catalog. We (i) recast the mass functional in a form ready for fitting, (ii) spell out how to calibrate global parameters on the nucleons, (iii) derive leading observables (magnetic moments, charge radii, and a threefold harmonic in form factors), and (iv) define a discrete labeling scheme that replaces quark content.
+
+\subsubsection{Master mass functional and solution for $R_\ast$}
+\label{sec:baryons-phenomenology:master}
+
+Collecting the contributions (line, self-flow, bending, internal zero-points and quanta, charge, etc.) gives the compact form already introduced in Eq.~\eqref{eq:M_collect}:
+\begin{equation}
+M(R;Q,n_3,\mathcal M)
+= T(2\pi R) + A(2\pi R)\,\ln\!\frac{2\pi R}{a} + \frac{\mathcal C(Q,n_3,\mathcal M)}{R} + T\,\Delta L(\mathcal M),
+\label{eq:masterM}
+\end{equation}
+with the $1/R$ ``bucket'' (cf. Eq.~\eqref{eq:C_bucket})
+\begin{equation}
+\mathcal C(Q,n_3,\mathcal M)
+= 2\pi K_{\rm bend} + \alpha_3 + \hbar\,\omega_3(R)\,n_3 + \sum_{m\neq 3}\alpha_m + \sum_{k}\beta_k + \beta_Q + \gamma_w w^2 + \gamma_K(K) + \chi_3.
+\label{eq:Cbucket}
+\end{equation}
+For mild structures we may set $\Delta L\simeq 0$ and treat $\omega_3(R)\approx (c_3 v_\theta)/R$ to leading order. The preferred radius $R_\ast$ solves the stationary condition (Eq.~\eqref{eq:stationary}):
+\begin{equation}
+2\pi T + 2\pi A\!\left[1+\ln\!\frac{2\pi R_\ast}{a}\right] - \frac{\mathcal C(Q,n_3,\mathcal M)}{R_\ast^{\,2}}=0.
+\label{eq:Rstar-eq}
+\end{equation}
+
+\paragraph{Practical solution for $R_\ast$.}
+Define
+$
+f(R)=2\pi T + 2\pi A\!\left[1+\ln\!\frac{2\pi R}{a}\right] - \frac{\mathcal C}{R^{2}}.
+$
+A robust Newton step is
+\begin{equation}
+R^{(k+1)} \;=\; R^{(k)} \;-\; \frac{f(R^{(k)})}{f'(R^{(k)})},
+\qquad
+f'(R)=\frac{2\pi A}{R}+\frac{2\mathcal C}{R^{3}}.
+\label{eq:newton}
+\end{equation}
+A good initial guess that already captures the competition is
+\begin{equation}
+R^{(0)} \;\approx\; \sqrt{\frac{\mathcal C}{2\pi\,[T+A\,(1+\ln(2\pi a^{-1}\sqrt{\mathcal C/2\pi T}))]}}\,,
+\label{eq:R0}
+\end{equation}
+or simply $R^{(0)}\!=\!\sqrt{\mathcal C/2\pi(T{+}A)}$ if one wants a quick start. The minimized mass is $M_\ast=M(R_\ast;Q,n_3,\mathcal M)$.
+
+\subsubsection{Global parameters and nucleon calibration}
+\label{sec:baryons-phenomenology:calib}
+
+We collect all \emph{state-independent} parameters into
+\begin{equation}
+\mathcal P \;=\; \{\,T,\,A,\,a,\,K_{\rm bend},\,I_\theta,\,K_\theta,\,U_3,\,\beta_{+1},\,\beta_0,\,\chi_3,\,\{\alpha_m\}_{m\neq 3},\,\{\beta_k\},\,\gamma_w,\,\gamma_K\,\}.
+\label{eq:params}
+\end{equation}
+Calibration proceeds in two passes:
+
+\paragraph{Pass 1 (nucleon ground states).}
+Fit $\{T,A,a,K_{\rm bend},I_\theta,K_\theta,U_3,\beta_{+1},\beta_0,\chi_3\}$ to the set
+$\{M_p,M_n,\mu_p,\mu_n,r_E^{(p)}\}$ by solving Eq.~\eqref{eq:Rstar-eq} for $(Q{=}1,n_3{=}0)$ and $(Q{=}0,n_3{=}0)$, predicting $\mu$ and $r_E$ (see below), and minimizing residuals. This sets $v_\theta=\sqrt{K_\theta/I_\theta}$ and $\omega_{\rm lock}^2=9U_3/I_\theta$ (cf. Eq.~\eqref{eq:omega_m}).
+
+\paragraph{Pass 2 (first excitations).}
+Use the first well-established nucleon excitations to fix the $m{=}3$ and breathing scales: tune $\alpha_3$ and the lowest radial $\beta_0$ (and, if needed, a small $\alpha_4$) so that $M_\ast$ for $(n_3{=}1)$ and $(k{=}1)$ land at the observed masses without spoiling Pass 1.
+
+\subsubsection{Observables: moments, radii, and a threefold harmonic}
+\label{sec:baryons-phenomenology:observables}
+
+\paragraph{Magnetic moments.}
+In thin-ring approximation the magnetic moment follows from the effective rim current (cf. Eq.~\eqref{eq:mu}):
+\begin{equation}
+\mu \;\simeq\; I_{\rm eff}\,\pi R_\ast^2,
+\qquad
+I_{\rm eff}\;=\; \underbrace{\frac{\kappa_Q}{2\pi R_\ast}}_{\text{charge-driven}} \;+\; \underbrace{\delta I_{(m=3)}}_{\text{texture-driven}}\,,
+\label{eq:mu-predict}
+\end{equation}
+where $\kappa_Q$ parametrizes the charge-induced azimuthal current and is proportional to $\beta_Q$ after calibration. The texture term $\delta I_{(m=3)}$ depends on $n_3$ and the phase of the lobes relative to the base flow; its sign flip naturally accounts for $\mu_n<0$.
+
+\paragraph{Charge radii.}
+Define the usual slope at $q^2\!=\!0$,
+\begin{equation}
+r_E^2 \;:=\; -\frac{6}{G_E(0)}\,\left.\frac{dG_E}{dq^2}\right|_{q^2=0},\qquad
+G_E(q^2)=\int d^3r\,e^{i\mathbf q\cdot\mathbf r}\,\rho_Q(\mathbf r).
+\label{eq:rE-def}
+\end{equation}
+For a slender loop with mild azimuthal modulation one finds
+\begin{equation}
+r_E^2 \;\approx\; \lambda_Q\,R_\ast^2,\qquad \lambda_Q\in\Big[\tfrac{1}{2},\,1\Big],
+\label{eq:rE-approx}
+\end{equation}
+where $\lambda_Q$ accounts for orientation averaging and modest lobe structure; it is fixed by the proton radius in Pass 1 and then predicts $r_E$ for neighboring states.
+
+\paragraph{Threefold harmonic in form factors.}
+The tri-lobe pattern imprints an $m{=}3$ angular harmonic in the Fourier content of the projected density (cf. Sec.~\ref{sec:baryons:ff}):
+\begin{equation}
+F(\mathbf q)\;\sim\;F_0(q)\;+\;F_3(q)\,\cos\!\big(3\varphi_{\mathbf q}-\phi_0\big)+\cdots,
+\qquad
+F_3(q)\;\approx\;\mathcal A_3\,e^{-qR_\ast}\,[1+O(qR_\ast)].
+\label{eq:F3}
+\end{equation}
+The overall scale $\mathcal A_3$ follows from the calibrated $m{=}3$ amplitude and decreases with increasing $n_3$ as the lobes wash out at small $R_\ast$.
+
+\subsubsection{State labels and the enumeration protocol}
+\label{sec:baryons-phenomenology:catalog}
+
+Each baryon is labeled by discrete integers and symmetries,
+\begin{equation}
+\texttt{Baryon}\;=\;\big(Q,\,J^P,\,n_3,\,k,\,w,\,K\big),
+\qquad Q\in\{-1,0,+1\},\; n_3,k,w\in\mathbb N_0,\; K\in\{\text{unknot},\text{trefoil},\dots\}.
+\label{eq:tuple}
+\end{equation}
+Given $(Q,n_3,k,w,K)$, compute $R_\ast$ from Eq.~\eqref{eq:Rstar-eq}, then $M_\ast$, $\mu$ (Eq.~\eqref{eq:mu-predict}), $r_E$ (Eq.~\eqref{eq:rE-approx}), and the reference $F_3$ amplitude (Eq.~\eqref{eq:F3}).
+
+\paragraph{Enumeration steps (practical).}
+Choose an energy ceiling (e.g. 3~GeV) and enumerate small integers:
+\begin{enumerate}\setlength\itemsep{2pt}
+\item Fix $Q\in\{-1,0,+1\}$ and a $J^P$ sector to fill.
+\item Loop $n_3=0,1,2,\dots$, $k=0,1,2$, $w=0,1$; keep $K=\text{unknot}$ unless data demand otherwise.
+\item For each tuple, solve Eq.~\eqref{eq:Rstar-eq} and compute $M_\ast$; discard states beyond the ceiling.
+\item Record $(M_\ast,R_\ast,\mu,r_E,F_3)$ and sort by $M_\ast$ within the $(Q,J^P)$ column of the catalog.
+\end{enumerate}
+Ambiguous experimental assignments can list multiple candidate tuples; penalize complexity (prefer raising $n_3$ or $k$ before turning on $w$ or knots).
+
+\subsubsection{Meson counterpart and decay selection rules}
+\label{sec:baryons-phenomenology:meson-decay}
+
+\paragraph{Mesons as two-lobe rings.}
+For contrast, a meson-like ring favors $m{=}2$ and carries a stronger dipole cost. Its mass template mirrors Eq.~\eqref{eq:masterM} with $\alpha_2>\alpha_3$ and typically larger $\beta_Q$ (for charged mesons), explaining their different excitation sequences and fragility.
+
+\paragraph{Strong decays (texture reconfiguration).}
+Dominant strong decays correspond to dropping a quantum of the $m{=}3$ mode or a breathing quantum and emitting a smaller $m{=}2$ ring:
 \[
-E_{\rm in}+E_{\rm init}=M_{\rm baryon}+E_{\rm rad}+E_{\rm out},\qquad
-E_{\rm in}^{\rm min}\gtrsim \big[M_{\rm baryon}-E_{\rm init}\big]+E_{\rm barrier}.
+\Delta n_3=\pm1,\quad \Delta k=\pm1,\qquad \Delta J\simeq \pm1,
 \]
-Here $E_{\rm init}$ is the (suppressed) energy of three isolated echoes, 
-$M_{\rm baryon}$ is given by Eq.~\eqref{eq:baryon-mass-functional}, 
-and $E_{\rm barrier}$ incorporates the costs of phase restoration (driving $f_{\rm align}\!\to\!1$) and confinement-sheet nucleation ($T_{\rm conf}A(\Sigma_{\rm conf})$). 
-Insufficient $E_{\rm in}$ yields only transient braids or scattering; sufficient $E_{\rm in}$ produces a stable baryon with excess relaxed via $E_{\rm rad}$.
+with phase-space and overlap factors set by the lobe alignment.
+
+\paragraph{Beta decay (threading reconnection).}
+Neutral $\to$ charged transitions proceed by reconnection of slab threading,
+\[
+(Q=0)\;\to\; (Q=+1)\;+\;(Q=-1)_{\rm small}\;+\;(\text{neutral twist}),
+\]
+i.e. a proton loop plus a small $Q=-1$ loop (electron) pinch off and a neutral twist packet (antineutrino) carries away phase/energy.
+
+\subsubsection{Detectability and falsifiability}
+\label{sec:baryons-phenomenology:tests}
+
+The framework makes crisp bets:
+\begin{enumerate}\setlength\itemsep{2pt}
+\item A measurable $m{=}3$ harmonic $F_3(q)$ in appropriate kinematics, decreasing with $q$ roughly as in Eq.~\eqref{eq:F3}.
+\item Correlated shifts among $(M_\ast,\mu,r_E)$ when stepping $n_3$ or $k$ (same $(R_\ast, v_\theta, U_3)$ control all three).
+\item No asymptotically free fractional-charge remnants.
+\end{enumerate}
+A persistent null for (1) at sensitivities exceeding the model’s calibrated $\mathcal A_3$, or irreconcilable $(M,\mu,r_E)$ triplets within any $(Q,J^P)$ family, would falsify the specific parameterization or the ontology.
+
+\medskip
+\noindent\textbf{Outcome.}
+With Eqs.~\eqref{eq:masterM}–\eqref{eq:F3} and the protocol above, one can build a periodic-table-like catalog indexed by $(Q,J^P)$ columns and ascending mass rows, with each entry labeled by $(n_3,k,w,K)$ and accompanied by predicted $(\mu,r_E,F_3)$ for experimental cross-checks.
+
 
 \subsection{Photons: Transverse Wave Packets in the 4D Superfluid}
 
