@@ -20,7 +20,7 @@ The framework provides:
 (ii) a map from 4D structure to 3D observables on $\Pi$,
 (iii) a decomposition of slice fields into divergence–free (circulatory) and gradient (potential or ``drainage'') parts, and
 (iv) scaling relations with explicit error control in the thin/flat limit.
-Small parameters are the core–to–loop aspect ratio $\xi/\rho$ and the slice–scale curvature $\kappa\rho$, with typical remainder terms $O\!\left((\xi/\rho)^2+(\kappa\rho)^2\right)$.
+Small parameters are the core–to–loop aspect ratio $\xi/\rho$ and the slice–scale geometric curvature $\kappa_{\rm geom}\,\rho$, with typical remainder terms $O\!\left((\xi/\rho)^2+(\kappa_{\rm geom}\,\rho)^2\right)$.
 
 \paragraph{Projection principle.}
 When a small loop $\gamma\subset\Pi$ links the projected intersection $\Sigma\cap\Pi$ once, the circulation measured on the slice equals the sheet strength:
@@ -63,6 +63,10 @@ The full EM projection, field definitions, Maxwell dynamics, covariant packaging
 
 \emph{Note:} Intake, Slope, Eddies, and Twist are the core four; Drag organizes Eddies, and Induction is the loop-$\mathbf E$ that appears when Eddies change in time.
 
+\begin{tcolorbox}[title=Two independent counters (topology vs. texture),colback=gray!5,colframe=gray!35!black,arc=1mm,boxrule=0.3pt,left=1mm,right=1mm,top=0.5mm,bottom=0.5mm]
+\textbf{Counter separation:} electric charge $Q$ is the oriented threading integer (see projected EM, Eq.~\eqref{eq:Q-threading}); the internal lobe number $m$ counts standing-wave lobes on a closed rim. They are independent.
+\end{tcolorbox}
+
 \begin{tcolorbox}[colback=gray!5,colframe=gray!35!black,arc=1mm,boxrule=0.3pt,left=1mm,right=1mm,top=0.5mm,bottom=0.5mm]
 \textbf{Do-not-confuse:}
 \begin{itemize}
@@ -85,22 +89,30 @@ and the slice inherits the usual Helmholtz (irrotational/solenoidal) decompositi
 Throughout P-1–P-6 we work in the thin/flat regime with
 \[
 \varepsilon_\xi := \frac{\xi}{\rho}\ll 1,\qquad
-\varepsilon_\kappa := \kappa\,\rho \ll 1,
+\varepsilon_\kappa := \kappa_{\rm geom}\,\rho \ll 1,
 \]
 and, unless otherwise noted, we retain terms through first order in $(\varepsilon_\xi,\varepsilon_\kappa)$ and neglect $O(\varepsilon_\xi^2+\varepsilon_\kappa^2)$.
+We reserve $\kappa$ for the quantum of circulation; geometric curvature along a strand or loop is denoted $\kappa_{\rm geom}$.
 
 \paragraph*{Orientation and sign convention.}
 The sheet $\Sigma$ is oriented, the slice $\Pi$ is oriented, and “positive linking'' is defined by the right–hand rule: the orientation induced on a small loop in $\Pi$ by the oriented normal of $\Sigma$ is taken as the positive sense. Equivalently, Stokes' theorem on $\Pi$ fixes the sign so that positive linking yields positive circulation.
 
 \paragraph{P-1: Geometry and regularity}
 \label{post:P1}
-The sheet $\Sigma$ is an oriented $C^2$ two–dimensional surface with bounded curvature; near each intersection with $\Pi$ we choose a local tubular neighborhood and coordinates so that $\xi>0$ is a (fixed) microscopic core/healing length and $\kappa$ is the local (slice–scale) curvature. On balls $B_\rho\subset\Pi$ of radius $\rho$, we assume the \emph{thin/flat} regime
+The sheet $\Sigma$ is an oriented $C^2$ two–dimensional surface with bounded curvature; near each intersection with $\Pi$ we choose a local tubular neighborhood and coordinates so that $\xi>0$ is a (fixed) microscopic core/healing length and $\kappa_{\rm geom}$ is the local (slice–scale) geometric curvature. On balls $B_\rho\subset\Pi$ of radius $\rho$, we assume the \emph{thin/flat} regime
 \[
-0<\xi \ll \rho, \qquad \kappa\rho \ll 1,
+0<\xi \ll \rho, \qquad \kappa_{\rm geom}\,\rho \ll 1,
 \]
 so that local coordinates may be chosen in which $\Sigma$ is well approximated by a flat sheet over $B_\rho$, with geometric errors controlled by $O(\varepsilon_\xi^2+\varepsilon_\kappa^2)$.
 
 \begin{physbox}\textbf{Physical picture:} Think: compressible superfluid; defects = holes where phase winds.\end{physbox}
+
+\paragraph*{Curvature and bending energy.}
+To avoid symbol overload with the circulation quantum $\kappa$, we denote geometric curvature along a strand or loop by $\kappa_{\rm geom}(s)$. In the slender–core regime a standard bending cost may be included as
+\[
+E_{\rm bend}\;=\;K_{\rm bend}\int \kappa_{\rm geom}(s)^2\,d\ell,\qquad (\varepsilon_\kappa\ll1\ \text{so that bending is subleading}).
+\]
+We reserve $\kappa$ exclusively for the quantized circulation; geometric curvature is $\kappa_{\rm geom}$ throughout.
 
 \paragraph{P-2: Sheet strength and circulation}
 \label{post:P2}
@@ -376,6 +388,30 @@ $\mathcal{K}$ & Local curvature scale of $\Sigma$ (thin/flat uses $\mathcal{K}\r
 $\mathbf{v}$ & Velocity field (restricts to $\Pi$ for observables) & $[L T^{-1}]$ & $[L T^{-1}]$ \\
 \hline
 $\phi\ (\equiv \Phi_{\text{Slope}})$ & Slice Slope (electric) potential on $\Pi$ (Helmholtz gradient piece) & --- & $[L^2 T^{-2}]$ \\
+\hline
+\multicolumn{4}{|l|}{\emph{Loop energetics and rim-mode symbols used later}} \\
+\hline
+$T$ & Effective line tension from core deficit; $T=\rho_0\,C_{\rm core}\,\xi_c^2$ & --- & $[M L^{-1}]$ \\
+\hline
+$A$ & Self-flow coefficient multiplying $\ln(R/a)$; $A=\rho_0\,\kappa^2/(4\pi v_L^2)$ & --- & $[M L^{-1}]$ \\
+\hline
+$a$ & Inner cutoff (core scale), typically $a=\alpha\,\xi_c$ with $\alpha=O(1)$ & --- & $[L]$ \\
+\hline
+$K_{\rm bend}$ & Bending modulus in $E_{\rm bend}=K_{\rm bend}\int \kappa_{\rm geom}^2 d\ell$ & --- & $[M L^{3} T^{-2}]$ \\
+\hline
+$\kappa_{\rm geom}$ & Geometric curvature along strand/loop (symbol hygiene) & $[L^{-1}]$ & $[L^{-1}]$ \\
+\hline
+$I_\theta,\ K_\theta$ & Rim-phase inertia and stiffness (1D rim model) & --- & --- \\
+\hline
+$U_3$ & Threefold locking (tri-lobe) potential strength & --- & --- \\
+\hline
+$\chi_3$ & Geometry–texture coupling for tri-lobe mode & --- & --- \\
+\hline
+$v_\theta$ & Rim-phase wave speed $v_\theta=\sqrt{K_\theta/I_\theta}$ & --- & $[L T^{-1}]$ \\
+\hline
+$\{\alpha_m\},\ \{\beta_k\}$ & Generic zero-point/overtone coefficients used in spectral fits & --- & --- \\
+\hline
+$\beta_Q$ & Projected-EM self-energy coefficient (defined in EM section) & --- & --- \\
 \hline
 \end{tabularx}
 \endgroup
@@ -985,6 +1021,20 @@ E[\Psi] \;=\; \int d^4 r\,\Big[\,\frac{\hbar^2}{2m}\,|\nabla_4\Psi|^2 \;+\; \fra
 \;=\; \int d^4 r\,\Big[\,\frac{\hbar^2}{2m}\,|\nabla_4\Psi|^2 \;+\; \frac{g}{2m}\,\rho_{4D}^2 \Big].
 \label{eq:E-GP}
 \end{equation}
+\paragraph*{Closed-core energetics (constants used later).}
+For compactness in loop energetics we package Gross–Pitaevskii parameters into two composite constants and a core cutoff:
+\[
+T\;\equiv\;\rho_0\,C_{\rm core}\,\xi_c^2,\qquad
+A\;\equiv\;\rho_0\,\frac{\kappa^2}{4\pi v_L^2},\qquad
+a\sim\xi_c,\ (a=\alpha\,\xi_c,\ \alpha=O(1)).
+\]
+Here $T$ is an effective line tension from the core deficit and $A$ multiplies the self–flow logarithm in slender–loop expressions. These are merely convenient repackagings of $(\rho_0,\,\xi_c,\,\kappa,\,v_L)$ already defined.
+For a slender closed loop of radius $R$, we will repeatedly use the template
+\[
+ m(R)=\rho_0\,2\pi R\Big[C_{\rm core}\,\xi_c^2+\frac{\kappa^2}{4\pi v_L^2}\ln\!\big(\tfrac{R}{a}\big)\Big]
+ \quad\text{(see \S\ref{sec:emergent-particles}, Eq.~\eqref{eq:mass-template})},
+\]
+often rewritten using $T$ and $A$ as above.
 Writing $\Psi=\sqrt{\rho_{4D}/m}\,e^{i\theta}$ gives the hydrodynamic form with quantum-pressure term
 \[
 \mathbf v_4=\frac{\hbar}{m}\,\nabla_4\theta,\qquad
@@ -1009,6 +1059,13 @@ N_{\rm core} \equiv \int_{\text{core}} \frac{\rho_{4D}}{m}\,d^4 r
 \;\sim\; \frac{\rho_{4D}^0}{m}\,\xi_c^4,
 \end{equation}
 so, upon projection to the slice (see below), $E_{\text{shake,3D}}\sim \tfrac{1}{2}\hbar\omega\,(\rho_0/m)\,\xi_c^3$ with $\rho_0\equiv \rho_{4D}^0\,\xi_c$.
+
+\paragraph*{Notation handoff: rim phase and internal modes.}
+In the 1D rim description used for baryons we denote the rim phase by $\theta(s,t)$ with inertia $I_\theta$ and stiffness $K_\theta$. A threefold locking potential $U_3$ and a geometry–texture coupling $\chi_3$ appear, with characteristic speed and lock frequency
+\[
+v_\theta=\sqrt{\frac{K_\theta}{I_\theta}},\qquad \omega_{\rm lock}^2=\frac{9\,U_3}{I_\theta}.
+\]
+The detailed 1D rim Lagrangian and dispersion live in the baryon section; this paragraph only fixes notation.
 
 \paragraph{Core scales and the timescale hierarchy.}
 Balancing quantum pressure against interaction near a core gives the healing length and bulk sound speed (P-1):

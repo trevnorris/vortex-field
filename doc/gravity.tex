@@ -85,8 +85,9 @@ where $\rho_{3D} = \rho_0 + \delta \rho_{3D}$ (with $\rho_0$ the background proj
 
 \noindent\textit{Convention:} We use $\rho_0 := \rho_{3D}^0$ for the 3D background density unless stated otherwise.
 We define $\rho_{\text{body}} = \sum_i m_i \, \delta^3(\mathbf r - \mathbf r_i)$ as the \emph{positive} lumped source corresponding to localized deficits in $\rho_{3D}$; the uniform background $\rho_0$ only generates a quadratic potential and is subtracted in calibration.
+Here each $m_i$ is the minimized loop mass $M_\ast$ from Secs.~\ref{sec:baryons-inside}--\ref{sec:baryons-phenomenology}, obtained by solving $\partial_R M=0$ (Eq.~\ref{eq:stationary}) for $R_\ast$ and evaluating $M_\ast=M(R_\ast;Q,n_3,\mathcal M)$ (Eq.~\ref{eq:masterM}). Electric charge $Q$ does not enter separately in gravity; its projected-EM energy contribution is already included in $M_\ast$ (see Sec.~\ref{sec:baryons-phenomenology:calib} for how $M_\ast$ is calibrated).
 
-Here $\rho_0 = \rho_{4D}^0 \, \xi_c$ is the projected background density from the 4D medium.
+Here $\rho_0 = \rho_{4D}^0 \, \xi_c$ is the projected background density from the 4D medium. Notation matches the matter sector: $\xi_c$ is the loop-core thickness and $a$ the core scale used in the baryon mass template.
 
 Linearizing the Euler equation (fluid element) for irrotational flow ($\mathbf{v} = -\nabla \Phi_g$):
 
@@ -107,6 +108,15 @@ From continuity balance, $\nabla^2 \rho_{3D} \approx 4\pi \rho_{\text{body}}$ (P
 \]
 
 the Newtonian Poisson equation. For a point mass $M$, $\Phi_g = -G M / r$, inducing acceleration $a = -G M / r^2$.
+
+\medskip
+\noindent
+\fbox{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\textbf{Matter model bridge.} In this framework, `matter' $=$ ensembles of closed loops. The gravitational density $\rho_{\text{body}}$ is the sum of each loop's minimized mass $M_\ast$; internal labels $(Q,n_3,k,\ldots)$ only enter via $M_\ast$.
+\end{minipage}
+}
+\medskip
 
 Physical insight: Vortex sinks create rarefied zones, generating pressure gradients that draw in nearby fluid (analogous to two bathtub drains (Intake) attracting via shared outflow).
 
@@ -441,7 +451,7 @@ Symbolic: SymPy computes chirp mass from $dh/dt$, yielding $M_{\text{chirp}} = (
 
 Numerical: Waveform simulation matches LIGO templates within noise.
 
-Physical insight: Merging vortices stretch and radiate eddies (gravitomagnetic) energy as transverse ripples, with $v_L > c$ bulk enabling prompt coalescence math.
+Physical insight: Merging vortices stretch and radiate eddies (gravitomagnetic) energy as transverse ripples, with $v_L > c$ bulk enabling prompt coalescence math. (Bulk $v_L>c$ is non-signaling and decoupled; observers and gauge-built fields remain limited by $c$, cf. the asymptotic causality note at the start of this section.)
 
 \medskip
 \noindent
@@ -499,11 +509,11 @@ While the aether-vortex model exactly reproduces standard weak-field tests as sh
 
 \textbf{Caveat}: Claims of eclipse anomalies, such as the Allais effect (reported pendulum deviations during alignments since the 1950s), remain highly controversial. Many studies attribute them to systematic errors like thermal gradients, atmospheric pressure changes, or instrumental artifacts, with mixed replications in controlled experiments [reviews in Saxl \& Allen 1971; Van Flandern \& Yang 2003; but see critiques in Noever 1995]. Our prediction is exploratory and not reliant on these historical claims; instead, it motivates new tests with modern precision gravimeters (e.g., superconducting models achieving nGal resolution) to either confirm or rule out the effect.
 
-In the model, eclipses align the vortex sinks of the Sun and Moon as seen from Earth, enhancing the effective drainage through geometric overlap in the 4D projection. Normally, isolated sinks create static rarefied zones treated as point-like in the far field, but alignment projects additional contributions from the extended vortex sheets (along $w$), making the effective source more distributed and boosting the local deficit $\delta \rho_{3D}$ transiently.
+In the model, eclipses align the vortex sinks of the Sun and Moon as seen from Earth, enhancing the effective drainage through geometric overlap in the 4D projection. Normally, isolated sinks create static rarefied zones treated as point-like in the far field, but alignment projects additional contributions from aligned extended intake layers (effective projected disks along $w$), making the effective source more distributed and boosting the local deficit $\delta \rho_{3D}$ transiently.
 
-To derive this rigorously, we approximate the Sun's aggregate vortex structure as a uniform thin disk of radius $R_\text{sun}$ (effective sheet scale) and surface density $\sigma = M_\text{sun} / (\pi R_\text{sun}^2)$, representing the projected 4D extensions during alignment. The on-axis gravitational acceleration is $g_{\text{disk}} = 2 \pi G \sigma \left(1 - \frac{d}{\sqrt{d^2 + R_\text{sun}^2}}\right)$, where $d$ is the Earth-Sun distance. This is compared to the point-mass approximation $g_{\text{point}} = G M_\text{sun} / d^2$. The anomaly is $\Delta g = |g_{\text{disk}} - g_{\text{point}}|$, which expands for $d \gg R_\text{sun}$ as $\Delta g \approx \frac{3}{4} \frac{G M_\text{sun} R_\text{sun}^2}{d^4}$ (leading-order term from series expansion, symbolically verified). Here, the amplification factor $f_{\text{amp}} \approx \frac{3}{4} (R_\text{sun}/d)^2$ emerges from the extended disk integration during alignment. Using solar values ($M_\text{sun} = 1.9885 \times 10^{30}$ kg, $R_\text{sun} = 6.957 \times 10^8$ m, $d = 1.496 \times 10^{11}$ m), this yields $\Delta g \approx 9.6 \times 10^{-8}$ m/s$^2$ or ~10 $\mu$Gal.
+To derive this rigorously, we approximate the Sun's aggregate vortex structure as a uniform thin disk of radius $R_\text{sun}$ (effective projected intake disk radius) and surface density $\sigma = M_\text{sun} / (\pi R_\text{sun}^2)$, representing the projected 4D extensions during alignment. The on-axis gravitational acceleration is $g_{\text{disk}} = 2 \pi G \sigma \left(1 - \frac{d}{\sqrt{d^2 + R_\text{sun}^2}}\right)$, where $d$ is the Earth-Sun distance. This is compared to the point-mass approximation $g_{\text{point}} = G M_\text{sun} / d^2$. The anomaly is $\Delta g = |g_{\text{disk}} - g_{\text{point}}|$, which expands for $d \gg R_\text{sun}$ as $\Delta g \approx \frac{3}{4} \frac{G M_\text{sun} R_\text{sun}^2}{d^4}$ (leading-order term from series expansion, symbolically verified). Here, the amplification factor $f_{\text{amp}} \approx \frac{3}{4} (R_\text{sun}/d)^2$ emerges from the extended disk integration during alignment. Using solar values ($M_\text{sun} = 1.9885 \times 10^{30}$ kg, $R_\text{sun} = 6.957 \times 10^8$ m, $d = 1.496 \times 10^{11}$ m), this yields $\Delta g \approx 9.6 \times 10^{-8}$ m/s$^2$ or ~10 $\mu$Gal.
 
-Physical insight: Like two drains (Intake) aligning to create a stronger pull, the eclipse focuses subsurface flows from the extended sheet, inducing a brief "tug" measurable as a gravity variation over ~1-2 hours.
+Physical insight: Like two drains (Intake) aligning to create a stronger pull, the eclipse focuses subsurface flows from the projected intake layer, inducing a brief "tug" measurable as a gravity variation over ~1-2 hours.
 
 Falsifiability: Upcoming eclipses provide ideal tests. For instance, the annular solar eclipse on February 17, 2026 (visible in southern Chile, Argentina, and Africa) and the total solar eclipse on August 12, 2026 (path over Greenland, Iceland, Portugal, and northern Spain) offer opportunities for distributed measurements with portable gravimeters. Precision setups (e.g., networks like those used in LIGO auxiliary monitoring) could detect ~10 $\mu$Gal signals, distinguishing our model (from geometric projections, frequency-independent) from GR (no such effect).
 
@@ -519,7 +529,7 @@ Numerical verification: Python script (Appendix) computes $\Delta g \approx 9.6 
 
 Gal during alignment.
 
-Physical Insight: Aligned vortex sheets amplify rarefaction gradients via geometric disk-like projections.
+Physical Insight: Aligned intake layers (effective projected disks along $w$) amplify rarefaction gradients via geometric projection.
 
 Verification: SymPy series expansion and numerical script (Appendix) confirm; testable in 2026 eclipses.
 \end{minipage}

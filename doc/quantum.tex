@@ -2,7 +2,7 @@
 \label{sec:QM_projection}
 
 \paragraph{Reader map.}
-From the same postulates that generate EM and gravity on the slice, we derive standard quantum dynamics by coarse-graining the wave sector of the medium. We begin with an action that yields the Schr\"odinger/Pauli equations (with manifest gauge and gravity couplings), recover the canonical algebra, present the Madelung reduction, discuss measurement/decoherence, and then uplift to Klein--Gordon/Dirac with the strong-field metric dictionary (Sec.~\ref{sec:strong-dict}). We close with distinctive, falsifiable signatures and a calibration table; EM couplings reference Sec.~\ref{sec:EM_projection}.
+From the same postulates that generate EM and gravity on the slice, we derive standard quantum dynamics by coarse-graining the wave sector of the medium. We begin with an action that yields the Schr\"odinger/Pauli equations (with manifest gauge and gravity couplings), recover the canonical algebra, present the Madelung reduction, discuss measurement/decoherence, and then uplift to Klein--Gordon/Dirac with the strong-field metric dictionary (Sec.~\ref{sec:strong-dict}). We close with distinctive, falsifiable signatures and a calibration table; EM couplings reference Sec.~\ref{sec:EM_projection} (and integer $Q$ via Eq.~\eqref{eq:Q-threading}).
 
 \begin{tcolorbox}[title=Terminology bridge (QM)]
 \textbf{Twist} = hidden cross-slab maintenance flow; carries spin structure. \\
@@ -13,6 +13,10 @@ From the same postulates that generate EM and gravity on the slice, we derive st
 
 \paragraph{Conventions.}
 We use \(m_*\) for the effective inertial parameter of the excitation, \(\hbar_{\mathrm{eff}}\) for the circulation quantum (set equal to \(\hbar\) after calibration), slice metric \(\gamma_{ij}\) with determinant \(\gamma\), and gauge/gravity covariant derivatives \(D_t, D_i\). EM potentials are \(A_\mu=(\Phi,\mathbf A)\); the gravity metric comes from Sec.~\ref{sec:strong-dict}. Indices \(i,j\) are spatial on the slice.
+
+\noindent\emph{Charge convention.} The minimal-coupling charge \(q\) used below is tied to slab threading by \(q \equiv e\,Q\), where the integer \(Q\) is the oriented threading (Eq.~\eqref{eq:Q-threading}, Sec.~\ref{sec:EM_projection}). Throughout we use the same \(Q\) that classifies baryons and leptons in Sec.~\ref{sec:emergent-particles}.
+
+\noindent\emph{Mass convention.} In wave equations we write an effective inertial parameter \(m_*\). For a stationary particle species (lepton or baryon) this equals the minimized loop mass from Sec.~\ref{sec:emergent-particles}: \(m_* \equiv M_\ast\) (natural units \(c{=}1\)). For baryons, \(M_\ast\) is obtained from the radius condition Eq.~\eqref{eq:Rstar-eq}.
 
 \subsection{Kinematics from phase and circulation}
 \label{sec:QM_madelung}
@@ -104,6 +108,8 @@ with \(g=2+\delta g\). In this framework, finite slab thickness renormalizes the
 \]
 where \(\ell_*\) is the coarse-graining scale. We \emph{do not} include non-gauge-invariant spin operators in the baseline.
 
+\noindent\emph{Baryon internal mode.} The threefold ("tri-phase") pattern in baryons is a \emph{rim phase} \(\theta(s,t)\) degree of freedom distinct from the Pauli spinor; its 1D Lagrangian (Eq.~\eqref{eq:L_int}) and dispersion (Eq.~\eqref{eq:omega_m}) live in Sec.~\ref{sec:baryons-inside}.
+
 \subsection{Relativistic uplift and gravity coupling}
 \label{sec:QM_relativistic}
 
@@ -114,6 +120,7 @@ The relativistic wave sector linearizes to
 (i\gamma^\mu D_\mu - m_*)\,\Psi &= 0 \qquad \text{(Dirac)},
 \label{eq:dirac}
 \end{align}
+Here \(m_*\) is not a free parameter: for a given state it is supplied by the loop mass functional (Eq.~\eqref{eq:masterM}) evaluated at its preferred radius \(R_\ast\) from Eq.~\eqref{eq:Rstar-eq}.
 with \(D_\mu=\partial_\mu + iqA_\mu + \tfrac{1}{4}\omega_{\mu ab}\gamma^{ab}\). The gravity spin connection \(\omega_{\mu ab}\) and metric \(g_{\mu\nu}\) come from Sec.~\ref{sec:strong-dict}. For matter-wave interferometers the phase is the proper-time integral
 \begin{equation}
 \Delta \varphi \;=\; \frac{m_*}{\hbar_{\mathrm{eff}}}\,\Delta \tau \;=\; \frac{m_*}{\hbar_{\mathrm{eff}}}\int_\gamma \!\sqrt{-\,g_{\mu\nu}\,dx^\mu dx^\nu},
@@ -129,7 +136,7 @@ Normal modes define creation/annihilation operators; for a scalar,
 \phi(\mathbf{x},t)=\int \!\frac{d^3k}{(2\pi)^3}\,\frac{1}{\sqrt{2\omega_{\mathbf k}}}\left(a_{\mathbf k}e^{-i\omega t+i\mathbf{k}\cdot\mathbf{x}} + a_{\mathbf k}^\dagger e^{i\omega t-i\mathbf{k}\cdot\mathbf{x}}\right),\qquad [a_{\mathbf k},a_{\mathbf k'}^\dagger]=(2\pi)^3\delta^{(3)}(\mathbf k-\mathbf k').
 \label{eq:mode-expansion}
 \end{equation}
-Mass/dispersion/mixing are developed in Sec.~\ref{sec:emergent-particles}.
+Mass/dispersion/mixing are developed in Sec.~\ref{sec:emergent-particles}.\;\,(In this framework, composite hadrons are single solitonic loops with internal modes rather than multi-constituent fields; cf. Sec.~\ref{sec:baryons-inside}.)
 
 \subsection{Measurement, decoherence, and classicality}
 \label{sec:QM_measurement}
@@ -183,6 +190,8 @@ Only if a coupling \(\Delta S=\kappa_{\rm tw}\oint a^{\rm tw}_\mu dx^\mu\) exist
 \paragraph{(F) Optional portal: polarization-dependent photon phase.}
 Twist textures could induce a tiny polarization-odd geometric phase. \emph{Test:} high-finesse cavity/Sagnac in Twist-structured region; \emph{Falsify/bound:} null birefringence maps to portal coefficients.
 
+Threefold angular harmonic \(F_3(q)\) in baryon form factors; see Eq.~\eqref{eq:F3}.
+
 \subsection{Calibration and parameter table}
 \label{sec:QM_calibration}
 
@@ -199,6 +208,7 @@ Parameter & Meaning & Calibration handle \\
 \(\eta_{\mathrm{tw}}\) & spin renorm.\ coeff. & precision \(g\)-factor bounds (\(\delta g\)) \\
 \(\beta_4\) & next-gradient coeff. & high-$k$ Bragg/Talbot scans \\
 \(\kappa_{\rm tw}\) & (portal) Twist link & AB residual nulls (optional) \\
+\(\{T,A,a,K_{\rm bend},I_\theta,K_\theta,U_3,\beta_{+1},\beta_{0},\chi_3\}\) & loop/texture (baryons) & fixed by nucleon fit; see Secs.~\ref{sec:baryons-phenomenology:calib}, \ref{sec:baryons-phenomenology:master} \\
 \bottomrule
 \end{tabular}
 \end{center}

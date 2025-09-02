@@ -17,6 +17,14 @@ Q \;:=\; \frac{1}{\kappa}\,\lim_{R\to\infty}\oint_{C_R}\mathbf v\cdot d\boldsymb
 % \kappa = h/m (m: medium's effective mass parameter) so that \Gamma = n\,\kappa.
 If the defect core is closed within $\Omega_{\mathrm{TP}}$, then $Q\in\mathbb Z$ and is invariant under smooth deformations of $C_R$ staying inside the slab. If the core intersects and exits the slab (a through-strand), $Q=0$.
 
+\noindent\textbf{Oriented puncture count (equivalent form).}
+With the sign convention that +$w$ is “upward” and −$w$ is “downward” across the slab,
+\begin{equation}
+Q \;=\; N_{+w}-N_{-w}\,,
+\label{eq:Q-oriented-count}
+\end{equation}
+i.e. $Q$ is the net number of oriented punctures of the slab by the closed core. Neutrality is $Q{=}0$ either as a single $(+w,-w)$ pair or as many micro through--back excursions whose oriented counts cancel.
+
 \paragraph{Neutrino neutrality with drag.}
 A neutrino corresponds to a defect whose core does not close within $\Omega_{\mathrm{TP}}$; thus $Q=0$ even though the solenoidal (Eddies) component of the projected flow and the slice-integrated angular momentum (“drag”) can be nonzero. This resolves the “drag $\Rightarrow$ Eddies $\Rightarrow$ charge” tension: drag is dynamical, charge is topological.
 
@@ -35,6 +43,8 @@ $\ell_{\mathrm{TP}}$ = slab thickness, \ \
 $\ell$ = on-slice feature scale.\\
 $\varepsilon_\rho=\xi/\ell$, \ $\varepsilon_\xi=\ell_{\mathrm{TP}}/\ell$, \ $\varepsilon_v=v/c$, \ $\varepsilon_\kappa=\kappa\ell$.
 \end{tcolorbox}
+
+
 
 \subsection{What the fields are, in math and in pictures}
 Let $u(\mathbf x,w,t)$ be the aether velocity in $\mathbb{R}^4$ and $\Omega=\nabla\!\times u$ its (spatial) vorticity. Project onto $\Pi$ and Helmholtz–decompose the induced slice velocity $v(\mathbf x,t)$ as
@@ -60,6 +70,8 @@ where $\Phi$ is the slice potential associated with the continuity sector.
 \textbf{Induction} = the loop electric field $-\partial_t\mathbf A$ that appears when Eddies change in time.\\
 \textbf{Displacement-current bridge} = the thin-slab fix that keeps continuity exact across gaps (the “bulk bridge”).
 \end{tcolorbox}
+
+\noindent\emph{Notation.} Where needed (e.g.\ in Sec.~\ref{sec:baryons-inside}), we denote by $\phi_E$ the local phase of the low-order Slope modulation that sets a reference orientation for azimuthal textures on a loop.
 
 \paragraph{Everyday pictures.}
 \begin{itemize}
@@ -290,6 +302,10 @@ Maxwell's equations emerge cleanly on the slice; if Nature implements the projec
 Oriented links through the slice write a standing Slope pattern (electric), while motion/Drag organize Eddies (magnetic). Changing Eddies create loop electric fields (Induction). The displacement-current bridge lives in the thin slab to keep continuity exact during transients.\footnote{We remain agnostic about ontology; the subsection only establishes the mathematical map.}
 \end{tcolorbox}
 
+\begin{tcolorbox}[title=Terminology note]
+``Sheet'' here refers to the \emph{topological world-volume} used to derive Maxwell sources (a $(4{+}1)$D bookkeeping device for oriented links).
+\end{tcolorbox}
+
 % ------------------------------------------------------------
 % quick dictionary
 % ------------------------------------------------------------
@@ -493,6 +509,18 @@ and Poynting's theorem holds:
 \partial_t u + \nabla\!\cdot\!\mathbf S = -\,\mathbf J_{\rm ch}\!\cdot\!\mathbf E.
 \end{equation}
 Under the radiation condition, the total power radiated is the surface integral of \(\mathbf S\cdot d\mathbf a\) over a sphere at large \(r\).
+
+\paragraph{Projected EM self-energy (used in Sec.~\ref{sec:baryons-phenomenology}).}
+For any localized, quasi-static configuration, we define
+\begin{equation}
+\delta E_{\rm EM}[\mathbf E,\mathbf B] \;:=\; \int_{\Pi}\! d^3 x\;\,
+\begin{cases}
+\tfrac{1}{2}\big(\varepsilon_0 |\mathbf E|^2 + \tfrac{1}{\mu_0}|\mathbf B|^2\big), & \text{(SI)},\\[2pt]
+\tfrac{1}{8\pi}\big(|\mathbf E|^2+|\mathbf B|^2\big), & \text{(Gaussian)}.
+\end{cases}
+\label{eq:deltaE_EM_def}
+\end{equation}
+In the slender-loop approximation relevant for baryons, this contributes a leading $1/R$ piece to the mass functional, with a charge-dependent coefficient summarized in the baryon section as $\beta_Q/R$.
 
 \noindent\emph{Idea:} track where source work goes. \;
 \emph{Result:} it leaves as outgoing Poynting flux determined by the retarded fields.
