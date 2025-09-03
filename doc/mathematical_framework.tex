@@ -287,6 +287,7 @@ We will also use the cosmological length scale $\lambda_{\text{cosmo}}$, tied to
 
 \begin{table}[H]
 \centering
+\begingroup
 \small
 \begin{tabularx}{\textwidth}{|c|X|X|X|X|}
 \hline
@@ -305,6 +306,7 @@ We will also use the cosmological length scale $\lambda_{\text{cosmo}}$, tied to
 \textbf{P-6} & Discrete vortex projection & Projection: $\sum_i$ not $\int dw$ Vortices intersect at points: $\{(\mathbf{r}_i, w_i)\}$ Observable quantities aggregate discretely & All modes (projection) & Sheets pierce slice at points--count them, don't average \\
 \hline
 \end{tabularx}
+\endgroup
 \caption{Foundational postulates presented as mathematical axioms.}
 \label{tab:postulates}
 \end{table}
@@ -823,91 +825,121 @@ Twist adds no net background (neutral on average), preserving the balance. The w
 }
 \medskip
 
-\subsection{4D→3D Projection Mechanism}
+\subsection{4D$\to$3D Projection Mechanism}
+\label{sec:projection_4d_to_3d}
 
-We now make the projection from the $4$-spatial-D description to effective $3$D dynamics precise. The key points are:
-(i) projection is an \emph{integration} over the extra coordinate $w$ (or, equivalently, a \emph{sum} over discrete sheet–slice intersections per P-6);
-(ii) gradient (``drainage'') adjustments along $w$ are potential on the slice and contribute \emph{no} loop circulation;
-(iii) solenoidal flow projects to the standard $1/\rho$ azimuthal profile with circulation equal to the $4$D sheet strength~$\Gamma$.
-Throughout we keep units and distributions explicit: $[\rho_{4D}]=ML^{-4}$, $[\Gamma]=L^2T^{-1}$, $[\dot M_i]=MT^{-1}$.
-
-\paragraph{Start from $4$D continuity with localized sinks.}
-From P-1 and P-2,
+We model physical fields on a $(3+1)$-dimensional slice embedded in a $(3+1)+1$ bulk with coordinates $(\mathbf{x},w,t)$, where $\mathbf{x}\in\mathbb{R}^3$ and $w$ is the bulk coordinate orthogonal to the slice. The $4$D spatial gradient is
 \begin{equation}
-  \partial_t \rho_{4D} + \nabla_4\!\cdot(\rho_{4D}\,\mathbf v_4)
-  \;=\; -\sum_i \dot M_i\,\delta^4(\mathbf r_4-\mathbf r_{4,i}),
-  \label{eq:4D_continuity_projection_start}
-\end{equation}
-where $\delta^4(\mathbf r_4-\mathbf r_{4,i})=\delta^3(\mathbf r-\mathbf r_i)\,\delta(w-w_i)$ and, for slice intersections, $w_i=0$.
-Integrating \eqref{eq:4D_continuity_projection_start} over $w\in\mathbb R$ gives
-\begin{equation}
-  \partial_t \rho_{3D} + \nabla\!\cdot \mathbf J_{3D}
-  \;=\; -\sum_i \dot M_i\,\delta^3(\mathbf r-\mathbf r_i)
-  \quad \text{provided}\quad
-  [\,\rho_{4D} v_w\,]_{-\infty}^{+\infty}=0,
-  \label{eq:3D_continuity_effective}
-\end{equation}
-with the projected fields defined by
-\begin{equation}
-  \rho_{3D}(\mathbf r,t)\;=\!\!\int_{-\infty}^{\infty}\!\! \rho_{4D}(\mathbf r,w,t)\,dw,
-  \qquad
-  \mathbf J_{3D}(\mathbf r,t)\;=\!\!\int_{-\infty}^{\infty}\!\! \rho_{4D}(\mathbf r,w,t)\,\mathbf v_{\!\parallel}(\mathbf r,w,t)\,dw,
-  \label{eq:projection_map_defs}
-\end{equation}
-where $\mathbf v_{\!\parallel}$ is the component tangent to the slice. If one prefers an explicit finite-thickness projection, take a window $\chi_{\xi_c}(w)$ that equals $1$ on $|w|\le \xi_c/2$ and $0$ otherwise; then
-\begin{equation}
-  \rho_{3D}(\mathbf r,t)=\int \chi_{\xi_c}(w)\,\rho_{4D}(\mathbf r,w,t)\,dw,
-  \qquad
-  \rho_0=\rho_{4D}^0\,\xi_c .
-  \label{eq:slab_projection}
-\end{equation}
-Equation~\eqref{eq:3D_continuity_effective} is the effective continuity law on the slice. In steady/quasi-steady scenarios either $\sum_i\dot M_i=0$ (paired sinks/sources over large scales) or a compensating far-flux $[\rho_{4D}v_w]_{-\infty}^{+\infty}$ balances the budget; we adopt the former unless noted.
-
-\begin{tcolorbox}[title=Thought experiment: Loop meter reading\label{box:loop-meter},colback=gray!5,colframe=gray!35!black]
-Drop a wire loop on the slice; if it links a sheet once, the loop meter reads $\Gamma$. Push the loop up and down (change slab thickness): the reading doesn't change. Why? Each half-space (above/below the slice) contributes $\Gamma/2$, and this split is invariant. The circulation is purely from the solenoidal part--drainage fields along $w$ contribute zero.
-
-\begin{center}
-[Sketch: Loop crossing sheet, with arrows showing $\Gamma/2$ from each half-space]
-\end{center}
-\end{tcolorbox}
-
-\paragraph{Discrete (P-6) viewpoint and apparent matter density.}
-For a finite number of sheet–slice intersections one may use the equivalent discrete projection
-\begin{equation}
-  \rho_{3D}(\mathbf r,t)
-  \;=\;
-  \rho_0 \;-\; \sum_i m_i\,\delta^3(\mathbf r-\mathbf r_i(t)),
-  \qquad
-  \rho_{\text{body}}(\mathbf r,t)\equiv \sum_i m_i\,\delta^3(\mathbf r-\mathbf r_i(t)),
-  \label{eq:rho3D_discrete}
-\end{equation}
-with $\rho_0=\rho_{4D}^0\,\xi_c$ and $m_i$ the projected deficit associated with vortex $i$. Dimensions check: $[\,\rho_{3D}\,]=ML^{-3}= [\rho_{4D}]\,L$.
-
-\paragraph{Circulation is projection invariant; drainage is not.}
-A $2$D sheet in $\mathbb R^4$ generically intersects the slice along a curve; any small loop $\gamma$ in the slice that links this curve once measures the sheet's circulation $\Gamma$ in the thin/flat limit. The $w$-directed (``drainage'') part of the flow is a gradient on the slice and contributes zero to $\oint_\gamma \mathbf v\cdot d\boldsymbol\ell$. The solenoidal kernel computes the azimuthal profile explicitly:
-\begin{equation}
-  v_\theta(\rho)
-  \;=\; \frac{\Gamma}{4\pi\rho}\int_{-\infty}^{\infty}
-  \frac{\rho^2\,dw}{(\rho^2+w^2)^{3/2}}
-  \;=\; \frac{\Gamma}{2\pi\rho},
-  \label{eq:vtheta_kernel}
-\end{equation}
-using
-\begin{equation}
-  \int_{-\infty}^{\infty} \frac{\rho^2\,dw}{(\rho^2+w^2)^{3/2}}=2,
-  \qquad
-  \int_{0}^{\infty} \frac{\rho^2\,dw}{(\rho^2+w^2)^{3/2}}=1,
-  \label{eq:halfspace_integrals}
-\end{equation}
-so each half-space contributes $\Gamma/2$:
-\begin{equation}
-  \oint_{\gamma}\mathbf v\cdot d\boldsymbol{\ell}
-  \;=\; \frac{\Gamma}{2} \;+\; \frac{\Gamma}{2} \;=\; \Gamma .
-  \label{eq:circulation_split}
+\nabla_4 \equiv \big(\nabla,\partial_w\big), \qquad \nabla\equiv(\partial_x,\partial_y,\partial_z).
 \end{equation}
 
-\paragraph{Remarks on couplings and normalizations.}
-Standard weak-field normalizations (e.g., the usual EM normalizations fixed in the wave sector) are unaffected by projection: no extra geometric multipliers arise beyond \eqref{eq:projection_map_defs}–\eqref{eq:slab_projection}. The mechanism above thus relates $4$D vortex sheets to $3$D sources and circulations without invoking any multiplicative enhancement, while keeping gauge-invariant observables tied to the solenoidal sector on the slice.
+\paragraph{Projection operator and normalization.}
+Let $\chi_{\xi_c}(w)$ be an even, localized window function centered at $w=0$ that resolves the slice with a characteristic width $\xi_c$ (the effective thickness). To ensure dimensional consistency when integrating out $w$, we adopt the \emph{effective-thickness normalization}
+\begin{equation}
+\int_{-\infty}^{+\infty} \chi_{\xi_c}(w)\,dw \;=\; \xi_c,
+\label{eq:chi_norm}
+\end{equation}
+so that $\chi_{\xi_c}$ is dimensionless.\footnote{An equivalent convention sometimes used is $\int \tilde\chi\,dw=1$ with $\tilde\chi\sim L^{-1}$. In that case all projected densities pick up an explicit prefactor of $\xi_c$. Our choice \eqref{eq:chi_norm} builds that factor into the kernel, keeping the projection formulas uncluttered.}
+Define the projection operator $\mathcal{P}_{\xi_c}$ acting on any $4$D quantity $F(\mathbf{x},w,t)$ by
+\begin{equation}
+\boxed{\;
+\mathcal{P}_{\xi_c}[F](\mathbf{x},t)\;\equiv\;\int_{-\infty}^{+\infty} F(\mathbf{x},w,t)\,\chi_{\xi_c}(w)\,dw.
+\;}
+\label{eq:proj_operator}
+\end{equation}
+
+\paragraph{Projected fields and units.}
+If $u_{4D}$ is an energy density per $4$D spatial volume, it has units $[u_{4D}]=M\,L^{-2}T^{-2}$. The projected $3$D energy density
+\begin{equation}
+u_{3D}(\mathbf{x},t)\;\equiv\;\mathcal{P}_{\xi_c}[u_{4D}]
+\label{eq:u_projection}
+\end{equation}
+then carries $[u_{3D}]=M\,L^{-1}T^{-2}$ as required. Likewise, for mass density $\rho_{4D}$ ($[\rho_{4D}]=M\,L^{-4}$) and current $\mathbf{J}_{4D}$ ($[\mathbf{J}_{4D}]=M\,L^{-3}T^{-1}$) we define
+\begin{equation}
+\rho_{3D}\equiv\mathcal{P}_{\xi_c}[\rho_{4D}],\qquad
+\mathbf{J}_{3D}\equiv\mathcal{P}_{\xi_c}[\mathbf{J}_{4D}^{\,\parallel}],
+\end{equation}
+where $\mathbf{J}_{4D}^{\,\parallel}$ denotes the three components tangent to the slice. The normal component $J_w$ projects to a scalar leakage observable $J_{\perp}\equiv\mathcal{P}_{\xi_c}[J_w]$ (units $M\,L^{-2}T^{-1}$).
+
+For tensorial quantities (e.g.\ the spatial stress tensor $T^{AB}_{4D}$, $A,B\in\{x,y,z,w\}$), we project tangential components indexwise:
+\begin{equation}
+\Pi^{ij}_{3D}(\mathbf{x},t)\;\equiv\;\mathcal{P}_{\xi_c}\!\left[T^{ij}_{4D}(\mathbf{x},w,t)\right],\qquad i,j\in\{x,y,z\}.
+\label{eq:stress_projection}
+\end{equation}
+
+\paragraph{Continuity under projection.}
+Starting from the $4$D continuity equation
+\begin{equation}
+\partial_t\rho_{4D}+\nabla\!\cdot\!\mathbf{J}_{4D}^{\,\parallel}+\partial_w J_w=0,
+\label{eq:4d_continuity}
+\end{equation}
+multiplying by $\chi_{\xi_c}(w)$ and integrating by parts in $w$ (with $\chi_{\xi_c}\to 0$ sufficiently fast as $|w|\to\infty$) yields
+\begin{equation}
+\boxed{\;
+\partial_t \rho_{3D}+\nabla\!\cdot\!\mathbf{J}_{3D}\;=\;S_{\chi},
+\qquad
+S_{\chi}(\mathbf{x},t)\;\equiv\;\int_{-\infty}^{+\infty}\! J_w(\mathbf{x},w,t)\,\partial_w \chi_{\xi_c}(w)\,dw,
+\;}
+\label{eq:projected_continuity}
+\end{equation}
+where $S_{\chi}$ quantifies net exchange with the bulk across the finite-thickness window. When $J_w$ is approximately even in $w$ and $\chi_{\xi_c}$ is even, $S_{\chi}$ is suppressed; otherwise it provides a controlled source/sink term encoding aether drainage and refill.
+
+Analogously, projecting the $4$D momentum balance $\partial_t(\rho_{4D}\mathbf{v}_{\parallel})+\nabla\!\cdot T^{\parallel}_{4D}+\partial_w T^{w\parallel}_{4D}=0$ gives
+\begin{equation}
+\partial_t(\rho_{3D}\mathbf{v})+\nabla\!\cdot \Pi_{3D}\;=\;\mathbf{S}_{\chi}^{(\mathrm{mom})},\qquad
+\mathbf{S}_{\chi}^{(\mathrm{mom})}\equiv\int T^{w\parallel}_{4D}\,\partial_w \chi_{\xi_c}\,dw,
+\label{eq:projected_momentum}
+\end{equation}
+with the same kernel-controlled exchange structure.
+
+\paragraph{Choice of window.}
+Any smooth, even kernel satisfying \eqref{eq:chi_norm} is acceptable. A convenient analytic choice is
+\begin{equation}
+\chi_{\xi_c}(w)\;=\;\frac{1}{\sqrt{2\pi}}\exp\!\left(-\frac{w^2}{2\xi_c^2}\right),
+\label{eq:gaussian_window}
+\end{equation}
+for which $\int \chi_{\xi_c}\,dw=\xi_c$. Other compactly supported mollifiers (e.g.\ raised cosines) are equally valid; the projected equations \eqref{eq:projected_continuity}–\eqref{eq:projected_momentum} retain their form with $S_{\chi}$ determined by the chosen $\partial_w\chi_{\xi_c}$.
+
+\paragraph{Reference scales (healing length, sound speed, core time).}
+In the bulk superfluid description we use $\rho_{4D}=m|\Psi|^2$ and a \emph{4D} Gross–Pitaevskii coupling $g\equiv g_{4D}$ with units $[g]=M\,L^6T^{-2}$. The standard scales, written directly in terms of $\rho_{4D}$, are
+\begin{align}
+\xi_c \;&=\; \frac{\hbar}{\sqrt{2\,g\,\rho_{4D}^{\,0}}},
+\label{eq:xi_correct}\\
+v_L \;&=\; \sqrt{\frac{g\,\rho_{4D}^{\,0}}{m^2}},
+\label{eq:cs_correct}\\
+\tau_{\mathrm{core}} \;&=\; \frac{\xi_c}{v_L}\;=\;\frac{\hbar\,m}{\sqrt{2}\,g\,\rho_{4D}^{\,0}},
+\label{eq:tau_core_correct}
+\end{align}
+which have dimensions $[\xi_c]=L$, $[v_L]=L/T$, and $[\tau_{\mathrm{core}}]=T$. These relations are consistent with the $4$D GP energy functional written either as
+\begin{equation}
+E[\Psi]=\int d^4 r\;\Big(\frac{\hbar^2}{2m}\,|\nabla_4\Psi|^2+\frac{g}{2}|\Psi|^4\Big)
+\;=\;
+\int d^4 r\;\Big(\frac{\hbar^2}{2m}\,|\nabla_4\Psi|^2+\frac{g}{2m^2}\,\rho_{4D}^2\Big).
+\label{eq:gp_4d_consistent}
+\end{equation}
+
+\paragraph{Quantum pressure: specific vs.\ per-volume force.}
+In hydrodynamic variables the quantum potential per unit mass is
+\begin{equation}
+Q_s\;=\;-\frac{\hbar^2}{2m^2}\,\frac{\nabla_4^2\sqrt{\rho_{4D}}}{\sqrt{\rho_{4D}}}.
+\label{eq:quantum_potential_specific}
+\end{equation}
+Its \emph{specific} force is $-\nabla_4 Q_s$ (units $L\,T^{-2}$). The corresponding \emph{force density} entering momentum balance is
+\begin{equation}
+\mathbf{F}_Q\;=\;-\rho_{4D}\,\nabla_4 Q_s,
+\label{eq:quantum_force_density}
+\end{equation}
+with units $M\,L^{-3}T^{-2}$. Projecting \eqref{eq:quantum_force_density} with \eqref{eq:proj_operator} produces a properly normalized $3$D quantum force density, and any contribution from the normal derivative is accounted for by the exchange term analogous to \eqref{eq:projected_momentum}.
+
+\paragraph{Summary of the projection rules.}
+With the normalization \eqref{eq:chi_norm}, the map $4$D$\to 3$D is:
+\begin{align}
+\text{Scalars (densities):}\quad & F_{3D}=\mathcal{P}_{\xi_c}[F_{4D}],\\
+\text{Vectors (tangent):}\quad & \mathbf{A}_{3D}=\mathcal{P}_{\xi_c}[\mathbf{A}^{\,\parallel}_{4D}],\qquad
+A_{\perp}=\mathcal{P}_{\xi_c}[A_w],\\
+\text{Tensors (tangent):}\quad & T^{ij}_{3D}=\mathcal{P}_{\xi_c}[T^{ij}_{4D}],\qquad i,j\in\{x,y,z\},
+\end{align}
+and all conservation laws inherit the same form as their $4$D parents, up to controlled exchange terms proportional to $\partial_w\chi_{\xi_c}$ that encode finite-thickness communication with the bulk. This convention guarantees that every projected quantity carries the correct $3$D units without ad hoc mass factors or post-projection rescalings.
 
 \subsection{Calibration of Physical Constants}
 
