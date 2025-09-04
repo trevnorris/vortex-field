@@ -744,7 +744,18 @@ In the discrete 3D projection (P-6), we aggregate over vortex intersections (no 
 \begin{equation}
 \partial_t \rho_{3D} + \nabla \!\cdot (\rho_{3D}\mathbf{v}) = -\sum_i \dot{M}_i\,\delta^3(\mathbf{r}-\mathbf{r}_i).
 \end{equation}
-Analogous projections apply to the Euler equation, producing effective 3D dynamics with sink sources that appear as mass removal while preserving global conservation in 4D (see Bulk Dissipation below). Physically, this is like discrete underwater drains vanishing water from the surface view, thinning the medium and inducing inflows that mimic attraction. Like a waterfall that never empties the river above, the drainage draws from the 4D structure (reservoir), with re-emergence from bulk modes maintaining balance.
+
+\paragraph{Explicit 3D momentum balance.}
+For brevity write $\rho\equiv\rho_{3D}$. Projecting the $4$D Euler equation \eqref{eq:stress_projection}–\eqref{eq:projected_momentum} with the window $\chi_{\xi_c}$ and separating pressure/quantum parts yields on the slice
+\begin{equation}
+\partial_t(\rho\,\mathbf v)\;+\;\nabla\!\cdot\!\big(\rho\,\mathbf v\otimes\mathbf v + p\,\mathbf I\big)
+\;=\;-\rho\,\nabla\Phi_g\;-\;\rho\,\nabla Q\;-\;\sum_i \dot M_i\,\mathbf v_{*i}\,\delta^{3}(\mathbf r-\mathbf r_i)\;+\;\mathbf f_{\rm ext}.
+\label{eq:3D_momentum_explicit}
+\end{equation}
+Here $p(\rho)\equiv \mathcal{P}_{\xi_c}[P]$ is the projected barotropic pressure (with $P=\tfrac{g}{2m^2}\rho_{4D}^2$ in the simplest model), $Q(\mathbf x,t)\equiv \mathcal{P}_{\xi_c}[Q_s]$ is the quantum potential per unit mass with $Q_s$ defined in \eqref{eq:quantum_potential_specific}, $\Phi_g$ is the weak-field gravitational potential (Machian sector below), $\mathbf v_{*i}$ is the near-aperture outflow velocity at the $i$th drain, and $\mathbf f_{\rm ext}$ collects any non-gravitational body forces (e.g.\ EM in charged sectors).
+\emph{Units check:} every term in \eqref{eq:3D_momentum_explicit} carries $M\,L^{-2}T^{-2}$. Quantum stress can be represented equivalently by $-\rho\nabla Q$ or absorbed into a symmetric addition to $\Pi_{3D}$ without changing observables.
+
+Physically, this is like discrete underwater drains vanishing water from the surface view, thinning the medium and inducing inflows that mimic attraction. Like a waterfall that never empties the river above, the drainage draws from the 4D structure (reservoir), with re-emergence from bulk modes maintaining balance.
 
 By Noether's theorem, continuous symmetries yield conservation laws. 4D translations preserve total mass–energy when one includes the energy density of non-interacting bulk excitations that carry away the drained flux. Particle creation/annihilation maps to vortex–antivortex processes: creation as pair formation (net drainage balanced), annihilation as conversion of core energy into the wave sector or bulk modes, preserving total 4D energy. Conservation includes: Twist topology preserves charge; Drag conserves angular momentum; Slope stabilizes energy; the wave sector radiates energy.
 
@@ -764,6 +775,7 @@ i.e. dimensionally $[\,\dot M_i\,]=M/T$ with $[\rho_{4D}^0]=M/L^4$, $[\Gamma]=L^
 \Delta E \;\approx\; \frac{\rho_{4D}^0\,\Gamma^2\,\xi_c^2}{4\pi}\,\ln\!\left(\frac{L}{\xi_c}\right),
 \end{equation}
 that suppresses uncontrolled leakage (here $L$ is an outer cutoff).
+\emph{Dimensional check:}\; $[\dot M_i]=M\,T^{-1}$ from $[\rho_{4D}^0]=M L^{-4}$, $[\Gamma]=L^{2}T^{-1}$, $[\xi_c^2]=L^2$, and $[\Delta E]=M L^2 T^{-2}$ as required.
 
 With helical twists (Section 2.3), drainage couples to charge: twisted vortices have enhanced $\dot M_i \propto \tau\,\Gamma$ (twist density $\tau$), but conservation holds as twists preserve topology during reconnections. Wave-sector vibrations (Kelvin waves) modulate the core, adding a small oscillatory term to $v_w$ ($\delta v_w \sim \omega\,\delta R$), while the time-averaged flux remains $\langle \dot M_i \rangle$ unchanged; the excess energy is carried off as radiation.
 
@@ -798,6 +810,30 @@ i.e. $\rho_{\text{inj}}$ is fixed by the total injection $\sum_i\dot M_i$ on the
 
 Analogously, this dissipation mimics energy conversion to heat in a vast reservoir, maintaining equilibrium. For twisted vortices (EM context), dissipation preserves charge topology, as windings are conserved invariants.
 
+\subsubsection{Local Energy Balance}
+Define the total energy density on the slice as
+\begin{equation}
+e \;\equiv\; \tfrac12\,\rho\,v^2 \;+\; u(\rho) \;+\; \rho\,\Phi_g \;+\; e_Q,
+\label{eq:energy_density_def}
+\end{equation}
+where $u(\rho)=\rho\,\varepsilon(\rho)$ with the barotropic closure $d\varepsilon = -\,p(\rho)\,d(1/\rho)$, and $e_Q$ encodes the quantum-sector energy density. The associated energy flux is
+\begin{equation}
+\mathbf S \;\equiv\; (e+p)\,\mathbf v \;+\; \mathbf S_Q,
+\label{eq:energy_flux_def}
+\end{equation}
+with $\mathbf S_Q$ the quantum energy flux. Using the continuity law and \eqref{eq:3D_momentum_explicit}, the local energy balance reads
+\begin{equation}
+\partial_t e \;+\; \nabla\!\cdot \mathbf S
+\;=\; -\,\rho\,\mathbf v\!\cdot\nabla \Phi_g \;-\; \sum_i \dot M_i\,\varepsilon_i\,\delta^3(\mathbf r-\mathbf r_i)\;+\; \Pi_Q,
+\label{eq:local_energy_balance}
+\end{equation}
+where $\varepsilon_i$ is the specific energy carried into the bulk at the $i$th aperture and $\Pi_Q$ is the quantum work-rate density chosen such that
+\begin{equation}
+-\,\rho\,\mathbf v\!\cdot\nabla Q \;=\; -\,\nabla\!\cdot \mathbf S_Q \;+\; \Pi_Q.
+\label{eq:quantum_power_identity}
+\end{equation}
+\emph{Units check:} $[e]=M\,L^{-1}T^{-2}$ and $[\mathbf S]=M\,T^{-3}$; each term in \eqref{eq:local_energy_balance} has units $M\,L^{-1}T^{-3}$. This fixes the physical meaning of $\varepsilon_i$, $\mathbf S_Q$, and $\Pi_Q$ in a way that matches the test harness.
+
 \subsubsection{Machian Balance}
 The uniform background $\rho_0$ sources a quadratic potential term. With the scalar-sector convention $\nabla^2 \Phi_g=-4\pi G\rho_0$,
 \begin{equation}
@@ -814,6 +850,19 @@ Only potential differences are observable; the quadratic background acts as a ga
 cancelling if $\langle \rho_{\text{cosmo}} \rangle = \rho_0$ (aggregate deficits from vortex flows balancing background). Any residual asymmetry would appear as a tiny secular drift of the effective background potential; within our parameter choices it remains below current bounds on $|\dot G/G|$.
 
 Twist adds no net background (neutral on average), preserving the balance. The wave sector (Kelvin waves) contributes a small positive energy density to $\langle \rho \rangle$ (as $\rho_{\text{vib}}/c^2$), but this is microscopic and averages out cosmologically, maintaining equilibrium. The tsunami principle reinforces this: bulk flows are unfelt locally (we move with them), while observable changes propagate at $c$.
+
+\subsubsection{4D–3D Conservation Bridge}
+Integrating the bulk equation across an infinitesimal slab around $w=0$ with the even window $\chi_{\xi_c}$ yields the matching conditions that reproduce the $3$D sink/source terms. For continuity,
+\begin{equation}
+\int_{-\xi_c}^{+\xi_c}\!\partial_w\!\left(\rho_{\text{bulk}}\, v_w\right)\,dw
+\;=\; -\sum_i \dot M_i\,\delta^3(\mathbf r-\mathbf r_i),
+\end{equation}
+which is precisely the right-hand side of the $3$D continuity law above. For momentum and energy, the corresponding exchange functionals are
+\begin{align}
+\mathbf S_{\chi}^{(\mathrm{mom})} \;&=\; - \sum_i \dot M_i\,\mathbf v_{*i}\,\delta^3(\mathbf r-\mathbf r_i)\;+\;\mathbf f_{\rm ext},\\
+S_{\chi}^{(\mathrm{en})} \;&=\; - \sum_i \dot M_i\,\varepsilon_i\,\delta^3(\mathbf r-\mathbf r_i)\;+\;\Pi_Q,
+\end{align}
+so that the momentum balance \eqref{eq:3D_momentum_explicit} (equivalently the projected form \eqref{eq:projected_momentum}) and the energy balance \eqref{eq:local_energy_balance} close consistently with the bulk picture and the dissipation mechanism.
 
 \medskip
 \makebox[\linewidth][c]{%

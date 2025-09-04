@@ -533,7 +533,7 @@ def test_motivation_regime_validity_conventions():
     M) NEW: Scale separation & causality (2 tests)
     """
     v = PhysicsVerificationHelper("Section 2.x: Motivation/Validity/Conventions [COMPREHENSIVE]")
-    
+
     v.info("="*80)
     v.info("COMPREHENSIVE Testing: Motivation, Regime of Validity, and Conventions")
     v.info("="*80)
