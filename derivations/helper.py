@@ -19,6 +19,8 @@ from typing import Dict, List, Tuple, Any, Optional
 from enum import Enum
 import difflib
 import warnings
+import sys
+import argparse
 
 
 class UnitSystem(Enum):
@@ -37,6 +39,16 @@ class UnknownSymbolError(KeyError):
 class DimensionalMismatchError(ValueError):
     """Exception raised when dimensions don't match in an expression."""
     pass
+
+
+def _parse_global_quiet_flag():
+    """
+    Parse command line for --quiet flag without interfering with other arguments.
+    Returns True if --quiet is present, False otherwise.
+    """
+    # Check if --quiet is in sys.argv without using full argument parsing
+    # This allows scripts to have their own argument parsing if needed
+    return '--quiet' in sys.argv or '-q' in sys.argv
 
 
 class SymbolRegistry:
@@ -147,7 +159,7 @@ class PhysicsVerificationHelper:
     """
 
     def __init__(self, section_name: str, description: str = "",
-                 unit_system: UnitSystem = UnitSystem.SI):
+                 unit_system: UnitSystem = UnitSystem.SI, quiet: bool = None):
         """
         Initialize verification helper for a specific section.
 
@@ -155,10 +167,19 @@ class PhysicsVerificationHelper:
             section_name: Name/number of the section being tested
             description: Optional detailed description
             unit_system: Unit system to use (SI, Gaussian, Heaviside-Lorentz)
+            quiet: If True, suppress informational output. If None, check command line for --quiet flag.
         """
         self.section_name = section_name
         self.description = description
         self.unit_system = unit_system
+
+        # Auto-detect quiet mode from command line if not explicitly set
+        if quiet is None:
+            self.quiet = _parse_global_quiet_flag()
+        else:
+            self.quiet = quiet
+
+        self.debug_mode = False  # Can be enabled for extra verbose output
         self.results = []
         self.failed_checks = []
 
@@ -175,11 +196,10 @@ class PhysicsVerificationHelper:
         # Initialize equation prefactors for unit system
         self.prefactors = self._get_unit_system_prefactors()
 
-        # Print header
-        self.print_header()
-
-        # Run self-tests for fundamental relationships
-        self._run_self_tests()
+        # Print header and run self-tests (unless in quiet mode)
+        if not self.quiet:
+            self.print_header()
+            self._run_self_tests()
 
     def _get_unit_system_prefactors(self) -> Dict[str, Any]:
         """Get equation prefactors for the current unit system with proper dimensions."""
@@ -534,7 +554,7 @@ class PhysicsVerificationHelper:
 
     def _run_self_tests(self):
         """Run internal self-tests for fundamental relationships."""
-        print("Running dimensional self-tests...")
+        self.info("Running dimensional self-tests...")
 
         # Test fundamental speed of light relationship
         c_from_constants = 1 / sp.sqrt(self.dims['mu_0'] * self.dims['epsilon_0'])
@@ -569,7 +589,7 @@ class PhysicsVerificationHelper:
         self.check_dims("GEM: E_g from gradient", self.dims['E_g'], self.grad_dim(self.dims['Phi_g']), verbose=False)
         self.check_dims("GEM: E_g from time derivative", self.dims['E_g'], self.dt(self.dims['A_g']), verbose=False)
 
-        print("Self-tests completed.\n")
+        self.info("Self-tests completed.\n")
 
     def get_dim(self, name: str, suggest: bool = True, strict: bool = False) -> Any:
         """
@@ -595,6 +615,36 @@ class PhysicsVerificationHelper:
             raise UnknownSymbolError(f"Unknown symbol '{name}'")
 
         return SymbolRegistry.get_symbol(name, self.dims, suggest)
+
+    # ==== PRINT UTILITY METHODS ====
+
+    def info(self, message: str):
+        """Print informational message (respects quiet mode)."""
+        if not self.quiet:
+            print(message)
+
+    def success(self, message: str):
+        """Print success message (respects quiet mode)."""
+        if not self.quiet:
+            print(f"✓ {message}")
+
+    def warning(self, message: str):
+        """Print warning message (always prints)."""
+        print(f"⚠️ {message}")
+
+    def error(self, message: str):
+        """Print error message (always prints)."""
+        print(f"✗ {message}")
+
+    def debug(self, message: str):
+        """Print debug message (only in verbose/debug mode)."""
+        if not self.quiet and self.debug_mode:
+            print(f"🔍 {message}")
+
+    def section_header(self, title: str):
+        """Print section header (respects quiet mode)."""
+        if not self.quiet:
+            print(f"\n--- {title} ---")
 
     def add_dimension(self, name: str, dimension: Any, allow_overwrite: bool = False):
         """
@@ -880,11 +930,13 @@ class PhysicsVerificationHelper:
                 self.failed_checks.append(name)
 
         if verbose:
-            status = "✓" if check else "✗"
-            print(f"{status} {name}")
-            if not check and str(dim1) != 'DIM_MISMATCH':
-                print(f"    Expected: [{dim1}]")
-                print(f"    Got:      [{dim2}]")
+            if check:
+                self.success(name.replace("✓ ", ""))
+            else:
+                self.error(f"{name}")
+                if str(dim1) != 'DIM_MISMATCH':
+                    print(f"    Expected: [{dim1}]")
+                    print(f"    Got:      [{dim2}]")
 
         return check
 
@@ -915,7 +967,7 @@ class PhysicsVerificationHelper:
             if record:
                 self.results.append((name, True))
             if verbose:
-                print(f"✓ {name}")
+                self.success(name)
             return True
 
         # If it's not zero but has ZERO dimension marker, something's wrong
@@ -924,7 +976,7 @@ class PhysicsVerificationHelper:
                 self.results.append((name, False))
                 self.failed_checks.append(name)
             if verbose:
-                print(f"✗ {name} - Expression marked as zero but evaluates to: {expr}")
+                self.error(f"{name} - Expression marked as zero but evaluates to: {expr}")
             return False
 
         # Non-zero expression - warn about dimensions
@@ -932,7 +984,7 @@ class PhysicsVerificationHelper:
             self.results.append((name, False))
             self.failed_checks.append(name)
         if verbose:
-            print(f"✗ {name} - Non-zero expression with dimensions [{dim}]")
+            self.error(f"{name} - Non-zero expression with dimensions [{dim}]")
             print(f"    Expression: {expr}")
 
         return False
@@ -974,9 +1026,10 @@ class PhysicsVerificationHelper:
                 self.failed_checks.append(name)
 
         if verbose:
-            status = "✓" if check else "✗"
-            print(f"{status} {name}")
-            if not check and verbose:
+            if check:
+                self.success(name)
+            else:
+                self.error(name)
                 print(f"    LHS: {lhs}")
                 print(f"    RHS: {rhs}")
                 print(f"    Diff: {simplify(lhs - rhs)}")
@@ -1013,9 +1066,10 @@ class PhysicsVerificationHelper:
                 self.failed_checks.append(name)
 
         if verbose:
-            status = "✓" if check else "✗"
-            print(f"{status} {name}")
-            if not check:
+            if check:
+                self.success(name)
+            else:
+                self.error(name)
                 print(f"    Limit: {result}")
                 print(f"    Expected: {expected}")
 
@@ -1053,9 +1107,10 @@ class PhysicsVerificationHelper:
                 self.failed_checks.append(name)
 
         if verbose:
-            status = "✓" if check else "✗"
-            print(f"{status} {name}")
-            if not check and verbose:
+            if check:
+                self.success(name)
+            else:
+                self.error(name)
                 print(f"    Limit of difference: {limit_diff}")
 
         return check
@@ -1077,23 +1132,27 @@ class PhysicsVerificationHelper:
         if not check_result:
             self.failed_checks.append((description, details))
 
-        status = "✓" if check_result else "✗"
-        print(f"{status} {description}")
-        if details and not check_result:
-            print(f"    Details: {details}")
+        if check_result:
+            self.success(description)
+        else:
+            self.error(description)
+            if details:
+                print(f"    Details: {details}")
 
         return check_result
 
     def section(self, title: str, width: int = 60):
         """Print section header."""
-        print(f"\n{'='*width}")
-        print(title)
-        print('='*width)
+        if not self.quiet:
+            print(f"\n{'='*width}")
+            print(title)
+            print('='*width)
 
     def subsection(self, title: str, width: int = 50):
         """Print subsection header."""
-        print(f"\n{title}")
-        print('-'*width)
+        if not self.quiet:
+            print(f"\n{title}")
+            print('-'*width)
 
     def print_header(self):
         """Print initial header for the test."""
@@ -1122,13 +1181,16 @@ class PhysicsVerificationHelper:
         self.section(f"VERIFICATION SUMMARY: {passed}/{total} passed ({rate:.1f}%)")
 
         if rate == 100:
-            print("\n🎉 ALL VERIFICATIONS PASSED! 🎉")
+            if not self.quiet:
+                print("\n🎉 ALL VERIFICATIONS PASSED! 🎉")
         elif rate >= 95:
-            print("\n✅ VERIFICATION SUBSTANTIALLY COMPLETE")
-            print(f"   {passed}/{total} checks passed")
+            if not self.quiet:
+                print("\n✅ VERIFICATION SUBSTANTIALLY COMPLETE")
+                print(f"   {passed}/{total} checks passed")
         elif rate >= 85:
-            print("\n⚠️ VERIFICATION MOSTLY SUCCESSFUL")
-            print(f"   {passed}/{total} checks passed")
+            if not self.quiet:
+                print("\n⚠️ VERIFICATION MOSTLY SUCCESSFUL")
+                print(f"   {passed}/{total} checks passed")
         else:
             print(f"\n❌ VERIFICATION NEEDS ATTENTION")
             print(f"   Only {passed}/{total} checks passed")
@@ -1270,7 +1332,7 @@ class PhysicsVerificationHelper:
 # CONVENIENCE FUNCTIONS
 # ==============================================================================
 
-def quick_verify(name: str, condition: bool, details: str = "") -> bool:
+def quick_verify(name: str, condition: bool, details: str = "", helper=None, expected_failure: bool = False) -> bool:
     """
     Quick one-line verification without recording.
 
@@ -1278,15 +1340,32 @@ def quick_verify(name: str, condition: bool, details: str = "") -> bool:
         name: Description of check
         condition: Boolean condition
         details: Optional details
+        helper: Optional PhysicsVerificationHelper instance for quiet mode support
+        expected_failure: If True, failures are expected (diagnostic tests) and won't print in quiet mode
 
     Returns:
         The condition value
     """
-    status = "✓" if condition else "✗"
-    output = f"{status} {name}"
+    message = name
     if details:
-        output += f": {details}"
-    print(output)
+        message += f": {details}"
+
+    if helper is not None:
+        # Use helper's print methods to respect quiet mode
+        if condition:
+            helper.success(message)
+        else:
+            # For expected failures in quiet mode, only show if not quiet or if it's an unexpected success
+            if expected_failure and helper.quiet:
+                # Don't print expected failures in quiet mode
+                pass  
+            else:
+                helper.error(message)
+    else:
+        # Fallback to direct print (backward compatibility)
+        status = "✓" if condition else "✗"
+        print(f"{status} {message}")
+
     return condition
 
 

@@ -42,7 +42,7 @@ def test_4d_continuity_equation(v):
     v.check_dims("div_4 (rho_4D v_4)", lhs_flux_4D, target4)
     v.check_dims("sink_4D", rhs_sink_4D, target4)
     
-    print("✓ 4D continuity equation verified")
+    v.success("4D continuity equation verified")
 
 
 def test_delta_factorization_and_reduction(v):
@@ -60,7 +60,7 @@ def test_delta_factorization_and_reduction(v):
     # Check reduction by integration
     v.check_dims("integral delta^4 dw -> delta^3", delta3, delta4 * v.L)
     
-    print("✓ Delta factorization and reduction verified")
+    v.success("Delta factorization and reduction verified")
 
 
 def test_3d_effective_continuity(v):
@@ -80,7 +80,7 @@ def test_3d_effective_continuity(v):
     v.check_dims("div J_3D", lhs_flux_3D, target3)
     v.check_dims("sink_3D", rhs_sink_3D, target3)
     
-    print("✓ 3D effective continuity verified")
+    v.success("3D effective continuity verified")
 
 
 def test_boundary_term_diagnostic(v):
@@ -94,7 +94,7 @@ def test_boundary_term_diagnostic(v):
     boundary_term = rho4 * v_w
     v.check_dims("Boundary term [rho4 v_w] units", boundary_term, target3)
     
-    print("✓ Boundary term diagnostic verified")
+    v.success("Boundary term diagnostic verified")
 
 
 def test_density_projection_map(v):
@@ -106,7 +106,7 @@ def test_density_projection_map(v):
     
     v.check_dims("rho_3D from rho_4D", rho3, rho4 * v.L)
     
-    print("✓ Density projection map verified")
+    v.success("Density projection map verified")
 
 
 def test_current_projection_map(v):
@@ -119,7 +119,7 @@ def test_current_projection_map(v):
     
     v.check_dims("J_3D from rho4D v_par", J3, rho4 * v_par * v.L)
     
-    print("✓ Mass current projection map verified")
+    v.success("Mass current projection map verified")
 
 
 def test_finite_thickness_window(v):
@@ -132,7 +132,7 @@ def test_finite_thickness_window(v):
     v.assert_dimensionless(chi_xi, "chi_xi is dimensionless")
     v.check_dims("integral chi_xi dw", xi_c, chi_xi * v.L)
     
-    print("✓ Finite-thickness window verified")
+    v.success("Finite-thickness window verified")
 
 
 def test_background_density_relation(v):
@@ -145,7 +145,7 @@ def test_background_density_relation(v):
     
     v.check_dims("rho0 = rho4D_bg * xi_c", rho_0, rho_4_bg * xi_c)
     
-    print("✓ Background density relation verified")
+    v.success("Background density relation verified")
 
 
 def test_discrete_mass_deficit(v):
@@ -159,7 +159,7 @@ def test_discrete_mass_deficit(v):
     
     v.check_dims("m_i delta^3 has density units", density_unit, m_i * delta3)
     
-    print("✓ Discrete mass deficit verified")
+    v.success("Discrete mass deficit verified")
 
 
 def test_discrete_consistency(v):
@@ -173,7 +173,7 @@ def test_discrete_consistency(v):
     v.check_dims("m_i has mass units", m_i, v.M)
     v.check_dims("rho0 has density units", rho_0, v.M / (v.L**3))
     
-    print("✓ Discrete-continuous consistency verified")
+    v.success("Discrete-continuous consistency verified")
 
 
 def test_circulation_velocity_formula(v):
@@ -186,7 +186,7 @@ def test_circulation_velocity_formula(v):
     
     v.check_dims("v_theta dims", v_theta, Gamma / rho_radial)
     
-    print("✓ Circulation velocity formula verified")
+    v.success("Circulation velocity formula verified")
 
 
 def test_circulation_kernel_integrals(v):
@@ -202,13 +202,13 @@ def test_circulation_kernel_integrals(v):
     
     # Full line integral
     I_full = integrate(integrand, (w, -oo, oo))
-    quick_verify("Kernel integral over R equals 2", simplify(I_full - 2) == 0)
+    quick_verify("Kernel integral over R equals 2", simplify(I_full - 2) == 0, helper=v)
     
     # Half line integral
     I_half = integrate(integrand, (w, 0, oo))
-    quick_verify("Kernel integral over [0,inf) equals 1", simplify(I_half - 1) == 0)
+    quick_verify("Kernel integral over [0,inf) equals 1", simplify(I_half - 1) == 0, helper=v)
     
-    print("✓ Circulation kernel integrals verified")
+    v.success("Circulation kernel integrals verified")
 
 
 def test_circulation_split_identity(v):
@@ -216,9 +216,9 @@ def test_circulation_split_identity(v):
     # circulation loop v*dl = Gamma/2 + Gamma/2 = Gamma
     
     # This is dimensionally trivial but mathematically important
-    quick_verify("Circulation split adds to Gamma", True)
+    quick_verify("Circulation split adds to Gamma", True, helper=v)
     
-    print("✓ Circulation split identity verified")
+    v.success("Circulation split identity verified")
 
 
 def test_drainage_potential_property(v):
@@ -231,10 +231,10 @@ def test_drainage_potential_property(v):
     try:
         curl_grad_dim = v.curl_dim(v.grad_dim(1))
         v.check_dims("curl(grad phi) dimensional consistency", curl_grad_dim, 0, record=False)
-        print("✓ Drainage potential property verified")
+        v.success("Drainage potential property verified")
     except Exception:
         # If dimensional check fails, it's expected for identity operations
-        print("✓ Drainage potential property noted (identity operation)")
+        v.info("Drainage potential property noted (identity operation)")
 
 
 def test_boundary_induced_source_diagnostic(v):
@@ -248,7 +248,7 @@ def test_boundary_induced_source_diagnostic(v):
     extra_src = rho4 * v_w
     v.check_dims("Boundary-induced 3D source units", target3, extra_src)
     
-    print("✓ Boundary-induced source diagnostic verified")
+    v.success("Boundary-induced source diagnostic verified")
 
 
 def test_window_function_variants(v):
@@ -267,7 +267,7 @@ def test_window_function_variants(v):
     rho_0_variant = rho_4_bg * window_integral
     v.check_dims("rho0 with generic window", rho_0_variant, v.M / (v.L**3))
     
-    print("✓ Window function variants verified")
+    v.success("Window function variants verified")
 
 
 def test_gp_energy_functional(v):
@@ -291,7 +291,7 @@ def test_gp_energy_functional(v):
     v.check_dims("GP kinetic energy density", kinetic_density, target_energy_density)
     v.check_dims("GP interaction energy density", interaction_density, target_energy_density)
     
-    print("✓ Gross-Pitaevskii energy functional verified")
+    v.success("Gross-Pitaevskii energy functional verified")
 
 
 def test_core_energy_constants_and_mass_template(v):
@@ -332,7 +332,7 @@ def test_core_energy_constants_and_mass_template(v):
     v.check_dims("Mass template core term", mass_core_term, v.M)
     v.check_dims("Mass template log term", mass_log_term, v.M)
     
-    print("✓ Core energy constants and mass template verified")
+    v.success("Core energy constants and mass template verified")
 
 
 def test_healing_length_and_bulk_sound_speed(v):
@@ -348,7 +348,7 @@ def test_healing_length_and_bulk_sound_speed(v):
     bulk_sound_rhs = sp.sqrt(v.get_dim('g_GP_4D') * v.get_dim('rho_4_bg') / (v.get_dim('m')**2))
     v.check_dims("Bulk sound speed v_L", v.get_dim('v_L'), bulk_sound_rhs)
     
-    print("✓ Healing length and bulk sound speed relations verified")
+    v.success("Healing length and bulk sound speed relations verified")
 
 
 def test_core_timescale_hierarchy(v):
@@ -370,7 +370,7 @@ def test_core_timescale_hierarchy(v):
     macro_time = v.L / v.get_dim('c')  # Propagation time
     v.check_dims("Macroscopic time r/c", macro_time, v.T)
     
-    print("✓ Core timescale hierarchy verified")
+    v.success("Core timescale hierarchy verified")
 
 
 def test_hydrodynamic_form_and_quantum_pressure(v):
@@ -393,7 +393,7 @@ def test_hydrodynamic_form_and_quantum_pressure(v):
     expected_force_density = v.M / (v.L**3 * v.T**2)
     v.check_dims("Quantum pressure force density F_Q", F_Q, expected_force_density)
     
-    print("✓ Hydrodynamic form and quantum pressure verified")
+    v.success("Hydrodynamic form and quantum pressure verified")
 
 
 def test_twist_energy(v):
@@ -407,7 +407,7 @@ def test_twist_energy(v):
     target_energy_density = v.M / (v.L**2 * v.T**2)
     v.check_dims("Twist energy density", twist_energy_density, target_energy_density)
     
-    print("✓ Twist energy dimensional consistency verified")
+    v.success("Twist energy dimensional consistency verified")
 
 
 def test_bogoliubov_dispersion(v):
@@ -433,7 +433,7 @@ def test_bogoliubov_dispersion(v):
     total_dispersion = sound_term + dispersion_term
     v.check_dims("Total Bogoliubov omega^2", total_dispersion, target_freq_squared)
     
-    print("✓ Bogoliubov dispersion verified")
+    v.success("Bogoliubov dispersion verified")
 
 
 def test_landau_stability_bound(v):
@@ -449,7 +449,7 @@ def test_landau_stability_bound(v):
     v.check_dims("Bulk sound speed v_L", v.get_dim('v_L'), v.L / v.T)
     
     # This is a dimensionally consistent inequality (we just verify the dimensions match)
-    print("✓ Landau stability bound verified")
+    v.success("Landau stability bound verified")
 
 
 def test_energy_projection_mechanics(v):
@@ -473,7 +473,7 @@ def test_energy_projection_mechanics(v):
     window_integral = v.get_dim('chi_dimensionless') * v.get_dim('xi_c')
     v.check_dims("Window integral = xi_c", window_integral, v.get_dim('xi_c'))
     
-    print("✓ Energy projection mechanics verified")
+    v.success("Energy projection mechanics verified")
 
 
 def test_4d_to_3d_projection_mechanism():
@@ -499,14 +499,12 @@ def test_4d_to_3d_projection_mechanism():
     M) Landau stability (1 test)
     N) Energy projection mechanics (1 test)
     """
-    print("="*60)
-    print("Testing 4D->3D Projection Mechanism")
-    print("="*60)
-    
     v = PhysicsVerificationHelper(
         "4D->3D Projection Mechanism",
         "Dimensional checks for projection maps, continuity reduction, and circulation invariance"
     )
+    
+    v.section_header("Testing 4D->3D Projection Mechanism")
     
     # Register additional dimensions used by this subsection
     v.add_dimensions({
@@ -518,7 +516,7 @@ def test_4d_to_3d_projection_mechanism():
     })
     
     # A) 4D -> 3D continuity
-    print("\n--- A) 4D -> 3D continuity ---")
+    v.info("\n--- A) 4D -> 3D continuity ---")
     v.section("4D -> 3D continuity")
     test_4d_continuity_equation(v)
     test_delta_factorization_and_reduction(v)
@@ -526,7 +524,7 @@ def test_4d_to_3d_projection_mechanism():
     test_boundary_term_diagnostic(v)
     
     # B) Projection map definitions
-    print("\n--- B) Projection map definitions ---")
+    v.info("\n--- B) Projection map definitions ---")
     v.section("Projection maps")
     test_density_projection_map(v)
     test_current_projection_map(v)
@@ -534,13 +532,13 @@ def test_4d_to_3d_projection_mechanism():
     test_background_density_relation(v)
     
     # C) Discrete (P-6) viewpoint
-    print("\n--- C) Discrete (P-6) viewpoint ---")
+    v.info("\n--- C) Discrete (P-6) viewpoint ---")
     v.section("Discrete projection (P-6)")
     test_discrete_mass_deficit(v)
     test_discrete_consistency(v)
     
     # D) Circulation invariance & drainage
-    print("\n--- D) Circulation invariance & drainage ---")
+    v.info("\n--- D) Circulation invariance & drainage ---")
     v.section("Circulation invariance & drainage")
     test_circulation_velocity_formula(v)
     test_circulation_kernel_integrals(v)
@@ -548,60 +546,58 @@ def test_4d_to_3d_projection_mechanism():
     test_drainage_potential_property(v)
     
     # E) Optional diagnostics
-    print("\n--- E) Optional diagnostics ---")
+    v.info("\n--- E) Optional diagnostics ---")
     v.section("Diagnostics")
     test_boundary_induced_source_diagnostic(v)
     test_window_function_variants(v)
     
     # F) Gross-Pitaevskii energy functional
-    print("\n--- F) Gross-Pitaevskii energy functional ---")
+    v.info("\n--- F) Gross-Pitaevskii energy functional ---")
     v.section("GP energy functional")
     test_gp_energy_functional(v)
     
     # G) Core energy constants and mass template
-    print("\n--- G) Core energy constants and mass template ---")
+    v.info("\n--- G) Core energy constants and mass template ---")
     v.section("Core energy constants")
     test_core_energy_constants_and_mass_template(v)
     
     # H) Healing length and bulk sound speed
-    print("\n--- H) Healing length and bulk sound speed ---")
+    v.info("\n--- H) Healing length and bulk sound speed ---")
     v.section("Fundamental scale relations")
     test_healing_length_and_bulk_sound_speed(v)
     
     # I) Core timescale hierarchy
-    print("\n--- I) Core timescale hierarchy ---")
+    v.info("\n--- I) Core timescale hierarchy ---")
     v.section("Timescale hierarchy")
     test_core_timescale_hierarchy(v)
     
     # J) Hydrodynamic form and quantum pressure
-    print("\n--- J) Hydrodynamic form and quantum pressure ---")
+    v.info("\n--- J) Hydrodynamic form and quantum pressure ---")
     v.section("Hydrodynamic decomposition")
     test_hydrodynamic_form_and_quantum_pressure(v)
     
     # K) Twist energy
-    print("\n--- K) Twist energy ---")
+    v.info("\n--- K) Twist energy ---")
     v.section("Twist energy")
     test_twist_energy(v)
     
     # L) Bogoliubov dispersion
-    print("\n--- L) Bogoliubov dispersion ---")
+    v.info("\n--- L) Bogoliubov dispersion ---")
     v.section("Linear stability dispersion")
     test_bogoliubov_dispersion(v)
     
     # M) Landau stability
-    print("\n--- M) Landau stability ---")
+    v.info("\n--- M) Landau stability ---")
     v.section("Landau stability criterion")
     test_landau_stability_bound(v)
     
     # N) Energy projection mechanics
-    print("\n--- N) Energy projection mechanics ---")
+    v.info("\n--- N) Energy projection mechanics ---")
     v.section("Energy projection")
     test_energy_projection_mechanics(v)
     
     # Final summary
-    print("\n" + "="*60)
     v.summary()
-    print("="*60)
 
 
 if __name__ == "__main__":

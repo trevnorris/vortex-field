@@ -43,7 +43,7 @@ def test_mass_continuity_local_form(v):
     # Verify conservation law structure
     verify_conservation_law(v, "Mass continuity with drainage", lhs_rate, lhs_flux, rhs_sink)
     
-    print("check mark Local mass continuity verified")
+    v.success("Local mass continuity verified")
 
 
 def test_mass_continuity_linearized_form(v):
@@ -60,7 +60,7 @@ def test_mass_continuity_linearized_form(v):
     v.check_dims("Linearized mass: rho_0 div delta_v", lhs_flux_lin, target_mass_rate)
     v.check_dims("Linearized mass: sink term", rhs_sink_lin, target_mass_rate)
     
-    print("check mark Linearized mass continuity verified")
+    v.success("Linearized mass continuity verified")
 
 
 def test_global_mass_balance(v):
@@ -83,7 +83,7 @@ def test_global_mass_balance(v):
     v.check_dims("Global mass: surface flux", mass_flux_S, target_mass_flow)
     v.check_dims("Global mass: total sinks", total_sinks, target_mass_flow)
     
-    print("check mark Global mass balance verified")
+    v.success("Global mass balance verified")
 
 
 def test_momentum_balance_all_terms(v):
@@ -117,7 +117,7 @@ def test_momentum_balance_all_terms(v):
     for name, term in momentum_terms:
         v.check_dims(f"Momentum term: {name}", term, target_mom)
     
-    print("check mark Momentum balance all terms verified")
+    v.success("Momentum balance all terms verified")
 
 
 def test_global_momentum_balance(v):
@@ -137,7 +137,7 @@ def test_global_momentum_balance(v):
     v.check_dims("Global momentum: d/dt integral rho v dV", mom_rate_V, target_force)
     v.check_dims("Global momentum: surface flux", mom_flux_surface, target_force)
     
-    print("check mark Global momentum balance verified")
+    v.success("Global momentum balance verified")
 
 
 def test_energy_density_components(v):
@@ -162,7 +162,7 @@ def test_energy_density_components(v):
     for name, term in energy_components:
         v.check_dims(f"Energy density: {name}", term, target_edens)
     
-    print("check mark Energy density components verified")
+    v.success("Energy density components verified")
 
 
 def test_energy_flux_terms(v):
@@ -180,7 +180,7 @@ def test_energy_flux_terms(v):
     v.check_dims("Energy flux: convective (e+p)v", S_conv, target_eflux)
     v.check_dims("Energy flux: quantum S_Q", S_Q, target_eflux)
     
-    print("check mark Energy flux terms verified")
+    v.success("Energy flux terms verified")
 
 
 def test_local_energy_balance(v):
@@ -209,7 +209,7 @@ def test_local_energy_balance(v):
     for name, term in energy_balance_terms:
         v.check_dims(f"Energy balance: {name}", term, target_power_dens)
     
-    print("check mark Local energy balance verified")
+    v.success("Local energy balance verified")
 
 
 def test_global_energy_balance(v):
@@ -228,7 +228,7 @@ def test_global_energy_balance(v):
     v.check_dims("Global energy: d/dt integral e dV", E_rate_V, target_power)
     v.check_dims("Global energy: surface S dot dA", Surf_energy_flux, target_power)
     
-    print("check mark Global energy balance verified")
+    v.success("Global energy balance verified")
 
 
 def test_4d_3d_consistency(v):
@@ -243,7 +243,7 @@ def test_4d_3d_consistency(v):
     
     v.check_dims("4D to 3D consistency: integrated delta4", delta4_integrated, delta3_form)
     
-    print("check mark 4D to 3D consistency verified")
+    v.success("4D to 3D consistency verified")
 
 
 def test_noether_current_naming(v):
@@ -264,7 +264,7 @@ def test_noether_current_naming(v):
     S_energy = v.get_dim('S_flux')
     v.check_dims("Energy current S", S_energy, v.M / v.T**3)
     
-    print("check mark Noether current naming verified")
+    v.success("Noether current naming verified")
 
 
 def test_sanity_reductions_and_diagnostics(v):
@@ -272,19 +272,19 @@ def test_sanity_reductions_and_diagnostics(v):
     
     # 1) No drains -> standard conservation (diagnostic: should detect mismatch when comparing sink to 0)
     rhs_sink = v.get_dim('M_dot_i') * v.get_dim('delta3')
-    print("DIAGNOSTIC: Testing no-drain condition (should detect non-zero sink)...")
+    v.info("DIAGNOSTIC: Testing no-drain condition (should detect non-zero sink)...")
     ok_nodrain = v.check_dims("No-drain diagnostic", rhs_sink, 0, record=False, verbose=False)
-    quick_verify("Diagnostic: mass sink vanishes when M_dot=0", not ok_nodrain)
+    quick_verify("Diagnostic: mass sink vanishes when M_dot=0", not ok_nodrain, helper=v, expected_failure=True)
     
     # 2) Energy drain must include specific energy factor
     e_rate = v.dt(v.get_dim('e'))
     bad_drain = v.get_dim('M_dot_i') * v.get_dim('delta3')  # missing eps_spec
-    print("DIAGNOSTIC: Testing energy drain without specific energy (should be dimensionally wrong)...")
+    v.info("DIAGNOSTIC: Testing energy drain without specific energy (should be dimensionally wrong)...")
     ok_bad_drain = v.check_dims("Energy drain missing eps — diagnostic", 
                                 e_rate, bad_drain, record=False, verbose=False)
-    quick_verify("Caught: energy drain must include specific energy factor", not ok_bad_drain)
+    quick_verify("Caught: energy drain must include specific energy factor", not ok_bad_drain, helper=v, expected_failure=True)
     
-    print("check mark Sanity reductions and diagnostics verified")
+    v.success("Sanity reductions and diagnostics verified")
 
 
 def test_conservation_laws_and_aether_drainage():
@@ -298,15 +298,13 @@ def test_conservation_laws_and_aether_drainage():
     D) 4D<->3D consistency (1 test)
     E) Sanity/diagnostics (3 tests)
     """
-    print("="*80)
-    print("Testing Conservation Laws and Aether Drainage")
-    print("="*80)
-    
     v = PhysicsVerificationHelper(
         "Conservation Laws & Aether Drainage",
         "Mass, momentum, energy balances with sinks; local and global forms",
         unit_system=UnitSystem.SI
     )
+    
+    v.section_header("Testing Conservation Laws and Aether Drainage")
     
     # Register additional symbols needed for conservation laws
     v.add_dimensions({
@@ -343,20 +341,20 @@ def test_conservation_laws_and_aether_drainage():
     }, allow_overwrite=True)
     
     # A) Mass continuity with drainage (3D slice)
-    print("\n--- A) Mass continuity with drainage (3D slice) ---")
+    v.info("\n--- A) Mass continuity with drainage (3D slice) ---")
     v.section("Mass continuity with drainage (3D)")
     test_mass_continuity_local_form(v)
     test_mass_continuity_linearized_form(v)
     test_global_mass_balance(v)
     
     # B) Momentum balance with drainage and body forces  
-    print("\n--- B) Momentum balance with drainage and body forces ---")
+    v.info("\n--- B) Momentum balance with drainage and body forces ---")
     v.section("Momentum balance with drainage and body forces")
     test_momentum_balance_all_terms(v)
     test_global_momentum_balance(v)
     
     # C) Energy conservation with drainage
-    print("\n--- C) Energy conservation with drainage ---")
+    v.info("\n--- C) Energy conservation with drainage ---")
     v.section("Energy conservation with drainage")
     test_energy_density_components(v)
     test_energy_flux_terms(v)
@@ -364,20 +362,18 @@ def test_conservation_laws_and_aether_drainage():
     test_global_energy_balance(v)
     
     # D) 4D<->3D consistency
-    print("\n--- D) 4D<->3D consistency ---")
+    v.info("\n--- D) 4D<->3D consistency ---")
     v.section("4D->3D drainage consistency")
     test_4d_3d_consistency(v)
     
     # E) Noether-style current naming and sanity checks
-    print("\n--- E) Noether currents and sanity checks ---")
+    v.info("\n--- E) Noether currents and sanity checks ---")
     v.section("Noether currents and diagnostics")
     test_noether_current_naming(v)
     test_sanity_reductions_and_diagnostics(v)
     
     # Final summary
-    print("\n" + "="*80)
     v.summary()
-    print("="*80)
 
 
 if __name__ == "__main__":

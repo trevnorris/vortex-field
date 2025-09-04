@@ -27,9 +27,7 @@ from helper import (
     define_symbols_batch
 )
 
-# Configuration flags
-ENABLE_WEAK_DISPERSION = os.getenv("ENABLE_WEAK_DISPERSION", "0") == "1"  # Enable optional weak dispersion tests
-STRICT_DIAGNOSTICS = os.getenv("STRICT_DIAGNOSTICS", "0") == "1"  # Diagnostics fail suite
+# No configuration flags needed - all tests run unconditionally
 
 
 def test_bulk_tsunami_wave_equation(v):
@@ -45,7 +43,7 @@ def test_bulk_tsunami_wave_equation(v):
     source_term = v.get_dim('M_sink') * v.get_dim('delta4') * (v.T**-2)  # δ'(t) = T^-2
     v.check_dims("Bulk tsunami: LHS vs source", time_term, source_term)
     
-    print("check mark Bulk tsunami wave equation verified")
+    v.success("Bulk tsunami wave equation verified")
 
 
 def test_retarded_greens_function_solution(v):
@@ -61,7 +59,7 @@ def test_retarded_greens_function_solution(v):
     expected_greens = v.L**-4
     v.check_dims("Retarded Green's function G^ret_(4)", expected_greens, greens_dims)
     
-    print("check mark Retarded Green's function solution verified")
+    v.success("Retarded Green's function solution verified")
 
 
 def test_linear_dispersion_relation(v):
@@ -70,7 +68,7 @@ def test_linear_dispersion_relation(v):
     v.check_dims("Observable linear dispersion omega ~ v_eff k", 
                  v.get_dim('omega'), 
                  v.get_dim('v_eff') * v.get_dim('k'))
-    print("check mark Linear dispersion relation verified")
+    v.success("Linear dispersion relation verified")
 
 
 def test_group_vs_phase_velocity(v):
@@ -79,16 +77,12 @@ def test_group_vs_phase_velocity(v):
     v_g_dim = v.get_dim('omega') / v.get_dim('k')  # Derivative gives this ratio
     v.check_dims("Group velocity v_g = d_omega/dk", 
                  v.get_dim('v'), v_g_dim)
-    print("check mark Group velocity dimensionality verified")
+    v.success("Group velocity dimensionality verified")
 
 
 def test_weak_dispersion_corrections(v):
     """Test optional weak dispersion terms if enabled."""
-    if not ENABLE_WEAK_DISPERSION:
-        print("~ Weak dispersion tests disabled (ENABLE_WEAK_DISPERSION=False)")
-        return
-    
-    print("--- Optional weak dispersion corrections ---")
+    v.info("--- Weak dispersion corrections ---")
     
     # Variant A: omega^2 = v_eff^2 k^2 + beta k^4
     v.add_dimensions({'beta_disp': v.L**4 / (v.T**2)}, allow_overwrite=True)
@@ -110,7 +104,7 @@ def test_weak_dispersion_corrections(v):
     v_g_correction = v.get_dim('D_disp') * v.get_dim('k')
     v.check_dims("v_g correction: D k term", v.get_dim('v'), v_g_correction)
     
-    print("check mark Weak dispersion corrections verified")
+    v.success("Weak dispersion corrections verified")
 
 
 def test_dimensionless_phase_arguments(v):
@@ -123,7 +117,7 @@ def test_dimensionless_phase_arguments(v):
     eikonal_phase = v.get_dim('k') * v.get_dim('dl')  # dl = differential length element
     v.exp_dimless(eikonal_phase, where="WKB eikonal phase integral")
     
-    print("check mark Phase argument dimensionality verified")
+    v.success("Phase argument dimensionality verified")
 
 
 def test_ray_equations_consistency(v):
@@ -139,7 +133,7 @@ def test_ray_equations_consistency(v):
     expected_k_dot = (v.L**-1) * (v.T**-1)
     v.check_dims("Ray dk/dt = -nabla_x omega", expected_k_dot, k_dot_dim)
     
-    print("check mark Ray equations consistency verified")
+    v.success("Ray equations consistency verified")
 
 
 def test_wave_action_conservation(v):
@@ -153,7 +147,7 @@ def test_wave_action_conservation(v):
     flux_div = v.div_dim(v.get_dim('v') * action_density)  # v_g ~ v here
     
     verify_conservation_law(v, "Wave action conservation", lhs_rate, flux_div)
-    print("check mark Wave action conservation verified")
+    v.success("Wave action conservation verified")
 
 
 def test_action_flux_constancy(v):
@@ -164,7 +158,7 @@ def test_action_flux_constancy(v):
     
     v.check_dims("Action flux has energy dimensions",
                  v.get_dim('E_energy'), action_flux)
-    print("check mark Action flux constancy verified")
+    v.success("Action flux constancy verified")
 
 
 def test_amplitude_shoaling_law(v):
@@ -181,7 +175,7 @@ def test_amplitude_shoaling_law(v):
     
     v.check_dims("Shoaling: d ln A/ds ~ d ln(v Sigma)/ds", 
                  d_lnA_ds_dim, d_ln_vgSigma_ds_dim)
-    print("check mark Amplitude shoaling law verified")
+    v.success("Amplitude shoaling law verified")
 
 
 def test_geometric_focusing_coefficient(v):
@@ -189,7 +183,7 @@ def test_geometric_focusing_coefficient(v):
     # gamma_foc must have [L^-1] so that integral gamma_foc * ds is dimensionless
     v.check_dims("Focusing coefficient gamma_foc", 
                  v.L**-1, v.get_dim('gamma_foc'))
-    print("check mark Geometric focusing coefficient verified")
+    v.success("Geometric focusing coefficient verified")
 
 
 def test_attenuation_optical_depth(v):
@@ -205,7 +199,7 @@ def test_attenuation_optical_depth(v):
     alpha_integral = v.get_dim('alpha_att') * v.get_dim('L_scale')
     v.exp_dimless(alpha_integral, where="attenuation integral alpha_att * ds")
     
-    print("check mark Attenuation optical depth verified")
+    v.success("Attenuation optical depth verified")
 
 
 def test_energy_flux_bookkeeping(v):
@@ -218,7 +212,7 @@ def test_energy_flux_bookkeeping(v):
     
     v.check_dims("Power/length from attenuation",
                  expected_power_per_length, power_per_length)
-    print("check mark Energy flux bookkeeping verified")
+    v.success("Energy flux bookkeeping verified")
 
 
 def test_adiabatic_condition(v):
@@ -227,7 +221,7 @@ def test_adiabatic_condition(v):
     # [nabla n] / [k] = (L^-1 * 1) / (L^-1) = 1 (dimensionless)
     eps_ad_dim = (v.get_dim('nabla') * 1) / (1 * v.get_dim('k'))  # n is dimensionless
     v.assert_dimensionless(eps_ad_dim, "adiabaticity parameter")
-    print("check mark Adiabatic condition verified")
+    v.success("Adiabatic condition verified")
 
 
 def test_wave_steepness_parameter(v):
@@ -235,7 +229,7 @@ def test_wave_steepness_parameter(v):
     # Steepness: epsilon = k * eta = (L^-1) * (L) = 1 (dimensionless)
     steepness = v.get_dim('k') * v.get_dim('eta')
     v.assert_dimensionless(steepness, "wave steepness epsilon")
-    print("check mark Wave steepness parameter verified")
+    v.success("Wave steepness parameter verified")
 
 
 def test_nonlinear_steepening_time(v):
@@ -243,34 +237,26 @@ def test_nonlinear_steepening_time(v):
     # t_nl ~ 1/(epsilon * k * v_eff) = 1/((1) * (L^-1) * (L/T)) = T
     t_nl_dim = 1 / (1 * v.get_dim('k') * v.get_dim('v_eff'))  # epsilon = 1 (dimensionless)
     v.check_dims("Nonlinear steepening time t_nl", v.get_dim('t'), t_nl_dim)
-    print("check mark Nonlinear steepening time verified")
+    v.success("Nonlinear steepening time verified")
 
 
 def test_dispersion_time(v):
     """Test dispersion timescale (requires weak dispersion enabled)."""
-    if not ENABLE_WEAK_DISPERSION:
-        print("~ Dispersion time test requires ENABLE_WEAK_DISPERSION=True")
-        return
-        
     # t_disp ~ 1/(|D| * k^2) = 1/((L^2/T) * (L^-2)) = T
     t_disp_dim = 1 / (v.get_dim('D_disp') * (v.get_dim('k')**2))
     v.check_dims("Dispersion time t_disp", v.get_dim('t'), t_disp_dim)
-    print("check mark Dispersion time verified")
+    v.success("Dispersion time verified")
 
 
 def test_tsunami_criterion(v):
     """Test tsunami criterion t_nl << t_disp is dimensionally consistent."""
-    if not ENABLE_WEAK_DISPERSION:
-        print("~ Tsunami criterion test requires ENABLE_WEAK_DISPERSION=True")
-        return
-        
     # Ratio R = t_nl / t_disp should be dimensionless
     t_nl_dim = 1 / (1 * v.get_dim('k') * v.get_dim('v_eff'))
     t_disp_dim = 1 / (v.get_dim('D_disp') * (v.get_dim('k')**2))
     
     ratio_dim = t_nl_dim / t_disp_dim
     v.assert_dimensionless(ratio_dim, "tsunami criterion ratio t_nl/t_disp")
-    print("check mark Tsunami criterion verified")
+    v.success("Tsunami criterion verified")
 
 
 def test_shock_caustic_distance(v):
@@ -278,7 +264,7 @@ def test_shock_caustic_distance(v):
     # L_shock ~ 1/(epsilon * k) = 1/((1) * (L^-1)) = L
     L_shock_dim = 1 / (1 * v.get_dim('k'))  # epsilon = 1 (dimensionless)
     v.check_dims("Shock formation length L_shock", v.get_dim('L_scale'), L_shock_dim)
-    print("check mark Shock/caustic distance verified")
+    v.success("Shock/caustic distance verified")
 
 
 def test_vortex_circulation_velocity(v):
@@ -290,7 +276,7 @@ def test_vortex_circulation_velocity(v):
     circulation_velocity = v.get_dim('Gamma') / v.get_dim('r_4')
     v.check_dims("Vortex circulation velocity v_w = Gamma/(2πr₄)", 
                  v.get_dim('v'), circulation_velocity)
-    print("check mark Vortex circulation velocity verified")
+    v.success("Vortex circulation velocity verified")
 
 
 def test_sink_strength_formula(v):
@@ -303,7 +289,7 @@ def test_sink_strength_formula(v):
     sink_strength = v.get_dim('rho_4_bg') * v.get_dim('Gamma') * (v.get_dim('xi')**2)
     v.check_dims("Sink strength M_dot = rho_4D * Gamma * xi²", 
                  v.get_dim('M_dot_i'), sink_strength)
-    print("check mark Sink strength formula verified")
+    v.success("Sink strength formula verified")
 
 
 def test_energy_barrier_formula(v):
@@ -322,7 +308,7 @@ def test_energy_barrier_formula(v):
     length_ratio = v.get_dim('L_scale') / v.get_dim('xi')
     v.assert_dimensionless(length_ratio, "ln argument L/xi")
     
-    print("check mark Energy barrier formula verified")
+    v.success("Energy barrier formula verified")
 
 
 def test_continuity_with_sinks(v):
@@ -334,13 +320,13 @@ def test_continuity_with_sinks(v):
     
     verify_conservation_law(v, "Mass continuity with sinks", 
                           rho_rate, mass_flux_div, -sink_term)
-    print("check mark Continuity with sinks verified")
+    v.success("Continuity with sinks verified")
 
 
 def test_asymptotic_edge_limits(v):
     """Test asymptotic limits: uniform medium and strong focusing."""
     # Uniform medium: d(v_g * Sigma)/ds = 0 => dA/ds = 0
-    print("check mark Uniform medium limit: dA/ds = 0 when d(v_g Sigma)/ds = 0")
+    v.info("Uniform medium limit: dA/ds = 0 when d(v_g Sigma)/ds = 0")
     
     # Strong focusing caustic: Sigma -> 0+ => A -> infinity
     Sigma = symbols('Sigma', positive=True)
@@ -348,12 +334,12 @@ def test_asymptotic_edge_limits(v):
     
     # Check limit behavior: A -> oo as Sigma -> 0+
     v.check_limit("Amplitude diverges as Sigma -> 0+", A_expr, Sigma, 0, oo)
-    print("check mark Strong focusing caustic limit verified")
+    v.success("Strong focusing caustic limit verified")
 
 
 def test_diagnostic_transcendental_args(v):
     """Diagnostic: test transcendental argument validation catches errors."""
-    print("DIAGNOSTIC: Testing non-dimensionless phase argument (should catch error)...")
+    v.info("DIAGNOSTIC: Testing non-dimensionless phase argument (should catch error)...")
     
     # BAD on purpose: phase with leftover units k (missing spatial coordinate)
     bad_phase = v.get_dim('k')  # Missing multiplication by x coordinate
@@ -361,19 +347,17 @@ def test_diagnostic_transcendental_args(v):
     try:
         v.exp_dimless(bad_phase, where="diagnostic: bad phase")
         # Should not reach here - if we do, the test failed to catch the error
-        if not STRICT_DIAGNOSTICS:
-            quick_verify("Diagnostic should have caught: phase argument must be dimensionless", False)
+        quick_verify("Diagnostic should have caught: phase argument must be dimensionless", False, helper=v, expected_failure=True)
     except Exception:
         # Expected - exp_dimless should reject non-dimensionless argument
-        if not STRICT_DIAGNOSTICS:
-            quick_verify("Diagnostic caught: phase argument must be dimensionless", True)
+        quick_verify("Diagnostic caught: phase argument must be dimensionless", True, helper=v)
     
-    print("check mark Diagnostic: transcendental argument validation working")
+    v.success("Diagnostic: transcendental argument validation working")
 
 
 def test_diagnostic_focusing_units(v):
     """Diagnostic: test focusing coefficient unit validation."""
-    print("DIAGNOSTIC: Testing wrong units for focusing coefficient (should catch error)...")
+    v.info("DIAGNOSTIC: Testing wrong units for focusing coefficient (should catch error)...")
     
     # BAD on purpose: alpha with dimensionless units instead of L^-1
     v.declare_dimensionless('alpha_BAD')
@@ -382,23 +366,17 @@ def test_diagnostic_focusing_units(v):
     try:
         v.exp_dimless(bad_exponent, where="diagnostic: alpha wrong units")
         # Should not reach here - dimensionless * length is not dimensionless
-        if not STRICT_DIAGNOSTICS:
-            quick_verify("Diagnostic should have caught: alpha must have L^-1 units", False)
+        quick_verify("Diagnostic should have caught: alpha must have L^-1 units", False, helper=v, expected_failure=True)
     except Exception:
         # Expected - exp_dimless should reject non-dimensionless argument
-        if not STRICT_DIAGNOSTICS:
-            quick_verify("Diagnostic caught: alpha must have L^-1 units", True)
+        quick_verify("Diagnostic caught: alpha must have L^-1 units", True, helper=v)
     
-    print("check mark Diagnostic: focusing coefficient unit validation working")
+    v.success("Diagnostic: focusing coefficient unit validation working")
 
 
 def test_diagnostic_weak_dispersion_units(v):
     """Diagnostic: test weak dispersion coefficient unit validation (if enabled)."""
-    if not ENABLE_WEAK_DISPERSION:
-        print("~ Dispersion diagnostic requires ENABLE_WEAK_DISPERSION=True")
-        return
-        
-    print("DIAGNOSTIC: Testing wrong dispersion coefficient units (should catch error)...")
+    v.info("DIAGNOSTIC: Testing wrong dispersion coefficient units (should catch error)...")
     
     # BAD on purpose: D with wrong dimensions (time instead of L^2/T)
     v.add_dimensions({'D_BAD': v.T}, allow_overwrite=True)
@@ -406,9 +384,8 @@ def test_diagnostic_weak_dispersion_units(v):
     ok = v.check_dims("diagnostic: D wrong units", v.get_dim('omega'), bad_disp_term, 
                      record=False, verbose=False)
     
-    if not STRICT_DIAGNOSTICS:
-        quick_verify("Diagnostic caught: D must have L^2/T units", not ok)
-    print("check mark Diagnostic: dispersion coefficient unit validation working")
+    quick_verify("Diagnostic caught: D must have L^2/T units", not ok, helper=v, expected_failure=True)
+    v.success("Diagnostic: dispersion coefficient unit validation working")
 
 
 def test_the_tsunami_principle():
@@ -431,15 +408,13 @@ def test_the_tsunami_principle():
     
     Total: 30 rigorous tests of actual paper mathematics
     """
-    print("="*70)
-    print("Testing The Tsunami Principle")
-    print("="*70)
-    
     v = PhysicsVerificationHelper(
         "The Tsunami Principle",
         "Long-wave amplification, transport, ray optics, and steepening vs dispersion",
         unit_system=UnitSystem.SI
     )
+    
+    v.section_header("Testing The Tsunami Principle")
     
     # Define symbolic coordinates
     t, x, s = define_symbols_batch(['t', 'x', 's'], real=True)  # s = ray arclength
@@ -463,7 +438,7 @@ def test_the_tsunami_principle():
     v.declare_dimensionless('A_ref', 'epsilon', 'alpha_BAD')
     
     # A) Core physics from the paper: bulk tsunami wave equation
-    print("\n--- A) Core Bulk Tsunami Physics (from paper) ---")
+    v.info("\n--- A) Core Bulk Tsunami Physics (from paper) ---")
     v.section("Bulk tsunami wave equation and retarded solutions")
     test_bulk_tsunami_wave_equation(v)
     test_retarded_greens_function_solution(v)
@@ -472,13 +447,13 @@ def test_the_tsunami_principle():
     test_weak_dispersion_corrections(v)
     
     # B) Ray/WKB eikonal structure
-    print("\n--- B) Ray/WKB eikonal structure ---")
+    v.info("\n--- B) Ray/WKB eikonal structure ---")
     v.section("Phase arguments and ray equations")
     test_dimensionless_phase_arguments(v)
     test_ray_equations_consistency(v)
     
     # C) Transport and tsunami amplification mechanisms
-    print("\n--- C) Transport and tsunami amplification mechanisms ---")
+    v.info("\n--- C) Transport and tsunami amplification mechanisms ---")
     v.section("Wave action conservation and focusing")
     test_wave_action_conservation(v)
     test_action_flux_constancy(v)
@@ -489,7 +464,7 @@ def test_the_tsunami_principle():
     test_adiabatic_condition(v)
     
     # D) Nonlinearity vs dispersion
-    print("\n--- D) Nonlinearity vs dispersion ---")
+    v.info("\n--- D) Nonlinearity vs dispersion ---")
     v.section("Steepening timescales and tsunami criterion")
     test_wave_steepness_parameter(v)
     test_nonlinear_steepening_time(v)
@@ -498,7 +473,7 @@ def test_the_tsunami_principle():
     test_shock_caustic_distance(v)
     
     # E) Vortex drainage mechanics (from paper)
-    print("\n--- E) Vortex Drainage Mechanics (from paper) ---")
+    v.info("\n--- E) Vortex Drainage Mechanics (from paper) ---")
     v.section("Circulation, sink strength, and energy barriers")
     test_vortex_circulation_velocity(v)
     test_sink_strength_formula(v) 
@@ -507,20 +482,17 @@ def test_the_tsunami_principle():
     test_asymptotic_edge_limits(v)
     
     # Diagnostic tests
-    print("\n--- Diagnostic Tests ---")
+    v.info("\n--- Diagnostic Tests ---")
     v.section("Framework validation (intentional failures)")
     test_diagnostic_transcendental_args(v)
     test_diagnostic_focusing_units(v)
     test_diagnostic_weak_dispersion_units(v)
     
     # Final summary
-    print("\n" + "="*70)
     v.summary()
-    print("="*70)
     
     # Configuration summary
-    print(f"\nConfiguration: ENABLE_WEAK_DISPERSION={ENABLE_WEAK_DISPERSION}")
-    print(f"Configuration: STRICT_DIAGNOSTICS={STRICT_DIAGNOSTICS}")
+    # All tests now run unconditionally
 
 
 if __name__ == "__main__":

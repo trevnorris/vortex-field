@@ -40,7 +40,7 @@ def test_small_parameters_dimensionless(v):
     # Additional small parameters mentioned in the text
     v.assert_dimensionless(v.get_dim('omega')*v.L/v.get_dim('c'), "epsilon_omega")
 
-    print("✓ Small parameters verified as dimensionless")
+    v.success("Small parameters verified as dimensionless")
 
 
 def test_order_magnitude_anchors(v):
@@ -57,7 +57,7 @@ def test_order_magnitude_anchors(v):
     v.assert_dimensionless(xi_over_L, "xi/L anchor check")
     v.assert_dimensionless(v_over_c, "v/c anchor check")
 
-    print("✓ Order-of-magnitude anchors verified")
+    v.success("Order-of-magnitude anchors verified")
 
 
 def test_slice_projection_density(v):
@@ -68,7 +68,7 @@ def test_slice_projection_density(v):
         v.get_dim('rho'),
         v.get_dim('rho_4') * v.get_dim('w')
     )
-    print("✓ Slice projection of density verified")
+    v.success("Slice projection of density verified")
 
 
 def test_delta_function_reduction(v):
@@ -79,7 +79,7 @@ def test_delta_function_reduction(v):
         v.get_dim('delta3'),
         v.get_dim('delta4') * v.get_dim('w')
     )
-    print("✓ Delta-function reduction verified")
+    v.success("Delta-function reduction verified")
 
 
 def test_background_density_relation(v):
@@ -90,7 +90,7 @@ def test_background_density_relation(v):
         v.get_dim('rho_0'),
         v.get_dim('rho_4_bg') * v.get_dim('xi')
     )
-    print("✓ Background density relation verified")
+    v.success("Background density relation verified")
 
 
 def test_core_symbols_dimensions(v):
@@ -128,7 +128,7 @@ def test_core_symbols_dimensions(v):
     v.check_dims("v_L bulk velocity", v.get_dim('v_L'), expected_velocity)
     v.check_dims("v_eff effective velocity", v.get_dim('v_eff'), expected_velocity)
 
-    print("✓ Core symbol dimensions verified")
+    v.success("Core symbol dimensions verified")
 
 
 def test_projected_em_placeholders(v):
@@ -145,7 +145,7 @@ def test_projected_em_placeholders(v):
     v.check_dims("A_proj vector potential", v.get_dim('A_proj'), 1/v.L)
     v.check_dims("F_munu field strength", v.get_dim('F_munu'), 1/v.T)
 
-    print("✓ Projected EM placeholders added and verified")
+    v.success("Projected EM placeholders added and verified")
 
 
 def test_full_4d_continuity(v):
@@ -157,7 +157,7 @@ def test_full_4d_continuity(v):
     source = v.get_dim('M_dot_i') * v.get_dim('delta4')
 
     verify_conservation_law(v, "4D continuity with sinks", density_rate, flux_div, source)
-    print("✓ Full 4D continuity verified")
+    v.success("Full 4D continuity verified")
 
 
 def test_linearized_continuity(v):
@@ -169,7 +169,7 @@ def test_linearized_continuity(v):
     source_lin = v.get_dim('M_dot_i') * v.get_dim('delta4')
 
     verify_conservation_law(v, "Linearized 4D continuity", density_rate_lin, flux_div_lin, source_lin)
-    print("✓ Linearized continuity verified")
+    v.success("Linearized continuity verified")
 
 
 def test_linearized_euler(v):
@@ -187,7 +187,7 @@ def test_linearized_euler(v):
     v.check_dims("Euler: LHS vs pressure term", lhs, rhs_1)
     v.check_dims("Euler: LHS vs quantum-pressure term", lhs, rhs_2)
 
-    print("✓ Linearized Euler verified")
+    v.success("Linearized Euler verified")
 
 
 def test_density_wave_equation(v):
@@ -207,7 +207,7 @@ def test_density_wave_equation(v):
     verify_wave_equation(v, "delta_rho wave (sink)", time_term, space_term, src_sink)
     verify_wave_equation(v, "delta_rho wave (Q)", time_term, space_term, src_Q)
 
-    print("✓ Density wave equation verified")
+    v.success("Density wave equation verified")
 
 
 def test_helmholtz_formulation(v):
@@ -218,13 +218,13 @@ def test_helmholtz_formulation(v):
     v.check_dims("Helmholtz with chi", v.div_dim(v.get_dim('v')), v.lap_dim(v.get_dim('Phi_4D')))
 
     # DIAGNOSTIC: Phi_g variant should mismatch (intentional test of wrong potential)
-    print("🔍 DIAGNOSTIC: Testing Phi_g as velocity potential (should be dimensionally inconsistent)...")
+    v.debug("DIAGNOSTIC: Testing Phi_g as velocity potential (should be dimensionally inconsistent)...")
     ok = v.check_dims("Helmholtz with Phig — diagnostic",
                       v.div_dim(v.get_dim('v')), v.lap_dim(v.get_dim('Phi_g')),
                       record=False, verbose=False)
-    quick_verify("Diagnostic caught: Phi_g is not a velocity potential", not ok)
+    quick_verify("Diagnostic caught: Phi_g is not a velocity potential", not ok, helper=v)
 
-    print("✓ Helmholtz formulation verified (with diagnostic)")
+    v.success("Helmholtz formulation verified (with diagnostic)")
 
 
 def test_scalar_potential_waves(v):
@@ -243,20 +243,20 @@ def test_scalar_potential_waves(v):
                         src_phig_sinks)
 
     # 3) DIAGNOSTIC: Test what happens when time derivative is missing from source
-    print("🔍 DIAGNOSTIC: Testing Phi_g wave source without time derivative (should be dimensionally wrong)...")
+    v.debug("DIAGNOSTIC: Testing Phi_g wave source without time derivative (should be dimensionally wrong)...")
     bad_src = v.get_dim('v_eff')**2 * (v.get_dim('M_dot_i')/v.get_dim('rho_4_bg')) * v.get_dim('delta4')
     ok = v.check_dims("Phig wave (missing dt) — diagnostic",
                       v.dtt(v.get_dim('Phi_g')), bad_src, record=False, verbose=False)
-    quick_verify("Diagnostic caught: Phi_g source needs dt", not ok)
+    quick_verify("Diagnostic caught: Phi_g source needs dt", not ok, helper=v)
 
     # 4) DIAGNOSTIC: Test Q-term without proper prefactor
-    print("🔍 DIAGNOSTIC: Testing Q-term without correct prefactor (should be dimensionally wrong)...")
+    v.debug("DIAGNOSTIC: Testing Q-term without correct prefactor (should be dimensionally wrong)...")
     src_phig_Q_wrong = v.get_dim('v_eff')**2 * v.lap_dim(v.get_dim('Q')) / v.get_dim('rho_4_bg')
     ok = v.check_dims("Phig wave Q-term — diagnostic",
                       v.dtt(v.get_dim('Phi_g')), src_phig_Q_wrong, record=False, verbose=False)
-    quick_verify("Diagnostic caught: Phi_g Q-term needs a prefactor to match LHS", not ok)
+    quick_verify("Diagnostic caught: Phi_g Q-term needs a prefactor to match LHS", not ok, helper=v)
 
-    print("✓ Scalar potential waves verified (with diagnostics)")
+    v.success("Scalar potential waves verified (with diagnostics)")
 
 
 def test_barotropic_eos_relations(v):
@@ -283,7 +283,7 @@ def test_barotropic_eos_relations(v):
     bulk_sound_squared = v.get_dim('g_GP_4D') * v.get_dim('rho_4_bg') / (v.get_dim('m')**2)
     v.check_dims("Bulk sound: v_L² = gρ₄D⁰/m²", v.get_dim('v_L')**2, bulk_sound_squared)
 
-    print("✓ Barotropic EOS relations verified")
+    v.success("Barotropic EOS relations verified")
 
 
 def test_sink_strength_definition(v):
@@ -296,7 +296,7 @@ def test_sink_strength_definition(v):
     kappa_from_planck = 2 * pi * v.get_dim('hbar') / v.get_dim('m')
     v.check_dims("Circulation quantum: κ = 2πℏ/m", v.get_dim('kappa'), kappa_from_planck)
 
-    print("✓ Sink strength definition verified")
+    v.success("Sink strength definition verified")
 
 
 def test_kelvin_wave_dispersion(v):
@@ -325,7 +325,7 @@ def test_kelvin_wave_dispersion(v):
     dispersion_rhs = v.get_dim('c')**2 * v.get_dim('k')**2 + v.get_dim('omega')**2  # Use omega for both terms
     v.check_dims("Kelvin dispersion: ω² = c²k² + ω₀²", dispersion_lhs, dispersion_rhs)
 
-    print("✓ Kelvin wave dispersion verified")
+    v.success("Kelvin wave dispersion verified")
 
 
 def test_helmholtz_decomposition_4d(v):
@@ -353,7 +353,7 @@ def test_helmholtz_decomposition_4d(v):
 
     # Note: ∇·(∇×B)=0 identity test omitted for 4D (curl gives rank-2 tensor)
 
-    print("✓ 4D Helmholtz decomposition verified")
+    v.success("4D Helmholtz decomposition verified")
 
 
 def test_field_equation_framework(v):
@@ -385,12 +385,12 @@ def test_field_equation_framework(v):
     v.check_dims("Eddy B field: ∇×A", b_eddy, v.get_dim('B_field'))
     v.check_dims("Eddy E field: ∂_t A", e_eddy, v.get_dim('E_field'))
 
-    print("✓ Field equation framework verified")
+    v.success("Field equation framework verified")
 
 
 def test_twist_vorticity_coupling(v):
     """Test twist-vorticity coupling: ∇₄×v₄ = Ω₀ + (τc)n from paper line ~452."""
-    print("🔍 Testing twist-vorticity coupling from paper lines 452-453")
+    v.debug("Testing twist-vorticity coupling from paper lines 452-453")
 
     # Add twist-related dimensions
     if 'tau_twist' not in v.dims:
@@ -422,7 +422,7 @@ def test_twist_vorticity_coupling(v):
     v.assert_dimensionless(phase_geometric, "geometric phase nφ")
     v.assert_dimensionless(phase_twist, "twist phase τw")
 
-    print("✓ Twist-vorticity coupling verified")
+    v.success("Twist-vorticity coupling verified")
 
 
 def test_dimensional_verification_boxes(v):
@@ -451,7 +451,7 @@ def test_dimensional_verification_boxes(v):
     pressure_gradient = v.grad_dim(v.get_dim('P_4D')) / v.get_dim('rho_4')
     v.check_dims("Euler RHS: ∇₄P/ρ₄D", pressure_gradient, expected_euler_lhs)
 
-    print("✓ Dimensional verification boxes confirmed")
+    v.success("Dimensional verification boxes confirmed")
 
 
 def test_bulk_vs_surface_wave_separation(v):
@@ -481,7 +481,7 @@ def test_bulk_vs_surface_wave_separation(v):
     light_distance = v.get_dim('c') * v.get_dim('t')
     v.check_dims("Causality: bulk vs light distances", retardation_check, light_distance)
 
-    print("✓ Bulk vs surface wave separation verified")
+    v.success("Bulk vs surface wave separation verified")
 
 
 def test_static_limits_and_causality(v):
@@ -510,7 +510,7 @@ def test_static_limits_and_causality(v):
     causal_ordering = v.get_dim('v_L') / v.get_dim('c')  # >> 1 but finite
     v.assert_dimensionless(causal_ordering, "causal ordering v_L/c")
 
-    print("✓ Static limits and causality verified")
+    v.success("Static limits and causality verified")
 
 
 def test_motivation_regime_validity_conventions():
@@ -532,40 +532,40 @@ def test_motivation_regime_validity_conventions():
     L) NEW: Dimensional verification boxes (1 test)
     M) NEW: Scale separation & causality (2 tests)
     """
-    print("="*80)
-    print("COMPREHENSIVE Testing: Motivation, Regime of Validity, and Conventions")
-    print("="*80)
-
     v = PhysicsVerificationHelper("Section 2.x: Motivation/Validity/Conventions [COMPREHENSIVE]")
+    
+    v.info("="*80)
+    v.info("COMPREHENSIVE Testing: Motivation, Regime of Validity, and Conventions")
+    v.info("="*80)
 
     # Declare small parameters as dimensionless for transcendental use
     v.declare_dimensionless('epsilon_xi', 'epsilon_v', 'beta', 'scale_sep_factor')
 
     # A) Regime-of-validity & asymptotics
-    print("\n--- A) Regime-of-validity & asymptotics ---")
+    v.section_header("A) Regime-of-validity & asymptotics")
     test_small_parameters_dimensionless(v)
     test_order_magnitude_anchors(v)
     test_bulk_vs_surface_wave_separation(v)  # NEW
     test_static_limits_and_causality(v)      # NEW
 
     # B) 4D->3D projection & distributions
-    print("\n--- B) 4D->3D projection & distributions ---")
+    v.section_header("B) 4D->3D projection & distributions")
     test_slice_projection_density(v)
     test_delta_function_reduction(v)
     test_background_density_relation(v)
 
     # C) Units / symbol verification
-    print("\n--- C) Units / symbol verification ---")
+    v.section_header("C) Units / symbol verification")
     test_core_symbols_dimensions(v)
     test_projected_em_placeholders(v)
 
     # D) Notation & conventions (noted in comments)
-    print("\n--- D) Notation & conventions ---")
-    print("✓ Metric signature (-,+,+,+) noted as convention")
-    print("✓ 4-potential convention A^mu_EM = (-Phi_Slope/c, A_EM) noted")
+    v.section_header("D) Notation & conventions")
+    v.info("✓ Metric signature (-,+,+,+) noted as convention")
+    v.info("✓ 4-potential convention A^mu_EM = (-Phi_Slope/c, A_EM) noted")
 
     # E) Aether-equation linearization & wave equations (ORIGINAL)
-    print("\n--- E) Aether equations & wave equations ---")
+    v.section_header("E) Aether equations & wave equations")
     test_full_4d_continuity(v)
     test_linearized_continuity(v)
     test_linearized_euler(v)
@@ -574,31 +574,31 @@ def test_motivation_regime_validity_conventions():
     test_scalar_potential_waves(v)
 
     # F) NEW: Fundamental EOS and pressure relations
-    print("\n--- F) Barotropic EOS & pressure relations ---")
+    v.section_header("F) Barotropic EOS & pressure relations")
     test_barotropic_eos_relations(v)
 
     # G) NEW: Sink strength and circulation quantization
-    print("\n--- G) Sink strength & circulation quantization ---")
+    v.section_header("G) Sink strength & circulation quantization")
     test_sink_strength_definition(v)
 
     # H) NEW: Kelvin wave physics
-    print("\n--- H) Kelvin wave dispersion & vortex dynamics ---")
+    v.section_header("H) Kelvin wave dispersion & vortex dynamics")
     test_kelvin_wave_dispersion(v)
 
     # I) NEW: 4D Helmholtz decomposition
-    print("\n--- I) 4D Helmholtz decomposition ---")
+    v.section_header("I) 4D Helmholtz decomposition")
     test_helmholtz_decomposition_4d(v)
 
     # J) NEW: Field equation framework from paper
-    print("\n--- J) Field equation framework ---")
+    v.section_header("J) Field equation framework")
     test_field_equation_framework(v)
 
     # K) NEW: Twist-vorticity coupling
-    print("\n--- K) Twist-vorticity coupling ---")
+    v.section_header("K) Twist-vorticity coupling")
     test_twist_vorticity_coupling(v)
 
     # L) NEW: Explicit dimensional verification boxes from paper
-    print("\n--- L) Paper dimensional verification boxes ---")
+    v.section_header("L) Paper dimensional verification boxes")
     test_dimensional_verification_boxes(v)
 
     # Final summary

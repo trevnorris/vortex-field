@@ -39,7 +39,7 @@ def test_small_parameters_dimensionless(v):
     # epsilon_rho = delta_rho/rho_0
     v.assert_dimensionless(v.get_dim('rho')/v.get_dim('rho_0'), "epsilon_rho (delta_rho/rho_0)")
     
-    print("✓ Small parameters verified as dimensionless")
+    v.success("Small parameters verified as dimensionless")
 
 
 def test_dalembert_consistency(v):
@@ -49,7 +49,7 @@ def test_dalembert_consistency(v):
     space_term = v.lap_dim(v.get_dim('A_mu'))
     
     v.check_dims("Box A^mu: time vs space pieces", time_term, space_term)
-    print("✓ d'Alembertian consistency verified")
+    v.success("d'Alembertian consistency verified")
 
 
 def test_maxwell_wave_equation_SI(v):
@@ -59,7 +59,7 @@ def test_maxwell_wave_equation_SI(v):
     rhs_SI = v.get_dim('mu_0') * v.get_dim('J_mu')
     
     v.check_dims("Wave eq (SI): Box A vs mu0 J", box_A, rhs_SI)
-    print("✓ SI Maxwell wave equation verified")
+    v.success("SI Maxwell wave equation verified")
 
 
 def test_gaussian_wave_equation_diagnostic(v):
@@ -68,11 +68,11 @@ def test_gaussian_wave_equation_diagnostic(v):
     box_A = v.lap_dim(v.get_dim('A_mu'))
     bad_rhs = (4*pi / v.get_dim('c')) * v.get_dim('J_mu')
     
-    print("🔍 DIAGNOSTIC: Testing (4pi/c)J^mu in SI units (should be dimensionally wrong)...")
+    v.info("🔍 DIAGNOSTIC: Testing (4pi/c)J^mu in SI units (should be dimensionally wrong)...")
     ok = v.check_dims("Diagnostic: Box A vs (4pi/c)J (SI units) should mismatch",
                       box_A, bad_rhs, record=False, verbose=False)
-    quick_verify("Caught unit-system drift: (4pi/c) needs Gaussian/HL conventions, not SI", not ok)
-    print("✓ Diagnostic caught: Gaussian form incompatible with SI")
+    quick_verify("Caught unit-system drift: (4pi/c) needs Gaussian/HL conventions, not SI", not ok, helper=v, expected_failure=True)
+    v.success("Diagnostic caught: Gaussian form incompatible with SI")
 
 
 def test_lorenz_gauge_condition(v):
@@ -82,7 +82,7 @@ def test_lorenz_gauge_condition(v):
     
     # Compare to 0 (helper treats this dimension-agnostically)
     v.check_dims("Lorenz gauge div A has well-defined unit", gauge_term, 0)
-    print("✓ Lorenz gauge condition verified")
+    v.success("Lorenz gauge condition verified")
 
 
 def test_em_invariant_I1(v):
@@ -92,7 +92,7 @@ def test_em_invariant_I1(v):
     E_term = (v.get_dim('E')**2) / (v.get_dim('c')**2)
     
     v.check_dims("I1: B^2 vs E^2/c^2", B_squared, E_term)
-    print("✓ EM invariant I_1 verified")
+    v.success("EM invariant I_1 verified")
 
 
 def test_em_invariant_I2(v):
@@ -102,7 +102,7 @@ def test_em_invariant_I2(v):
     B_squared = v.get_dim('B')**2
     
     v.check_dims("I2: (E dot B)/c carries same units as B^2", EB_over_c, B_squared)
-    print("✓ EM invariant I_2 verified")
+    v.success("EM invariant I_2 verified")
 
 
 def test_michelson_morley_timing_units(v):
@@ -112,7 +112,7 @@ def test_michelson_morley_timing_units(v):
     
     v.check_dims("t_parallel has [T]", t_leading, v.T)
     v.check_dims("t_perp has [T]", t_leading, v.T)
-    print("✓ Michelson-Morley timing units verified")
+    v.success("Michelson-Morley timing units verified")
 
 
 def test_michelson_morley_leading_order_cancellation(v):
@@ -126,8 +126,8 @@ def test_michelson_morley_leading_order_cancellation(v):
     expr_perp = t_base * (1 + Rational(1,2)*beta**2)
     
     difference = simplify(expr_parallel - expr_perp)
-    quick_verify("t_parallel - t_perp (shown terms) cancels exactly", difference == 0)
-    print("✓ Leading-order MM cancellation verified")
+    quick_verify("t_parallel - t_perp (shown terms) cancels exactly", difference == 0, helper=v)
+    v.success("Leading-order MM cancellation verified")
 
 
 def test_michelson_morley_higher_order_estimate(v):
@@ -142,9 +142,9 @@ def test_michelson_morley_higher_order_estimate(v):
     
     # Check that estimate is close to expected order of magnitude
     quick_verify("Delta t ~ 1e-23 s (with L=11m, beta=1e-4)",
-                 abs(delta_t_est - expected_order) < 5e-24)
+                 abs(delta_t_est - expected_order) < 5e-24, helper=v)
     
-    print(f"✓ MM higher-order estimate: Delta t ≈ {delta_t_est:.1e} s")
+    v.info(f"MM higher-order estimate: Delta t ≈ {delta_t_est:.1e} s")
 
 
 def test_em_gem_potential_separation(v):
@@ -156,13 +156,13 @@ def test_em_gem_potential_separation(v):
     A_gem_dim = v.get_dim('Ag_mu')
     
     quick_verify("A_mu (EM) and Ag_mu (GEM) have different units",
-                 A_em_dim != A_gem_dim)
-    print("✓ EM/GEM potential separation verified")
+                 A_em_dim != A_gem_dim, helper=v)
+    v.success("EM/GEM potential separation verified")
 
 
 def test_metric_signature_convention(v):
     """Note metric signature convention (no dimensional check needed)."""
-    print("✓ Metric signature eta_mu_nu = diag(-,+,+,+) noted as convention")
+    v.info("Metric signature eta_mu_nu = diag(-,+,+,+) noted as convention")
 
 
 def test_resolution_preferred_frame_problem():
@@ -176,25 +176,23 @@ def test_resolution_preferred_frame_problem():
     D) Michelson-Morley timing (3 tests)
     E) Conventions separation (2 tests)
     """
-    print("="*70)
-    print("Testing Resolution of the Preferred Frame Problem")
-    print("="*70)
-    
     v = PhysicsVerificationHelper(
         "Preferred Frame – Resolution",
         "Dimensional checks for small parameters, Maxwell/Lorenz, invariants, and MM estimates",
         unit_system=UnitSystem.SI
     )
     
+    v.section_header("Testing Resolution of the Preferred Frame Problem")
+    
     # Declare dimensionless parameters for transcendental/series use
     v.declare_dimensionless('epsilon_v', 'epsilon_Phi_g', 'epsilon_xi', 'epsilon_rho', 'beta')
     
     # A) Small parameters dimensionless verification
-    print("\n--- A) Small parameters dimensionless verification ---")
+    v.info("\n--- A) Small parameters dimensionless verification ---")
     test_small_parameters_dimensionless(v)
     
     # B) Lorenz-gauge Maxwell wave equation
-    print("\n--- B) Lorenz-gauge Maxwell wave equation ---")
+    v.info("\n--- B) Lorenz-gauge Maxwell wave equation ---")
     v.section("Lorenz-gauge wave equation and gauge condition")
     test_dalembert_consistency(v)
     test_maxwell_wave_equation_SI(v)
@@ -202,28 +200,26 @@ def test_resolution_preferred_frame_problem():
     test_lorenz_gauge_condition(v)
     
     # C) Lorentz invariants (EM)
-    print("\n--- C) Lorentz invariants (EM) ---")
+    v.info("\n--- C) Lorentz invariants (EM) ---")
     v.section("Lorentz invariants (EM)")
     test_em_invariant_I1(v)
     test_em_invariant_I2(v)
     
     # D) Michelson-Morley timing analysis
-    print("\n--- D) Michelson-Morley timing analysis ---")
+    v.info("\n--- D) Michelson-Morley timing analysis ---")
     v.section("Michelson–Morley timing (no O(beta^2) anisotropy)")
     test_michelson_morley_timing_units(v)
     test_michelson_morley_leading_order_cancellation(v)
     test_michelson_morley_higher_order_estimate(v)
     
     # E) Conventions separation
-    print("\n--- E) Conventions separation ---")
+    v.info("\n--- E) Conventions separation ---")
     v.section("Conventions separation (EM vs GEM potentials)")
     test_em_gem_potential_separation(v)
     test_metric_signature_convention(v)
     
     # Final summary
-    print("\n" + "="*70)
     v.summary()
-    print("="*70)
 
 
 if __name__ == "__main__":
