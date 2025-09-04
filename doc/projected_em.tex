@@ -3,7 +3,7 @@
 
 We show that the electromagnetic (EM) field on the physical slice $\Pi=\{w=0\}$ arises from the projected kinematics of a 4D aether and its continuity. The \emph{homogeneous} Maxwell equations are kinematic/topological identities of the projected circulation; the \emph{inhomogeneous} pair follow from slice continuity plus a simple linear closure. Physical constants are fixed by the static Coulomb limit and the wave speed $c$, yielding the standard Maxwell system. Throughout we add everyday pictures so a reader can track the physics without following every derivation.
 
-\subsection{Topological charge and projected electromagnetism}
+\subsection{Topological Charge and Projected Electromagnetism}
 \label{sec:projected-em:charge}
 
 \paragraph{Threading charge in the transition slab.}
@@ -44,9 +44,32 @@ $\ell$ = on-slice feature scale.\\
 $\varepsilon_\rho=\xi/\ell$, \ $\varepsilon_\xi=\ell_{\mathrm{TP}}/\ell$, \ $\varepsilon_v=v/c$, \ $\varepsilon_\kappa=\kappa\ell$.
 \end{tcolorbox}
 
+\subsection{What the Fields Are}
 
+\paragraph{Units and map to EM.}
+We work in SI units. The Helmholtz potentials of the aether,
+$\phi_{\text{aeth}}$ and $\mathbf A_{\text{aeth}}$, have dimensions $[L^2/T]$
+so that $\nabla\phi_{\text{aeth}}$ and $\nabla\times\mathbf A_{\text{aeth}}$
+are velocities. Electromagnetic fields are defined from \emph{EM potentials}
+obtained by a linear map
+\begin{equation}
+  \mathbf A := \kappa_{\rm EM}\,\mathbf A_{\text{aeth}},\qquad
+  \Phi := c\,\kappa_{\rm EM}\,\phi_{\text{aeth}},
+  \label{eq:aether-to-em-potentials}
+\end{equation}
+with a constant $\kappa_{\rm EM}$ of dimensions $[M/(Q\,L)]$.
+We then use the standard EM definitions
+\begin{equation}
+  \mathbf B := \nabla\times\mathbf A,\qquad
+  \mathbf E := -\,\partial_t \mathbf A - \nabla \Phi,
+  \label{eq:EM_defs_fixed}
+\end{equation}
+so that $A^0=\Phi/c$ has the same dimensions as $\mathbf A$.
 
-\subsection{What the fields are, in math and in pictures}
+To avoid ambiguity, we reserve $(\phi_{\text{aeth}}, \mathbf A_{\text{aeth}})$
+for aether Helmholtz potentials and $(\Phi, \mathbf A)$ for electromagnetic
+potentials.
+
 Let $u(\mathbf x,w,t)$ be the aether velocity in $\mathbb{R}^4$ and $\Omega=\nabla\!\times u$ its (spatial) vorticity. Project onto $\Pi$ and Helmholtz–decompose the induced slice velocity $v(\mathbf x,t)$ as
 \[
 v(\mathbf x,t)=\nabla\phi(\mathbf x,t)+\nabla\times\mathbf A(\mathbf x,t),
@@ -80,7 +103,7 @@ where $\Phi$ is the slice potential associated with the continuity sector.
   \item \textbf{Charging a capacitor (displacement-current bridge).} Between two plates, some aether briefly ``steps into'' the $w$ direction to keep continuity (the ``bulk bridge''). On the slice this shows up as a time-changing $\mathbf E$ that carries current even through vacuum: the displacement current.
 \end{itemize}
 
-\subsection{Two EM laws that are pure kinematics}
+\subsection{Two EM Laws that are Pure Kinematics}
 By construction,
 \begin{equation}
 \nabla\!\cdot\!\mathbf B = 0,
@@ -96,7 +119,7 @@ These are identities on $\Pi$: divergence of a curl vanishes, and $-\partial_t(\
   \item \textbf{Faraday's law:} wave a magnet near a wire loop and watch the galvanometer wiggle. Changing Eddies $\to$ loop electric field (Induction) $\to$ current.
 \end{itemize}
 
-\subsection{Small parameters and regime of validity (EM)}
+\subsection{Small Parameters and Regime of Validity}
 \label{sec:EM_validity}
 We work in the thin–slow–flat slice limit with controlled remainders. Let $\ell$ be the on–slice length scale of interest and $\kappa$ the local curvature of the slice. Define the dimensionless expansion parameters
 \[
@@ -109,7 +132,21 @@ We work in the thin–slow–flat slice limit with controlled remainders. Let $\
 
 All field equations in this section hold to leading order in these small numbers; we indicate remainders schematically as $O(\varepsilon_\rho^2+\varepsilon_v^2+\varepsilon_\xi^2+\varepsilon_\kappa^2)$. For conventions and units (signature, index placement, SI vs. natural units), see Sec.~\ref{sec:motivation-conventions}.
 
-\subsection{Where sources come from: continuity and the displacement-current bridge}
+\subsection{Where Sources Come From}
+
+\textit{Conventions in this subsection.}
+We work with electromagnetic sources. Let
+$\rho(\mathbf x,t)\equiv\rho_e$ be the effective \emph{charge} density on $\Pi$,
+$\mathbf J(\mathbf x,t)\equiv\mathbf j$ the \emph{electric} current density,
+and $J_w \equiv j_w$ the \emph{normal charge flux} (all in SI units).
+They arise from the aether fields by a linear, local constitutive map
+\[
+\rho_e=\kappa_{\rm src}\,\rho_{\rm aeth},\qquad
+\mathbf j=\kappa_{\rm src}\,\mathbf J_{\rm aeth},\qquad
+j_w=\kappa_{\rm src}\,J_w^{\rm (aeth)},\qquad
+[\kappa_{\rm src}] = Q/M \, .
+\]
+
 Let $\rho(\mathbf x,t)$ be the projected aether excess density on $\Pi$ and $\mathbf J(\mathbf x,t)$ the in-slice transport current. A thin pillbox straddling $\Pi$ turns 4D continuity into
 \begin{equation}
 \partial_t \rho + \nabla\!\cdot\!\mathbf J \;=\; -\,\Big[J_w\Big]_{w=0^-}^{0^+},
@@ -145,7 +182,7 @@ Combining \eqref{eq:EM_defs}–\eqref{eq:displacement_identification} yields the
   \item \textbf{Amp\`ere–Maxwell: current or changing hill-tilt makes Eddies.} Push a steady stream along the slice ($\mathbf J$) and you wind $\mathbf B$ around it; tilt the height map in time ($\partial_t\mathbf E$ between capacitor plates) and you wind $\mathbf B$ the same way --- the displacement-current bridge guarantees there is no break in the circuit.
 \end{itemize}
 
-\subsection{Fixing the constants and waves}
+\subsection{Fixing the Constants and Waves}
 Taking the curl of Amp\`ere–Maxwell and using \eqref{eq:homogeneous} gives vacuum waves
 \[
 \big(\nabla^2 - \tfrac{1}{c^2}\partial_{tt}\big)\mathbf E=0,
@@ -163,44 +200,104 @@ We take $c$ to be the measured wave speed (light in vacuum), which fixes the pro
 \textbf{Ripples on a stretched sheet.} The sheet tension sets the wave speed; here the combination $\mu_0\varepsilon_0$ sets $c$. Once you know $c$ and the static push between charges (Coulomb), all constants are pinned.
 
 \subsection{Minimal Coupling, EM Stress--Energy, and Light Propagation}
-\label{sec:EM-coupling}
-% SI units in this section; we use \mu_0,\,\varepsilon_0 with c^2 = 1/(\mu_0\varepsilon_0).
-All non-gravitational fields couple universally to $g_{\mu\nu}$ via $\eta\to g$.
-For electromagnetism,
-\begin{equation}
-S_{\rm EM}[g,A]=-\frac{1}{4\mu_0}\int d^4x\,\sqrt{-g}\,F_{\mu\nu}F^{\mu\nu},\qquad
-\nabla_\mu F^{\mu\nu}=\mu_0 J^\nu,\qquad \nabla_{[\alpha}F_{\beta\gamma]}=0.
-\label{eq:EM-covariant}
-\end{equation}
-The stress--energy is
-\begin{equation}
-T^{\mu\nu}_{\rm EM}=\frac{1}{\mu_0}\Big(F^{\mu\alpha}F^\nu{}_\alpha-\frac{1}{4}g^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\Big),
-\label{eq:EM-Tmunu}
-\end{equation}
-and contributes to the total source in Einstein’s equation.
-Light rays follow null geodesics of $g_{\mu\nu}$: $k^\mu k_\mu=0$ and $k^\nu\nabla_\nu k^\mu=0$.
-With the strong-field dictionary of Sec.~\ref{sec:strong-dict}, a static spherical vacuum ($\mathbf A_g=0$) yields Schwarzschild in isotropic coordinates and reproduces standard light deflection and Shapiro delay.
+\label{subsec:minimal_coupling}
 
-\subsection{Energy flow (Poynting theorem), told like a story}
-Dot $\mathbf E$ into Amp\`ere–Maxwell, dot $\mathbf B$ into Faraday, subtract, and rearrange:
+\noindent\textit{Units and conventions.} We work in SI with \(x^0 = c t\), \(A_\mu=(\Phi/c,\,-\mathbf{A})\), \(J^\mu=(c\rho,\,\mathbf{J})\), and \(c^2=1/(\mu_0\varepsilon_0)\).%
+\footnote{With \(x^0=ct\), matter actions carry an overall \(1/c\) so that \(S\) has units of action.}
+
+\paragraph{Action and minimal coupling.}
+Let \(F_{\mu\nu}=\nabla_\mu A_\nu-\nabla_\nu A_\mu\). The electromagnetic action and its minimal coupling to a conserved current are
+\begin{align}
+S_{\rm EM}[g,A] &= -\,\frac{1}{4\,\mu_0\,c}\int d^4x\,\sqrt{-g}\;F_{\mu\nu}F^{\mu\nu}, \label{eq:SEM-fixed}\\[2pt]
+S_{\rm int}[A,J] &= \frac{1}{c}\int d^4x\,\sqrt{-g}\; J_\mu A^\mu. \label{eq:Sint-fixed}
+\end{align}
+% (surgical edit: added 1/c to both \eqref{eq:SEM-fixed} and \eqref{eq:Sint-fixed} to ensure [S]=[J·s] with x^0=ct)
+
+\paragraph{Field equations.}
+Varying \(A_\mu\) in \(S_{\rm EM}+S_{\rm int}\) yields the inhomogeneous Maxwell equations,
+\begin{equation}
+\nabla_\mu F^{\mu\nu}=\mu_0\,J^\nu, \qquad \nabla_{[\alpha}F_{\beta\gamma]}=0,
+\end{equation}
+where the second relation is the Bianchi identity.
+
+\paragraph{Stress--energy.}
+The electromagnetic stress--energy tensor obtained by varying \(S_{\rm EM}\) with respect to \(g_{\mu\nu}\) is
+\begin{equation}
+T^{\mu\nu}_{\rm EM}=\frac{1}{\mu_0}\!\left(F^{\mu\alpha}F^{\nu}{}_{\alpha}-\frac{1}{4}\,g^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right).
+\end{equation}
+
+\paragraph{Light propagation.}
+In the geometric–optics limit the photon wavevector \(k^\mu\) obeys
+\begin{equation}
+k^\mu k_\mu=0, \qquad k^\nu\nabla_\nu k^\mu=0,
+\end{equation}
+i.e. null geodesics in the background metric \(g_{\mu\nu}\).
+
+\paragraph{Poynting theorem (local frame).}
+In a local inertial frame (or in flat spacetime) the electromagnetic energy balance reads
+\begin{equation}
+\partial_t\!\left(\frac{\varepsilon_0}{2}\,|\mathbf{E}|^2+\frac{1}{2\mu_0}\,|\mathbf{B}|^2\right)
+\;+\;\nabla\!\cdot\!\left(\frac{1}{\mu_0}\,\mathbf{E}\times\mathbf{B}\right)
+\;=\;-\mathbf{J}\!\cdot\!\mathbf{E}.
+\end{equation}
+
+\subsection{Energy Flow (Poynting Theorem)}
+Using Maxwell's equations in SI units,
 \[
-\partial_t \Big(\tfrac{\varepsilon_0}{2}\,|\mathbf E|^2 + \tfrac{1}{2\mu_0}\,|\mathbf B|^2\Big)
-+ \nabla\!\cdot\!\Big(\tfrac{1}{\mu_0}\,\mathbf E\times \mathbf B\Big)
-= -\,\mathbf J\!\cdot\!\mathbf E.
+\nabla \times \mathbf{B}=\mu_{0}\mathbf{J}+\mu_{0}\varepsilon_{0}\,\partial_{t}\mathbf{E},
+\qquad
+\nabla \times \mathbf{E}=-\,\partial_{t}\mathbf{B},
 \]
-\textbf{Conveyor-belt picture:} the crossed fields $\mathbf E\times\mathbf B$ are a belt carrying energy through space; the belt unloads onto charges at rate $\mathbf J\!\cdot\!\mathbf E$.
+and the vector identity
+\[
+\nabla\!\cdot(\mathbf{E}\times\mathbf{B})
+=\mathbf{B}\!\cdot(\nabla\times\mathbf{E})-\mathbf{E}\!\cdot(\nabla\times\mathbf{B}),
+\]
+we proceed as follows: dot $\mathbf{E}$ into Amp\`ere–Maxwell and $\mathbf{B}$ into Faraday, subtract the second result from the first, apply the identity to convert curl–dot terms to a divergence, recognize total time derivatives, and finally divide through by $\mu_{0}$ to obtain the conservation law.
 
-\paragraph{Brief note on media.}
-In linear, isotropic media obtained by coarse-graining microstructure on the slice, the macroscopic fields satisfy $\mathbf D=\varepsilon\,\mathbf E$ and $\mathbf H=\mathbf B/\mu$ with constitutive parameters $(\varepsilon,\mu)$ fixed by the local microstate. The derivations mirror the vacuum case with polarization/magnetization currents included in $J^\mu$. A full treatment is deferred; here we restrict to vacuum ($\varepsilon=\varepsilon_0$, $\mu=\mu_0$).
+\medskip
+\noindent\emph{Intermediate steps.}
+\begin{align}
+\mathbf{E}\!\cdot(\nabla\times\mathbf{B})-\mathbf{B}\!\cdot(\nabla\times\mathbf{E})
+&=\mu_{0}\,\mathbf{E}\!\cdot\mathbf{J}
++\mu_{0}\varepsilon_{0}\,\mathbf{E}\!\cdot\partial_{t}\mathbf{E}
++\mathbf{B}\!\cdot\partial_{t}\mathbf{B},
+\\
+-\nabla\!\cdot(\mathbf{E}\times\mathbf{B})
+&=\mu_{0}\,\mathbf{E}\!\cdot\mathbf{J}
++\frac{\mu_{0}\varepsilon_{0}}{2}\,\partial_{t}|\mathbf{E}|^{2}
++\frac{1}{2}\,\partial_{t}|\mathbf{B}|^{2},
+\\
+\partial_{t}\!\left(\frac{\varepsilon_{0}}{2}|\mathbf{E}|^{2}
++\frac{1}{2\mu_{0}}|\mathbf{B}|^{2}\right)
++\nabla\!\cdot\!\left(\frac{1}{\mu_{0}}\mathbf{E}\times\mathbf{B}\right)
+&=-\,\mathbf{J}\!\cdot\mathbf{E}.
+\end{align}
 
-\subsection{Thickness and accuracy}
+\noindent
+Here we used $\mathbf{E}\!\cdot\partial_{t}\mathbf{E}=\tfrac12\partial_{t}|\mathbf{E}|^{2}$ and
+$\mathbf{B}\!\cdot\partial_{t}\mathbf{B}=\tfrac12\partial_{t}|\mathbf{B}|^{2}$.
+Defining the electromagnetic energy density and Poynting vector as
+\[
+u_{\mathrm{EM}}=\frac{\varepsilon_{0}}{2}|\mathbf{E}|^{2}+\frac{1}{2\mu_{0}}|\mathbf{B}|^{2},
+\qquad
+\mathbf{S}=\frac{1}{\mu_{0}}\,\mathbf{E}\times\mathbf{B},
+\]
+the equation reads $\partial_{t}u_{\mathrm{EM}}+\nabla\!\cdot\mathbf{S}=-\mathbf{J}\!\cdot\mathbf{E}$.
+Each term has units of power density $[{\rm W\,m^{-3}}]=[M L^{-1}T^{-3}]$:
+$\,\partial_{t}u_{\mathrm{EM}}$ is the rate of change of field energy,
+$\nabla\!\cdot\mathbf{S}$ is the net energy outflow, and
+$-\mathbf{J}\!\cdot\mathbf{E}$ is the work done by the fields on charges (Ohmic heating).
+This underpins the usual “conveyor-belt’’ picture of energy transport by $\mathbf{S}$.
+
+\subsection{Thickness and Accuracy}
 If the 4D transition band is smooth, even, and thin of width $\xi$ in $w$, replacing the sharp projection by a convolution changes the induced fields by
 \[
 \Delta(\cdot)=O\!\big((\xi/\ell)^2\big)
 \]
 when probed on length $\ell$ on $\Pi$ (second-moment Taylor estimate), matching the curvature/thickness control used elsewhere. This is why the textbook Maxwell theory works so well over a vast range: corrections are quadratically suppressed by the small ratio $\xi/\ell$.
 
-\subsection{Beyond-Maxwell predictions and falsifiable tests}
+\subsection{Beyond-Maxwell Predictions and Falsifiable Tests}
 \label{subsec:EM_predictions}
 The homogeneous laws \eqref{eq:homogeneous} are exact (topology). Any deviation must come from the \emph{closure} of the potential/continuity sector. A smooth, even transition profile of width $\xi$ and (optionally) a finite bulk-exchange time $\tau$ give the following leading, \emph{scale-suppressed} effects. Each comes with a clean scaling law, so null results set direct bounds on $\xi$ and $\tau$.
 
@@ -314,7 +411,7 @@ Oriented links through the slice write a standing Slope pattern (electric), whil
   \item Bulk 2-form \(B_{MN}=-B_{NM}\) with fieldstrength \(H_{MNP}=\partial_{[M}B_{NP]}\) $\leftrightarrow$ parent gauge field.
   \item Vector potential \(A_\mu\equiv B_{\mu 4}\) $\leftrightarrow$ electromagnetic potential in $(3{+}1)$D.
   \item Maxwell tensor \(F_{\mu\nu}\equiv H_{\mu\nu 4}=\partial_\mu A_\nu-\partial_\nu A_\mu\).
-  \item Sheet world-volume current \(J^{MNP}\) (conserved 3-form) $\leftrightarrow$ topological data of vortex sheets.
+  \item Sheet world-volume current \(J^{MN}\) (conserved 3-form) $\leftrightarrow$ topological data of vortex sheets.
   \item Sheet endpoint in $(3{+}1)$D $\leftrightarrow$ point charge of integer strength \(n\) (sign set by orientation).
   \item Sheet endpoint worldline $\leftrightarrow$ electric 4-current \(j_e^\mu\).
   \item Oriented link $\leftrightarrow$ integer charge (sign by orientation), writes the Slope profile.
@@ -329,11 +426,11 @@ We use coordinates $x^M$ with $M=0,1,2,3,4$, where $x^0\equiv t$ and the extra s
 \paragraph*{Result.} Define $A_\mu\equiv B_{\mu 4}$ and $F_{\mu\nu}\equiv H_{\mu\nu 4}$ to obtain the usual Maxwell tensor on the slice.
 
 \subsubsection{Topological sheet current and identities}
-Vortex \emph{sheets} are codimension-2 defects whose world-volumes in $(4{+}1)$D are captured by a conserved 3-form current $J^{MNP}$,
+Vortex \emph{sheets} are codimension-2 defects whose world-volumes in $(4{+}1)$D are captured by a conserved 3-form current $J^{MN}$,
 \begin{equation}
-\partial_M J^{MNP}=0,
+\partial_M J^{MN} = 0,
 \qquad
-J^{MNP}=-J^{NMP}=\cdots
+J^{MN}=-J^{NMP}=\cdots
 \end{equation}
 The parent gauge field is a Kalb--Ramond 2-form $B_{MN}$ with fieldstrength $H=\mathrm d B$, so
 \begin{equation}
@@ -386,15 +483,17 @@ It is useful to present two equivalent normalizations.
 \begin{enumerate}
   \item \textbf{Heaviside--Lorentz (natural) units.} Choose the $(3{+}1)$D action
   \begin{equation}
-  S_{\rm EM}=\int\!\mathrm d^4x\;\Big[-\tfrac{1}{4}\,F_{\mu\nu}F^{\mu\nu}+A_\mu j_e^{\,\mu}\Big],
+  S_{\rm EM}=\int\!\mathrm d^4x\;\Big[-\tfrac{1}{4}\,F_{\mu\nu}F^{\mu\nu}
+\noindent\textit{Definition:}\quad $g_4^2 \equiv \frac{g_B^2}{L_4}.$
++A_\mu j_e^{\,\mu}\Big],
   \end{equation}
   which is achieved by the rescaling $A_\mu\mapsto A_\mu/e$ with
   \begin{equation}
-  e^{2}=\frac{g_B^{2}}{2L_4} \quad (\text{up to an overall sign fixed by \eqref{eq:gauss-quantization}}).
+  e^{2}=\frac{g_B^{2}}{L_4} \quad (\text{up to an overall sign fixed by \eqref{eq:gauss-quantization}}).
   \end{equation}
   Then a single endpoint with twist $n$ carries physical charge $Q= n\,q_0/e$.
 
-  \item \textbf{SI units.} Write $S_{\rm EM}=\int\!\mathrm d^4x\;\big[\tfrac{\epsilon_0}{2}\,\mathbf E^2-\tfrac{1}{2\mu_0}\,\mathbf B^2 + A_\mu j_e^{\,\mu}\big]$ and rescale so that $\epsilon_0\mu_0=1/c^2$. The same mapping gives $e^2= g_B^{2}/(2L_4)$ while the physical charge unit is $q_0/e$; numerical values are then fixed by the chosen calibration (e.g., set $n=-1$ to reproduce the electron charge).
+  \item \textbf{SI units.} Write $S_{\rm EM}=\int\!\mathrm d^4x\;\big[\tfrac{\epsilon_0}{2}\,\mathbf E^2-\tfrac{1}{2\mu_0}\,\mathbf B^2 + A_\mu j_e^{\,\mu}\big]$ and rescale so that $\epsilon_0\mu_0=1/c^2$. The same mapping gives $e^2= g_B^{2}/L_4$ while the physical charge unit is $q_0/e$; numerical values are then fixed by the chosen calibration (e.g., set $n=-1$ to reproduce the electron charge).
 \end{enumerate}
 Either choice is fine provided one sticks to it consistently.
 
@@ -406,7 +505,7 @@ Either choice is fine provided one sticks to it consistently.
 
 \subsubsection{FAQ (math-only claims)}
 \begin{itemize}
-  \item \textbf{Why is charge conserved?} Gauge invariance of the parent two-form enforces $\partial_M J^{MNP}=0$, which reduces to $\partial_\mu j_e^{\,\mu}=0$ after integrating over $x^4$.
+  \item \textbf{Why is charge conserved?} Gauge invariance of the parent two-form enforces $\partial_M J^{MN} = 0$, which reduces to $\partial_\mu j_e^{\,\mu}=0$ after integrating over $x^4$.
   \item \textbf{Why no magnetic monopoles?} The Bianchi identity $\mathrm dH=0$ implies $\mathrm dF=0$, hence $\nabla\!\cdot\!\mathbf B=0$ and Faraday's law.
   \item \textbf{What sets the size of the charge quantum?} Geometry and coupling: $q_0=2\pi L_4/g_B^{2}$ (then rescaled by $e$ in the chosen unit system). Integer $n$ labels the helical linking number.
   \item \textbf{Does core microphysics matter?} Not for charge: Eq.~\eqref{eq:gauss-quantization} is topological. Core details enter only in short-distance regularization, not in the flux quantization.
@@ -428,7 +527,7 @@ Either choice is fine provided one sticks to it consistently.
 \end{tcolorbox}
 
 
-\subsection{Electromagnetism in the Wave sector}
+\subsection{Electromagnetism in the Wave Sector}
 \label{subsec:em_wave}
 
 \paragraph{Scope and units.}
