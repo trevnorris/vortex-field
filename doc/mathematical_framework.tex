@@ -299,7 +299,7 @@ We will also use the cosmological length scale $\lambda_{\text{cosmo}}$, tied to
 \hline
 \textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \, \rho_{4D}^0 / m^{2}}$ Transverse: $c$ emergent from vortex dynamics Effective: $v_{\text{eff}} = \sqrt{g \, \rho_{4D}^{\text{local}} / m^{2}}$ & Waves (with Intake/Twist in the bulk) & Bulk re-equilibrates quietly; surface waves = photons \\
 \hline
-\textbf{P-4} & Helmholtz decomposition on the slice (Slope potential + Eddies solenoidal), with Intake across the slab & $\mathbf{v}_4 = -\nabla_4 \chi + \nabla_4 \times \mathbf{B}_4$ & Slope + Eddies/Drag & Local donut slice around sheet gives textbook $1/\rho$ swirl \\
+\textbf{P-4} & Helmholtz decomposition on the slice (Slope potential + Eddies solenoidal), with Intake across the slab & $\mathbf{v}_4 = -\nabla_4 \varphi + \nabla_4 \times \mathbf{B}_4$ & Slope + Eddies/Drag & Local donut slice around sheet gives textbook $1/\rho$ swirl \\
 \hline
 \textbf{P-5} & Projection invariance of circulation & Circulation: $\Gamma = n \kappa$, $\kappa = 2 \pi \hbar / m$; slice loop linking once measures $\Gamma$; half-spaces contribute $\Gamma/2$ each; potential fields contribute zero. Vortices as tori/sheets with \textbf{Twist} (quantized cross-slab circulation; $\theta+\tau w$) & Eddies/Drag (with Waves) & Any loop linking once reads same $\Gamma$, regardless of slab thickness \\
 \hline
@@ -329,7 +329,7 @@ $\rho_0$ & 3D background density, defined as $\rho_0 = \rho_{4D}^0 \xi_c$ & --- 
 \hline
 $\rho_{\text{body}}$ & Effective matter density from aggregated deficits & --- & $[M L^{-3}]$ \\
 \hline
-$g$ & Gross-Pitaevskii interaction parameter & $[L^6 T^{-2}]$ & $[L^6 T^{-2}]$ \\
+$g$ & Gross-Pitaevskii interaction parameter & $[M L^6 T^{-2}]$ & $[M L^6 T^{-2}]$ \\
 \hline
 $P$ & 4D pressure & $[M L^{-2} T^{-2}]$ & --- \\
 \hline
@@ -355,7 +355,7 @@ $\hbar$ & Reduced Planck's constant (for quantum terms) & $[M L^2 T^{-1}]$ & $[M
 \hline
 $G$ & Newton's gravitational constant, calibrated as $G = c^2 / (4\pi \bar{n} \bar{m} \xi_c^2)$ & --- & $[M^{-1} L^3 T^{-2}]$ \\
 \hline
-$\chi$ & Scalar velocity potential (irrotational Intake flow component), with $\mathbf v=\nabla\chi$ & $[L^2 T^{-1}]$ & --- \\
+$\varphi$ & Scalar velocity potential (irrotational Intake flow component), with $\mathbf v=\nabla\varphi$ & $[L^2 T^{-1}]$ & --- \\
 \hline
 $\Phi_g$ & Gravitational potential (weak-field sector) & --- & $[L^2 T^{-2}]$ \\
 \hline
@@ -426,7 +426,7 @@ The electromagnetic four-potential is $A^\mu_{\text{EM}}=(\Phi_{\text{Slope}}/c,
 
 \subsubsection{Derivation from Aether Dynamics}
 
-From the foundational postulates (P-1 through P-6), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. The equations separate into scalar (Intake), vector (Eddies/Drag), and time-dependent pieces (Slope/Induction and Waves), with EM emerging on the slice via Eddies organized by Drag and a hidden core Twist. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into an irrotational part described by a velocity potential $\chi$ ($[L^2 T^{-1}]$) and a solenoidal part via a vector potential $\mathbf{B}_4$ ($[L^2 T^{-1}]$), with quantized circulation and core Twist (P-5) providing sources. The dynamics naturally separate into Intake (scalar), Eddies/Drag (solenoidal), and propagating Waves with Slope/Induction, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex quintet forms.
+From the foundational postulates (P-1 through P-6), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. The equations separate into scalar (Intake), vector (Eddies/Drag), and time-dependent pieces (Slope/Induction and Waves), with EM emerging on the slice via Eddies organized by Drag and a hidden core Twist. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into an irrotational part described by a velocity potential $\varphi$ ($[L^2 T^{-1}]$) and a solenoidal part via a vector potential $\mathbf{B}_4$ ($[L^2 T^{-1}]$), with quantized circulation and core Twist (P-5) providing sources. The dynamics naturally separate into Intake (scalar), Eddies/Drag (solenoidal), and propagating Waves with Slope/Induction, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex quintet forms.
 
 The derivation begins with the 4D equations from P-1 and P-2, now coupled to the vortex core condition $\Psi=0$ at the defect position, incorporating helical twists:
 
@@ -445,7 +445,7 @@ The Euler equation is:
 = -\,\frac{1}{\rho_{4D}}\,\nabla_4 P \;-\; \nabla_4 Q_{\rm reg}(\rho_{4D})\,,
 \end{equation}
 
-with barotropic EOS $P=\tfrac{g}{2m^{2}}\,\rho_{4D}^{2}$. Here, $m$ is the effective boson mass in the GP description, ensuring $[P]=[M L^{-2}T^{-2}]$ with $[g]=[L^6T^{-2}]$ and $[\rho_{4D}]=[M L^{-4}]$ (yielding local effective speed $v_{\text{eff}}=\sqrt{g\,\rho_{4D}^{\text{local}}/m^{2}}$; bulk $v_L=\sqrt{g\,\rho_{4D}^0/m^{2}}$ potentially $\gg c$; observable modes at $c$ from P-3). The term $Q_{\rm reg}$ denotes a short-wavelength \emph{dispersive} (Bogoliubov/GP-type) pressure used only for core-scale regularization at lengths $\sim\xi_c$; its slice-level (Madelung) form and interpretation are developed in Sec.~\ref{sec:QM_projection}.
+with barotropic EOS $P=\tfrac{g}{2m^{2}}\,\rho_{4D}^{2}$. Here, $m$ is the effective boson mass in the GP description, ensuring $[P]=[M L^{-2}T^{-2}]$ with $[g]=[M L^6T^{-2}]$ and $[\rho_{4D}]=[M L^{-4}]$ (yielding local effective speed $v_{\text{eff}}=\sqrt{g\,\rho_{4D}^{\text{local}}/m^{2}}$; bulk $v_L=\sqrt{g\,\rho_{4D}^0/m^{2}}$ potentially $\gg c$; observable modes at $c$ from P-3). The term $Q_{\rm reg}$ denotes a short-wavelength \emph{dispersive} (Bogoliubov/GP-type) pressure used only for core-scale regularization at lengths $\sim\xi_c$; its slice-level (Madelung) form and interpretation are developed in Sec.~\ref{sec:QM_projection}.
 
 \textit{Physically:} Pressure gradient reshapes Slope; quantum pressure stiffens the rim.
 
@@ -475,13 +475,13 @@ where the bulk coupling term follows from the defect advecting with the local fl
 
 \textit{Physically:} Rim oscillations = photons; off-resonance energy leaks as radiation.
 
-Apply Helmholtz decomposition (P-4) to $\delta \mathbf{v}_4 = -\nabla_4 \chi + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\chi$ $[L^2 T^{-1}]$) and incompressible (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) parts, now with oscillatory modulation in the phase. Taking $\nabla_4 \cdot$ on Euler gives:
+Apply Helmholtz decomposition (P-4) to $\delta \mathbf{v}_4 = -\nabla_4 \varphi + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\varphi$ $[L^2 T^{-1}]$) and incompressible (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) parts, now with oscillatory modulation in the phase. Taking $\nabla_4 \cdot$ on Euler gives:
 
 \begin{equation}
 \partial_t (\nabla_4 \cdot \delta \mathbf{v}_4) = -v_{\text{eff}}^2 \nabla_4^2 (\delta \rho_{4D} / \rho_{4D}^0) - \nabla_4^2 \delta Q,
 \end{equation}
 
-and substituting $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \,\chi$ yields the scalar precursor. From linearized continuity:
+and substituting $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \,\varphi$ yields the scalar precursor. From linearized continuity:
 
 \begin{equation}
 \nabla_4 \cdot \delta \mathbf{v}_4 = -\frac{1}{\rho_{4D}^0} \left( \partial_t \delta \rho_{4D} + \sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) \right).
@@ -499,10 +499,10 @@ and substitute the Euler divergence:
 \partial_{tt} \delta \rho_{4D} - \rho_{4D}^0 v_{\text{eff}}^2 \nabla_4^2 (\delta \rho_{4D} / \rho_{4D}^0) = -\sum_i \partial_t \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) + \rho_{4D}^0 \nabla_4^2 \delta Q.
 \end{equation}
 
-Combine with $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \,\chi$:
+Combine with $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \,\varphi$:
 
 \begin{equation}
-\partial_{tt} \,\chi - v_{\text{eff}}^2 \,\nabla_4^2 \,\chi = v_{\text{eff}}^2 \sum_i \frac{\dot{M}_i}{\rho_{4D}^0} \,\delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) + v_{\text{eff}}^2 \,\nabla_4^2 \delta Q / \rho_{4D}^0.
+\partial_{tt} \,\varphi - v_{\text{eff}}^2 \,\nabla_4^2 \,\varphi = v_{\text{eff}}^2 \sum_i \frac{\dot{M}_i}{\rho_{4D}^0} \,\delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) + v_{\text{eff}}^2 \,\nabla_4^2 \delta Q / \rho_{4D}^0.
 \end{equation}
 
 \begin{tcolorbox}[title=Dimensional Checks]
