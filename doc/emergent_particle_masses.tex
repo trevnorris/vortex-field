@@ -26,7 +26,7 @@ m(R)\;\approx\;\rho_0\,2\pi R\left[
 C_{\mathrm{core}}\,\xi_c^2\;+\;\frac{\kappa^2}{4\pi\,v_L^2}\,
 \ln\!\left(\frac{R}{a}\right)\right],
 \end{equation}
-where $\rho_0\equiv \rho_{3D}^0=\rho_{4D}^0\,\xi_c$ is the projected background density, $\kappa=\frac{h}{m}$ is the quantum of circulation, $v_L=\sqrt{g\,\rho_{4D}^0/m}$ is the bulk compressional wave speed of the 4D medium, $a=\alpha\,\xi_c$ is an $O(1)$ inner cutoff, and $C_{\mathrm{core}}=2\pi\ln 2$ is the core-deficit constant obtained from the standard GP/tanh profile. The first term captures the core depletion (per unit length), and the second captures the slow far-field Bernoulli/compressibility contribution; both are projected onto the slice.
+where $\rho_0\equiv \rho_{3D}^0=\rho_{4D}^0\,\xi_c$ is the projected background density, $\kappa=\frac{h}{m}$ is the quantum of circulation, $v_L=\sqrt{g\,\rho_{4D}^0/m^{2}}$ is the bulk compressional wave speed of the 4D medium, $a=\alpha\,\xi_c$ is an $O(1)$ inner cutoff, and $C_{\mathrm{core}}=2\pi\ln 2$ is the core-deficit constant obtained from the standard GP/tanh profile. The first term captures the core depletion (per unit length), and the second captures the slow far-field Bernoulli/compressibility contribution; both are projected onto the slice.
 
 \emph{Charge.} In this framework, electric charge is a topological threading number defined within the transition-phase slab; it is quantized only for cores that close entirely inside the slab. Defects that traverse the slab (neutrino-like) can exhibit local Eddies/Drag yet have $Q=0$; see Sec.~\ref{sec:projected-em:charge} for the formal definition and consequences.
 
@@ -47,7 +47,7 @@ This subsection lists the symbols and working relations used throughout. Derivat
   \]
   \item Interaction and bulk wave speed:
   \[
-  g,\qquad v_L=\sqrt{g\,\rho_{4D}^0/m}.
+  g,\qquad v_L=\sqrt{g\,\rho_{4D}^0/m^{2}}.
   \]
   \item Transition-phase thickness (slab width in $w$):
   \[
@@ -144,13 +144,13 @@ Increasing family index \(n\) corresponds to a self-similar helical rewrapping: 
 \subsubsection{Framework recap (P-1, P-5)}
 With the Gross–Pitaevskii (GP) structure and \(|\Psi|^2=\rho_{4D}/m\) (P-1), the energy density is
 \[
-\mathcal E=\frac{\hbar^2}{2m}|\nabla_4\Psi|^2+\frac{g\,m}{2}|\Psi|^4
-=\frac{\hbar^2}{2m}|\nabla_4\Psi|^2+\frac{g}{2m}\rho_{4D}^2,
+\mathcal E=\frac{\hbar^2}{2m}|\nabla_4\Psi|^2+\frac{g}{2}|\Psi|^4
+=\frac{\hbar^2}{2m}|\nabla_4\Psi|^2+\frac{g}{2m^{2}}\rho_{4D}^2,
 \]
 and we use
 \[
-\xi_c=\frac{\hbar}{\sqrt{2\,m\,g\,\rho_{4D}^0}},\qquad
-v_L^2=\frac{g\,\rho_{4D}^0}{m}\,.
+\xi_c=\frac{\hbar}{\sqrt{2\,g\,\rho_{4D}^0}},\qquad
+v_L^2=\frac{g\,\rho_{4D}^0}{m^{2}}\,.
 \]
 Vorticity is quantized (P-5): \(\Gamma=n\kappa\). We denote the projected density by \(\rho_0\equiv\rho_{3D}^0=\rho_{4D}^0\,\xi_c\).
 
@@ -168,20 +168,20 @@ For a thin ring of major radius \(R\) and microscopic core scale \(\sim\xi_c\), 
 E(R)\;\simeq\;
 \underbrace{\rho_0\,\frac{\Gamma^2}{2}\,R\,\ln\!\frac{R}{a}}_{\text{circulation}}
 \;-\;
-\underbrace{\frac{g}{2m}(\rho_{4D}^0)^2\,\big(2\pi^2\xi_c^2R\big)}_{\text{density deficit}}\,.
+\underbrace{\frac{g}{2m^{2}}(\rho_{4D}^0)^2\,\big(2\pi^2\xi_c^2R\big)}_{\text{density deficit}}\,.
 \label{eq:EofR}
 \end{equation}
 Stationarity \(dE/dR=0\) gives
 \begin{equation}
-\rho_0\,\frac{\Gamma^2}{2}\Big[\ln\!\frac{R_*}{a}+1\Big]\;=\;\frac{g}{2m}(\rho_{4D}^0)^2\,2\pi^2\xi_c^2,
+\rho_0\,\frac{\Gamma^2}{2}\Big[\ln\!\frac{R_*}{a}+1\Big]\;=\;\frac{g}{2m^{2}}(\rho_{4D}^0)^2\,2\pi^2\xi_c^2,
 \qquad\Rightarrow\qquad
 \boxed{\,R_*(n)=a\,\exp\!\Big(C-1\Big)\,}\,,
 \label{eq:Rstar}
 \end{equation}
 with
 \(
-C:=\dfrac{(g/m)\,(\rho_{4D}^0)^2\,2\pi^2\xi_c^2}{\rho_0\,\Gamma^2}
-=\dfrac{2\pi^2\,v_L^2\,\rho_{4D}^0\,\xi_c}{\Gamma^2}
+C:=\dfrac{(g/m^{2})\,(\rho_{4D}^0)^2\,2\pi^2\xi_c^2}{\rho_0\,\Gamma^2}
+=\dfrac{2\pi^2\,v_L^2\,\xi_c}{\Gamma^2}
 \)
 and \(\rho_0=\rho_{4D}^0\xi_c\).
 \emph{Interpretation:} \(R_*\) is a \emph{log-sensitive anchor}, not the operative size across families. The actual admissible sizes are set by the dynamic/topological ceilings below and, for the ladder, by the self-similar geometry.
@@ -391,7 +391,7 @@ m_{\text{loop}}(R)
 C_{\mathrm{core}}\,\xi_c^2
 +\frac{\kappa^2}{4\pi v_L^2}\ln\!\left(\frac{R}{a}\right)\right],
 \end{equation}
-with $\rho_0=\rho_{4D}^0\,\xi_c$, circulation quantum $\kappa=\frac{h}{m}$, bulk wave speed $v_L=\sqrt{g\rho_{4D}^0/m}$, inner cutoff $a=\alpha\,\xi_c$ ($\alpha=O(1)$), and $C_{\mathrm{core}}=2\pi\ln 2$.
+with $\rho_0=\rho_{4D}^0\,\xi_c$, circulation quantum $\kappa=\frac{h}{m}$, bulk wave speed $v_L=\sqrt{g\rho_{4D}^0/m^{2}}$, inner cutoff $a=\alpha\,\xi_c$ ($\alpha=O(1)$), and $C_{\mathrm{core}}=2\pi\ln 2$.
 
 \subsubsection{Derivation}
 
@@ -899,15 +899,15 @@ The GP energy functional is $E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\n
 \begin{enumerate}
 \item \textbf{GP Functional and Tension-Balanced Core Profile} (P-1, P-5): The GP energy functional (P-1) is:
    \[
-   E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\nabla_4 \Psi|^2 + \frac{g}{2m} |\Psi|^4 \right],
+   E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\nabla_4 \Psi|^2 + \frac{g}{2} |\Psi|^4 \right],
    \]
-   where $\Psi$ [L$^{-2}$] ensures $\rho_{4D} = m |\Psi|^2$ $[M L^{-4}]$, and $g$ $[L^6 T^{-2}]$ matches the barotropic EOS $P = (g/2) \rho_{4D}^2 / m$ (P-1). Dimensions: kinetic term $\frac{\hbar^2}{2m} |\nabla_4 \Psi|^2$ $[M L^{-2} T^{-2}]$ (since $\hbar^2 / (2m)$ $[M L^2 T^{-2}]$, $\nabla_4 \Psi$ $[L^{-3}]$, integrated over $d^4 r$ $[L^4]$ gives $[M L^2 T^{-2}]$); interaction term $\frac{g}{2m} |\Psi|^4$ $[M L^{-2} T^{-2}]$ (since $g/m$ $[L^6 T^{-2} M^{-1}]$, $|\Psi|^4$ $[L^{-8}]$, yielding $[M^{-1} L^{-2} T^{-2}] * M = [L^{-2} T^{-2}]$, but with m=1 in natural units, the $[M]$ is implicit). This functional is minimized by the order parameter $\Psi = \sqrt{\rho_{4D}/m} \, e^{i \theta}$ near a vortex core, where phase $\theta$ winds by $2\pi n$ (circulation $\Gamma = n \kappa$, $\kappa = h / m$, from P-5).
+   where $\Psi$ [L$^{-2}$] ensures $\rho_{4D} = m |\Psi|^2$ $[M L^{-4}]$, and $g$ $[L^6 T^{-2}]$ matches the barotropic EOS $P = (g/2m^{2})\,\rho_{4D}^{2}$ (P-1). Dimensions: kinetic term $\frac{\hbar^2}{2m} |\nabla_4 \Psi|^2$ $[M L^{-2} T^{-2}]$ (since $\hbar^2 / (2m)$ $[M L^2 T^{-2}]$, $\nabla_4 \Psi$ $[L^{-3}]$, integrated over $d^4 r$ $[L^4]$ gives $[M L^2 T^{-2}]$); interaction term $\frac{g}{2} |\Psi|^4$ maintains the same overall dimensions after expressing $|\Psi|^4$ in terms of $\rho_{4D}$ via $\rho_{4D}=m|\Psi|^2$. This functional is minimized by the order parameter $\Psi = \sqrt{\rho_{4D}/m} \, e^{i \theta}$ near a vortex core, where phase $\theta$ winds by $2\pi n$ (circulation $\Gamma = n \kappa$, $\kappa = h / m$, from P-5).
 
    For a straight vortex (codimension-2 defect in 4D, approximated as a line in the perpendicular plane for local profile), the amplitude satisfies the stationary GP equation in radial coordinates $r$ (distance in the two perpendicular dimensions):
    \[
-   -\frac{\hbar^2}{2 m} \left( \frac{d^2}{dr^2} + \frac{1}{r} \frac{d}{dr} - \frac{n^2}{r^2} \right) f + \frac{g}{m} f^3 = \mu f,
+   -\frac{\hbar^2}{2 m} \left( \frac{d^2}{dr^2} + \frac{1}{r} \frac{d}{dr} - \frac{n^2}{r^2} \right) f + g\, f^3 = \mu f,
    \]
-   where $\psi = f(r) e^{i n \theta}$, $f(r) \to \sqrt{\rho_{4D}^0 / m}$ [L$^{-2}$] at large $r$, and $\mu$ [L$^2$ T$^{-2}$] is the chemical potential. In natural units ($m=1$), this simplifies, but we retain $m$ for clarity. Dimensions: kinetic term $\frac{\hbar^2}{2 m} \frac{d^2 f}{dr^2}$ [M L$^{-2}$ T$^{-2}$] (since $\hbar^2 / (2m)$ [M L$^2$ T$^{-2}$], $\frac{d^2 f}{dr^2}$ [L$^{-4}$]); interaction $\frac{g}{m} f^3$ [M L$^{-2}$ T$^{-2}$] (since $g/m$ [L$^6$ T$^{-2}$ M$^{-1}$], $f^3$ [L$^{-6}$]); $\mu f$ [M L$^{-2}$ T$^{-2}$]. With $m=1$, all terms balance. Near the core ($r \ll \xi_c$), $f(r) \propto r^{|n|}$; for healing, the profile is $f(r) = \sqrt{\rho_{4D}^0 / m} \, \tanh(r / \sqrt{2} \xi_c)$ for $n=1$, yielding density:
+   where $\psi = f(r) e^{i n \theta}$, $f(r) \to \sqrt{\rho_{4D}^0 / m}$ [L$^{-2}$] at large $r$, and $\mu$ [L$^2$ T$^{-2}$] is the chemical potential. In natural units ($m=1$), this simplifies, but we retain $m$ for clarity. Dimensions: kinetic term $\frac{\hbar^2}{2 m} \frac{d^2 f}{dr^2}$ [M L$^{-2}$ T$^{-2}$] (since $\hbar^2 / (2m)$ [M L$^2$ T$^{-2}$], $\frac{d^2 f}{dr^2}$ [L$^{-4}$]); interaction $g\, f^3$; $\mu f$ [M L$^{-2}$ T$^{-2}$]. With $m=1$, all terms balance. Near the core ($r \ll \xi_c$), $f(r) \propto r^{|n|}$; for healing, the profile is $f(r) = \sqrt{\rho_{4D}^0 / m} \, \tanh(r / \sqrt{2} \xi_c)$ for $n=1$, yielding density:
    \[
    \rho_{4D}(r) = \rho_{4D}^0 \tanh^2 \left( \frac{r}{\sqrt{2}\,\xi_c} \right).
    \]
@@ -917,7 +917,7 @@ The GP energy functional is $E[\Psi] = \int d^4 r \left[ \frac{\hbar^2}{2 m} |\n
    \]
    The $\sech^2$ profile arises from tension balancing dispersion and repulsion (P-1), preventing unbounded rarefaction. The healing length is:
    \[
-   \xi_c = \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}},
+   \xi_c = \frac{\hbar}{\sqrt{2\,g\,\rho_{4D}^0}},
    \]
    with dimensions: $\hbar$ [M L$^2$ T$^{-1}$], denominator $\sqrt{m g \rho_{4D}^0}$ = $\sqrt{[\text{M}] [\text{L}^6 \text{T}^{-2}] [\text{M L}^{-4}]}$ = [M L T$^{-1}$], so $\xi_c$ [L]. SymPy verifies the $\tanh$ profile via numerical solution (\texttt{dsolve}, within 1\% error for $r < 5\xi_c$).
 
@@ -991,7 +991,7 @@ The attraction arises from constructive phase interference between helical phase
    \[
    V_{\text{eff}}(d) = \frac{\hbar^2}{2 m d^2} \ln\left(\frac{d}{\xi_c}\right) + g \rho_{4D}^0 \pi \xi_c^2 \left( \frac{\delta \theta}{2\pi} \right)^2,
    \]
-   where the first term is attractive logarithmic potential from mutual induction (standard in 2D vortices, scaled to 4D by $1/d^2$ from sheet geometry; dimensions: $[\hbar^2 / m] [M^{-1} L^3 T^{-1}] \cdot \ln [1] / d^2 [L^{-2}] = [M L^{-1} T^{-2}]$, but normalized by $m_\text{aether} = m$). The second term is repulsive twist penalty from phase mismatch, with $\pi \xi_c^2$ core area and $g \rho_{4D}^0 = m v_L^2$ (P-3; dimensions: $g [L^6 T^{-2}] \cdot \rho_{4D}^0 [M L^{-4}] \cdot \xi_c^2 [L^2] = [M T^{-2}]$). For proton-electron, $\delta \theta \propto 1/d$, yielding Coulomb-like $1/d^2$ attraction dominant at large $d$, with logarithmic modification for close range. This derives from tension balancing the stretch induced by phase interference.
+   where the first term is attractive logarithmic potential from mutual induction (standard in 2D vortices, scaled to 4D by $1/d^2$ from sheet geometry; dimensions: $[\hbar^2 / m] [M^{-1} L^3 T^{-1}] \cdot \ln [1] / d^2 [L^{-2}] = [M L^{-1} T^{-2}]$, but normalized by $m_\text{aether} = m$). The second term is repulsive twist penalty from phase mismatch, with $\pi \xi_c^2$ core area and $g \, \rho_{4D}^0 = m^{2} \, v_L^2$ (P-3; dimensions: $g [L^6 T^{-2}] \cdot \rho_{4D}^0 [M L^{-4}] \cdot \xi_c^2 [L^2] = [M T^{-2}]$). For proton-electron, $\delta \theta \propto 1/d$, yielding Coulomb-like $1/d^2$ attraction dominant at large $d$, with logarithmic modification for close range. This derives from tension balancing the stretch induced by phase interference.
 
 \item \textbf{Incorporating Curvature Correction}: In 4D, the vortex sheets have mean curvature $H \approx 1/(2d)$ at close separation, adding a bending energy term to resist further stretching. The curvature correction is $\delta V \approx \kappa_b H^2 \cdot A$, where $\kappa_b \sim T \xi_c^2$ (rigidity from tension $T \approx \frac{\hbar^2 \rho_{4D}^0}{2 m^2}$), $A \approx \pi \xi_c^2$ (interaction area), yielding $\delta V \approx T \xi_c^2 / d$ (dimensions: $T [M T^{-2}] \cdot \xi_c^2 [L^2] / d [L] = [M L T^{-2}]$, consistent after normalization). The updated potential is
    \[

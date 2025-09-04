@@ -293,13 +293,13 @@ We will also use the cosmological length scale $\lambda_{\text{cosmo}}$, tied to
 \hline
 \# & Verbal Statement & Mathematical Input & Quintet Mode & Physical Picture \\
 \hline
-\textbf{P-1} & Compressible 4D medium with GP dynamics & Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$ Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$ Barotropic EOS: $P = (g/2) \rho_{4D}^2 / m$ & Intake/Twist-dominant & Compressible superfluid; defects = holes where phase winds \\
+\textbf{P-1} & Compressible 4D medium with GP dynamics & Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$ Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$ Barotropic EOS: $P = (g/2m^{2})\,\rho_{4D}^{2}$ & Intake/Twist-dominant & Compressible superfluid; defects = holes where phase winds \\
 \hline
 \textbf{P-2} & Vortex sinks drain into extra dimension & Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$ Sink strength: $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi_c^2$ & Intake & Cores = tiny drains into ±w; no depletion on slice \\
 \hline
-\textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \rho_{4D}^0 / m}$ Transverse: $c$ emergent from vortex dynamics Effective: $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ & Waves (with Intake/Twist in the bulk) & Bulk re-equilibrates quietly; surface waves = photons \\
+\textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \, \rho_{4D}^0 / m^{2}}$ Transverse: $c$ emergent from vortex dynamics Effective: $v_{\text{eff}} = \sqrt{g \, \rho_{4D}^{\text{local}} / m^{2}}$ & Waves (with Intake/Twist in the bulk) & Bulk re-equilibrates quietly; surface waves = photons \\
 \hline
-\textbf{P-4} & Helmholtz decomposition on the slice (Slope potential + Eddies solenoidal), with Intake across the slab & $\mathbf{v}_4 = -\nabla_4 \Phi + \nabla_4 \times \mathbf{B}_4$ & Slope + Eddies/Drag & Local donut slice around sheet gives textbook $1/\rho$ swirl \\
+\textbf{P-4} & Helmholtz decomposition on the slice (Slope potential + Eddies solenoidal), with Intake across the slab & $\mathbf{v}_4 = -\nabla_4 \chi + \nabla_4 \times \mathbf{B}_4$ & Slope + Eddies/Drag & Local donut slice around sheet gives textbook $1/\rho$ swirl \\
 \hline
 \textbf{P-5} & Projection invariance of circulation & Circulation: $\Gamma = n \kappa$, $\kappa = 2 \pi \hbar / m$; slice loop linking once measures $\Gamma$; half-spaces contribute $\Gamma/2$ each; potential fields contribute zero. Vortices as tori/sheets with \textbf{Twist} (quantized cross-slab circulation; $\theta+\tau w$) & Eddies/Drag (with Waves) & Any loop linking once reads same $\Gamma$, regardless of slab thickness \\
 \hline
@@ -337,9 +337,9 @@ $\xi_c$ & Core healing length (fundamental drainage scale) & $[L]$ & $[L]$ \\
 \hline
 $\xi_h$ & Twist scale (electromagnetic interaction scale) & $[L]$ & $[L]$ \\
 \hline
-$v_L$ & Bulk sound speed, $v_L = \sqrt{g \rho_{4D}^0 / m}$ & $[L T^{-1}]$ & --- \\
+$v_L$ & Bulk sound speed, $v_L = \sqrt{g \, \rho_{4D}^0 / m^{2}}$ & $[L T^{-1}]$ & --- \\
 \hline
-$v_{\text{eff}}$ & Effective local sound speed, $v_{\text{eff}} = \sqrt{g \rho_{4D}^{\text{local}} / m}$ & $[L T^{-1}]$ & $[L T^{-1}]$ \\
+$v_{\text{eff}}$ & Effective local sound speed, $v_{\text{eff}} = \sqrt{g \, \rho_{4D}^{\text{local}} / m^{2}}$ & $[L T^{-1}]$ & $[L T^{-1}]$ \\
 \hline
 $c$ & Emergent light speed (vortex modes) & --- & $[L T^{-1}]$ \\
 \hline
@@ -426,7 +426,7 @@ The electromagnetic four-potential is $A^\mu_{\text{EM}}=(\Phi_{\text{Slope}}/c,
 
 \subsubsection{Derivation from Aether Dynamics}
 
-From the foundational postulates (P-1 through P-6), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. The equations separate into scalar (Intake), vector (Eddies/Drag), and time-dependent pieces (Slope/Induction and Waves), with EM emerging on the slice via Eddies organized by Drag and a hidden core Twist. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into irrotational (scalar $\Phi_g$ $[L^2 T^{-2}]$) and solenoidal (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) components, with quantized circulation and core Twist (P-5) providing sources. The dynamics naturally separate into Intake (scalar), Eddies/Drag (solenoidal), and propagating Waves with Slope/Induction, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex quintet forms.
+From the foundational postulates (P-1 through P-6), we derive the unified field equations governing the dynamics of the 4D compressible superfluid aether. The equations separate into scalar (Intake), vector (Eddies/Drag), and time-dependent pieces (Slope/Induction and Waves), with EM emerging on the slice via Eddies organized by Drag and a hidden core Twist. We begin with the continuity and Euler equations (P-1), incorporating vortex sinks (P-2) and dual wave modes (P-3). Using Helmholtz decomposition (P-4), we separate the velocity field into an irrotational part described by a velocity potential $\chi$ ($[L^2 T^{-1}]$) and a solenoidal part via a vector potential $\mathbf{B}_4$ ($[L^2 T^{-1}]$), with quantized circulation and core Twist (P-5) providing sources. The dynamics naturally separate into Intake (scalar), Eddies/Drag (solenoidal), and propagating Waves with Slope/Induction, as detailed below. While we reference these modes intuitively in the text, the mathematics uses standard notation without complex quintet forms.
 
 The derivation begins with the 4D equations from P-1 and P-2, now coupled to the vortex core condition $\Psi=0$ at the defect position, incorporating helical twists:
 
@@ -445,7 +445,7 @@ The Euler equation is:
 = -\,\frac{1}{\rho_{4D}}\,\nabla_4 P \;-\; \nabla_4 Q_{\rm reg}(\rho_{4D})\,,
 \end{equation}
 
-with barotropic EOS $P=\tfrac{g}{2}\,\rho_{4D}^2/m$. Here, $m$ is the effective boson mass in the GP description, ensuring $[P]=[M L^{-2}T^{-2}]$ with $[g]=[L^6T^{-2}]$ and $[\rho_{4D}]=[M L^{-4}]$ (yielding local effective speed $v_{\text{eff}}=\sqrt{g\,\rho_{4D}^{\text{local}}/m}$; bulk $v_L=\sqrt{g\,\rho_{4D}^0/m}$ potentially $\gg c$; observable modes at $c$ from P-3). The term $Q_{\rm reg}$ denotes a short-wavelength \emph{dispersive} (Bogoliubov/GP-type) pressure used only for core-scale regularization at lengths $\sim\xi_c$; its slice-level (Madelung) form and interpretation are developed in Sec.~\ref{sec:QM_projection}.
+with barotropic EOS $P=\tfrac{g}{2m^{2}}\,\rho_{4D}^{2}$. Here, $m$ is the effective boson mass in the GP description, ensuring $[P]=[M L^{-2}T^{-2}]$ with $[g]=[L^6T^{-2}]$ and $[\rho_{4D}]=[M L^{-4}]$ (yielding local effective speed $v_{\text{eff}}=\sqrt{g\,\rho_{4D}^{\text{local}}/m^{2}}$; bulk $v_L=\sqrt{g\,\rho_{4D}^0/m^{2}}$ potentially $\gg c$; observable modes at $c$ from P-3). The term $Q_{\rm reg}$ denotes a short-wavelength \emph{dispersive} (Bogoliubov/GP-type) pressure used only for core-scale regularization at lengths $\sim\xi_c$; its slice-level (Madelung) form and interpretation are developed in Sec.~\ref{sec:QM_projection}.
 
 \textit{Physically:} Pressure gradient reshapes Slope; quantum pressure stiffens the rim.
 
@@ -463,7 +463,7 @@ The linearized Euler (dropping quadratic terms):
 \partial_t \delta \mathbf{v}_4 = -v_{\text{eff}}^2 \nabla_4 (\delta \rho_{4D} / \rho_{4D}^0) - \nabla_4 \delta Q,
 \end{equation}
 
-where $\delta P = v_{\text{eff}}^2 \delta \rho_{4D}$ from EOS linearization (differentiate $P(\rho_{4D})$ at $\rho_{4D}^0$ gives $\partial P / \partial \rho_{4D} = g \rho_{4D}^0 / m = v_L^2$, local $\rho_{4D}^{\text{local}}$ for $v_{\text{eff}}$ near deficits), and $\delta Q$ the perturbation in quantum pressure. This separation highlights Intake in density perturbations and Eddies/Drag in vorticity sources.
+where $\delta P = v_{\text{eff}}^2 \delta \rho_{4D}$ from EOS linearization (differentiate $P(\rho_{4D})$ at $\rho_{4D}^0$ gives $\partial P / \partial \rho_{4D} = g \, \rho_{4D}^0 / m^{2} = v_L^2$, local $\rho_{4D}^{\text{local}}$ for $v_{\text{eff}}$ near deficits), and $\delta Q$ the perturbation in quantum pressure. This separation highlights Intake in density perturbations and Eddies/Drag in vorticity sources.
 
 The vortex dynamics, derived from varying the GP functional with boundary $\Psi=0$ on the defect, yield Kelvin wave equations for oscillations:
 
@@ -475,13 +475,13 @@ where the bulk coupling term follows from the defect advecting with the local fl
 
 \textit{Physically:} Rim oscillations = photons; off-resonance energy leaks as radiation.
 
-Apply Helmholtz decomposition (P-4) to $\delta \mathbf{v}_4 = -\nabla_4 \Phi_g + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\Phi_g$ $[L^2 T^{-2}]$) and incompressible (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) parts, now with oscillatory modulation in the phase. Taking $\nabla_4 \cdot$ on Euler gives:
+Apply Helmholtz decomposition (P-4) to $\delta \mathbf{v}_4 = -\nabla_4 \chi + \nabla_4 \times \mathbf{B}_4$, separating compressible (scalar $\chi$ $[L^2 T^{-1}]$) and incompressible (vector $\mathbf{B}_4$ $[L^2 T^{-1}]$) parts, now with oscillatory modulation in the phase. Taking $\nabla_4 \cdot$ on Euler gives:
 
 \begin{equation}
 \partial_t (\nabla_4 \cdot \delta \mathbf{v}_4) = -v_{\text{eff}}^2 \nabla_4^2 (\delta \rho_{4D} / \rho_{4D}^0) - \nabla_4^2 \delta Q,
 \end{equation}
 
-and substituting $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \Phi_g$ yields the scalar precursor. From linearized continuity:
+and substituting $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \,\chi$ yields the scalar precursor. From linearized continuity:
 
 \begin{equation}
 \nabla_4 \cdot \delta \mathbf{v}_4 = -\frac{1}{\rho_{4D}^0} \left( \partial_t \delta \rho_{4D} + \sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) \right).
@@ -499,10 +499,10 @@ and substitute the Euler divergence:
 \partial_{tt} \delta \rho_{4D} - \rho_{4D}^0 v_{\text{eff}}^2 \nabla_4^2 (\delta \rho_{4D} / \rho_{4D}^0) = -\sum_i \partial_t \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) + \rho_{4D}^0 \nabla_4^2 \delta Q.
 \end{equation}
 
-Combine with $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \Phi_g$:
+Combine with $\nabla_4 \cdot \delta \mathbf{v}_4 = -\nabla_4^2 \,\chi$:
 
 \begin{equation}
-\partial_{tt} \Phi_g - v_{\text{eff}}^2 \nabla_4^2 \Phi_g = v_{\text{eff}}^2 \sum_i \frac{\dot{M}_i}{\rho_{4D}^0} \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) + v_{\text{eff}}^2 \nabla_4^2 \delta Q / \rho_{4D}^0.
+\partial_{tt} \,\chi - v_{\text{eff}}^2 \,\nabla_4^2 \,\chi = v_{\text{eff}}^2 \sum_i \frac{\dot{M}_i}{\rho_{4D}^0} \,\delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}) + v_{\text{eff}}^2 \,\nabla_4^2 \delta Q / \rho_{4D}^0.
 \end{equation}
 
 \begin{tcolorbox}[title=Dimensional Checks]
@@ -772,7 +772,7 @@ To prevent accumulation and back-reaction, the bulk continuity includes a dissip
 \begin{equation}
 \partial_t \rho_{\text{bulk}} + \partial_w (\rho_{\text{bulk}} v_w) = -\gamma \rho_{\text{bulk}},
 \end{equation}
-with rate $\gamma \sim v_L/L_{\text{univ}}$ (a horizon scale $L_{\text{univ}}$), and $v_w=\mathrm{sign}(w)\,v$ representing symmetric outward drainage from the $w=0$ slice (P-2). The scale $v \sim v_L=\sqrt{g\rho_{4D}^0/m}$ emerges from bulk longitudinal modes (P-1), while observables remain confined to Kelvin/wave modes at $c$.
+with rate $\gamma \sim v_L/L_{\text{univ}}$ (a horizon scale $L_{\text{univ}}$), and $v_w=\mathrm{sign}(w)\,v$ representing symmetric outward drainage from the $w=0$ slice (P-2). The scale $v \sim v_L=\sqrt{g\,\rho_{4D}^0/m^{2}}$ emerges from bulk longitudinal modes (P-1), while observables remain confined to Kelvin/wave modes at $c$.
 
 \textbf{Key Idea:} Symmetric outward drainage with dissipation.
 
@@ -971,9 +971,9 @@ Parameter & Description & Justification/Notes & Anchor/Value & Ties to Postulate
 \hline
 $\rho_0$ & Projected background density & From projection: $\rho_0=\rho_{4D}^0\,\xi_c$ & --- & P-1, P-3 \\
 \hline
-$\xi_c$ & Core healing length & From GP (P-1): $\xi_c=\frac{\hbar}{\sqrt{2mg\rho_{4D}^0}}$ & --- & P-1 \\
+$\xi_c$ & Core healing length & From GP (P-1): $\xi_c=\frac{\hbar}{\sqrt{2\,g\,\rho_{4D}^0}}$ & --- & P-1 \\
 \hline
-$v_L$ & Bulk sound speed & $v_L=\sqrt{g\rho_{4D}^0/m}$; unobservable locally & --- & P-3 \\
+$v_L$ & Bulk sound speed & $v_L=\sqrt{g\,\rho_{4D}^0/m^{2}}$; unobservable locally & --- & P-3 \\
 \hline
 $\kappa$ & Quantum of circulation & Circulation quantization $\Gamma=n\kappa$; e.g., $\kappa=\frac{2\pi\hbar}{m_{\rm eff}}$ & --- & P-2 \\
 \hline
