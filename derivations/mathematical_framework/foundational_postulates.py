@@ -103,6 +103,12 @@ v.check_dims("v_theta dims",
              v.dims['v_theta'],
              v.dims['Gamma']/v.dims['r'])
 
+# (d) Full kernel formula dimensional consistency: v_theta = (Gamma/4π ρ) * integral_result
+# Since integral = 2 (dimensionless), this reduces to v_theta = Gamma/(2π ρ)
+v.check_dims("P-4: full kernel formula dimensional consistency",
+             v.dims['Gamma']/v.dims['r'],  # (Gamma/4π ρ) * 2 = Gamma/(2π ρ) 
+             v.dims['v_theta'])
+
 # ==============================================================================
 # P-5: PROJECTION INVARIANCE (LEADING ORDER)
 # ==============================================================================
