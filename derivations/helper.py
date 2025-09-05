@@ -1015,10 +1015,27 @@ class PhysicsVerificationHelper:
         if combined_symbols and all(str(s) in base_dim_strs for s in combined_symbols):
             warnings.warn(f"{name}: use check_dims() for pure-dimension comparisons")
         try:
-            check = simplify(lhs - rhs) == 0
+            diff = simplify(lhs - rhs)
+            
+            # Handle matrices and other structured objects
+            if hasattr(diff, 'is_zero_matrix'):
+                check = diff.is_zero_matrix
+            elif hasattr(diff, 'is_zero'):
+                check = diff.is_zero
+            elif hasattr(diff, '__iter__') and hasattr(diff, 'shape'):
+                # For matrices, check if all elements are zero
+                try:
+                    check = all(simplify(element) == 0 for element in diff)
+                except:
+                    check = diff == 0
+            else:
+                check = diff == 0
         except:
             # Fallback for complex expressions
-            check = (lhs == rhs)
+            try:
+                check = (lhs == rhs)
+            except:
+                check = False
 
         if record:
             self.results.append((name, check))
