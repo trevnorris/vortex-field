@@ -48,10 +48,10 @@ def test_metric_signature_and_potentials(v):
 
     v.check_dims("h_{00} = -2Φ_g/c² dimensionless", h00_rhs, dimensionless)
 
-    # h_{0i} = -4A_{g,i}/c³ 
-    h0i_rhs = 4 * v.get_dim('A_g') / v.get_dim('c')**3
+    # h_{0i} = -4A_{g,i}/c 
+    h0i_rhs = 4 * v.get_dim('A_g') / v.get_dim('c')
     
-    v.check_dims("h_{0i} = -4A_{g,i}/c³ dimensionless", h0i_rhs, dimensionless)
+    v.check_dims("h_{0i} = -4A_{g,i}/c dimensionless", h0i_rhs, dimensionless)
 
     # h_{ij} = -2Φ_g/c²δ_{ij} (spatial components, same as h_{00})
     hij_rhs = 2 * v.get_dim('Phi_g') / v.get_dim('c')**2
@@ -67,21 +67,21 @@ def test_metric_signature_and_potentials(v):
 def test_gem_field_definitions(v):
     """
     Test dimensional consistency of gravitoelectric and gravitomagnetic field definitions:
-    E_g = -∇Φ_g - (1/c)∂_t A_g  and  B_g = ∇×A_g
+    E_g = -∇Φ_g - ∂_t A_g  and  B_g = ∇×A_g
     """
     v.subsection("GEM Field Definitions")
 
-    # Gravitoelectric field: E_g = -∇Φ_g - (1/c)∂_t A_g
+    # Gravitoelectric field: E_g = -∇Φ_g - ∂_t A_g
     grad_phi_g = v.grad_dim(v.get_dim('Phi_g'))     # -∇Φ_g term
-    dt_A_g_term = v.dt(v.get_dim('A_g')) / v.get_dim('c')  # -(1/c)∂_t A_g term
+    dt_A_g_term = v.dt(v.get_dim('A_g'))  # -∂_t A_g term
 
-    v.check_dims("E_g components: ∇Φ_g vs (1/c)∂_t A_g", grad_phi_g, dt_A_g_term)
+    v.check_dims("E_g components: ∇Φ_g vs ∂_t A_g", grad_phi_g, dt_A_g_term)
 
     # Both terms should match E_g dimensions
     E_g_expected = v.get_dim('E_g')
     
     v.check_dims("E_g = -∇Φ_g term", grad_phi_g, E_g_expected)
-    v.check_dims("E_g = -(1/c)∂_t A_g term", dt_A_g_term, E_g_expected)
+    v.check_dims("E_g = -∂_t A_g term", dt_A_g_term, E_g_expected)
 
     # Gravitomagnetic field: B_g = ∇×A_g
     curl_A_g = v.curl_dim(v.get_dim('A_g'))
@@ -183,16 +183,16 @@ def test_gem_em_analogy_consistency(v):
     v.subsection("GEM-EM Analogy Consistency")
 
     # Compare field definition structures
-    # EM: E = -∇Φ - (1/c)∂_t A
-    # GEM: E_g = -∇Φ_g - (1/c)∂_t A_g
+    # EM: E = -∇Φ - ∂_t A (SI form)
+    # GEM: E_g = -∇Φ_g - ∂_t A_g
 
-    # EM electric field components
+    # EM electric field components (SI form)
     em_grad_term = v.grad_dim(v.get_dim('Phi'))
-    em_dt_term = v.dt(v.get_dim('A')) / v.get_dim('c')
+    em_dt_term = v.dt(v.get_dim('A'))
 
     # GEM gravitoelectric field components  
     gem_grad_term = v.grad_dim(v.get_dim('Phi_g'))
-    gem_dt_term = v.dt(v.get_dim('A_g')) / v.get_dim('c')
+    gem_dt_term = v.dt(v.get_dim('A_g'))
 
     # The dimensional structure should be analogous (both give field dimensions)
     v.check_dims("EM field structure", em_grad_term, em_dt_term)
@@ -246,7 +246,7 @@ def test_physical_constants_in_gem(v):
     em_source_factor = v.get_dim('rho_charge') / v.get_dim('epsilon_0')
     
     # Both should give the same dimensional structure as div(field)
-    expected_source_dim = v.div_dim(v.get_dim('E'))  # Use E as template
+    expected_source_dim = v.div_dim(v.get_dim('E_g'))  # Use E_g as template for GEM
     v.check_dims("GEM source dimensional structure", gem_source_factor, expected_source_dim)
 
     # Verify the coupling strength dimensional consistency

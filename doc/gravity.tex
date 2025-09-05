@@ -7,11 +7,12 @@ Asymptotic causality and the decoupling of bulk $v_L$ adjustments are discussed 
 We adopt metric signature $(-,+,+,+)$ and define the weak-field potentials by
 \begin{equation}
 h_{00} = -\frac{2\Phi_g}{c^2},\qquad
-h_{0i} = -\frac{4 A_{g\,i}}{c^3},\qquad
+h_{0i} = -\frac{4 A_{g\,i}}{c},\qquad
 h_{ij} = -\frac{2\Phi_g}{c^2}\delta_{ij}.
 \end{equation}
+\footnote{We adopt SI-normalized GEM in which $A_g$ has units of velocity. Relative to the common GR convention $g_{0i} \sim A_i/c^3$, our $A_g^{\mathrm{(SI)}} = A_g^{\mathrm{(GR)}}/c^2$. Physical fields $\mathbf{E}_g, \mathbf{B}_g$ are unchanged by this rescaling.}
 With these conventions the gravitoelectric and gravitomagnetic fields,
-$\mathbf{E}_g \equiv -\nabla \Phi_g - \frac{1}{c}\,\partial_t \mathbf{A}_g \quad\text{and}\quad
+$\mathbf{E}_g \equiv -\nabla \Phi_g - \partial_t \mathbf{A}_g \quad\text{and}\quad
 \mathbf{B}_g \equiv \nabla \times \mathbf{A}_g,$
 satisfy the Maxwell-like equations (Lorenz gauge)
 
@@ -23,15 +24,15 @@ the fields obey
 \[
 \begin{aligned}
 \nabla\!\cdot\!\mathbf{E}_g &= -4\pi G\,\rho,\\
-\nabla\!\times\!\mathbf{B}_g - \frac{1}{c^2}\,\partial_t \mathbf{E}_g &= -\frac{16\pi G}{c^2}\,\mathbf{j},\\
+\nabla\!\times\!\mathbf{B}_g - \frac{1}{c^2}\,\partial_t \mathbf{E}_g &= -\frac{16\pi G}{c^2}\,\mathbf{j}_m,\\
 \nabla\!\cdot\!\mathbf{B}_g &= 0,\\
 \nabla\!\times\!\mathbf{E}_g + \partial_t \mathbf{B}_g &= 0,
 \end{aligned}
 \]
-equivalently the potentials satisfy the wave equations
+where $\mathbf{j}_m$ is the mass current density with units $[M/(L^2T)]$. Equivalently the potentials satisfy the wave equations
 \[
 \nabla^2 \Phi_g - \frac{1}{c^2}\,\partial_{tt} \Phi_g = 4\pi G\,\rho,\qquad
-\nabla^2 \mathbf{A}_g - \frac{1}{c^2}\,\partial_{tt} \mathbf{A}_g = -\frac{16\pi G}{c^2}\,\mathbf{j}.
+\nabla^2 \mathbf{A}_g - \frac{1}{c^2}\,\partial_{tt} \mathbf{A}_g = -\frac{16\pi G}{c^2}\,\mathbf{j}_m.
 \]
 
 \begin{tcolorbox}[title=Terminology bridge (gravity side)]
@@ -370,7 +371,7 @@ The radiated power follows from the Poynting-like flux in the fluid (energy carr
 For a binary system (masses $m_1, m_2$, semi-major $a$, eccentricity $e$), the period decay is:
 
 \[
-\dot{P} = -\frac{192\pi G^{5/3}}{5 c^5} \left( \frac{P}{2\pi} \right)^{-5/3} \frac{m_1 m_2 (m_1 + m_2)^{1/3}}{(1 - e^2)^{7/2}} \left(1 + \frac{73}{24} e^2 + \frac{37}{96} e^4 \right),
+\dot{P} = -\frac{192\pi G^{5/3}}{5 c^5} \left( \frac{P}{2\pi} \right)^{-5/3} \frac{m_1 m_2 (m_1 + m_2)^{-1/3}}{(1 - e^2)^{7/2}} \left(1 + \frac{73}{24} e^2 + \frac{37}{96} e^4 \right),
 \]
 
 reproducing the Peter-Mathews formula.

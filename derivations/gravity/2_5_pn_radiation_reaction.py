@@ -90,7 +90,7 @@ def test_binary_orbital_decay_formula(v):
     Test dimensional consistency of the Peter-Mathews binary orbital decay formula.
     
     For a binary system with masses m₁, m₂, period P, and eccentricity e:
-    Ṗ = -(192πG^(5/3))/(5c⁵) × (P/2π)^(-5/3) × (m₁m₂(m₁+m₂)^(1/3))/((1-e²)^(7/2)) 
+    Ṗ = -(192πG^(5/3))/(5c⁵) × (P/2π)^(-5/3) × (m₁m₂(m₁+m₂)^(-1/3))/((1-e²)^(7/2)) 
         × (1 + (73/24)e² + (37/96)e⁴)
     
     Args:
@@ -105,9 +105,9 @@ def test_binary_orbital_decay_formula(v):
     v.info(f"Masses m₁, m₂ dimensions: {m1_dim}")
     v.info(f"Orbital period P dimensions: {P_dim}")
     
-    # Left-hand side: Ṗ (rate of period change)
-    P_dot_dim = P_dim / v.T
-    v.info(f"Period derivative Ṗ dimensions: {P_dot_dim}")
+    # Left-hand side: Ṗ (rate of period change) - dimensionless (s/s)
+    P_dot_dim = 1  # Dimensionless: dP/dt has units of time/time = 1
+    v.info(f"Period derivative Ṗ dimensions: {P_dot_dim} (dimensionless s/s)")
     
     # Coefficient: -(192π)/(5) × G^(5/3)/c⁵
     numerical_coeff = 192 * pi / 5
@@ -129,11 +129,11 @@ def test_binary_orbital_decay_formula(v):
     period_factor_dim = (P_dim)**(Rational(-5, 3))
     v.info(f"(P/2π)^(-5/3) dimensions: {period_factor_dim}")
     
-    # Mass factor: m₁m₂(m₁+m₂)^(1/3)
-    # m₁m₂ has dimensions [M²], (m₁+m₂)^(1/3) has dimensions [M^(1/3)]
-    # Total: [M²] × [M^(1/3)] = [M^(7/3)]
-    mass_factor_simplified = v.M**(Rational(7, 3))
-    v.info(f"Mass factor m₁m₂(m₁+m₂)^(1/3) dimensions: {mass_factor_simplified}")
+    # Mass factor: m₁m₂(m₁+m₂)^(-1/3)
+    # m₁m₂ has dimensions [M²], (m₁+m₂)^(-1/3) has dimensions [M^(-1/3)]
+    # Total: [M²] × [M^(-1/3)] = [M^(5/3)]
+    mass_factor_simplified = v.M**(Rational(5, 3))
+    v.info(f"Mass factor m₁m₂(m₁+m₂)^(-1/3) dimensions: {mass_factor_simplified}")
     
     # Eccentricity factors are dimensionless
     # (1-e²)^(-7/2) and (1 + (73/24)e² + (37/96)e⁴) are dimensionless
@@ -148,8 +148,8 @@ def test_binary_orbital_decay_formula(v):
     # Let's analyze the dimensional structure more carefully
     # Coefficient: [M^(-5/3)T^(5/3)]
     # Period factor: [T^(-5/3)] 
-    # Mass factor: [M^(7/3)]
-    # Product: [M^(-5/3)T^(5/3)] × [T^(-5/3)] × [M^(7/3)] = [M^(-5/3+7/3)T^(5/3-5/3)] = [M^(2/3)]
+    # Mass factor: [M^(5/3)]
+    # Product: [M^(-5/3)T^(5/3)] × [T^(-5/3)] × [M^(5/3)] = [M^(-5/3+5/3)T^(5/3-5/3)] = [M^0 T^0] = [1]
     
     v.info("Dimensional analysis of Peter-Mathews formula:")
     v.info(f"  Coefficient: {coeff_dim}")
@@ -158,9 +158,9 @@ def test_binary_orbital_decay_formula(v):
     v.info(f"  Product: {rhs_dim}")
     v.info(f"  Expected (Ṗ): {P_dot_dim}")
     
-    # The dimensional mismatch [M^(2/3)] vs [T^(-1)] suggests an issue with the formula
-    # as written or with our interpretation. This is a genuine physics verification result.
-    v.info("Note: Dimensional mismatch indicates potential issue with formula or interpretation")
+    # The dimensional analysis should now yield dimensionless result (s/s units)
+    # This matches the corrected Peters-Mathews formula with proper mass exponent
+    v.info("Note: Corrected formula yields dimensionless Ṗ as expected for s/s units")
     
     # Still perform the check to record the mismatch
     v.check_dims("Binary decay: Ṗ vs Peter-Mathews formula", P_dot_dim, rhs_dim)
