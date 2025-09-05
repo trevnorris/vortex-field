@@ -59,6 +59,11 @@ This framework inverts the typical approach to unification:
 - LaTeX distribution (for compiling documentation)
 - Python 3.x with SymPy, NumPy/SciPy, Matplotlib
 
+## Testing
+
+- Run all tests: `python derivations/run_tests.py`
+- Run all tests (quiet output): `python derivations/run_tests.py --quiet`
+
 ## Author's Note
 
 *"I am not a physicist. I am a computer programmer who set out to test AI capabilities with a weekend experiment. This paper was never supposed to exist... After weeks of testing increasingly complex phenomena, the model continued delivering precise results. I present this work not as a claim to have found 'the answer,' but as a discovery of remarkable mathematical patterns that demand explanation."*

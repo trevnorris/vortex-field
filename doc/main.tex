@@ -8,11 +8,15 @@
 \usepackage{tabularx,ragged2e}
 \usepackage{rotating}
 \usepackage{physics}
+\usepackage{xcolor}      % sometimes needed explicitly
 \usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins} % <-- ensures 'breakable' key exists
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usepackage{url}
 \usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{booktabs}
 \newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 \geometry{margin=1in}
@@ -23,6 +27,28 @@
 \newcommand{\scale}{\sqrt{2}\,\xi}
 \setlength{\fboxsep}{8pt}   % space between frame and content
 \setlength{\fboxrule}{1pt}  % thickness of frame line
+
+% Light, clean cards
+\tcbset{colback=white, colframe=black!80, boxrule=0.4pt, arc=2mm}
+
+% A reusable breakable box with a title
+\newtcolorbox{postulatebox}[1][]{breakable, enhanced, title=#1}
+
+% Convenience macro: \postulate{Title}{Verbal}{Math}{Mode}{Physical}
+\newcommand{\postulate}[5]{%
+\begin{postulatebox}[#1]\small
+\textbf{Verbal statement.} #2
+
+\medskip
+\textbf{Mathematical input.} #3
+
+\medskip
+\textbf{Quintet mode.} #4
+
+\medskip
+\textbf{Physical picture.} #5
+\end{postulatebox}
+}
 
 % Physical picture box style
 \newtcolorbox{physbox}[1][]{colback=gray!5,colframe=gray!35!black,arc=1mm,boxrule=0.3pt,

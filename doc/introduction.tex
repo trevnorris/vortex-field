@@ -174,6 +174,25 @@ If correct, this framework represents a paradigm shift in how we understand part
 
 The framework's precision---sub-percent accuracy for masses, exact matches for gravitational tests---using minimal inputs suggests we may be glimpsing fundamental geometric principles that constrain any successful theory of nature.
 
+\subsection{Verification and Reproducibility}
+\label{subsec:verification}
+
+Every equation, unit, and derivation in this manuscript was checked by an automated SymPy-based verification suite comprising \textbf{over 2{,}000 tests} (about \textbf{25{,}000 lines of code}). The suite validates:
+\begin{itemize}
+  \item \textbf{Dimensional consistency} of all expressions (including SI, Gaussian, and Heaviside–Lorentz variants).
+  \item \textbf{Conservation laws} (continuity relations and source terms).
+  \item \textbf{Poisson and wave equations} with correct prefactors and source dimensions.
+  \item \textbf{4D$\to$3D projection identities} and dictionary relations used throughout the text.
+  \item \textbf{Asymptotic limits and special cases} to guard against hidden inconsistencies.
+\end{itemize}
+
+The full test suite and code are openly available. Readers can clone the repository and run the checks themselves:
+\begin{center}
+\url{https://github.com/trevnorris/vortex-field}
+\end{center}
+
+The verification helper library standardizes symbol dimensions, unit systems, and common checks to ensure consistency across sections of the paper. See the repository for exact instructions to reproduce the results and view detailed summaries of all passes/failures.
+
 \subsection{Related Work}
 
 This model draws inspiration from historical and modern attempts to describe gravity through fluid-like media, but distinguishes itself through its specific 4D superfluid framework and emergent unification in flat space. Early aether theories, such as those discussed by Whittaker in his historical survey \cite{whittaker1951history}, posited a luminiferous medium for light propagation, often conflicting with relativity due to preferred frames and drag effects. In contrast, our approach avoids aether drag by embedding dynamics in a 4D compressible superfluid where perturbations propagate at $v_L$ in the bulk (potentially $>c$) but project to $c$ on the 3D slice with variable effective speeds, preserving Lorentz invariance for observable phenomena through acoustic metrics and vortex stability.

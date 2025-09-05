@@ -285,31 +285,87 @@ The postulates are summarized in the following table:
 
 We will also use the cosmological length scale $\lambda_{\text{cosmo}}$, tied to large-scale matter distribution and bulk-mode dissipation.
 
-\begin{table}[H]
-\centering
-\begingroup
-\small
-\begin{tabularx}{\textwidth}{|c|X|X|X|X|}
-\hline
-\# & Verbal Statement & Mathematical Input & Quintet Mode & Physical Picture \\
-\hline
-\textbf{P-1} & Compressible 4D medium with GP dynamics & Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0$ Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -(1/\rho_{4D}) \nabla_4 P$ Barotropic EOS: $P = (g/2m^{2})\,\rho_{4D}^{2}$ & Intake/Twist-dominant & Compressible superfluid; defects = holes where phase winds \\
-\hline
-\textbf{P-2} & Vortex sinks drain into extra dimension & Sink term: $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$ Sink strength: $\dot{M}_i = \rho_{4D}^0 \Gamma_i \xi_c^2$ & Intake & Cores = tiny drains into ±w; no depletion on slice \\
-\hline
-\textbf{P-3} & Dual wave modes (bulk $v_L$, vortex oscillations $c$) & Longitudinal: $v_L = \sqrt{g \, \rho_{4D}^0 / m^{2}}$ Transverse: $c$ emergent from vortex dynamics Effective: $v_{\text{eff}} = \sqrt{g \, \rho_{4D}^{\text{local}} / m^{2}}$ & Waves (with Intake/Twist in the bulk) & Bulk re-equilibrates quietly; surface waves = photons \\
-\hline
-\textbf{P-4} & Helmholtz decomposition on the slice (Slope potential + Eddies solenoidal), with Intake across the slab & $\mathbf{v}_4 = -\nabla_4 \varphi + \nabla_4 \times \mathbf{B}_4$ & Slope + Eddies/Drag & Local donut slice around sheet gives textbook $1/\rho$ swirl \\
-\hline
-\textbf{P-5} & Projection invariance of circulation & Circulation: $\Gamma = n \kappa$, $\kappa = 2 \pi \hbar / m$; slice loop linking once measures $\Gamma$; half-spaces contribute $\Gamma/2$ each; potential fields contribute zero. Vortices as tori/sheets with \textbf{Twist} (quantized cross-slab circulation; $\theta+\tau w$) & Eddies/Drag (with Waves) & Any loop linking once reads same $\Gamma$, regardless of slab thickness \\
-\hline
-\textbf{P-6} & Discrete vortex projection & Projection: $\sum_i$ not $\int dw$ Vortices intersect at points: $\{(\mathbf{r}_i, w_i)\}$ Observable quantities aggregate discretely & All modes (projection) & Sheets pierce slice at points--count them, don't average \\
-\hline
-\end{tabularx}
-\endgroup
-\caption{Foundational postulates presented as mathematical axioms.}
+% ---- Foundational Postulates (Card Layout) ----
+% Caption + label so existing \ref{tab:postulates} continues to work
+\begin{center}
+\begin{minipage}{\textwidth}
+\captionsetup{type=table,name=Postulates}
+\caption{Foundational postulates presented as mathematical axioms with aligned physical interpretations.}
 \label{tab:postulates}
-\end{table}
+\end{minipage}
+\end{center}
+
+\postulate{P-1}{
+Compressible 4D medium with GP dynamics.
+}{
+Continuity: $\partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D}\mathbf{v}_4)=0$;\;
+Euler: $\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4)\mathbf{v}_4 = -(1/\rho_{4D})\,\nabla_4 P$;\;
+Barotropic EOS: $P = (g/2m^{2})\,\rho_{4D}^{2}$.
+}{
+Intake/Twist-dominant.
+}{
+Compressible superfluid; defects are holes where phase winds.
+}
+
+\postulate{P-2}{
+Vortex sinks drain into the extra dimension.
+}{
+Sink term: $-\sum_i \dot{M}_i \,\delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$;\;
+Sink strength: $\dot{M}_i = \rho_{4D}^0\,\Gamma_i\,\xi_c^2$.
+}{
+Intake.
+}{
+Cores act as tiny drains into $\pm w$; no net depletion on the slice.
+}
+
+\postulate{P-3}{
+Dual wave modes (bulk $v_L$, vortex oscillations $c$).
+}{
+Longitudinal: $v_L = \sqrt{g \,\rho_{4D}^0 / m^{2}}$;\;
+Transverse: $c$ emergent from vortex dynamics;\;
+Effective: $v_{\text{eff}} = \sqrt{g \,\rho_{4D}^{\text{local}} / m^{2}}$.
+}{
+Waves (with Intake/Twist in the bulk).
+}{
+Bulk re-equilibrates quietly; surface waves manifest as photons.
+}
+
+\postulate{P-4}{
+Helmholtz decomposition on the slice (Slope potential + Eddies solenoidal), with Intake across the slab.
+}{
+$\mathbf{v}_4 \;=\; -\nabla_4 \varphi \;+\; \nabla_4 \times \mathbf{B}_4$.
+}{
+Slope + Eddies/Drag.
+}{
+Local donut slice around sheet gives textbook $1/\rho$ swirl.
+}
+
+\postulate{P-5}{
+Projection invariance of circulation.
+}{
+Circulation: $\Gamma = n\,\kappa$, $\;\kappa = 2\pi \hbar / m$;\;
+a slice loop linking once measures $\Gamma$;\;
+half-spaces contribute $\Gamma/2$ each;\;
+potential fields contribute $0$.
+Vortices as tori/sheets with \textbf{Twist}
+(quantized cross-slab circulation; $\theta+\tau w$).
+}{
+Eddies/Drag (with Waves).
+}{
+Any loop linking once reads the same $\Gamma$, regardless of slab thickness.
+}
+
+\postulate{P-6}{
+Discrete vortex projection.
+}{
+Projection uses $\sum_i$ not $\int dw$;\;
+vortices intersect at points $\{(\mathbf r_i, w_i)\}$;\;
+observable quantities aggregate discretely.
+}{
+All modes (projection).
+}{
+Sheets pierce the slice at points—count them, don’t average.
+}
 
 For clarity and dimensional consistency, we define the following key quantities. All projections incorporate the healing length $\xi$ to bridge 4D and 3D descriptions. We define the summation operator over projected quantities in the discrete limit, where $i$ indexes vortex intersections. Surface terms vanish in the discrete projection, as there are no infinite boundaries.
 
@@ -391,7 +447,22 @@ $\mathbf{v}$ & Velocity field (restricts to $\Pi$ for observables) & $[L T^{-1}]
 \hline
 $\phi\ (\equiv \Phi_{\text{Slope}})$ & Slice Slope (electric) potential on $\Pi$ (Helmholtz gradient piece) & --- & $[L^2 T^{-2}]$ \\
 \hline
-\multicolumn{4}{|l|}{\emph{Loop energetics and rim-mode symbols used later}} \\
+\end{tabularx}
+\endgroup
+\caption{Key quantities, their descriptions, and dimensions. All projections incorporate the healing length $\xi_c$ for dimensional consistency between 4D and 3D quantities. Dimensions distinguish core-specific quantities from bulk parameters. Polarization emerges from aligned extensions into the extra dimension $w$ for wave-sector stability, yielding two observable polarizations in 3D projections.}
+\label{tab:notation}
+\end{table}
+
+\paragraph{Notation and conventions.}
+We adopt metric signature $(-,+,+,+)$ unless stated otherwise. The electromagnetic four-potential is $A^\mu_{\text{EM}}=(\Phi_{\text{Slope}}/c,\mathbf A_{\text{EM}})$, with $A_{\mu}^{\text{EM}} = (-\Phi_{\text{Slope}}/c,\mathbf A_{\text{EM}})$ (\emph{Eddies vector potential}) on the slice. For healing lengths, we spell out $\xi_c$ (core/drainage) and $\xi_h$ (Twist/EM). Densities labeled $\rho_0$ are 3D background densities: $\rho_0 := \rho_{3D}^0$.
+
+\begin{table}[H]
+\centering
+\begingroup
+\small
+\begin{tabularx}{\textwidth}{|l|Y|l|l|}
+\hline
+Symbol & Description & 4D (Pre-Projection) & 3D (Post-Projection) \\
 \hline
 $T$ & Effective line tension from core deficit; $T=\rho_0\,C_{\rm core}\,\xi_c^2$ & --- & $[M L^{-1}]$ \\
 \hline
@@ -417,12 +488,9 @@ $\beta_Q$ & Projected-EM self-energy coefficient (defined in EM section) & --- &
 \hline
 \end{tabularx}
 \endgroup
-\caption{Key quantities, their descriptions, and dimensions. All projections incorporate the healing length $\xi_c$ for dimensional consistency between 4D and 3D quantities. Dimensions distinguish core-specific quantities from bulk parameters. Polarization emerges from aligned extensions into the extra dimension $w$ for wave-sector stability, yielding two observable polarizations in 3D projections.}
-\label{tab:notation}
+\caption{Loop energetics and rim-mode symbols used later. Same dimensional and projection conventions as Table~\ref{tab:notation}; in particular, all projections incorporate the healing length $\xi_c$ for 4D$\to$3D consistency. Parameters here pertain to strand/loop geometry and 1D rim-phase dynamics (see EM section for $\beta_Q$).}
+\label{tab:notation-loop}
 \end{table}
-\paragraph{Notation and conventions.}
-We adopt metric signature $(-,+,+,+)$ unless stated otherwise.
-The electromagnetic four-potential is $A^\mu_{\text{EM}}=(\Phi_{\text{Slope}}/c,\mathbf A_{\text{EM}})$, with $A_{\mu}^{\text{EM}} = (-\Phi_{\text{Slope}}/c,\mathbf A_{\text{EM}})$ (\emph{Eddies vector potential}) on the slice. For healing lengths, we spell out $\xi_c$ (core/drainage) and $\xi_h$ (Twist/EM). Densities labeled $\rho_0$ are 3D background densities: $\rho_0 := \rho_{3D}^0$.
 
 \subsubsection{Derivation from Aether Dynamics}
 
