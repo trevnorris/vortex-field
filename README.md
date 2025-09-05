@@ -31,16 +31,27 @@ This repository contains a mathematical framework that attempts to address three
 ## Components
 
 ### Documentation (`/doc`)
-- **mathematical_framework.tex**: Complete theoretical exposition and mathematical derivations
+- **main.tex**: Master LaTeX document with formatting and structure
 - **introduction.tex**: Author's motivation, problem overview, and key predictions
+- **mathematical_framework.tex**: Core theoretical exposition and mathematical derivations
+- **projected_em.tex**: Electromagnetic field theory from 4D projection
+- **emergent_particle_masses.tex**: Particle physics applications and mass calculations
+- **gravity.tex**: Gravitational phenomena and general relativity applications
+- **quantum.tex**: Quantum mechanical formulation and measurement theory
+- **appendix.tex**: Additional mathematical derivations and supporting material
+- **bibliography.tex**: References and citations
 
 ### Derivations (`/derivations`)
 SymPy-based symbolic mathematics verification:
 - **mathematical_framework/**: Core theoretical derivations, field equations, projection mechanisms
 - **emergent_particle_masses/**: Particle physics applications, mass calculations, photon theory
+- **gravity/**: Gravitational phenomena, post-Newtonian corrections, and general relativity applications
+- **projected_em/**: Electromagnetic field theory from 4D projection, Maxwell equations derivation
+- **quantum/**: Quantum mechanical formulation, measurement theory, and relativistic extensions
+- **appendix/**: Additional mathematical derivations and supporting calculations
 
 ### Calculations (`/calculations`) 
-NumPy/SciPy-based numerical predictions and validations:
+NumPy/SciPy-based numerical predictions and validations *(under development - requires updates to match current theory)*:
 - **mathematical_framework/**: Vortex dynamics, stability analysis, parameter studies
 - **emergent_particle_masses/**: Particle mass predictions and experimental comparisons
 
@@ -72,4 +83,4 @@ This framework inverts the typical approach to unification:
 
 ## Status
 
-**Current focus**: Completing derivations and calculations. The framework successfully explains lepton masses, gravitational phenomena, and baryon confinement, with several testable predictions awaiting experimental verification.
+**Current focus**: The theoretical derivations are comprehensive with 75+ verification tests across all major sections. The calculations directory requires updates to match the current theoretical framework. The model successfully explains lepton masses, gravitational phenomena, and baryon confinement, with several testable predictions awaiting experimental verification.

@@ -11,70 +11,126 @@ Begin with the 4D continuity equation from P-1:
 \[
 \partial_t \rho_{4D} + \nabla_4 \cdot (\rho_{4D} \mathbf{v}_4) = 0,
 \]
-incorporating vortex sinks from P-2 as localized drainage terms $-\sum_i \dot{M}_i \delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i})$. Projecting to 3D (via integration over $w \sim \xi$, with $\rho_{3D} \approx \rho_{4D} \xi$ and aggregated sinks $\dot{M}_{\text{body}}$):
+incorporating vortex sinks from P-2 as localized drainage terms
+$-\sum_i \dot{M}_{i}(t)\,\delta^4(\mathbf{r}_4 - \mathbf{r}_{4,i}(t))$ (with $\dot M_i$ a total intake rate $[M/T]$). Projecting to 3D (via integration over $w \sim \xi$, with $\rho_{3D} \approx \rho_{4D} \xi$):
+\begin{equation}
+\partial_t \rho_{3D} + \nabla\!\cdot(\rho_{3D}\mathbf v) \;=\; -\,\dot m_{3}.
+\end{equation}
+
+For localized bodies, this becomes:
+\begin{equation}
+\partial_t \rho_{3D} + \nabla\!\cdot(\rho_{3D}\mathbf v)
+\;=\; -\,\dot m_{3}^{(\mathrm{bg})}
+\;-\; \dot M_{\text{body}}(t)\,\delta^{(3)}\!\big(\mathbf r-\mathbf r_b(t)\big).
+\end{equation}
+Here $\dot m_{3}^{(\mathrm{bg})}$ denotes distributed/background drainage excluding the pointlike body contribution, so there is no double counting.
+
+For irrotational flow (P-4: $\mathbf{v} = -\nabla \varphi$):
 \[
-\partial_t \rho_{3D} + \nabla \cdot (\rho_{3D} \mathbf{v}) = -\dot{M}_{\text{body}}(\mathbf{r}, t).
+\partial_t \rho_{3D} - \nabla \cdot (\rho_{3D} \nabla \varphi) = -\dot{m}_{3}.
 \]
-For irrotational flow (P-4: $\mathbf{v} = -\nabla \Psi$):
-\[
-\partial_t \rho_{3D} - \nabla \cdot (\rho_{3D} \nabla \Psi) = -\dot{M}_{\text{body}}.
-\]
+
+\paragraph{Sink conventions.}
+We distinguish three related quantities (treating $\xi$ as a \textbf{length} - projection thickness):
+(i) a \emph{4D distributed sink} $\dot m_{4}(\mathbf r_4,t)$ with units $[M/(L^4 T)]$,
+(ii) its \emph{3D projection} $\dot m_{3}(\mathbf r,t)\equiv \xi\,\dot m_{4}$ with units $[M/(L^3 T)]$,
+and (iii) a localized \emph{total intake rate} for a body,
+$\dot M_{\text{body}}(t)\equiv \int_{V_{\text{body}}}\dot m_{3}\,d^3x$ with units $[M/T]$.
+When a body is treated as pointlike, its intake appears as
+$\dot M_{\text{body}}(t)\,\delta^{(3)}(\mathbf r-\mathbf r_b)$ in 3D equations.
 
 \subsection{Projected Euler Equation}
 
 The 4D Euler equation is:
-\[
-\partial_t \mathbf{v}_4 + (\mathbf{v}_4 \cdot \nabla_4) \mathbf{v}_4 = -\frac{1}{\rho_{4D}} \nabla_4 P - \frac{\dot{M}_{\text{body}} \mathbf{v}_4}{\rho_{4D}}.
-\]
-Projecting to 3D and assuming irrotationality ($\mathbf{a} = \partial_t \mathbf{v} = -\nabla \Psi$):
-\[
--\partial_t \nabla \Psi + (\nabla \Psi \cdot \nabla) \nabla \Psi = -\frac{1}{\rho_{3D}} \nabla P + \frac{\dot{M}_{\text{body}} \nabla \Psi}{\rho_{3D}}.
-\]
-For barotropic EOS $P = (K/2) \rho_{4D}^2$ (projected as $P_{\text{eff}} \approx (K/2) (\rho_{3D}^2 / \xi^2)$), the pressure gradient integrates to enthalpy $h = \int dP / \rho_{4D} = K \rho_{4D}$.
+\begin{equation}
+\partial_t \mathbf v_{4} + (\mathbf v_{4}\!\cdot\!\nabla_{4})\,\mathbf v_{4}
+= -\frac{1}{\rho_{4D}}\,\nabla_{4}P \;-\; \frac{\dot m_{4}}{\rho_{4D}}\,\mathbf v_{4}.
+\end{equation}
+% Dim check: [\dot m_4/\rho_{4D}]=T^{-1}, so [(\dot m_4/\rho_{4D})\mathbf v_4]=L T^{-2}.
+Projecting to 3D and assuming irrotationality ($\mathbf{a}_{\text{local}} = \partial_t \mathbf{v} = -\nabla \partial_t \varphi$):
+\begin{equation}
+\partial_t \mathbf v + (\mathbf v\!\cdot\!\nabla)\mathbf v
+= -\,\frac{1}{\rho_{3D}}\,\nabla P_{\mathrm{eff}}
+\;-\; \frac{\dot m_{3}}{\rho_{3D}}\,\mathbf v.
+\end{equation}
+% Dim check: [\dot m_3/\rho_{3D}]=T^{-1}, so [(\dot m_3/\rho_{3D})\mathbf v]=L T^{-2}.
+With $\mathbf v=-\nabla\varphi$, the last term is $+(\dot m_3/\rho_{3D})\,\nabla\varphi$.
+\begin{align}
+P_{4D} &= \frac{K}{2}\,\rho_{4D}^{2}, \\[4pt]
+P_{\mathrm{eff}} &\equiv \xi\,P_{4D}
+= \frac{K}{2}\,\frac{\rho_{3D}^{2}}{\xi}, \\[4pt]
+% Using [P_{4D}] = M L^{-2} T^{-2}, [\rho_{4D}] = M L^{-4}, [\xi]=L, and \rho_{3D}=\xi\rho_{4D}, \\
+% we get [K]=L^{6} M^{-1} T^{-2} and [P_{\mathrm{eff}}]=M L^{-1} T^{-2}. \\
+h_{3D}(\rho_{3D})
+&= \int \frac{dP_{\mathrm{eff}}}{\rho_{3D}}
+= \frac{K}{\xi}\,\rho_{3D} \;+\; \text{const.}
+\end{align}
+% Notes: [K]=L^6/(M T^2), so [P_eff]=M/(L T^2) as required.
 
 \subsection{Streamline Integration and Bernoulli Form}
 
 Integrate the Euler equation along streamlines (standard for potential barotropic flow):
 \[
-\partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 + K \rho_{4D} = F(t) + \int \frac{\dot{M}_{\text{body}}}{\rho_{3D}} \, ds,
+\partial_t \varphi + \frac{1}{2} (\nabla \varphi)^2 + K \rho_{4D} = F(t) + \int \frac{\dot{M}_{\text{body}}}{\rho_{3D}} \, ds,
 \]
 where $F(t)$ is a gauge function and the sink integral is localized near cores (neglected far-field for wave propagation). Gauging $F(t) = 0$:
 \[
-\rho_{4D} = -\frac{1}{K} \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right).
+\rho_{4D} = -\frac{1}{K} \left( \partial_t \varphi + \frac{1}{2} (\nabla \varphi)^2 \right).
 \]
 (The negative sign ensures positive $\Psi$ yields deficits $\rho_{4D} < \rho_{4D}^0$.) With $\rho_{3D} \approx \rho_{4D} \xi$:
 \[
-\rho_{3D} = -\frac{\xi}{K} \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right).
+\rho_{3D} = -\frac{\xi}{K} \left( \partial_t \varphi + \frac{1}{2} (\nabla \varphi)^2 \right).
 \]
 
 \subsection{Substitution into Continuity}
 
 Substitute into the continuity equation:
 \[
-\partial_t \left[ -\frac{\xi}{K} \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right) \right] - \nabla \cdot \left[ -\frac{\xi}{K} \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right) \nabla \Psi \right] = -\dot{M}_{\text{body}}.
+\partial_t \left[ -\frac{\xi}{K} \left( \partial_t \varphi + \frac{1}{2} (\nabla \varphi)^2 \right) \right] - \nabla \cdot \left[ -\frac{\xi}{K} \left( \partial_t \varphi + \frac{1}{2} (\nabla \varphi)^2 \right) \nabla \varphi \right] = -\dot{m}_{3}.
 \]
 Multiplying by $-K / \xi$:
 \[
-\partial_t \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right) + \nabla \cdot \left[ \left( \partial_t \Psi + \frac{1}{2} (\nabla \Psi)^2 \right) \nabla \Psi \right] = \frac{K}{\xi} \dot{M}_{\text{body}}.
+\partial_t \left( \partial_t \varphi + \frac{1}{2} (\nabla \varphi)^2 \right) + \nabla \cdot \left[ \left( \partial_t \varphi + \frac{1}{2} (\nabla \varphi)^2 \right) \nabla \varphi \right] = \frac{K}{\xi} \dot{m}_{3}.
 \]
 This quasilinear second-order PDE includes quadratic and cubic nonlinearities from convection and variable $v_{\text{eff}}$.
 
 \subsection{Linear Regime Reduction}
 
-In the linear limit ($\delta \Psi \ll 1$, $\rho_{3D} = \rho_0 + \delta \rho_{3D}$, $\delta \rho_{3D} = -(\rho_0 / c^2) \partial_t \delta \Psi$), calibrate $K / \xi = c^2 / \rho_0$ (far-field $v_{\text{eff}} = c$):
+In the linear limit ($|\nabla \varphi|/c \ll 1$ and $|\delta \rho|/\rho_0 \ll 1$, $\rho_{3D} = \rho_0 + \delta \rho_{3D}$), we use:
+\begin{equation}
+\Phi_g \;\equiv\; -\,\partial_t \varphi, 
+\qquad [\varphi]=L^2/T, \quad [\Phi_g]=L^2/T^2,
+\qquad \frac{K}{\xi}=\frac{c^{2}}{\rho_{0}}.
+\end{equation}
+
+Linearizing gives the density perturbation:
 \[
-\frac{1}{c^2} \partial_t^2 \Psi - \nabla^2 \Psi = 4\pi G \rho_{\text{body}},
+\delta \rho_{3D} = \frac{\rho_0}{c^2} \, \partial_t \delta \varphi = -\frac{\rho_0}{c^2} \, \Phi_g,
 \]
-recovering the weak-field wave equation (Section 3.5), with $4\pi G \rho_{\text{body}} = (c^2 / \rho_0) \dot{M}_{\text{body}}$.
+where we fix the gauge so that $\partial_t \varphi_0 = 0$.
+
+The wave equation with bodies only is:
+\begin{equation}
+\frac{1}{c^{2}}\,\partial_{t}^{2}\Phi_g \;-\; \nabla^{2}\Phi_g
+\;=\; 4\pi G\,\rho_{\text{body}}.
+\end{equation}
+
+Including distributed drainage as a dynamical source:
+\begin{equation}
+\frac{1}{c^{2}}\,\partial_{t}^{2}\Phi_g \;-\; \nabla^{2}\Phi_g
+\;=\; 4\pi G\,\rho_{\text{body}} \;-\; \frac{1}{\rho_{0}}\,\partial_{t}\dot m_{3}.
+\end{equation}
+
+This recovers the weak-field wave equation (Section 3.5), with $\rho_{\text{body}}$ as the usual mass density of gravitating bodies.
 
 \subsection{Extensions and Applications}
 
 \begin{itemize}
 \item \textbf{Vector Coupling}: For frame-dragging, add solenoidal terms:
-$\mathbf{a} = -\nabla \Psi + \partial_t (\nabla \times \mathbf{A}_g)$.
-\item \textbf{Quantum Pressure}: Near cores, include $-\frac{\hbar^2}{2m \rho_{4D}} \nabla (\nabla^2 \sqrt{\rho_{4D}})$ in Euler for stability.
-\item \textbf{Strong-Field Horizons}: Steady-state ($\partial_t \Psi = 0$) yields $|\nabla \Psi| = \sqrt{K \rho_{4D}}$ at ergospheres, calibrating to $r_s \approx 2GM/c^2$.
-\item \textbf{Numerical Solves}: Finite differences can evolve $\Psi(t,\mathbf{r})$ for mergers or perturbations, predicting chromatic GW effects.
+$\mathbf{a} = -\nabla \Phi_g - \partial_t \mathbf{A}_g + \mathbf{v} \times (\nabla \times \mathbf{A}_g)$.
+\item \textbf{Quantum Pressure}: Near cores, include $\,\frac{\hbar^2}{2m^{2}}\, \nabla\!\left(\frac{\nabla^2 \sqrt{\rho_{4D}}}{\sqrt{\rho_{4D}}}\right)$ in Euler for stability.
+\item \textbf{Strong-Field Horizons}: Steady-state ($\partial_t \varphi = 0$) yields $|\nabla \varphi| = \sqrt{K \rho_{4D}}$ at ergospheres, calibrating to $r_s \approx 2GM/c^2$.
+\item \textbf{Numerical Solves}: Finite differences can evolve $\varphi(t,\mathbf{r})$ for mergers or perturbations, predicting chromatic GW effects.
 \end{itemize}
 
 This nonlinear foundation distinguishes the model from GR through fluid-specific phenomena while recovering limits in weak fields.

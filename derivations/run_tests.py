@@ -97,7 +97,8 @@ class PhysicsTestRunner:
             "projected_em",
             "emergent_particle_masses",
             "gravity",
-            "quantum"
+            "quantum",
+            "appendix"
         ]
 
         # Files to exclude from testing
