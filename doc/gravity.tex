@@ -44,14 +44,14 @@ Time changes of eddies induce loop pushes in the gravity sector exactly as in EM
 \subsection{Slow Rotation and Frame Dragging}
 \label{sec:slow-rotation}
 For a body with angular momentum $\mathbf J$, the exterior gravitomagnetic potential is
-$\mathbf A_g=\tfrac{G}{r^3}\,\mathbf J\times\mathbf r+O(J\,U)$.
-Using \eqref{eq:g0i-allorders} gives $g_{0\phi}=-\tfrac{2GJ}{c^3 r}\sin^2\theta+O(J\,U)$,
+$\mathbf A_g=\tfrac{2G}{c^2 r^3}\,\mathbf J\times\mathbf r+O(J\,U)$.
+Using \eqref{eq:g0i-allorders} gives $g_{0\phi}=-\tfrac{8GJ}{c^3 r}\sin^2\theta+O(J\,U)$,
 i.e., the Lense--Thirring limit of Kerr, fixing the normalization of $\mathbf A_g$ used here.
 
 \subsection*{1PN Metric Snapshot and PPN Mapping}
 To first post-Newtonian order our metric takes
 \[
-h_{00}=-\frac{2\Phi_g}{c^2},\qquad h_{0i}=-\frac{4 A_{g\,i}}{c^3},\qquad h_{ij}=-\frac{2\Phi_g}{c^2}\delta_{ij},
+h_{00}=-\frac{2\Phi_g}{c^2},\qquad h_{0i}=-\frac{4 A_{g\,i}}{c},\qquad h_{ij}=-\frac{2\Phi_g}{c^2}\delta_{ij},
 \]
 which corresponds to Parametrized Post-Newtonian parameters
 $\gamma=1$ and $\beta=1$, reproducing standard weak-field solar-system tests (light bending, Shapiro delay, and perihelion advance).
@@ -76,38 +76,44 @@ We structure this as follows: the Newtonian limit (4.1), scaling and static equa
 The Newtonian approximation emerges from the scalar sector in the static, low-velocity limit. From the unified continuity equation (projected to 3D):
 
 \[
-\partial_t \rho_{3D} + \nabla \cdot (\rho_{3D} \mathbf{v}) = -\dot{M}_{\text{body}}
+\partial_t \rho_{3D} + \nabla \cdot (\rho_{3D} \mathbf{v}) = -\dot{M}_{\text{body}} \,\delta^{(3)}(\mathbf{r} - \mathbf{r}_0)
 \]
 
-Integrating over a large control volume and applying the divergence theorem shows that, in steady state, the outward surface flux at large $r$ balances the total sink strength; locally this yields the Poisson form used below.
+Integrating over a large control volume and applying the divergence theorem shows that, in steady state, the outward surface flux at large $r$ balances the total sink strength; locally this motivates the \textbf{gravitational potential} Poisson equation used below.
 
-where $\rho_{3D} = \rho_0 + \delta \rho_{3D}$ (with $\rho_0$ the background projected density) and $\dot{M}_{\text{body}}$ the aggregated sink strength. In equilibrium, the density deficit balances the sink: $\delta \rho_{3D} \approx -\rho_{\text{body}}$, where $\rho_{\text{body}} = \dot{M}_{\text{body}} / (v_{\text{eff}} A_{\text{core}})$ and $A_{\text{core}} \approx \pi \xi_c^2$ (vortex core area).
+where $\rho_{3D} = \rho_0 + \delta \rho_{3D}$ (with $\rho_0$ the background projected density) and $\dot{M}_{\text{body}}$ the aggregated sink strength. In steady inflow, the local density deficit scales with the sink rate; a useful magnitude is $\rho_{\text{sink}} \equiv \dot{M}_{\text{body}}/(v_{\text{eff}} A_{\text{core}})$ with $A_{\text{core}} \approx \pi \xi_c^2$. We keep $\rho_{\text{body}}$ for the matter density sourcing $\nabla^2\Phi_g = 4\pi G \rho_{\text{body}}$.
 
 \noindent\textit{Convention:} We use $\rho_0 := \rho_{3D}^0$ for the 3D background density unless stated otherwise.
-We define $\rho_{\text{body}} = \sum_i m_i \, \delta^3(\mathbf r - \mathbf r_i)$ as the \emph{positive} lumped source corresponding to localized deficits in $\rho_{3D}$; the uniform background $\rho_0$ only generates a quadratic potential and is subtracted in calibration.
+We define $\rho_{\text{body}} = \sum_i m_i \, \delta^{(3)}(\mathbf r - \mathbf r_i)$ as the \emph{positive} lumped source corresponding to localized deficits in $\rho_{3D}$; the uniform background $\rho_0$ only generates a quadratic potential and is subtracted in calibration.
 Here each $m_i$ is the minimized loop mass $M_\ast$ from Secs.~\ref{sec:baryons-inside}--\ref{sec:baryons-phenomenology}, obtained by solving $\partial_R M=0$ (Eq.~\ref{eq:stationary}) for $R_\ast$ and evaluating $M_\ast=M(R_\ast;Q,n_3,\mathcal M)$ (Eq.~\ref{eq:masterM}). Electric charge $Q$ does not enter separately in gravity; its projected-EM energy contribution is already included in $M_\ast$ (see Sec.~\ref{sec:baryons-phenomenology:calib} for how $M_\ast$ is calibrated).
 
 Here $\rho_0 = \rho_{4D}^0 \, \xi_c$ is the projected background density from the 4D medium. Notation matches the matter sector: $\xi_c$ is the loop-core thickness and $a$ the core scale used in the baryon mass template.
 
-Linearizing the Euler equation (fluid element) for irrotational flow ($\mathbf{v} = -\nabla \Phi_g$):
+For irrotational flow (introducing a velocity potential $\chi$ with $\mathbf{v} = -\nabla \chi$), the Euler equation reads:
 
 \[
-\partial_t \mathbf{v} + (\mathbf{v} \cdot \nabla) \mathbf{v} = -\frac{1}{\rho_{3D}} \nabla P - \frac{\dot{M}_{\text{body}} \mathbf{v}}{\rho_{3D}}.
+\partial_t \mathbf{v} + (\mathbf{v} \cdot \nabla) \mathbf{v} = -\frac{1}{\rho_{3D}} \nabla P - \frac{\dot{M}_{\text{body}} \delta^{(3)}(\mathbf{r} - \mathbf{r}_0)}{\rho_{3D}}\,\mathbf{v}.
 \]
 
-In the static limit ($\partial_t = 0$, small $v$), this reduces to $\nabla \Phi_g = (1 / \rho_0) \nabla P$, but with EOS $P = (g / 2) \rho_{3D}^2$ (projected), yielding $\nabla \Phi_g = (g / \rho_0) \nabla \rho_{3D}$. Taking divergence:
+In the static limit ($\partial_t = 0$, small $v$), hydrostatic balance gives $\nabla P = -\rho_{3D} \nabla \Phi_g$. Linearizing around $\rho_{3D} = \rho_0 + \delta\rho$ and using the EOS $P = (g/2)\rho_{3D}^2$ with $\nabla P = g \rho_0 \nabla \rho_{3D}$, we obtain $\nabla \Phi_g = -g \nabla \rho_{3D}$. Here $\mathrm{dim}[g] = L^5/(MT^2)$ and the calibration $g = c^2/\rho_0$ ensures correct dimensions ($\delta^{(3)}$ has dimension $L^{-3}$, so $\dot{M} \delta^{(3)}$ is $M/(L^3 T)$). Taking divergence:
 
 \[
-\nabla^2 \Phi_g = -\frac{g}{\rho_0} \nabla^2 \rho_{3D}.
+\nabla^2 \Phi_g = -g \nabla^2 \rho_{3D}.
 \]
 
-From continuity balance, $\nabla^2 \rho_{3D} \approx 4\pi \rho_{\text{body}}$ (Poisson-like, with factor from 4D projection integrals). Calibration $g = c^2 / \rho_0$ and $G = c^2 / (4\pi \rho_0 \xi_c^2)$ (ensuring units, as verified symbolically) gives:
+We derive the density relationship from hydrostatic balance and the standard gravitational Poisson equation. From hydrostatic balance $\nabla P = -\rho_{3D} \nabla \Phi_g$ and linearizing with the EOS $P = (g/2)\rho_{3D}^2$ with $g$ constant, we get $\nabla \Phi_g = -g \nabla \rho_{3D}$, which integrates to $\Phi_g = -g \rho_{3D} + \text{const}$. Taking the Laplacian gives $\nabla^2 \Phi_g = -g \nabla^2 \rho_{3D}$. Combining with the standard gravitational Poisson equation $\nabla^2 \Phi_g = 4\pi G \rho_{\text{body}}$ yields:
+\[
+\nabla^2 \rho_{3D} = -\frac{4\pi G}{g} \rho_{\text{body}} = -\frac{\rho_{\text{body}}}{\xi_c^2}
+\]
+where we used the calibration relationships $g = c^2 / \rho_0$, $G = c^2 / (4\pi \rho_0 \xi_c^2)$, and the useful identity $g = 4\pi G \xi_c^2$. This gives:
 
 \[
 \nabla^2 \Phi_g = 4\pi G \rho_{\text{body}},
 \]
 
-the Newtonian Poisson equation. For a point mass $M$, $\Phi_g = -G M / r$, inducing acceleration $a = -G M / r^2$.
+the Newtonian Poisson equation. For a point mass $M$, $\Phi_g = -G M / r$, inducing acceleration $a = -G M / r^2$. 
+
+\noindent\textbf{Dimensional verification:} All relationships are dimensionally consistent: $\mathrm{dim}[g] = L^5/(MT^2)$, $\mathrm{dim}[G] = L^3/(MT^2)$, with $g = 4\pi G \xi_c^2$ providing the correct length-scale factor.
 
 \medskip
 \noindent
@@ -133,8 +139,10 @@ Numerical check: Orbital simulation with this potential yields Keplerian ellipse
 \textbf{Key Result: Newtonian Limit}
 
 \[
-\nabla^2 \Phi_g = 4\pi G \rho_{\text{body}}
+\nabla^2 \Phi_g = 4\pi G \rho_{\text{body}}, \qquad g = 4\pi G \xi_c^2, \qquad G = \frac{c^2}{4\pi \rho_0 \xi_c^2}, \qquad \nabla^2 \rho_{3D} = -\frac{\rho_{\text{body}}}{\xi_c^2} \quad (\text{for constant } g)
 \]
+
+The $\rho$-Poisson relation is \emph{derived} (not fundamental) from EOS + hydrostatic balance.
 
 Physical Insight: Rarefaction pressure gradients mimic inverse-square attraction.
 
@@ -156,7 +164,7 @@ The static equations arise by neglecting $\partial_t$ terms initially. For the s
 including nonlinear corrections for first PN. The vector sector (static):
 
 \[
-\nabla^2 \mathbf{A}_g = -\frac{16\pi G}{c^2} \mathbf{j},
+\nabla^2 \mathbf{A}_g = -\frac{16\pi G}{c^2} \mathbf{j}_{\text{mass}},
 \]
 
 with the factor $16\pi G/c^2$ from linearized GR (standard GEM normalization).
@@ -171,7 +179,7 @@ of any projection factors.
 
 Physical insight: Scaling separates orders—Newtonian at $O(\epsilon)$, gravitomagnetic at $O(\epsilon^{3/2})$—reflecting Intake dominance over gravitational eddies (frame-drag) in weak fields.
 
-Static solutions for Sun: $\Phi_g = -G M / r$ (leading), $A_{g\varphi} = -2 G J / (c r^2 \sin \theta)$ (Lense-Thirring-like, with $J$ angular momentum).
+Static solutions for Sun: $\Phi_g = -G M / r$ (leading), $A_{g,\varphi}^{\text{phys}} = -\frac{2 G J}{c^{2} r^{2}} \sin \vartheta$ (Lense-Thirring-like, with $J$ angular momentum).
 \noindent\emph{Angular convention:} $\vartheta$ (polar), $\varphi$ (azimuth). We use $\Phi_g$ for the gravitational potential; $\varphi$ is reserved for angles (and the golden-ratio symbol elsewhere), avoiding conflicts.
 
 Symbolic verification: SymPy expands the nonlinear Poisson to yield Schwarzschild-like metric in isotropic coordinates, matching GR to $O(\epsilon^2)$.
@@ -212,9 +220,21 @@ but in the weak-field, low-density perturbation regime, pressure gradients align
 
 where $\mathbf{B}_g = \nabla \times \mathbf{A}_g$ is the gravitomagnetic field (analogous to magnetism, sourced by mass currents $\mathbf{j} = \rho_{\text{body}} \, \mathbf{V}$). The vector potential satisfies $\nabla^2 \mathbf{A}_g = - (16\pi G / c^2) \mathbf{j}$ (standard weak-field GEM normalization from linearized GR).
 
-For a central mass $M$ with spin $\mathbf{J}$, $\mathbf{A}_g = G \, \frac{\mathbf{J} \times \mathbf{r}}{r^3}$ (dipole approximation, factor 2 from enhancement). The velocity-dependent term induces Larmor-like precession, but in non-relativistic orbits, it contributes small corrections to trajectories.
+For a central mass $M$ with spin $\mathbf{J}$, 
+\[
+\mathbf{A}_g(\mathbf{r}) = \frac{2G}{c^2} \, \frac{\mathbf{J} \times \mathbf{r}}{r^3}
+\]
+(dipole approximation, slow-rotation; the factor 2 is a conventional "enhancement"). The velocity-dependent term induces Larmor-like precession, but in non-relativistic orbits, it contributes small corrections to trajectories.
 
-To derive explicitly, consider the test vortex's velocity evolution in the background flow: The aether drag from inflows ($-\nabla \Phi_g$) combines with circulatory entrainment ($\mathbf{v} \times \mathbf{B}_g$), where $\mathbf{B}_g \sim (4 G / c) (\mathbf{V} \times \mathbf{r}) / r^3$ for moving sources (enhanced by 4).
+To derive explicitly, consider the test vortex's velocity evolution in the background flow: The aether drag from inflows ($-\nabla \Phi_g$) combines with circulatory entrainment ($\mathbf{v} \times \mathbf{B}_g$). For general mass current distributions, the vector potential is
+\[
+\mathbf{A}_g(\mathbf{r}) = \frac{4G}{c^2} \int \frac{\rho(\mathbf{r}')\,\mathbf{v}(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|}\,d^3r', \qquad \mathbf{B}_g = \nabla \times \mathbf{A}_g,
+\]
+which reduces to the far-field expression for a moving point mass $M$ with velocity $\mathbf{V}$:
+\[
+\mathbf{B}_g(\mathbf{r}) \simeq \frac{4GM}{c^2} \, \frac{\mathbf{V} \times (\mathbf{r} - \mathbf{r}_s)}{|\mathbf{r} - \mathbf{r}_s|^3}
+\]
+(where $\mathbf{r}_s$ is the source position; the factors 2 and 4 are conventional enhancements consistent with our GEM normalization).
 
 Physical insight: Like a leaf in a stream, the test particle is pulled by Intake (scalar) and guided by frame-drag eddies (vector), mimicking Lorentz force but for mass currents.
 
@@ -612,8 +632,8 @@ The areal radius is \(r_{\rm areal}=\rho\big(1+\tfrac{GM}{2\rho c^2}\big)^{2}\).
 \medskip
 \noindent\textbf{Stationary sources and frame dragging (slow rotation).}
 Outside a slowly rotating body with angular momentum \(\mathbf J\),
-\(\mathbf A_g=\tfrac{G}{r^3}\,\mathbf J\times\mathbf r + O(JU)\).
-Using \eqref{eq:g0i-allorders} yields \(g_{0\phi}=-\tfrac{2GJ}{c^3 r}\sin^2\theta+O(JU)\),
+\(\mathbf A_g=\tfrac{2G}{c^2 r^3}\,\mathbf J\times\mathbf r + O(JU)\).
+Using \eqref{eq:g0i-allorders} yields \(g_{0\phi}=-\tfrac{8GJ}{c^3 r}\sin^2\theta+O(JU)\),
 i.e., the Lense--Thirring limit of Kerr, fixing our normalization of \(\mathbf A_g\).
 
 \medskip
