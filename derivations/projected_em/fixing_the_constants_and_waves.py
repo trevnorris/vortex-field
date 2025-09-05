@@ -233,12 +233,15 @@ def test_physical_interpretation_and_constraints(v):
     v.success("Physical interpretation and constraint relationships verified")
 
 
-def test_fixing_constants_and_waves():
+def test_fixing_the_constants_and_waves():
     """
     Main test function for the "Fixing the Constants and Waves" subsection.
 
     Tests all aspects of electromagnetic wave equations, speed of light relationships,
     and the fixing of electromagnetic constants.
+
+    Returns:
+        float: Success rate (0-100) from verification summary
     """
     # Initialize verification helper
     v = PhysicsVerificationHelper(
@@ -277,4 +280,7 @@ def test_fixing_constants_and_waves():
 
 
 if __name__ == "__main__":
-    test_fixing_constants_and_waves()
+    success_rate = test_fixing_the_constants_and_waves()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

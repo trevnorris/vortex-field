@@ -26,7 +26,12 @@ from helper import (
 
 
 def test_small_parameters_dimensionless(v):
-    """Test that all small parameters are dimensionless."""
+    """
+    Test that all small parameters are dimensionless.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # epsilon_v = |v_bg|/c
     v.assert_dimensionless(v.get_dim('v')/v.get_dim('c'), "epsilon_v (v_bg/c)")
 
@@ -43,7 +48,12 @@ def test_small_parameters_dimensionless(v):
 
 
 def test_dalembert_consistency(v):
-    """Test d'Alembertian operator dimensional consistency."""
+    """
+    Test d'Alembertian operator dimensional consistency.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # (1/c^2) partial_tt A^mu and nabla^2 A^mu should have same dimensions
     time_term = (1 / (v.get_dim('c')**2)) * v.dtt(v.get_dim('A_mu'))
     space_term = v.lap_dim(v.get_dim('A_mu'))
@@ -53,7 +63,12 @@ def test_dalembert_consistency(v):
 
 
 def test_maxwell_wave_equation_SI(v):
-    """Test Maxwell wave equation in SI units."""
+    """
+    Test Maxwell wave equation in SI units.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # SI form: Box A^mu = -mu_0 J^mu
     box_A = v.lap_dim(v.get_dim('A_mu'))  # Same as space term from d'Alembertian
     rhs_SI = v.get_dim('mu_0') * v.get_dim('J_mu')
@@ -63,7 +78,12 @@ def test_maxwell_wave_equation_SI(v):
 
 
 def test_gaussian_wave_equation_diagnostic(v):
-    """Test diagnostic for Gaussian form - should fail in SI."""
+    """
+    Test diagnostic for Gaussian form - should fail in SI.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # Diagnostic: (4pi/c)J^mu should NOT match SI dimensions
     box_A = v.lap_dim(v.get_dim('A_mu'))
     bad_rhs = (4*pi / v.get_dim('c')) * v.get_dim('J_mu')
@@ -76,7 +96,12 @@ def test_gaussian_wave_equation_diagnostic(v):
 
 
 def test_lorenz_gauge_condition(v):
-    """Test Lorenz gauge condition partial_mu A^mu = 0."""
+    """
+    Test Lorenz gauge condition partial_mu A^mu = 0.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # partial_mu A^mu should have well-defined dimensions
     gauge_term = v.div_dim(v.get_dim('A_mu'))
 
@@ -86,7 +111,12 @@ def test_lorenz_gauge_condition(v):
 
 
 def test_em_invariant_I1(v):
-    """Test first EM invariant: I_1 = 2(B^2 - E^2/c^2)."""
+    """
+    Test first EM invariant: I_1 = 2(B^2 - E^2/c^2).
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # B^2 and E^2/c^2 must have matching units
     B_squared = v.get_dim('B')**2
     E_term = (v.get_dim('E')**2) / (v.get_dim('c')**2)
@@ -96,7 +126,12 @@ def test_em_invariant_I1(v):
 
 
 def test_em_invariant_I2(v):
-    """Test second EM invariant: I_2 = -4(E dot B)/c."""
+    """
+    Test second EM invariant: I_2 = -4(E dot B)/c.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # (E dot B)/c should match B^2 units
     EB_over_c = (v.get_dim('E') * v.get_dim('B')) / v.get_dim('c')
     B_squared = v.get_dim('B')**2
@@ -106,7 +141,12 @@ def test_em_invariant_I2(v):
 
 
 def test_michelson_morley_timing_units(v):
-    """Test that MM timing expressions have correct time units."""
+    """
+    Test that MM timing expressions have correct time units.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # t_parallel and t_perp should have time dimensions
     t_leading = (2 * v.get_dim('L_scale') / v.get_dim('c'))
 
@@ -116,7 +156,12 @@ def test_michelson_morley_timing_units(v):
 
 
 def test_michelson_morley_leading_order_cancellation(v):
-    """Test that leading-order MM terms cancel exactly."""
+    """
+    Test that leading-order MM terms cancel exactly.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # Symbolic check: t_parallel - t_perp = 0 at leading order
     beta = symbols('beta', real=True)
     t_base = symbols('t_base', positive=True)  # Represents 2L/c
@@ -131,7 +176,12 @@ def test_michelson_morley_leading_order_cancellation(v):
 
 
 def test_michelson_morley_higher_order_estimate(v):
-    """Test numerical estimate of higher-order MM timing difference."""
+    """
+    Test numerical estimate of higher-order MM timing difference.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # Delta t approx (2L/c) beta^4 with L=11 m, beta=1e-4
     L_val = 11      # meters
     c_val = 3e8     # m/s
@@ -148,7 +198,12 @@ def test_michelson_morley_higher_order_estimate(v):
 
 
 def test_em_gem_potential_separation(v):
-    """Test that EM and GEM potentials have different units."""
+    """
+    Test that EM and GEM potentials have different units.
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     # A^mu (EM) should differ from A_g^mu (GEM)
     # EM: [V*s/m], GEM: [L/T]
 
@@ -161,13 +216,21 @@ def test_em_gem_potential_separation(v):
 
 
 def test_metric_signature_convention(v):
-    """Note metric signature convention (no dimensional check needed)."""
+    """
+    Note metric signature convention (no dimensional check needed).
+
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
     v.info("Metric signature eta_mu_nu = diag(-,+,+,+) noted as convention")
 
 
-def test_resolution_preferred_frame_problem():
+def test_resolution_of_the_preferred_frame_problem():
     """
-    Main test function implementing all verification categories from TEST.md.
+    Main test function for Resolution of the Preferred Frame Problem.
+
+    This function coordinates all verification tests for the section,
+    calling helper functions as needed and providing a single entry point.
 
     Tests 5 main categories:
     A) Small parameters dimensionless (4 tests)
@@ -175,6 +238,9 @@ def test_resolution_preferred_frame_problem():
     C) Lorentz invariants (2 tests)
     D) Michelson-Morley timing (3 tests)
     E) Conventions separation (2 tests)
+
+    Returns:
+        float: Success rate (0-100) from verification summary
     """
     v = PhysicsVerificationHelper(
         "Preferred Frame – Resolution",
@@ -218,9 +284,12 @@ def test_resolution_preferred_frame_problem():
     test_em_gem_potential_separation(v)
     test_metric_signature_convention(v)
 
-    # Final summary
-    v.summary()
+    # Return success rate for test runner integration
+    return v.summary()
 
 
 if __name__ == "__main__":
-    test_resolution_preferred_frame_problem()
+    success_rate = test_resolution_of_the_preferred_frame_problem()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

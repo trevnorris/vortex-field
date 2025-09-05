@@ -19,7 +19,6 @@ Tests cover:
 
 import os
 import sys
-import sympy as sp
 from sympy import symbols, pi, sqrt, simplify
 
 # Add parent directory to path to import helper

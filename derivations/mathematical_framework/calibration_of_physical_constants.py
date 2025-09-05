@@ -520,8 +520,11 @@ def test_calibration_of_physical_constants():
     test_all_derived_parameters(v)
 
     # Final summary
-    v.summary()
+    return v.summary()
 
 
 if __name__ == "__main__":
-    test_calibration_of_physical_constants()
+    success_rate = test_calibration_of_physical_constants()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

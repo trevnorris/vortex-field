@@ -2,10 +2,13 @@
 # -*- coding: utf-8 -*-
 """
 Energy Flow (Poynting Theorem) - Verification
+====================================================
 
 Comprehensive verification of the Poynting theorem derivation including Maxwell equations,
 vector identities, intermediate algebraic steps, and dimensional consistency of the
 electromagnetic energy conservation law.
+
+Based on doc/projected_em.tex, electromagnetic energy flow analysis.
 """
 
 import os
@@ -251,8 +254,15 @@ def test_vacuum_conditions(v):
         v.check_dims("Vacuum impedance: √(μ₀/ε₀)", impedance_from_ratio, v.get_dim('Z_0'))
 
 
-def main():
-    """Run all Energy Flow (Poynting Theorem) verification tests"""
+def test_energy_flow():
+    """Main test function for Energy Flow (Poynting Theorem).
+
+    This function coordinates all verification tests for the energy flow analysis,
+    calling helper functions as needed and providing a single entry point.
+
+    Returns:
+        float: Success rate (0-100) from verification summary
+    """
 
     # Initialize verification helper
     v = PhysicsVerificationHelper(
@@ -289,4 +299,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    success_rate = test_energy_flow()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

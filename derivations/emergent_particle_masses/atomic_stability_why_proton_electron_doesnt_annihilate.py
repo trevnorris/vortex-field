@@ -331,9 +331,9 @@ def test_physical_consistency(v):
     v.success("Physical consistency verified")
 
 
-def test_atomic_stability_clean():
+def test_atomic_stability_why_proton_electron_doesnt_annihilate():
     """
-    Main test function for the clean atomic stability verification.
+    Main test function for atomic stability: why proton-electron doesn't annihilate.
 
     Systematically tests all aspects of the updated mathematical formulation
     with proper dimensional analysis throughout.
@@ -376,7 +376,7 @@ def test_atomic_stability_clean():
 
 
 if __name__ == "__main__":
-    success_rate = test_atomic_stability_clean()
+    success_rate = test_atomic_stability_why_proton_electron_doesnt_annihilate()
     # Exit with non-zero code if tests failed
     if success_rate < 100.0:
         sys.exit(1)

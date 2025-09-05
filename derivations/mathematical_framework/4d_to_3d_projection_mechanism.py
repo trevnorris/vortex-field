@@ -649,9 +649,12 @@ def test_4d_to_3d_projection_mechanism():
     v.section("Energy projection")
     test_energy_projection_mechanics(v)
 
-    # Final summary
-    v.summary()
+    # Return success rate for test runner integration
+    return v.summary()
 
 
 if __name__ == "__main__":
-    test_4d_to_3d_projection_mechanism()
+    success_rate = test_4d_to_3d_projection_mechanism()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

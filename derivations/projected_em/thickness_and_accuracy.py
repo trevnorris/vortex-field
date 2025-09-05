@@ -19,8 +19,7 @@ and "Beyond-Maxwell Predictions and Falsifiable Tests" (line 300).
 
 import os
 import sys
-import sympy as sp
-from sympy import symbols, pi, simplify, sqrt, Rational
+from sympy import pi, sqrt, Rational
 
 # Add parent directory to path to import helper
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -223,20 +222,20 @@ def test_experimental_bounds(v):
     v.subsection("Experimental Bounds")
 
     # A. Coulomb bound: ξ ≲ r√(δc/|α|)
-    coulomb_bound = v.get_dim('r') * sp.sqrt(v.get_dim('delta_c') / v.get_dim('alpha'))
+    coulomb_bound = v.get_dim('r') * sqrt(v.get_dim('delta_c') / v.get_dim('alpha'))
     v.check_dims("Coulomb bound for ξ", v.get_dim('xi'), coulomb_bound)
 
     # B. Dispersion bound: ξ ≲ (λ/2π)√(δD/(cσ|σ|))
-    dispersion_bound = (v.get_dim('wavelength') / (2*pi)) * sp.sqrt(
+    dispersion_bound = (v.get_dim('wavelength') / (2*pi)) * sqrt(
         v.get_dim('delta_D') / (v.get_dim('c_sigma') * v.get_dim('sigma')))
     v.check_dims("Dispersion bound for ξ", v.get_dim('xi'), dispersion_bound)
 
     # C. Memory bound: τ ≲ (1/ω)√(δε/|β|)
-    memory_bound = (1/v.get_dim('omega')) * sp.sqrt(v.get_dim('delta_eps') / v.get_dim('beta'))
+    memory_bound = (1/v.get_dim('omega')) * sqrt(v.get_dim('delta_eps') / v.get_dim('beta'))
     v.check_dims("Memory bound for τ", v.get_dim('tau'), memory_bound)
 
     # D. Cavity bound: ξ ≲ a√(δf/|γ|)
-    cavity_bound = v.get_dim('L_scale') * sp.sqrt(v.get_dim('delta_f') / v.get_dim('gamma_cavity'))
+    cavity_bound = v.get_dim('L_scale') * sqrt(v.get_dim('delta_f') / v.get_dim('gamma_cavity'))
     v.check_dims("Cavity bound for ξ", v.get_dim('xi'), cavity_bound)
 
     v.success("Experimental bounds verified")

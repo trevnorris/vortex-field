@@ -481,8 +481,11 @@ def test_conservation_laws_and_aether_drainage():
     test_enhanced_4d_3d_matching(v)
 
     # Final summary
-    v.summary()
+    return v.summary()
 
 
 if __name__ == "__main__":
-    test_conservation_laws_and_aether_drainage()
+    success_rate = test_conservation_laws_and_aether_drainage()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

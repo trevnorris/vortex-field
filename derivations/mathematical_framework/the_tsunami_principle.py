@@ -14,6 +14,8 @@ Verifies:
 
 import os
 import sys
+import sympy as sp
+from sympy import symbols, pi, simplify
 
 # Add parent directory to path to import helper
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -90,9 +92,12 @@ def test_the_tsunami_principle():
     test_bulk_tsunami_wave_equation(v)
     test_retarded_greens_function_solution(v)
 
-    # Final summary
-    v.summary()
+    # Return success rate for test runner integration
+    return v.summary()
 
 
 if __name__ == "__main__":
-    test_the_tsunami_principle()
+    success_rate = test_the_tsunami_principle()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

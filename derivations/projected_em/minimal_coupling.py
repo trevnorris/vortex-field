@@ -272,8 +272,16 @@ def test_si_unit_relations(v):
     v.success("SI unit relations verified")
 
 
-def main():
-    """Run all minimal coupling tests."""
+def test_minimal_coupling():
+    """Main test function for Minimal Coupling, EM Stress-Energy, and Light Propagation.
+
+    This function coordinates all verification tests for electromagnetic
+    field theory in curved spacetime, calling helper functions as needed
+    and providing a single entry point.
+
+    Returns:
+        float: Success rate (0-100) from verification summary
+    """
     # Initialize helper with SI units (as noted in the document)
     v = PhysicsVerificationHelper(
         "Minimal Coupling, EM Stress-Energy, and Light Propagation",
@@ -299,4 +307,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    success_rate = test_minimal_coupling()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

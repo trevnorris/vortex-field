@@ -1,6 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Where Sources Come From - Verification
-======================================================================
+======================================
 
 Complete verification of all mathematical relationships in the "Where Sources Come From"
 subsection of Projected Electromagnetism. This tests the dimensional consistency of:
@@ -13,287 +15,347 @@ subsection of Projected Electromagnetism. This tests the dimensional consistency
 
 The subsection derives how EM sources arise from 4D aether flow projected onto 3D slices,
 culminating in Maxwell's inhomogeneous equations with proper source terms.
+
+Based on doc/projected_em.tex, "Where Sources Come From" subsection.
 """
 
-import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from helper import (
-    PhysicsVerificationHelper, define_symbols_batch, batch_check_dims,
-    quick_verify
-)
+import sys
 import sympy as sp
 from sympy import symbols, simplify, diff, pi
 
-# Initialize verification helper
-v = PhysicsVerificationHelper(
-    "Where Sources Come From – Verification",
-    "Dimensional consistency of EM source derivation from 4D aether projection"
+# Add parent directory to path to import helper
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from helper import (
+    PhysicsVerificationHelper,
+    define_symbols_batch,
+    batch_check_dims,
+    quick_verify
 )
 
-# Define mathematical symbols for coordinates and variables
-t, x, y, z, w = define_symbols_batch(['t', 'x', 'y', 'z', 'w'], real=True)
+def test_slice_continuity(v):
+    """
+    Test slice continuity equation dimensional consistency.
 
-# Declare any additional custom dimensions if needed
-# (Most are already defined in helper.py)
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
+    v.subsection("Slice Continuity from 4D Projection")
 
-# ==============================================================================
-# EQUATION 1: SLICE CONTINUITY (eq:slice_continuity)
-# ==============================================================================
+    # ∂_t ρ + ∇·J = -[J_w]_{w=0^-}^{0^+}
+    # where ρ is projected aether excess density and J is in-slice transport current
 
-v.section("Slice Continuity from 4D Projection")
+    # Check individual terms in the continuity equation with new conventions
+    # With the added conventions: ρ ≡ ρ_e (charge density), J ≡ j (electric current density)
+    # via constitutive relations with κ_src [Q/M]: ρ_e = κ_src * ρ_aeth, j = κ_src * J_aeth
 
-# ∂_t ρ + ∇·J = -[J_w]_{w=0^-}^{0^+}
-# where ρ is projected aether excess density and J is in-slice transport current
+    # Add the constitutive coupling constant to dimensions
+    v.add_dimension('kappa_src', v.Q / v.M)  # [Q/M] conversion factor
 
-v.subsection("Dimensional Analysis of Continuity Equation")
+    # ∂_t ρ term (now charge density rate)
+    dt_rho_e_dim = v.dt(v.dims['rho_charge'])  # ρ ≡ ρ_e (charge density)
 
-# Check individual terms in the continuity equation with new conventions
-# With the added conventions: ρ ≡ ρ_e (charge density), J ≡ j (electric current density)
-# via constitutive relations with κ_src [Q/M]: ρ_e = κ_src * ρ_aeth, j = κ_src * J_aeth
+    # ∇·J term (now electric current density divergence)
+    div_j_dim = v.div_dim(v.dims['j_current'])  # J ≡ j (electric current)
 
-# Add the constitutive coupling constant to dimensions
-v.add_dimension('kappa_src', v.Q / v.M)  # [Q/M] conversion factor
+    # Normal flux J_w (now charge flux through slice boundaries)
+    # j_w = κ_src * J_w^(aeth), so [j_w] = [Q/(L³T)]
+    jw_jump_dim = v.Q / (v.L**3 * v.T)  # Charge flux density
 
-# ∂_t ρ term (now charge density rate)
-dt_rho_e_dim = v.dt(v.dims['rho_charge'])  # ρ ≡ ρ_e (charge density)
+    v.check_dims("Continuity: ∂_t ρ term",
+                 dt_rho_e_dim,
+                 div_j_dim)
 
-# ∇·J term (now electric current density divergence)
-div_j_dim = v.div_dim(v.dims['j_current'])  # J ≡ j (electric current)
+    v.check_dims("Continuity: dimensional consistency",
+                 dt_rho_e_dim,
+                 jw_jump_dim)
 
-# Normal flux J_w (now charge flux through slice boundaries)
-# j_w = κ_src * J_w^(aeth), so [j_w] = [Q/(L³T)]
-jw_jump_dim = v.Q / (v.L**3 * v.T)  # Charge flux density
+    quick_verify("Continuity equation balances charge flow rates", True,
+                "∂_t ρ + ∇·J = -[J_w] with all terms having [Q L^-3 T^-1]", helper=v)
 
-v.check_dims("Continuity: ∂_t ρ term",
-             dt_rho_e_dim,
-             div_j_dim)
+    v.success("Slice continuity equation verified")
 
-v.check_dims("Continuity: dimensional consistency",
-             dt_rho_e_dim,
-             jw_jump_dim)
+def test_closure_relation(v):
+    """
+    Test closure relation (Poisson equation) dimensional consistency.
 
-quick_verify("Continuity equation balances charge flow rates", True,
-            "∂_t ρ + ∇·J = -[J_w] with all terms having [Q L^-3 T^-1]", helper=v)
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
+    v.subsection("Closure: Poisson Equation for Potential")
 
-# ==============================================================================
-# EQUATION 2: CLOSURE RELATION (eq:closure)
-# ==============================================================================
+    # -∇²Φ = ρ/ε₀  and  ∇·(∂_t E_pot) = (1/ε₀) ∂_t ρ
 
-v.section("Closure: Poisson Equation for Potential")
+    # Left side: Laplacian of electric potential
+    laplacian_Phi_dim = v.lap_dim(v.dims['Phi'])
 
-# -∇²Φ = ρ/ε₀  and  ∇·(∂_t E_pot) = (1/ε₀) ∂_t ρ
+    # Right side: charge density over permittivity
+    # Note: Here ρ transitions from aether density to charge density
+    rho_over_eps0_dim = v.dims['rho_charge'] / v.dims['epsilon_0']
 
-v.subsection("Poisson Equation: -∇²Φ = ρ/ε₀")
+    v.check_dims("Poisson equation dimensional consistency",
+                 laplacian_Phi_dim,
+                 rho_over_eps0_dim)
 
-# Left side: Laplacian of electric potential
-laplacian_Phi_dim = v.lap_dim(v.dims['Phi'])
+    # Left side: divergence of time-varying electric field
+    div_dt_E_dim = v.div_dim(v.dt(v.dims['E']))
 
-# Right side: charge density over permittivity
-# Note: Here ρ transitions from aether density to charge density
-rho_over_eps0_dim = v.dims['rho_charge'] / v.dims['epsilon_0']
+    # Right side: time rate of charge density over permittivity
+    dt_rho_over_eps0_dim = v.dt(v.dims['rho_charge']) / v.dims['epsilon_0']
 
-v.check_dims("Poisson equation dimensional consistency",
-             laplacian_Phi_dim,
-             rho_over_eps0_dim)
+    v.check_dims("Time-varying field equation",
+                 div_dt_E_dim,
+                 dt_rho_over_eps0_dim)
 
-v.subsection("Consequence: ∇·(∂_t E_pot) = (1/ε₀) ∂_t ρ")
+    v.success("Closure relation verified")
 
-# Left side: divergence of time-varying electric field
-div_dt_E_dim = v.div_dim(v.dt(v.dims['E']))
+def test_displacement_current(v):
+    """
+    Test displacement current identification.
 
-# Right side: time rate of charge density over permittivity
-dt_rho_over_eps0_dim = v.dt(v.dims['rho_charge']) / v.dims['epsilon_0']
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
+    v.subsection("Displacement Current Identification")
 
-v.check_dims("Time-varying field equation",
-             div_dt_E_dim,
-             dt_rho_over_eps0_dim)
+    # [J_w]_{w=0^-}^{0^+} = -ε₀ ∇·∂_t E_pot
 
-# ==============================================================================
-# EQUATION 3: DISPLACEMENT CURRENT IDENTIFICATION (eq:displacement_identification)
-# ==============================================================================
+    # Left side: normal flux jump [J_w]_{w=0^-}^{0^+}
+    # With new conventions: j_w (normal charge flux)
+    jw_jump_dim = v.Q / (v.L**3 * v.T)  # Charge flux density
+    jw_displacement_dim = jw_jump_dim  # Same charge flux from continuity
 
-v.section("Displacement Current Identification")
+    # Right side: -ε₀ ∇·∂_t E_pot (displacement current density)
+    eps0_div_dt_E_dim = v.dims['epsilon_0'] * v.div_dim(v.dt(v.dims['E']))
 
-# [J_w]_{w=0^-}^{0^+} = -ε₀ ∇·∂_t E_pot
+    v.check_dims("Displacement current identification",
+                 jw_displacement_dim,
+                 eps0_div_dt_E_dim)
 
-v.subsection("Normal Flux = Displacement Current")
+    quick_verify("Displacement current provides missing flux", True,
+                "Normal flux = -ε₀ ∇·∂_t E bridges 4D to 3D EM", helper=v)
 
-# Left side: normal flux jump [J_w]_{w=0^-}^{0^+}
-# With new conventions: j_w (normal charge flux)
-jw_displacement_dim = jw_jump_dim  # Same charge flux from continuity
+    v.success("Displacement current identification verified")
 
-# Right side: -ε₀ ∇·∂_t E_pot (displacement current density)
-eps0_div_dt_E_dim = v.dims['epsilon_0'] * v.div_dim(v.dt(v.dims['E']))
+def test_maxwell_equations(v):
+    """
+    Test inhomogeneous Maxwell equations dimensional consistency.
 
-v.check_dims("Displacement current identification",
-             jw_displacement_dim,
-             eps0_div_dt_E_dim)
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
+    v.subsection("Inhomogeneous Maxwell Equations")
 
-quick_verify("Displacement current provides missing flux", True,
-            "Normal flux = -ε₀ ∇·∂_t E bridges 4D to 3D EM", helper=v)
+    # ∇·E = ρ/ε₀  and  ∇×B - μ₀ε₀ ∂_t E = μ₀ J
 
-# ==============================================================================
-# EQUATION 4: INHOMOGENEOUS MAXWELL EQUATIONS (eq:inhomogeneous)
-# ==============================================================================
+    # Left side: electric field divergence
+    div_E_dim = v.div_dim(v.dims['E'])
 
-v.section("Inhomogeneous Maxwell Equations")
+    # Right side: charge density over permittivity (same as Poisson)
+    rho_charge_over_eps0_dim = v.dims['rho_charge'] / v.dims['epsilon_0']
 
-# ∇·E = ρ/ε₀  and  ∇×B - μ₀ε₀ ∂_t E = μ₀ J
+    v.check_dims("Gauss law dimensional consistency",
+                 div_E_dim,
+                 rho_charge_over_eps0_dim)
 
-v.subsection("Gauss's Law: ∇·E = ρ/ε₀")
+    # Left side terms
+    curl_B_dim = v.curl_dim(v.dims['B'])
+    displacement_term_dim = v.dims['mu_0'] * v.dims['epsilon_0'] * v.dt(v.dims['E'])
 
-# Left side: electric field divergence
-div_E_dim = v.div_dim(v.dims['E'])
+    # Right side: magnetic field intensity from current
+    mu0_J_dim = v.dims['mu_0'] * v.dims['j_current']
 
-# Right side: charge density over permittivity (same as Poisson)
-rho_charge_over_eps0_dim = v.dims['rho_charge'] / v.dims['epsilon_0']
+    # Check that curl B and displacement current have same dimensions
+    v.check_dims("Ampère-Maxwell: curl B vs displacement current",
+                 curl_B_dim,
+                 displacement_term_dim)
 
-v.check_dims("Gauss law dimensional consistency",
-             div_E_dim,
-             rho_charge_over_eps0_dim)
+    # Check full Ampère-Maxwell dimensional consistency
+    v.check_dims("Ampère-Maxwell: dimensional consistency",
+                 curl_B_dim,
+                 mu0_J_dim)
 
-v.subsection("Ampère-Maxwell Law: ∇×B - μ₀ε₀ ∂_t E = μ₀ J")
+    v.success("Inhomogeneous Maxwell equations verified")
 
-# Left side terms
-curl_B_dim = v.curl_dim(v.dims['B'])
-displacement_term_dim = v.dims['mu_0'] * v.dims['epsilon_0'] * v.dt(v.dims['E'])
+def test_cross_equation_consistency(v):
+    """
+    Test consistency between different equations.
 
-# Right side: magnetic field intensity from current
-mu0_J_dim = v.dims['mu_0'] * v.dims['j_current']
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
+    v.subsection("Cross-Equation Consistency")
 
-# Check that curl B and displacement current have same dimensions
-v.check_dims("Ampère-Maxwell: curl B vs displacement current",
-             curl_B_dim,
-             displacement_term_dim)
+    # The ∂_t ρ in Gauss law should be consistent with continuity
+    # Taking time derivative of Gauss law: ∂_t(∇·E) = (1/ε₀)∂_t ρ
+    # This should connect to the displacement current in Ampère-Maxwell
 
-# Check full Ampère-Maxwell dimensional consistency
-v.check_dims("Ampère-Maxwell: dimensional consistency",
-             curl_B_dim,
-             mu0_J_dim)
+    dt_div_E_dim = v.dt(v.div_dim(v.dims['E']))
+    dt_gauss_rhs_dim = v.dt(v.dims['rho_charge']) / v.dims['epsilon_0']
 
-# ==============================================================================
-# CROSS-EQUATION CONSISTENCY CHECKS
-# ==============================================================================
+    v.check_dims("Time derivative of Gauss law",
+                 dt_div_E_dim,
+                 dt_gauss_rhs_dim)
 
-v.section("Cross-Equation Consistency")
+    # This should equal the divergence of the displacement current
+    # ∇·(ε₀ ∂_t E) should equal ∂_t ρ_e/ε₀ by Maxwell consistency
+    div_displacement_dim = v.div_dim(v.dt(v.dims['E']))  # ∇·(∂_t E), then multiply by ε₀
+    times_eps0_dim = v.dims['epsilon_0'] * div_displacement_dim  # ε₀ ∇·(∂_t E)
 
-v.subsection("Continuity and Maxwell Consistency")
+    v.check_dims("Gauss-Ampère consistency via displacement current",
+                 dt_gauss_rhs_dim,
+                 div_displacement_dim)
 
-# The ∂_t ρ in Gauss law should be consistent with continuity
-# Taking time derivative of Gauss law: ∂_t(∇·E) = (1/ε₀)∂_t ρ
-# This should connect to the displacement current in Ampère-Maxwell
+    v.success("Cross-equation consistency verified")
 
-dt_div_E_dim = v.dt(v.div_dim(v.dims['E']))
-dt_gauss_rhs_dim = v.dt(v.dims['rho_charge']) / v.dims['epsilon_0']
+def test_unit_system_consistency(v):
+    """
+    Test unit system consistency.
 
-v.check_dims("Time derivative of Gauss law",
-             dt_div_E_dim,
-             dt_gauss_rhs_dim)
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
+    v.subsection("Unit System Verification")
 
-# This should equal the divergence of the displacement current
-# ∇·(ε₀ ∂_t E) should equal ∂_t ρ_e/ε₀ by Maxwell consistency
-div_displacement_dim = v.div_dim(v.dt(v.dims['E']))  # ∇·(∂_t E), then multiply by ε₀
-times_eps0_dim = v.dims['epsilon_0'] * div_displacement_dim  # ε₀ ∇·(∂_t E)
+    # Verify the fundamental EM relationships hold in SI units
+    # c² = 1/(μ₀ε₀)
+    c_squared_from_constants = 1 / (v.dims['mu_0'] * v.dims['epsilon_0'])
+    c_squared_direct = v.dims['c']**2
 
-v.check_dims("Gauss-Ampère consistency via displacement current",
-             dt_gauss_rhs_dim,
-             div_displacement_dim)
+    v.check_dims("Speed of light from EM constants",
+                 c_squared_direct,
+                 c_squared_from_constants)
 
-# ==============================================================================
-# UNIT SYSTEM CONSISTENCY
-# ==============================================================================
+    # Verify impedance relationship Z₀ = √(μ₀/ε₀)
+    Z0_from_ratio = sp.sqrt(v.dims['mu_0'] / v.dims['epsilon_0'])
 
-v.section("Unit System Verification")
+    v.check_dims("Vacuum impedance from EM constants",
+                 v.dims['Z_0'],
+                 Z0_from_ratio)
 
-v.subsection("SI Unit Consistency")
+    v.success("Unit system consistency verified")
 
-# Verify the fundamental EM relationships hold in SI units
-# c² = 1/(μ₀ε₀)
-c_squared_from_constants = 1 / (v.dims['mu_0'] * v.dims['epsilon_0'])
-c_squared_direct = v.dims['c']**2
+def test_physical_interpretation(v):
+    """
+    Test physical interpretation of the equations.
 
-v.check_dims("Speed of light from EM constants",
-             c_squared_direct,
-             c_squared_from_constants)
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
+    v.subsection("Physical Interpretation")
 
-# Verify impedance relationship Z₀ = √(μ₀/ε₀)
-Z0_from_ratio = sp.sqrt(v.dims['mu_0'] / v.dims['epsilon_0'])
+    # Charge density has correct units for EM source
+    quick_verify("Charge density creates electric field",
+                 True, "ρ/ε₀ has dimensions [M T^-3 Q^-1] matching ∇·E", helper=v)
 
-v.check_dims("Vacuum impedance from EM constants",
-             v.dims['Z_0'],
-             Z0_from_ratio)
+    # Current density has correct units for magnetic source
+    quick_verify("Current density creates magnetic field",
+                 True, "μ₀J has dimensions [M T^-2 Q^-1 L^-1] matching ∇×B", helper=v)
 
-# ==============================================================================
-# PHYSICAL INTERPRETATION VALIDATION
-# ==============================================================================
+    # Displacement current provides continuity in current flow
+    quick_verify("Displacement current completes circuits",
+                 True, "ε₀∂_t E acts like current density between capacitor plates", helper=v)
 
-v.section("Physical Interpretation")
+    # Normal flux provides the link between 4D and 3D
+    quick_verify("Normal flux bridges dimensions",
+                 True, "[J_w] connects bulk 4D flow to slice 3D sources", helper=v)
 
-v.subsection("Source Term Physical Meaning")
+    v.success("Physical interpretation verified")
 
-# Charge density has correct units for EM source
-quick_verify("Charge density creates electric field",
-             True, "ρ/ε₀ has dimensions [M T^-3 Q^-1] matching ∇·E", helper=v)
+def test_mathematical_relationships(v):
+    """
+    Test mathematical relationships and operators.
 
-# Current density has correct units for magnetic source
-quick_verify("Current density creates magnetic field",
-             True, "μ₀J has dimensions [M T^-2 Q^-1 L^-1] matching ∇×B", helper=v)
+    Args:
+        v: PhysicsVerificationHelper instance
+    """
+    v.subsection("Mathematical Relationships")
 
-v.subsection("Displacement Current Physical Meaning")
+    # Check that our differential operators have correct dimensions
+    v.check_dims("Gradient operator", v.dims['nabla'], 1/v.L)
+    v.check_dims("Divergence operator", v.dims['div'], 1/v.L)
+    v.check_dims("Curl operator", v.dims['curl'], 1/v.L)
+    v.check_dims("Laplacian operator", v.dims['laplacian'], 1/v.L**2)
 
-# Displacement current provides continuity in current flow
-quick_verify("Displacement current completes circuits",
-             True, "ε₀∂_t E acts like current density between capacitor plates", helper=v)
+    # E = -∇Φ relationship
+    E_from_potential = v.grad_dim(v.dims['Phi'])
+    v.check_dims("Electric field from potential",
+                 v.dims['E'],
+                 E_from_potential)
 
-# Normal flux provides the link between 4D and 3D
-quick_verify("Normal flux bridges dimensions",
-             True, "[J_w] connects bulk 4D flow to slice 3D sources", helper=v)
+    # Verify field energy densities have correct dimensions
+    E_energy_density = v.energy_density_from_field('E', use_material=False)
+    B_energy_density = v.energy_density_from_field('B', use_material=False)
 
-# ==============================================================================
-# MATHEMATICAL RELATIONSHIPS
-# ==============================================================================
+    v.check_dims("Electric field energy density ε₀E²/2",
+                 E_energy_density,
+                 v.dims['u_EM'])
 
-v.section("Mathematical Relationships")
+    v.check_dims("Magnetic field energy density B²/(2μ₀)",
+                 B_energy_density,
+                 v.dims['u_EM'])
 
-v.subsection("Operator Consistency")
+    v.success("Mathematical relationships verified")
 
-# Check that our differential operators have correct dimensions
-v.check_dims("Gradient operator", v.dims['nabla'], 1/v.L)
-v.check_dims("Divergence operator", v.dims['div'], 1/v.L)
-v.check_dims("Curl operator", v.dims['curl'], 1/v.L)
-v.check_dims("Laplacian operator", v.dims['laplacian'], 1/v.L**2)
+def test_where_sources_come_from():
+    """
+    Main test function for Where Sources Come From verification.
 
-v.subsection("Field Relationship Verification")
+    This function coordinates all verification tests for the section,
+    calling helper functions as needed and providing a single entry point.
 
-# E = -∇Φ relationship
-E_from_potential = v.grad_dim(v.dims['Phi'])
-v.check_dims("Electric field from potential",
-             v.dims['E'],
-             E_from_potential)
+    Returns:
+        float: Success rate (0-100) from verification summary
+    """
+    # Initialize verification helper
+    v = PhysicsVerificationHelper(
+        "Where Sources Come From – Verification",
+        "Dimensional consistency of EM source derivation from 4D aether projection"
+    )
 
-# Verify field energy densities have correct dimensions
-E_energy_density = v.energy_density_from_field('E', use_material=False)
-B_energy_density = v.energy_density_from_field('B', use_material=False)
+    v.section("WHERE SOURCES COME FROM VERIFICATION")
 
-v.check_dims("Electric field energy density ε₀E²/2",
-             E_energy_density,
-             v.dims['u_EM'])
+    # Define mathematical symbols for coordinates and variables
+    t, x, y, z, w = define_symbols_batch(['t', 'x', 'y', 'z', 'w'], real=True)
 
-v.check_dims("Magnetic field energy density B²/(2μ₀)",
-             B_energy_density,
-             v.dims['u_EM'])
+    # Call test functions in logical order
+    v.info("\n--- 1) Slice Continuity ---")
+    test_slice_continuity(v)
 
-# ==============================================================================
-# SUMMARY AND CLEANUP
-# ==============================================================================
+    v.info("\n--- 2) Closure Relations ---")
+    test_closure_relation(v)
 
-# Clean up temporary analysis file
-try:
-    os.remove("/var/projects/vortex-field/temp_analysis.md")
-except:
-    pass  # File may not exist
+    v.info("\n--- 3) Displacement Current ---")
+    test_displacement_current(v)
 
-# Generate summary
-v.summary()
+    v.info("\n--- 4) Maxwell Equations ---")
+    test_maxwell_equations(v)
+
+    v.info("\n--- 5) Cross-Equation Consistency ---")
+    test_cross_equation_consistency(v)
+
+    v.info("\n--- 6) Unit System Consistency ---")
+    test_unit_system_consistency(v)
+
+    v.info("\n--- 7) Physical Interpretation ---")
+    test_physical_interpretation(v)
+
+    v.info("\n--- 8) Mathematical Relationships ---")
+    test_mathematical_relationships(v)
+
+    # Clean up temporary analysis file
+    try:
+        os.remove("/var/projects/vortex-field/temp_analysis.md")
+    except:
+        pass  # File may not exist
+
+    # Return success rate for test runner integration
+    return v.summary()
+
+
+if __name__ == "__main__":
+    success_rate = test_where_sources_come_from()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

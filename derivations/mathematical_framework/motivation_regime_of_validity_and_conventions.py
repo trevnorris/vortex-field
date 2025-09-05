@@ -513,9 +513,15 @@ def test_static_limits_and_causality(v):
     v.success("Static limits and causality verified")
 
 
-def test_motivation_regime_validity_conventions():
+def test_motivation_regime_of_validity_and_conventions():
     """
     Main test function implementing comprehensive verification of all mathematical content.
+
+    This function coordinates all verification tests for the motivation, regime of validity,
+    and conventions section, providing a single entry point.
+
+    Returns:
+        float: Success rate (0-100) from verification summary
 
     COMPREHENSIVE COVERAGE (35+ tests):
     A) Regime validity & asymptotics (4 tests)
@@ -601,9 +607,12 @@ def test_motivation_regime_validity_conventions():
     v.section_header("L) Paper dimensional verification boxes")
     test_dimensional_verification_boxes(v)
 
-    # Final summary
-    v.summary()
+    # Return success rate for test runner integration
+    return v.summary()
 
 
 if __name__ == "__main__":
-    test_motivation_regime_validity_conventions()
+    success_rate = test_motivation_regime_of_validity_and_conventions()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)

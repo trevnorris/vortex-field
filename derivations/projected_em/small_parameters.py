@@ -190,7 +190,7 @@ def test_leading_order_approximation(v):
     v.success("Leading order approximation structure verified")
 
 
-def test_small_parameters_validity():
+def test_small_parameters():
     """
     Main test function for Small Parameters and Regime of Validity subsection.
 
@@ -202,6 +202,9 @@ def test_small_parameters_validity():
     E) Notation distinction tests
     F) Regime validity conditions
     G) Leading order approximation structure
+
+    Returns:
+        float: Success rate (0-100) from verification summary
     """
     v = PhysicsVerificationHelper(
         "Small Parameters and Regime of Validity",
@@ -246,4 +249,7 @@ def test_small_parameters_validity():
 
 
 if __name__ == "__main__":
-    test_small_parameters_validity()
+    success_rate = test_small_parameters()
+    # Exit with non-zero code if tests failed (for CI/automation)
+    if success_rate < 100.0:
+        sys.exit(1)
