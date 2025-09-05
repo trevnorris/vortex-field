@@ -22,6 +22,35 @@ import warnings
 import sys
 import argparse
 
+# Global test counters
+_global_tests_total = 0
+_global_tests_passed = 0
+
+
+def reset_global_test_counts():
+    """Reset global test counters to zero."""
+    global _global_tests_total, _global_tests_passed
+    _global_tests_total = 0
+    _global_tests_passed = 0
+
+
+def get_global_test_counts():
+    """
+    Get current global test counts.
+
+    Returns:
+        tuple: (tests_passed, tests_total)
+    """
+    return (_global_tests_passed, _global_tests_total)
+
+
+def _increment_global_test_count(passed: bool):
+    """Increment global test counters."""
+    global _global_tests_total, _global_tests_passed
+    _global_tests_total += 1
+    if passed:
+        _global_tests_passed += 1
+
 
 class UnitSystem(Enum):
     """Supported unit systems for electromagnetic and gravitational equations."""
@@ -203,9 +232,9 @@ class PhysicsVerificationHelper:
 
     def _get_unit_system_prefactors(self) -> Dict[str, Any]:
         """Get equation prefactors for the current unit system with proper dimensions."""
-        if self.unit_system != UnitSystem.SI:
-            warnings.warn("Dimensional checks are anchored to SI; "
-                         "Gaussian/HL change equation prefactors only.")
+        if self.unit_system == UnitSystem.HEAVISIDE_LORENTZ:
+            warnings.warn("Heaviside-Lorentz unit system uses same dimensions as Gaussian "
+                         "but with different equation prefactors (rationalized).")
 
         if self.unit_system == UnitSystem.SI:
             return {
@@ -550,7 +579,45 @@ class PhysicsVerificationHelper:
         # Keep E_energy for energy, E for electric field
         # REMOVED: dims['E'] = ... that was overwriting electric field
 
+        # Override EM primitives for Gaussian/Heaviside-Lorentz units
+        if self.unit_system in {UnitSystem.GAUSSIAN, UnitSystem.HEAVISIDE_LORENTZ}:
+            # Fields & potentials (Gaussian/HL): E and B have same dimensions
+            dims['E'] = self.Q / self.L**2           # = M**(1/2) L**(-1/2) T**(-1) after closure
+            dims['B'] = self.Q / self.L**2           # same as E
+            dims['Phi'] = self.Q / self.L            # scalar potential
+            dims['A'] = self.Q / self.L              # vector potential, same as Phi
+
+            # Update aliases for backward compatibility
+            dims['E_field'] = dims['E']
+            dims['B_field'] = dims['B']
+            dims['Phi_E'] = dims['Phi']
+
+            # Sources (redundant with current values but listed for clarity)
+            dims['rho_charge'] = self.Q / self.L**3
+            dims['j_current'] = self.Q / (self.L**2 * self.T)
+            dims['J_mu'] = dims['J0'] = dims['J'] = self.Q / (self.L**2 * self.T)
+
+            # Update 4-potential components to match
+            dims['A_mu'] = dims['A']
+            dims['A0'] = dims['A']  # A^0 = Φ/c has same dims as A in Gaussian
+            dims['A1'] = dims['A2'] = dims['A3'] = dims['A']
+
         return dims
+
+    def _reduce_dims_for_compare(self, expr):
+        """Eliminate Q in Gaussian/HL so EM/mechanical quantities are comparable.
+
+        In Gaussian units, charge is not independent of M,L,T.
+        From Coulomb's law F = q₁q₂/r², we get Q² = ML³T⁻².
+        This closure allows comparing EM fields (expressed in Q) with
+        mechanical quantities (expressed in M,L,T).
+        """
+        if self.unit_system in {UnitSystem.GAUSSIAN, UnitSystem.HEAVISIDE_LORENTZ}:
+            from sympy import Rational
+            # Q² = M L³ T⁻²  ⇒  Q = (M L³ T⁻²)^(1/2)
+            Qmap = (self.M * self.L**3 / self.T**2)**Rational(1, 2)
+            expr = expr.subs(self.Q, Qmap)
+        return sp.simplify(expr)
 
     def _run_self_tests(self):
         """Run internal self-tests for fundamental relationships."""
@@ -572,9 +639,10 @@ class PhysicsVerificationHelper:
         D_from_eps_E = self.dims['epsilon_0'] * self.dims['E']
         self.check_dims("D = ε₀E", self.dims['D'], D_from_eps_E, verbose=False)
 
-        # Test B = μH relationship
-        B_from_mu_H = self.dims['mu_0'] * self.dims['H']
-        self.check_dims("B = μ₀H", self.dims['B'], B_from_mu_H, verbose=False)
+        # Test B = μH relationship (SI only, different in Gaussian/HL)
+        if self.unit_system == UnitSystem.SI:
+            B_from_mu_H = self.dims['mu_0'] * self.dims['H']
+            self.check_dims("B = μ₀H", self.dims['B'], B_from_mu_H, verbose=False)
 
         # Test capacitance as Q²/Energy
         C_dimensional = self.Q**2 / self.dims['E_energy']
@@ -909,6 +977,7 @@ class PhysicsVerificationHelper:
                 print(f"~ {name} - SKIPPED (SI-only check in {self.unit_system.value})")
             if record:
                 self.results.append((name + " [SKIPPED]", True))
+                _increment_global_test_count(True)
             return True
         # Extract dimensional structure ignoring numerical coefficients
         dim1 = self._extract_dimensions(expr1, strict=True)
@@ -926,6 +995,7 @@ class PhysicsVerificationHelper:
 
         if record:
             self.results.append((name, check))
+            _increment_global_test_count(check)
             if not check:
                 self.failed_checks.append(name)
 
@@ -966,6 +1036,7 @@ class PhysicsVerificationHelper:
         if is_zero:
             if record:
                 self.results.append((name, True))
+                _increment_global_test_count(True)
             if verbose:
                 self.success(name)
             return True
@@ -974,6 +1045,7 @@ class PhysicsVerificationHelper:
         if str(dim) == 'ZERO':
             if record:
                 self.results.append((name, False))
+                _increment_global_test_count(False)
                 self.failed_checks.append(name)
             if verbose:
                 self.error(f"{name} - Expression marked as zero but evaluates to: {expr}")
@@ -1016,7 +1088,7 @@ class PhysicsVerificationHelper:
             warnings.warn(f"{name}: use check_dims() for pure-dimension comparisons")
         try:
             diff = simplify(lhs - rhs)
-            
+
             # Handle matrices and other structured objects
             if hasattr(diff, 'is_zero_matrix'):
                 check = diff.is_zero_matrix
@@ -1039,6 +1111,7 @@ class PhysicsVerificationHelper:
 
         if record:
             self.results.append((name, check))
+            _increment_global_test_count(check)
             if not check:
                 self.failed_checks.append(name)
 
@@ -1079,6 +1152,7 @@ class PhysicsVerificationHelper:
 
         if record:
             self.results.append((name, check))
+            _increment_global_test_count(check)
             if not check:
                 self.failed_checks.append(name)
 
@@ -1120,6 +1194,7 @@ class PhysicsVerificationHelper:
 
         if record:
             self.results.append((name, check))
+            _increment_global_test_count(check)
             if not check:
                 self.failed_checks.append(name)
 
@@ -1146,6 +1221,7 @@ class PhysicsVerificationHelper:
             The check_result
         """
         self.results.append((description, check_result))
+        _increment_global_test_count(check_result)
         if not check_result:
             self.failed_checks.append((description, details))
 
@@ -1324,13 +1400,17 @@ class PhysicsVerificationHelper:
         if str(dim1) == 'ZERO' or str(dim2) == 'ZERO':
             return True
 
+        # Apply Gaussian closure to reduce Q dimensions if needed
+        dim1_reduced = self._reduce_dims_for_compare(dim1)
+        dim2_reduced = self._reduce_dims_for_compare(dim2)
+
         try:
             # Try direct comparison
-            if dim1 == dim2:
+            if dim1_reduced == dim2_reduced:
                 return True
 
             # Try ratio (more robust than difference)
-            ratio = simplify(dim1 / dim2)
+            ratio = simplify(dim1_reduced / dim2_reduced)
             if ratio == 1:
                 return True
 
@@ -1375,7 +1455,7 @@ def quick_verify(name: str, condition: bool, details: str = "", helper=None, exp
             # For expected failures in quiet mode, only show if not quiet or if it's an unexpected success
             if expected_failure and helper.quiet:
                 # Don't print expected failures in quiet mode
-                pass  
+                pass
             else:
                 helper.error(message)
     else:

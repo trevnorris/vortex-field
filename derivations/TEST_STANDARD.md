@@ -40,42 +40,42 @@ from helper import (
 def test_specific_aspect_1(v):
     """
     Test a specific aspect of the physics being verified.
-    
+
     Args:
         v: PhysicsVerificationHelper instance
     """
     v.subsection("Specific Aspect 1")
-    
+
     # Test implementation here
     # All tests use the shared 'v' instance
     v.check_dims("description", expr1, expr2)
     # ... more tests ...
-    
+
     v.success("Specific aspect 1 verified")
 
 
 def test_specific_aspect_2(v):
     """
     Test another specific aspect.
-    
+
     Args:
         v: PhysicsVerificationHelper instance
     """
     v.subsection("Specific Aspect 2")
-    
+
     # Test implementation here
     # ... tests ...
-    
+
     v.success("Specific aspect 2 verified")
 
 
 def test_[module_name]():
     """
     Main test function for [Section Name].
-    
+
     This function coordinates all verification tests for the section,
     calling helper functions as needed and providing a single entry point.
-    
+
     Returns:
         float: Success rate (0-100) from verification summary
     """
@@ -84,27 +84,27 @@ def test_[module_name]():
         "Section Name",
         "Brief description of what's being verified"
     )
-    
+
     v.section("MAIN SECTION TITLE")
-    
+
     # Define any custom symbols if needed
     # (Use define_symbols_batch for multiple symbols)
     # x, y, z = define_symbols_batch(['x', 'y', 'z'], real=True)
-    
+
     # Add custom dimensions if needed
     # v.add_dimensions({
     #     'custom_quantity': v.M * v.L / v.T**2,
     # })
-    
+
     # Call test functions in logical order
     v.info("\n--- 1) First Test Group ---")
     test_specific_aspect_1(v)
-    
-    v.info("\n--- 2) Second Test Group ---") 
+
+    v.info("\n--- 2) Second Test Group ---")
     test_specific_aspect_2(v)
-    
+
     # Add more test calls as needed...
-    
+
     # Return success rate for test runner integration
     return v.summary()
 
@@ -123,7 +123,7 @@ if __name__ == "__main__":
 - **Helper functions**: `test_[descriptive_name](v)` taking the helper instance as argument
 
 ### 2. Return Value
-- The main function **must** return `v.summary()` 
+- The main function **must** return `v.summary()`
 - This returns the success rate (0-100) for integration with the test runner
 
 ### 3. Helper Function Pattern
@@ -136,7 +136,7 @@ def test_wave_equations(v):
     # ... test implementation using 'v' ...
     v.success("Wave equations verified")
 
-def test_constants(v): 
+def test_constants(v):
     """Test electromagnetic constant relationships."""
     v.subsection("EM Constants")
     # ... test implementation using 'v' ...
@@ -148,16 +148,16 @@ def test_fixing_constants_and_waves():
         "Fixing the Constants and Waves",
         "EM wave equations and constant relationships"
     )
-    
+
     v.section("FIXING THE CONSTANTS AND WAVES VERIFICATION")
-    
+
     # Call helper functions in sequence
     v.info("\n--- 1) Wave Equations ---")
     test_wave_equations(v)
-    
-    v.info("\n--- 2) EM Constants ---") 
+
+    v.info("\n--- 2) EM Constants ---")
     test_constants(v)
-    
+
     return v.summary()
 ```
 
@@ -182,14 +182,14 @@ def test_fixing_constants_and_waves():
 def test_simple_relationship():
     """Test a straightforward dimensional relationship."""
     v = PhysicsVerificationHelper("Simple Test", "Basic dimensional check")
-    
+
     v.section("SIMPLE RELATIONSHIP TEST")
-    
+
     # Direct test implementation
     lhs = v.get_dim('E') * v.get_dim('B')
     rhs = v.get_dim('S_poynting') * v.get_dim('mu_0')
     v.check_dims("Poynting vector relationship", lhs, rhs)
-    
+
     return v.summary()
 ```
 
@@ -198,15 +198,15 @@ def test_simple_relationship():
 def test_conservation_laws_detailed():
     """Test comprehensive conservation law framework."""
     v = PhysicsVerificationHelper("Conservation Laws", "Mass, momentum, energy")
-    
+
     v.section("CONSERVATION LAWS VERIFICATION")
-    
+
     # Multiple organized test groups
     test_mass_continuity(v)
-    test_momentum_balance(v) 
+    test_momentum_balance(v)
     test_energy_conservation(v)
     test_noether_currents(v)
-    
+
     return v.summary()
 ```
 
@@ -243,7 +243,7 @@ This eliminates the need for complex pattern detection and fallback mechanisms.
 ## Benefits
 
 1. **Consistency**: All tests follow the same structure
-2. **Maintainability**: Easy to understand and modify tests  
+2. **Maintainability**: Easy to understand and modify tests
 3. **Automation**: Simple integration with test runners and CI
 4. **Organization**: Clear separation between test logic and coordination
 5. **Reliability**: No guesswork about how to run tests

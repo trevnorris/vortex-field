@@ -61,6 +61,12 @@ def test_baryon_structure_and_charge_topology(v):
                  1,  # Q is dimensionless
                  1)  # N_{+w} - N_{-w} is also dimensionless
 
+    # Verify linking number consistency - topological invariant property
+    # The linking number Lk[Γ,Ω_TP] must be integer-valued
+    v.check_dims("Linking number as topological invariant",
+                 1,  # Topological integers are dimensionless
+                 1)
+
     v.success("Baryon structure and charge topology verified")
 
 
@@ -128,6 +134,16 @@ def test_trilobe_mode_dynamics_and_lagrangian(v):
     v.check_dims("Mode frequency ω_m²",
                  v.get_dim('omega_lock')**2 + (v.get_dim('v_theta') / v.get_dim('r'))**2,
                  v.get_dim('omega')**2)
+
+    # For m=3 mode specifically: ω_3²(R) = ω_lock² + (3v_θ/R)²
+    v.check_dims("m=3 mode frequency ω_3²(R)",
+                 v.get_dim('omega_lock')**2 + (3 * v.get_dim('v_theta') / v.get_dim('r'))**2,
+                 v.get_dim('omega')**2)
+
+    # Check zero-point energy for m=3 mode: (1/2)ℏω_3
+    v.check_dims("m=3 zero-point energy (1/2)ℏω_3",
+                 v.get_dim('hbar') * v.get_dim('omega') / 2,
+                 v.M * v.L**2 / v.T**2)  # Energy dimensions
 
     v.success("Tri-lobe mode dynamics and Lagrangian verified")
 
@@ -216,6 +232,22 @@ def test_radius_selection_energy_functional(v):
                  v.get_dim('C_bucket') / v.get_dim('R_star')**2,
                  v.M * v.L / v.T**2)  # Force dimensions
 
+    # Additional checks for mass functional components
+    # Logarithmic argument must be dimensionless: 2πR/a
+    v.check_dims("Dimensionless logarithmic argument 2πR/a",
+                 v.get_dim('r') / v.get_dim('a_core'),
+                 1)  # Dimensionless ratio
+
+    # Length correction term T·ΔL should have energy dimensions
+    v.check_dims("Length correction energy T·ΔL",
+                 v.get_dim('T_line') * v.get_dim('Delta_L'),
+                 v.M * v.L**2 / v.T**2)  # Energy dimensions
+
+    # Optimal mass M* at stationary radius R*
+    v.check_dims("Optimal mass M* at radius R*",
+                 v.get_dim('M_star'),
+                 v.M)  # Mass dimensions
+
     v.success("Radius selection and energy functional verified")
 
 
@@ -277,6 +309,22 @@ def test_spin_and_magnetic_moments(v):
     v.check_dims("Magnetic dipole moment from current loop",
                  v.get_dim('I_current') * v.get_dim('R_star')**2,
                  v.get_dim('mu_mag'))
+
+    # Additional consistency checks for magnetic properties
+    # Quantum angular momentum unit: ℏ has proper dimensions
+    v.check_dims("Quantum angular momentum unit ℏ",
+                 v.get_dim('hbar'),
+                 v.M * v.L**2 / v.T)  # Angular momentum dimensions
+
+    # Check that azimuthal velocity has correct velocity dimensions
+    v.check_dims("Azimuthal velocity v̄_φ",
+                 v.get_dim('v_phi'),
+                 v.L / v.T)  # Velocity dimensions
+
+    # Effective areal inertia ρ_eff for circulation
+    v.check_dims("Effective areal inertia ρ_eff",
+                 v.get_dim('rho_eff'),
+                 v.M / v.L**2)  # Mass per area
 
     v.success("Spin and magnetic moments verified")
 

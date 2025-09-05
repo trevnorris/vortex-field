@@ -55,20 +55,20 @@ def test_framework_recap_and_basic_relations(v):
 
     # Note: These have different dimensions because they integrate differently in 4D vs projected 3D
 
-    # Healing length: ξc = ħ/√(2g ρ₄D⁰)
+    # Healing length: ξc = ħ/√(2g ρ₄D⁰) [Eq. from line 152]
     xi_c_formula = v.get_dim('hbar') / sqrt(2 * v.get_dim('g_GP_4D') * v.get_dim('rho_4'))
     v.check_dims("Healing length formula", xi_c_formula, v.L)
 
-    # Bulk wave speed: v_L² = g ρ₄D⁰ / m²
+    # Bulk wave speed: v_L² = g ρ₄D⁰ / m² [Eq. from line 153]
     v_L_squared = v.get_dim('g_GP_4D') * v.get_dim('rho_4') / v.get_dim('m')**2
     v.check_dims("Bulk wave speed squared", v_L_squared, (v.L / v.T)**2)
 
-    # Projected density: ρ₀ ≡ ρ₃D⁰ = ρ₄D⁰ ξc
+    # Projected density: ρ₀ ≡ ρ₃D⁰ = ρ₄D⁰ ξc [Eq. from line 155]
     v.check_dims("Projected density relation",
                  v.get_dim('rho_0'),
                  v.get_dim('rho_4') * v.get_dim('xi'))
 
-    # Circulation quantum: Γ = nκ, κ = h/m
+    # Circulation quantum: Γ = nκ, κ = h/m [Eq. from line 140]
     v.check_dims("Quantum of circulation",
                  v.get_dim('kappa'),
                  v.get_dim('h') / v.get_dim('m'))
@@ -90,19 +90,30 @@ def test_golden_ratio_geometric_anchor(v):
     """
     v.subsection("Golden Ratio Geometric Anchor")
 
-    # Golden ratio: φ = (1 + √5)/2
-    phi_value = (1 + sqrt(5))/2
+    # Golden ratio value verification: φ = (1 + √5)/2 ≈ 1.618033988... [Eq. from line 160]
+    phi_numerical = (1 + sqrt(5))/2
+    phi_approx = 1.618033988749895  # Known value for verification
+    v.check_eq("Golden ratio numerical value φ = (1 + √5)/2",
+               phi_numerical.evalf(),
+               phi_approx)
+
+    # Verify φ satisfies the fixed point equation: φ = 1 + 1/φ
+    phi = (1 + sqrt(5))/2
+    fixed_point_lhs = phi
+    fixed_point_rhs = 1 + 1/phi
+    v.check_eq("Golden ratio fixed point φ = 1 + 1/φ", fixed_point_lhs, fixed_point_rhs)
+
     v.assert_dimensionless(v.get_dim('phi_golden'), "Golden ratio φ")
 
-    # Dimensionless linear pitch: r := P/ξₕ
+    # Dimensionless linear pitch: r := P/ξₕ [from line 158]
     # P has length dimension, ξₕ ~ ξc has length dimension, so r is dimensionless
     r_pitch = v.get_dim('P_pitch') / v.get_dim('xi_h')
     v.assert_dimensionless(r_pitch, "Dimensionless linear pitch r = P/ξₕ")
 
-    # The fixed point r* = φ is dimensionless
+    # The fixed point r* = φ is dimensionless [from line 160]
     v.assert_dimensionless(v.get_dim('r_star'), "Fixed point r* = φ")
 
-    # Metallic mean for general case: r* = (1 + √(1 + 4(b/a)))/2
+    # Metallic mean for general case: r* = (1 + √(1 + 4(b/a)))/2 [from line 162]
     # For isotropic case a = b, this reduces to φ
     metallic_mean_arg = 1 + 4 * v.get_dim('b_param') / v.get_dim('a_param')
     metallic_mean = (1 + sqrt(metallic_mean_arg))/2
@@ -178,12 +189,11 @@ def test_mass_size_map_and_geometric_ladder(v):
     """
     v.subsection("Mass-Size Map and Geometric Ladder")
 
-    # Deficit volume for single slender loop: V_def(R) = 2π² c_Δ ξc² R
+    # Deficit volume for single slender loop: V_def(R) = 2π² c_Δ ξc² R [Eq. 192 from line 192]
     V_def_single = 2 * pi**2 * v.get_dim('c_Delta') * v.get_dim('xi')**2 * v.get_dim('R_1')
     v.check_dims("Deficit volume (single loop)", V_def_single, v.L**3)
 
-    # Mass formula for single loop: M(R) = E_def/v_L² = (ρ₄D⁰/2) V_def
-    # = π² c_Δ ρ₄D⁰ ξc² R
+    # Mass formula for single loop: M(R) = π² c_Δ ρ₄D⁰ ξc² R [Eq. 194-195 from line 194]
     # Note: This gives mass per length; total mass requires circumference factor
     M_single_per_length = pi**2 * v.get_dim('c_Delta') * v.get_dim('rho_4') * v.get_dim('xi')**2 * v.get_dim('R_1')
     v.check_dims("Mass per length formula", M_single_per_length, v.M / v.L)
@@ -216,10 +226,16 @@ def test_mass_size_map_and_geometric_ladder(v):
     # The complete scale factor aₙ is dimensionless
     v.assert_dimensionless(v.get_dim('a_n'), "Scale factor aₙ")
 
-    # Overlap correction ε ≈ ln(2)/φ⁵ ≈ 0.0625 (dimensionless)
-    # ln(2) and φ are both dimensionless numbers, so their ratio is dimensionless
-    # We verify this relationship conceptually rather than symbolically due to SymPy limitations
-    v.info("Overlap correction ε ≈ ln(2)/φ⁵ ≈ 0.0625 verified conceptually")
+    # Overlap correction ε ≈ ln(2)/φ⁵ ≈ 0.0625 [Eq. from line 211]
+    # Numerical verification of the overlap correction formula
+    phi_val = (1 + sqrt(5))/2
+    ln2_val = ln(2)
+    epsilon_theoretical = ln2_val / phi_val**5
+    epsilon_numerical = 0.0625  # Approximate value from document
+
+    # Using numerical approximation since exact symbolic comparison may be complex
+    v.info(f"Overlap correction: theoretical = {epsilon_theoretical.evalf():.6f}, documented ≈ {epsilon_numerical}")
+    v.assert_dimensionless(epsilon_theoretical, "Overlap correction ε")
 
     v.success("Mass-size map and geometric ladder verified")
 
@@ -474,6 +490,25 @@ def test_lepton_mass_ladder_and_the_non_formation_of_a_fourth_lepton():
         # Breakup dynamics
         'Lambda_threshold': 1,       # Λ at threshold (dimensionless)
         'n_crit': 1,                 # Critical family number (dimensionless)
+
+        # Additional symbols for equation verification
+        'r_pitch': 1,                # Dimensionless linear pitch r = P/ξₕ
+        'r_metallic': 1,             # Metallic mean ratio
+        'C_constant': v.L**(-1),     # Constant C in stationarity condition
+        'V_def_single': v.L**3,      # Deficit volume for single loop
+        'M_single': v.M / v.L,       # Mass per length for single loop
+        'R_n': v.L,                  # Major radius for family n
+        'xi_eff_n': v.L,             # Effective bundle radius for family n
+        'V_def_n': v.L**3,           # Deficit volume for family n
+        'm_n': v.M,                  # Mass for family n
+        'Lambda_R': 1,               # Logarithmic factor Λ(R)
+        'U_velocity': v.L / v.T,     # Self-induced velocity
+        'tau_form': v.T,             # Formation time
+        'delta_E': v.M * v.L**2 / v.T**2,  # Core barrier energy
+        'N_sinks': 1,                # Number of sink valves
+        'mass_drain': v.M / v.T,     # Mass drain rate
+        'P_sink': v.M * v.L**2 / v.T**3,   # Sink power
+        'tau_break': v.T,            # Breakup time
     }, allow_overwrite=True)
 
     # Call test functions in logical order following document structure

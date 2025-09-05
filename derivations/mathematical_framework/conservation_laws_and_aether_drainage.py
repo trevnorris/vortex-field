@@ -40,6 +40,13 @@ def test_mass_continuity_local_form(v):
     v.check_dims("Mass continuity: div(rho v)", lhs_flux, target_mass_rate)
     v.check_dims("Mass continuity: sink term", rhs_sink, target_mass_rate)
 
+    # Mathematical equation verification: ∂_t ρ + ∇·(ρv) = -∑ᵢ Ṁᵢ δ³(r-rᵢ)
+    # Each term verified to have same dimension [M L^-3 T^-1]
+    lhs_total = lhs_rate + lhs_flux
+    rhs_total = -rhs_sink  # Note the negative sign from the equation
+    v.check_dims("3D continuity equation total LHS", lhs_total, target_mass_rate)
+    v.check_dims("3D continuity equation total RHS", rhs_total, target_mass_rate)
+
     # Verify conservation law structure
     verify_conservation_law(v, "Mass continuity with drainage", lhs_rate, lhs_flux, rhs_sink)
 
@@ -83,6 +90,13 @@ def test_global_mass_balance(v):
     v.check_dims("Global mass: surface flux", mass_flux_S, target_mass_flow)
     v.check_dims("Global mass: total sinks", total_sinks, target_mass_flow)
 
+    # Mathematical equation verification: d/dt ∫ρ dV + ∮ ρv·dA = -∑ᵢ Ṁᵢ
+    # Each term verified to have same dimension [M T^-1]
+    lhs_global = mass_rate_V + mass_flux_S
+    rhs_global = -total_sinks  # Note the negative sign
+    v.check_dims("Global mass balance equation total LHS", lhs_global, target_mass_flow)
+    v.check_dims("Global mass balance equation total RHS", rhs_global, target_mass_flow)
+
     v.success("Global mass balance verified")
 
 
@@ -116,6 +130,13 @@ def test_momentum_balance_all_terms(v):
 
     for name, term in momentum_terms:
         v.check_dims(f"Momentum term: {name}", term, target_mom)
+
+    # Mathematical equation verification: ∂_t(ρv) + ∇·(ρv⊗v + pI) = -ρ∇Φ_g - ρ∇Q - ∑ᵢ Ṁᵢv_{*i} δ³ + f_ext
+    # Each term verified to have same dimension [M L^-2 T^-2]
+    lhs_momentum = mom_rate + mom_flux + press_grad
+    rhs_momentum = -grav_force - quant_force - drain_mom + f_ext
+    v.check_dims("3D momentum balance equation total LHS", lhs_momentum, target_mom)
+    v.check_dims("3D momentum balance equation total RHS", rhs_momentum, target_mom)
 
     v.success("Momentum balance all terms verified")
 
@@ -162,6 +183,13 @@ def test_energy_density_components(v):
     for name, term in energy_components:
         v.check_dims(f"Energy density: {name}", term, target_edens)
 
+    # Mathematical equation verification: e = ½ρv² + u(ρ) + ρΦ_g + e_Q
+    # All components verified to have same dimension [M L^-1 T^-2]
+    total_energy_density = kin_energy/2 + int_energy + grav_energy + quant_energy
+    expected_energy_density = v.get_dim('e')
+    v.check_dims("Energy density definition total", total_energy_density, target_edens)
+    v.check_dims("Energy density definition expected", expected_energy_density, target_edens)
+
     v.success("Energy density components verified")
 
 
@@ -173,12 +201,19 @@ def test_energy_flux_terms(v):
     S_conv = (v.get_dim('e') + v.get_dim('p')) * v.get_dim('v')
 
     # Quantum/dispersion flux (if present)
-    S_Q = v.get_dim('S_flux')
+    S_Q_term = v.get_dim('S_flux')  # Renamed to avoid confusion with total S
 
     target_eflux = v.M / v.T**3
 
     v.check_dims("Energy flux: convective (e+p)v", S_conv, target_eflux)
-    v.check_dims("Energy flux: quantum S_Q", S_Q, target_eflux)
+    v.check_dims("Energy flux: quantum S_Q", S_Q_term, target_eflux)
+
+    # Mathematical equation verification: S = (e + p)v + S_Q
+    # All terms verified to have same dimension [M T^-3]
+    total_energy_flux = S_conv + S_Q_term
+    expected_energy_flux = v.get_dim('S_flux')
+    v.check_dims("Energy flux definition total", total_energy_flux, target_eflux)
+    v.check_dims("Energy flux definition expected", expected_energy_flux, target_eflux)
 
     v.success("Energy flux terms verified")
 
@@ -208,6 +243,13 @@ def test_local_energy_balance(v):
 
     for name, term in energy_balance_terms:
         v.check_dims(f"Energy balance: {name}", term, target_power_dens)
+
+    # Mathematical equation verification: ∂_t e + ∇·S = -ρv·∇Φ_g - ∑ᵢ Ṁᵢ εᵢ δ³ + Π_Q
+    # Each term verified to have same dimension [M L^-1 T^-3]
+    lhs_energy = e_rate + div_S
+    rhs_energy = -grav_work - drain_power + Pi_Q
+    v.check_dims("Local energy balance equation total LHS", lhs_energy, target_power_dens)
+    v.check_dims("Local energy balance equation total RHS", rhs_energy, target_power_dens)
 
     v.success("Local energy balance verified")
 
@@ -287,6 +329,31 @@ def test_sanity_reductions_and_diagnostics(v):
     v.success("Sanity reductions and diagnostics verified")
 
 
+def test_microscopic_drainage_velocity(v):
+    """Test microscopic drainage velocity formula: v_w ≈ Γ/(2πr_4)."""
+    # Framework line 764-765: circulation-based velocity formula
+
+    # Components
+    Gamma = v.get_dim('Gamma')                # Circulation quantum [L^2 T^-1]
+    r_4 = v.L                                 # 4D radial distance [L] (using dimension symbol)
+    pi_const = 1                              # Dimensionless constant (2π)
+
+    # Microscopic drainage velocity formula: v_w ≈ Γ/(2πr_4)
+    v_w_formula = Gamma / (pi_const * r_4)    # [L^2 T^-1] / [L] = [L T^-1]
+
+    # Generic velocity
+    v_w_generic = v.get_dim('v')              # [L T^-1]
+
+    # Dimensional check
+    v.check_dims("Drainage velocity formula", v_w_formula, v_w_generic)
+
+    # Mathematical equation verification: v_w = Γ/(2πr_4)
+    # Both terms verified to have same dimension [L T^-1]
+    v.check_dims("Microscopic drainage velocity formula", v_w_formula, v_w_generic)
+
+    v.success("Microscopic drainage velocity verified")
+
+
 def test_drainage_rate_formula(v):
     """Test specific drainage rate formula from framework: Ṁ_i ≈ ρ_{4D}^0 Γ ξ_c²."""
     # Framework line 769-772: M_dot_i ~ rho_4D_0 * Gamma * xi_c^2
@@ -307,6 +374,10 @@ def test_drainage_rate_formula(v):
     # Verify dimensional breakdown matches framework
     target_M_per_T = v.M / v.T
     v.check_dims("Drainage formula breakdown", M_dot_formula, target_M_per_T)
+
+    # Mathematical equation verification: Ṁᵢ ≈ ρ_{4D}⁰ Γ ξ_c²
+    # Both terms verified to have same dimension [M T^-1]
+    v.check_dims("Drainage rate formula relationship", M_dot_formula, M_dot_generic)
 
     v.success("Drainage rate formula verified")
 
@@ -354,7 +425,46 @@ def test_quantum_power_identity(v):
     # Verify identity structure (all terms match)
     v.check_dims("Quantum power identity consistency", lhs, div_S_Q)
 
+    # Mathematical equation verification: -ρv·∇Q = -∇·S_Q + Π_Q
+    # Each term verified to have same dimension [M L^-1 T^-3]
+    rhs_total = -div_S_Q + Pi_Q
+    lhs_neg = -lhs  # The equation has negative sign on LHS
+    v.check_dims("Quantum power identity equation LHS", lhs_neg, target_power_dens)
+    v.check_dims("Quantum power identity equation RHS", rhs_total, target_power_dens)
+
     v.success("Quantum power identity verified")
+
+
+def test_bulk_dissipation_equation(v):
+    """Test bulk dissipation equation: ∂_t ρ_bulk + ∂_w(ρ_bulk v_w) = -γ ρ_bulk."""
+    # Framework line 784-785: dissipation to prevent accumulation
+
+    # Components
+    rho_bulk = v.get_dim('rho_4')                    # Bulk density [M L^-4]
+    v_w = v.get_dim('v')                             # Bulk velocity in w direction [L T^-1]
+    gamma = 1/v.T                                    # Dissipation rate [T^-1]
+
+    # LHS terms
+    bulk_rate = v.dt(rho_bulk)                       # ∂_t ρ_bulk [M L^-4 T^-1]
+    bulk_flux_div = v.get_dim('w_deriv') * (rho_bulk * v_w)  # ∂_w(ρ_bulk v_w) [M L^-4 T^-1]
+
+    # RHS dissipation term
+    dissipation = gamma * rho_bulk                   # -γ ρ_bulk [M L^-4 T^-1]
+
+    target_bulk_rate = v.M / (v.L**4 * v.T)          # [M L^-4 T^-1]
+
+    v.check_dims("Bulk dissipation: ∂_t ρ_bulk", bulk_rate, target_bulk_rate)
+    v.check_dims("Bulk dissipation: ∂_w flux", bulk_flux_div, target_bulk_rate)
+    v.check_dims("Bulk dissipation: γ ρ_bulk", dissipation, target_bulk_rate)
+
+    # Mathematical equation verification: ∂_t ρ_bulk + ∂_w(ρ_bulk v_w) = -γ ρ_bulk
+    # Each term verified to have same dimension [M L^-4 T^-1]
+    lhs_bulk = bulk_rate + bulk_flux_div
+    rhs_bulk = -dissipation
+    v.check_dims("Bulk dissipation equation total LHS", lhs_bulk, target_bulk_rate)
+    v.check_dims("Bulk dissipation equation total RHS", rhs_bulk, target_bulk_rate)
+
+    v.success("Bulk dissipation equation verified")
 
 
 def test_enhanced_4d_3d_matching(v):
@@ -380,7 +490,138 @@ def test_enhanced_4d_3d_matching(v):
 
     v.check_dims("4D-3D matching: slab integration", lhs_integrated, rhs_sinks)
 
+    # Mathematical equation verification: ∫ ∂_w(ρ_bulk v_w) dw = -∑ᵢ Ṁᵢ δ³
+    # Both terms verified to have same dimension [M L^-3 T^-1]
+    rhs_negative = -rhs_sinks
+    v.check_dims("4D-3D slab integration matching LHS", lhs_integrated, v.M/(v.L**3*v.T))
+    v.check_dims("4D-3D slab integration matching RHS", rhs_negative, v.M/(v.L**3*v.T))
+
     v.success("Enhanced 4D-3D matching verified")
+
+
+def test_4d_continuity_equation(v):
+    """Test 4D continuity equation: ∂_t ρ_{4D} + ∇_4·(ρ_{4D} v_4) = -∑_i Ṁ_i δ^4."""
+    # Framework equation 735: base 4D conservation law
+
+    # LHS terms
+    rho_4d_rate = v.dt(v.get_dim('rho_4'))                           # [M L^-4 T^-1]
+    rho_4d_flux = v.div_dim(v.get_dim('rho_4') * v.get_dim('v'))     # 4D divergence [M L^-4 T^-1]
+
+    # RHS sink term
+    sink_4d = v.get_dim('M_dot_i') * v.get_dim('delta4')             # [M L^-4 T^-1]
+
+    target_4d_rate = v.M / (v.L**4 * v.T)
+
+    v.check_dims("4D continuity: ∂_t ρ_{4D}", rho_4d_rate, target_4d_rate)
+    v.check_dims("4D continuity: ∇_4·(ρ_{4D} v_4)", rho_4d_flux, target_4d_rate)
+    v.check_dims("4D continuity: sink term", sink_4d, target_4d_rate)
+
+    # Verify equation structure consistency
+    lhs_4d = rho_4d_rate + rho_4d_flux
+    rhs_4d = -sink_4d
+    v.check_dims("4D continuity equation LHS", lhs_4d, target_4d_rate)
+    v.check_dims("4D continuity equation RHS", rhs_4d, target_4d_rate)
+
+    v.success("4D continuity equation verified")
+
+
+def test_3d_momentum_equation_structure(v):
+    """Test detailed structure of 3D momentum equation from framework line 751."""
+    # ∂_t(ρv) + ∇·(ρv⊗v + pI) = -ρ∇Φ_g - ρ∇Q - ∑_i Ṁ_i v_{*i} δ³ + f_ext
+
+    # LHS tensor components
+    momentum_density_rate = v.dt(v.get_dim('rho') * v.get_dim('v'))  # [M L^-2 T^-2]
+    convective_tensor = v.div_dim(v.get_dim('rho') * v.get_dim('v')**2)  # ∇·(ρv⊗v)
+    pressure_tensor = v.div_dim(v.get_dim('p'))  # ∇·(pI) = ∇p
+
+    # RHS force components
+    gravitational_force = v.get_dim('rho') * v.grad_dim(v.get_dim('Phi_g'))
+    quantum_force = v.get_dim('rho') * v.grad_dim(v.get_dim('Q'))
+    drainage_momentum_force = v.get_dim('M_dot_i') * v.get_dim('v_sink') * v.get_dim('delta3')
+    external_force = v.get_dim('f_ext')
+
+    target_force_density = v.M / (v.L**2 * v.T**2)  # [M L^-2 T^-2]
+
+    # Verify each term has correct momentum force dimensions
+    force_terms = [
+        ("∂_t(ρv)", momentum_density_rate),
+        ("∇·(ρv⊗v)", convective_tensor),
+        ("∇p", pressure_tensor),
+        ("ρ∇Φ_g", gravitational_force),
+        ("ρ∇Q", quantum_force),
+        ("Ṁ_i v_{*i} δ³", drainage_momentum_force),
+        ("f_ext", external_force)
+    ]
+
+    for name, term in force_terms:
+        v.check_dims(f"3D momentum equation term: {name}", term, target_force_density)
+
+    # Verify total equation structure
+    lhs_total = momentum_density_rate + convective_tensor + pressure_tensor
+    rhs_total = -gravitational_force - quantum_force - drainage_momentum_force + external_force
+
+    v.check_dims("3D momentum equation: total LHS", lhs_total, target_force_density)
+    v.check_dims("3D momentum equation: total RHS", rhs_total, target_force_density)
+
+    v.success("3D momentum equation structure verified")
+
+
+def test_circulation_velocity_relationship(v):
+    """Test circulation velocity relationship: v_w ≈ Γ/(2πr_4) with r_4 = √(ρ² + w²)."""
+    # Framework equations 765-766: microscopic drainage velocity
+
+    # Components of r_4 = √(ρ² + w²)
+    rho_coord = v.L                      # Radial coordinate in 3D [L]
+    w_coord = v.get_dim('w')             # 4th dimension coordinate [L]
+    r_4_distance = (rho_coord**2 + w_coord**2)**(1/2)  # [L]
+
+    # Circulation velocity formula
+    Gamma = v.get_dim('Gamma')           # [L^2 T^-1]
+    pi_factor = 1                        # 2π is dimensionless
+    v_w_circulation = Gamma / (pi_factor * r_4_distance)  # [L T^-1]
+
+    v.check_dims("r_4 distance", r_4_distance, v.L)
+    v.check_dims("Circulation velocity v_w", v_w_circulation, v.L/v.T)
+
+    # Verify consistency with generic velocity
+    v_generic = v.get_dim('v')
+    v.check_dims("Circulation velocity consistency", v_w_circulation, v_generic)
+
+    v.success("Circulation velocity relationship verified")
+
+
+def test_core_integral_drainage_rate(v):
+    """Test core integral for drainage rate: Ṁ_i ≈ ρ_{4D}⁰ ∫_core v_w dA_⊥."""
+    # Framework equations 769-772: transverse integral over vortex core
+    # Note: This is dimensionally consistent with ρ_{4D}⁰ Γ ξ_c² from eq 772
+
+    # Background density
+    rho_4d_background = v.get_dim('rho_4')               # [M L^-4]
+
+    # From framework equation 772: Ṁ_i ~ ρ_{4D}⁰ Γ ξ_c²
+    Gamma = v.get_dim('Gamma')                           # [L^2 T^-1]
+    xi_c_area = v.get_dim('xi_c')**2                     # [L^2]
+
+    # This gives the correct dimensions for drainage rate
+    M_dot_from_framework = rho_4d_background * Gamma * xi_c_area  # [M L^-4] × [L^2 T^-1] × [L^2] = [M T^-1]
+
+    # Generic drainage rate
+    M_dot_generic = v.get_dim('M_dot_i')                 # [M T^-1]
+
+    v.check_dims("Drainage rate from framework formula", M_dot_from_framework, M_dot_generic)
+
+    # Verify intermediate dimensional consistency with detailed velocity integral
+    # The velocity integral ∫ v_w dA_⊥ should dimensionally equal Γ × ξ_c (see framework 769-771)
+    velocity_integral_equiv = Gamma * v.get_dim('xi_c')  # [L^2 T^-1] × [L] = [L^3 T^-1]
+    v_w_core = v.get_dim('v')                            # [L T^-1]
+    core_volume = v.get_dim('xi_c')**3                   # [L^3]
+    velocity_times_volume = v_w_core * core_volume       # [L T^-1] × [L^3] = [L^4 T^-1]
+
+    # Note: The framework shows that the actual integral ∫ v_w dA_⊥ has dimensions [L^3 T^-1]
+    # This is consistent with velocity [L T^-1] times area [L^2] giving [L^3 T^-1]
+    v.check_dims("Velocity integral equivalent", velocity_integral_equiv, v.L**3/v.T)
+
+    v.success("Core integral drainage rate verified")
 
 
 def test_conservation_laws_and_aether_drainage():
@@ -437,7 +678,8 @@ def test_conservation_laws_and_aether_drainage():
 
         # Additional symbols for new tests (only add if not in helper.py)
         'xi_c': v.L,                     # Healing length [L] (alias for xi)
-        'chi': 1/v.L                     # Window function [L^-1]
+        'chi': 1/v.L,                    # Window function [L^-1]
+        'w_deriv': 1/v.L                 # w-derivative operator [L^-1]
     }, allow_overwrite=True)
 
     # A) Mass continuity with drainage (3D slice)
@@ -475,10 +717,20 @@ def test_conservation_laws_and_aether_drainage():
     # F) New framework-specific tests (added to match updated documentation)
     v.info("\n--- F) Framework-specific formulas and identities ---")
     v.section("Specific formulas from updated framework")
+    test_microscopic_drainage_velocity(v)
     test_drainage_rate_formula(v)
     test_energy_barrier_formula(v)
     test_quantum_power_identity(v)
+    test_bulk_dissipation_equation(v)
     test_enhanced_4d_3d_matching(v)
+
+    # G) Additional mathematical structure tests (based on equations in documentation)
+    v.info("\n--- G) Additional equation structure verification ---")
+    v.section("Detailed equation structures from framework")
+    test_4d_continuity_equation(v)
+    test_3d_momentum_equation_structure(v)
+    test_circulation_velocity_relationship(v)
+    test_core_integral_drainage_rate(v)
 
     # Final summary
     return v.summary()

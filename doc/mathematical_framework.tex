@@ -1126,8 +1126,8 @@ so \eqref{eq:E-GP} cleanly encodes the Intake (deficits), Eddies/Drag (circulati
 \paragraph{Twist energy (hidden maintenance).}
 If $\theta$ contains an axial twist along $w$ (extra coordinate), $\theta(\mathbf r_4)=\arg(x+iy)+\tau w$, then the kinetic term contributes a uniform ``twist'' energy density
 \begin{equation}
-E_{\text{twist}} \;=\; \int d^4 r\, \frac{\hbar^2}{2m}\,\rho_{4D}\,(\partial_w\theta)^2
-\;=\; \int d^4 r\, \frac{\hbar^2\,\tau^2}{2m}\,|\Psi|^2 ,
+E_{\text{twist}} \;=\; \int d^4 r\, \frac{\hbar^2}{2m^2}\,\rho_{4D}\,(\partial_w\theta)^2
+\;=\; \int d^4 r\, \frac{\hbar^2\,\tau^2}{2m^2}\,\rho_{4D} ,
 \end{equation}
 with $\tau$ fixed by boundary/topology (P-5). This raises the cost of charged (twisted) cores relative to neutral ones and naturally splits masses in sectors tied to Twist/Eddies.
 
@@ -1151,13 +1151,13 @@ The detailed 1D rim Lagrangian and dispersion live in the baryon section; this p
 \paragraph{Core scales and the timescale hierarchy.}
 Balancing quantum pressure against interaction near a core gives the healing length and bulk sound speed (P-1):
 \begin{equation}
-\xi_c \;=\; \frac{\hbar}{\sqrt{2 m g \rho_{4D}^0}},
+\xi_c \;=\; \frac{\hbar}{\sqrt{2 g \rho_{4D}^0}},
 \qquad
-v_L \;=\; \sqrt{\frac{g\,\rho_{4D}^0}{m}}.
+v_L \;=\; \frac{\sqrt{g\,\rho_{4D}^0}}{m}.
 \end{equation}
 The core relaxation time is
 \begin{equation}
-\tau_{\rm core} \;=\; \frac{\xi_c}{v_L} \;=\; \frac{\hbar}{\sqrt{2}\,g\,\rho_{4D}^0},
+\tau_{\rm core} \;=\; \frac{\xi_c}{v_L} \;=\; \frac{\hbar m}{\sqrt{2}\,g\,\rho_{4D}^0},
 \end{equation}
 which is parametrically tiny relative to macroscopic times (e.g., propagation times $r/c$). Thus cores appear quasi-steady while they source retarded fields.
 

@@ -15,7 +15,7 @@ Main verification class for physics tests.
 PhysicsVerificationHelper(section_name, description="", unit_system=UnitSystem.SI, quiet=None)
 ```
 - `section_name`: Name/number of the section being tested
-- `description`: Optional detailed description  
+- `description`: Optional detailed description
 - `unit_system`: UnitSystem.SI, UnitSystem.GAUSSIAN, or UnitSystem.HEAVISIDE_LORENTZ
 - `quiet`: If True, suppress output. If None, auto-detect from --quiet flag
 
@@ -28,7 +28,7 @@ PhysicsVerificationHelper(section_name, description="", unit_system=UnitSystem.S
 
 ### UnitSystem (Enum)
 - `UnitSystem.SI`
-- `UnitSystem.GAUSSIAN`  
+- `UnitSystem.GAUSSIAN`
 - `UnitSystem.HEAVISIDE_LORENTZ`
 
 ### Custom Exceptions
@@ -156,7 +156,7 @@ lap_dim(scalar_dim)    # Laplacian: laplacian * scalar_dim
 ### Safe Transcendental Functions
 ```python
 exp_dimless(x, where="exp")
-sin_dimless(x, where="sin") 
+sin_dimless(x, where="sin")
 cos_dimless(x, where="cos")
 log_dimless(x, where="log")
 assert_dimensionless(expr, where="")
@@ -168,7 +168,7 @@ validate_transcendentals(expr, where="expression")
 ### Print Methods
 ```python
 info(message)          # Respects quiet mode
-success(message)       # Respects quiet mode  
+success(message)       # Respects quiet mode
 warning(message)       # Always prints
 error(message)         # Always prints
 debug(message)         # Only in debug mode
@@ -194,7 +194,7 @@ verify_wave_equation(helper, name, time_term, space_term, source_term=None)
 ```
 Verify ∂_tt φ - c²∇²φ = source
 
-### Conservation Laws  
+### Conservation Laws
 ```python
 verify_conservation_law(helper, name, density_rate, flux_div, source=None)
 ```
@@ -285,7 +285,7 @@ E, B, rho = sp.symbols('E B rho')
 
 # Verification
 v.section("MAIN VERIFICATION")
-v.check_dims("Gauss law", 
+v.check_dims("Gauss law",
              v.div_dim(v.get_dim('E')),
              v.get_dim('rho_charge') / v.get_dim('epsilon_0'))
 

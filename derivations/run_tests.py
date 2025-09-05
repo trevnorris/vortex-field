@@ -27,6 +27,13 @@ import time
 from pathlib import Path
 from typing import List, Dict, Tuple, Optional, Any
 
+# Try to import helper for global test counting
+try:
+    from helper import reset_global_test_counts, get_global_test_counts
+    _HELPER_AVAILABLE = True
+except ImportError:
+    _HELPER_AVAILABLE = False
+
 
 class TestResult:
     """Container for individual test module results."""
@@ -38,12 +45,16 @@ class TestResult:
         self.execution_time = 0.0
         self.error = None
         self.completed = False
+        self.tests_passed = 0
+        self.tests_total = 0
 
-    def set_success(self, success_rate: float, execution_time: float):
+    def set_success(self, success_rate: float, execution_time: float, tests_passed: int = 0, tests_total: int = 0):
         """Mark test as successfully completed."""
         self.success_rate = success_rate
         self.execution_time = execution_time
         self.completed = True
+        self.tests_passed = tests_passed
+        self.tests_total = tests_total
 
     def set_error(self, error_message: str):
         """Mark test as failed with error."""
@@ -106,7 +117,9 @@ class PhysicsTestRunner:
             List of module file paths relative to current directory
         """
         test_files = []
-        base_dir = Path(".")
+        # Use the directory where this script is located, not the current working directory
+        script_dir = Path(__file__).parent
+        base_dir = script_dir
 
         for test_dir in self.test_directories:
             dir_path = base_dir / test_dir
@@ -139,10 +152,10 @@ class PhysicsTestRunner:
 
             module = importlib.util.module_from_spec(spec)
 
-            # Ensure current directory is in Python path for helper imports
-            current_dir = str(Path(".").resolve())
-            if current_dir not in sys.path:
-                sys.path.insert(0, current_dir)
+            # Ensure script directory is in Python path for helper imports
+            script_dir = str(Path(__file__).parent.resolve())
+            if script_dir not in sys.path:
+                sys.path.insert(0, script_dir)
 
             spec.loader.exec_module(module)
             return module
@@ -202,9 +215,18 @@ class PhysicsTestRunner:
                 quiet_added = True
 
             try:
+                # Reset global test counters before running the test
+                if _HELPER_AVAILABLE:
+                    reset_global_test_counts()
+
                 # Run the test function
                 success_rate = test_function()
                 execution_time = time.time() - start_time
+
+                # Get global test counts after running the test
+                tests_passed, tests_total = 0, 0
+                if _HELPER_AVAILABLE:
+                    tests_passed, tests_total = get_global_test_counts()
 
                 # Validate return value
                 if not isinstance(success_rate, (int, float)):
@@ -215,7 +237,7 @@ class PhysicsTestRunner:
                     result.set_error(f"Success rate {success_rate} outside valid range [0, 100]")
                     return result
 
-                result.set_success(float(success_rate), execution_time)
+                result.set_success(float(success_rate), execution_time, tests_passed, tests_total)
 
             finally:
                 # Clean up sys.argv
@@ -272,7 +294,8 @@ class PhysicsTestRunner:
             if self.quiet:
                 status = "✅" if result.is_success() else "❌" if result.is_completed() else "💥"
                 rate = f"{result.success_rate:.1f}%" if result.is_completed() else "ERROR"
-                print(f"{status} {result.module_name:<40} {rate}")
+                test_info = f" ({result.tests_passed}/{result.tests_total})" if result.tests_total > 0 else ""
+                print(f"{status} {result.module_name:<40} {rate}{test_info}")
 
         # Generate and return comprehensive summary
         return self.generate_summary()
@@ -292,6 +315,10 @@ class PhysicsTestRunner:
 
         total_execution_time = sum(r.execution_time for r in self.results)
 
+        # Calculate total individual test counts
+        total_individual_tests = sum(r.tests_total for r in self.results if r.is_completed())
+        total_individual_passed = sum(r.tests_passed for r in self.results if r.is_completed())
+
         summary = {
             "total_modules": total_modules,
             "completed_modules": completed_modules,
@@ -300,6 +327,9 @@ class PhysicsTestRunner:
             "overall_success_rate": overall_success_rate,
             "module_success_rate": (successful_modules / total_modules * 100) if total_modules > 0 else 0.0,
             "total_execution_time": total_execution_time,
+            "total_individual_tests": total_individual_tests,
+            "total_individual_passed": total_individual_passed,
+            "individual_success_rate": (total_individual_passed / total_individual_tests * 100) if total_individual_tests > 0 else 0.0,
             "results": self.results,
             "failed_results": failed_modules
         }
@@ -320,33 +350,38 @@ class PhysicsTestRunner:
         print(f"Modules with errors: {summary['failed_modules']}")
         print(f"Overall success rate: {summary['overall_success_rate']:.1f}%")
         print(f"Module success rate: {summary['module_success_rate']:.1f}%")
+        if summary['total_individual_tests'] > 0:
+            print(f"Individual tests run: {summary['total_individual_tests']}")
+            print(f"Individual tests passed: {summary['total_individual_passed']}")
+            print(f"Individual test success rate: {summary['individual_success_rate']:.1f}%")
         print(f"Total execution time: {summary['total_execution_time']:.2f}s")
 
-        # Per-module results
-        print(f"\nDETAILED RESULTS:")
-        print("-" * 70)
-        print(f"{'STATUS':<8} {'MODULE':<35} {'SUCCESS RATE':<12} {'TIME':<8}")
-        print("-" * 70)
+        # Per-module results (skip in quiet mode)
+        if not self.quiet:
+            print(f"\nDETAILED RESULTS:")
+            print("-" * 70)
+            print(f"{'STATUS':<8} {'MODULE':<35} {'SUCCESS RATE':<12} {'TIME':<8}")
+            print("-" * 70)
 
-        for result in self.results:
-            if result.error:
-                status = "❌ ERROR"
-                rate = "N/A"
-                time_str = "N/A"
-            elif result.is_success():
-                status = "✅ PASS"
-                rate = f"{result.success_rate:.1f}%"
-                time_str = f"{result.execution_time:.2f}s"
-            elif result.is_completed():
-                status = "⚠️ PARTIAL"
-                rate = f"{result.success_rate:.1f}%"
-                time_str = f"{result.execution_time:.2f}s"
-            else:
-                status = "💥 FAILED"
-                rate = "N/A"
-                time_str = "N/A"
+            for result in self.results:
+                if result.error:
+                    status = "❌ ERROR"
+                    rate = "N/A"
+                    time_str = "N/A"
+                elif result.is_success():
+                    status = "✅ PASS"
+                    rate = f"{result.success_rate:.1f}%"
+                    time_str = f"{result.execution_time:.2f}s"
+                elif result.is_completed():
+                    status = "⚠️ PARTIAL"
+                    rate = f"{result.success_rate:.1f}%"
+                    time_str = f"{result.execution_time:.2f}s"
+                else:
+                    status = "💥 FAILED"
+                    rate = "N/A"
+                    time_str = "N/A"
 
-            print(f"{status:<8} {result.module_name:<35} {rate:<12} {time_str:<8}")
+                print(f"{status:<8} {result.module_name:<35} {rate:<12} {time_str:<8}")
 
         # Show error details if any
         if summary['failed_results']:
@@ -359,29 +394,30 @@ class PhysicsTestRunner:
                     print(f"   File: {result.file_path}")
                 print()
 
-        # Overall assessment
-        print(f"OVERALL ASSESSMENT:")
-        print("-" * 40)
+        # Overall assessment (skip in quiet mode)
+        if not self.quiet:
+            print(f"OVERALL ASSESSMENT:")
+            print("-" * 40)
 
-        if summary['failed_modules'] > 0:
-            print("❌ SOME MODULES FAILED TO RUN")
-            print(f"   {summary['failed_modules']} modules had import or execution errors")
-        elif summary['overall_success_rate'] == 100.0:
-            print("🎉 ALL VERIFICATIONS PASSED!")
-            print("   Mathematical framework is fully verified.")
-        elif summary['overall_success_rate'] >= 95.0:
-            print("✅ VERIFICATION SUBSTANTIALLY COMPLETE")
-            print(f"   Average success rate: {summary['overall_success_rate']:.1f}%")
-        elif summary['overall_success_rate'] >= 85.0:
-            print("⚠️  VERIFICATION MOSTLY SUCCESSFUL")
-            print(f"   Average success rate: {summary['overall_success_rate']:.1f}%")
-        else:
-            print("❌ VERIFICATION NEEDS ATTENTION")
-            print(f"   Average success rate: {summary['overall_success_rate']:.1f}%")
+            if summary['failed_modules'] > 0:
+                print("❌ SOME MODULES FAILED TO RUN")
+                print(f"   {summary['failed_modules']} modules had import or execution errors")
+            elif summary['overall_success_rate'] == 100.0:
+                print("🎉 ALL VERIFICATIONS PASSED!")
+                print("   Mathematical framework is fully verified.")
+            elif summary['overall_success_rate'] >= 95.0:
+                print("✅ VERIFICATION SUBSTANTIALLY COMPLETE")
+                print(f"   Average success rate: {summary['overall_success_rate']:.1f}%")
+            elif summary['overall_success_rate'] >= 85.0:
+                print("⚠️  VERIFICATION MOSTLY SUCCESSFUL")
+                print(f"   Average success rate: {summary['overall_success_rate']:.1f}%")
+            else:
+                print("❌ VERIFICATION NEEDS ATTENTION")
+                print(f"   Average success rate: {summary['overall_success_rate']:.1f}%")
 
-        print("\nThis test runner validates the mathematical correctness of")
-        print("the vortex field theory framework documented in ../doc/")
-        print("\nAll tests follow the standardized structure defined in TEST_STANDARD.md")
+            print("\nThis test runner validates the mathematical correctness of")
+            print("the vortex field theory framework documented in ../doc/")
+            print("\nAll tests follow the standardized structure defined in TEST_STANDARD.md")
 
 
 def main():

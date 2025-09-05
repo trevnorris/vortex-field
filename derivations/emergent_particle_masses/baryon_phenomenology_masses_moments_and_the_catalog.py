@@ -129,6 +129,22 @@ def test_master_mass_functional(v):
     additional_term = v.get_dim('chi_3')
     v.check_dims("Additional m=3 term χ₃", additional_term, v.M * v.L)
 
+    # Mathematical verification of master mass functional (Eq. masterM)
+    # M(R;Q,n_3,M) = T(2πR) + A(2πR)ln(2πR/a) + C/R + T*ΔL
+
+    # Define symbolic variables for master functional
+    T, A, R, a, C, Delta_L = symbols('T A R a C Delta_L', positive=True)
+
+    # Verify the structure of the master functional by checking its derivative
+    # This tests that the functional has the correct mathematical form
+    M_total = T * (2*pi*R) + A * (2*pi*R) * ln(2*pi*R/a) + C/R + T * Delta_L
+
+    # The derivative should match the stationary condition structure
+    dM_dR = sp.diff(M_total, R)
+    expected_derivative = 2*pi*T + 2*pi*A*(1 + ln(2*pi*R/a)) - C/R**2
+
+    v.check_eq("Master functional derivative dM/dR", dM_dR, expected_derivative)
+
     v.success("Master mass functional and C bucket verified")
 
 
@@ -185,6 +201,28 @@ def test_radius_optimization_and_newton_method(v):
     denominator_guess = v.M / v.L  # T and A terms
     initial_guess = sqrt(v.get_dim('mathcal_C') / denominator_guess)
     v.check_dims("Initial guess R^(0)", initial_guess, v.L)
+
+    # Mathematical verification of Newton method (Eq. newton)
+    # f(R) = 2πT + 2πA[1 + ln(2πR/a)] - C/R²
+    # f'(R) = 2πA/R + 2C/R³
+
+    # Define symbolic variables
+    T, A, a, C = symbols('T A a C', positive=True)
+    R = symbols('R', positive=True)
+
+    # Define the function f(R) from the stationary condition
+    f_R = 2*pi*T + 2*pi*A*(1 + ln(2*pi*R/a)) - C/R**2
+    f_prime_R = 2*pi*A/R + 2*C/R**3
+
+    # Verify derivative calculation
+    computed_derivative = sp.diff(f_R, R)
+    v.check_eq("Newton method derivative f'(R)", f_prime_R, computed_derivative)
+
+    # Verify that the logarithmic derivative is correct
+    log_term = 2*pi*A*ln(2*pi*R/a)
+    log_derivative = sp.diff(log_term, R)
+    expected_log_derivative = 2*pi*A/R
+    v.check_eq("Logarithmic term derivative", log_derivative, expected_log_derivative)
 
     v.success("Radius optimization and Newton method verified")
 
@@ -245,6 +283,22 @@ def test_global_parameters_and_calibration(v):
     v.check_dims("Proton magnetic moment μ_p", v.get_dim('mu_p'), v.Q * v.L**2)
     v.check_dims("Neutron magnetic moment μ_n", v.get_dim('mu_n'), v.Q * v.L**2)
     v.check_dims("Proton charge radius r_E^(p)", v.get_dim('r_E_p'), v.L)
+
+    # Mathematical verification of calibration relationships
+    # The key insight is that rotational dynamics link inertia, stiffness, and velocity
+
+    # Define symbolic parameters for mathematical consistency check
+    K_theta, I_theta, U_3 = symbols('K_theta I_theta U_3', positive=True)
+
+    # From rotational mechanics: v² = K/I gives the velocity-stiffness relation
+    # Check that K_theta/I_theta has velocity-squared dimensions
+    v_theta_squared_formula = v.get_dim('K_theta') / v.get_dim('I_theta')
+    v.check_dims("Velocity squared v_θ² = K_θ/I_θ", v_theta_squared_formula, (v.L / v.T)**2)
+
+    # From harmonic oscillator: ω² = k/I gives the frequency relation
+    # For m=3 mode locking: ω_lock² = 9U_3/I_θ (factor of 9 from mode structure)
+    omega_lock_squared_formula = 9 * v.get_dim('U_3') / v.get_dim('I_theta')
+    v.check_dims("Frequency squared ω_lock² = 9U_3/I_θ", omega_lock_squared_formula, v.T**(-2))
 
     v.success("Global parameters and calibration verified")
 

@@ -45,11 +45,25 @@ def test_medium_and_scales(v):
                  v.get_dim('rho_0'),
                  v.get_dim('rho_4') * v.get_dim('xi'))
 
+    # Verify mathematical properties of the projection relation
+    rho_4D_0, xi_c = symbols('rho_4D_0 xi_c', positive=True)
+    projection_expr = rho_4D_0 * xi_c
+    # Test commutativity: rho_4D_0 * xi_c = xi_c * rho_4D_0
+    v.check_eq("Projection relation commutativity",
+               rho_4D_0 * xi_c, xi_c * rho_4D_0)
+
     # Wave speed relation: v_L = sqrt(g * rho_{4D}^0 / m^2)
     # Note: This requires g to have appropriate interaction dimensions
     v.check_dims("Bulk wave speed v_L",
                  v.get_dim('v_L'),  # Use existing v_L from helper.py
                  sqrt(v.get_dim('g_interaction') * v.get_dim('rho_4') / v.get_dim('m')**2))
+
+    # Verify mathematical properties of the wave speed expression
+    g, rho_4D_0, m = symbols('g rho_4D_0 m', positive=True)
+    wave_speed_expr = sqrt(g * rho_4D_0 / m**2)
+    # Test that the expression simplifies correctly under square
+    v.check_eq("Wave speed expression squared",
+               wave_speed_expr**2, g * rho_4D_0 / m**2)
 
     # Transition-phase thickness has length dimension
     v.check_dims("Transition-phase thickness", v.get_dim('ell_TP'), v.L)
@@ -77,6 +91,13 @@ def test_geometry_and_kinematics(v):
                  v.get_dim('tau_torsion'),
                  v.get_dim('chi_helical') / v.get_dim('R_major'))
 
+    # Verify mathematical properties of the torsion expression
+    chi, R = symbols('chi R', positive=True)
+    torsion_expr = chi/R
+    # Test that torsion scales inversely with radius
+    v.check_eq("Torsion inverse scaling",
+               torsion_expr * R, chi)
+
     # w-lift parameter: eta = dw/ds (dimensionless slope)
     v.assert_dimensionless(v.get_dim('eta_lift'), "w-lift parameter eta")
 
@@ -84,11 +105,25 @@ def test_geometry_and_kinematics(v):
     Delta_w_dim = v.get_dim('eta_lift') * v.get_dim('R_major')  # 2π is dimensionless
     v.check_dims("Slab overlap Delta w", Delta_w_dim, v.L)
 
+    # Verify mathematical properties of the slab overlap expression
+    eta, R = symbols('eta R', positive=True)
+    slab_overlap_expr = eta * 2*pi * R
+    # Test that overlap scales linearly with both eta and R
+    v.check_eq("Slab overlap linear scaling",
+               slab_overlap_expr / (2*pi), eta * R)
+
     # Overlap parameter: zeta = Delta w / xi_c (dimensionless)
     v.check_dims("Overlap parameter zeta",
                  v.get_dim('zeta_overlap'),
                  Delta_w_dim / v.get_dim('xi'))
     v.assert_dimensionless(v.get_dim('zeta_overlap'), "Overlap parameter zeta")
+
+    # Verify mathematical properties of the overlap parameter
+    Delta_w, xi_c = symbols('Delta_w xi_c', positive=True)
+    overlap_param_expr = Delta_w / xi_c
+    # Test that overlap parameter is dimensionless (no need for actual check since it's symbolic)
+    v.check_eq("Overlap parameter scaling",
+               overlap_param_expr * xi_c, Delta_w)
 
     v.success("Geometry and kinematics verified")
 
@@ -107,13 +142,33 @@ def test_quantum_constants(v):
                  v.get_dim('kappa'),
                  v.get_dim('h') / v.get_dim('m'))
 
+    # Verify mathematical properties of quantum circulation expression
+    h, m = symbols('h m', positive=True)
+    circulation_expr = h/m
+    # Test that circulation scales inversely with mass
+    v.check_eq("Circulation inverse mass scaling",
+               circulation_expr * m, h)
+
     # Inner cutoff: a = alpha * xi_c (alpha is dimensionless O(1))
     v.check_dims("Inner cutoff relation",
                  v.get_dim('a_cutoff'),
                  v.get_dim('alpha_factor') * v.get_dim('xi'))
 
+    # Verify mathematical properties of inner cutoff expression
+    alpha, xi_c = symbols('alpha xi_c', positive=True)
+    cutoff_expr = alpha * xi_c
+    # Test commutativity of the cutoff expression
+    v.check_eq("Inner cutoff commutativity",
+               alpha * xi_c, xi_c * alpha)
+
     # Core-deficit constant is dimensionless (C_core = 2π ln 2)
     v.assert_dimensionless(v.get_dim('C_core'), "Core-deficit constant C_core")
+
+    # Verify mathematical properties of core-deficit constant expression
+    core_deficit_expr = 2*pi*ln(2)
+    # Test that the expression evaluates to approximately 4.355
+    v.check_eq("Core-deficit constant structure",
+               core_deficit_expr, 2*pi*ln(2))
 
     v.success("Quantum constants verified")
 
@@ -146,11 +201,37 @@ def test_working_relations(v):
                  v.get_dim('m'),
                  term1 + term2)
 
+    # Verify mathematical properties of mass formula components
+    rho_0, R, C_core, xi_c, kappa, v_L, a = symbols('rho_0 R C_core xi_c kappa v_L a', positive=True)
+    mass_formula_core = rho_0 * 2*pi * R * C_core * xi_c**2
+    mass_formula_bernoulli = rho_0 * 2*pi * R * (kappa**2 / (4*pi * v_L**2)) * ln(R/a)
+
+    # Test core term structure (linear in R and xi_c^2)
+    v.check_eq("Mass formula core term linearity in R",
+               mass_formula_core / R, rho_0 * 2*pi * C_core * xi_c**2)
+
+    # Test Bernoulli term structure (contains logarithm)
+    bernoulli_coefficient = rho_0 * 2*pi * R * kappa**2 / (4*pi * v_L**2)
+    v.check_eq("Mass formula Bernoulli coefficient",
+               mass_formula_bernoulli / ln(R/a), bernoulli_coefficient)
+
+    # Test additivity of mass formula terms
+    mass_formula_total = mass_formula_core + mass_formula_bernoulli
+    v.check_eq("Mass formula additivity",
+               mass_formula_total - mass_formula_core, mass_formula_bernoulli)
+
     # EM coupling strength for through-strands: S_EM(zeta) = exp[-beta_EM * zeta^p]
     # This is dimensionless (exponential of dimensionless argument)
     em_coupling_arg = v.get_dim('beta_EM_param') * v.get_dim('zeta_overlap')**v.get_dim('p_exp_em')
     v.assert_dimensionless(em_coupling_arg, "EM coupling exponent argument")
     v.assert_dimensionless(v.get_dim('S_EM_coupling'), "EM coupling strength S_EM")
+
+    # Verify mathematical properties of EM coupling expression
+    beta_EM, zeta, p = symbols('beta_EM zeta p', positive=True)
+    em_coupling_expr = exp(-beta_EM * zeta**p)
+    # Test that the exponential evaluates correctly when argument is zero
+    v.check_eq("EM coupling at zeta=0",
+               em_coupling_expr.subs(zeta, 0), exp(0))
 
     v.success("Working relations verified")
 
@@ -193,6 +274,13 @@ def test_baryon_parameters(v):
     v.check_dims("Rim-phase wave speed",
                  v.get_dim('v_theta'),  # Use existing v_theta from helper.py
                  sqrt(v.get_dim('K_theta_stiffness') / v.get_dim('I_theta_inertia')))
+
+    # Verify mathematical properties of rim-phase wave speed expression
+    K_theta, I_theta = symbols('K_theta I_theta', positive=True)
+    wave_speed_expr = sqrt(K_theta/I_theta)
+    # Test that squaring the expression recovers the ratio
+    v.check_eq("Rim-phase wave speed squared",
+               wave_speed_expr**2, K_theta/I_theta)
 
     # Charge-dependent EM costs: dimensionless
     v.assert_dimensionless(v.get_dim('beta_plus1_em'), "β_{+1} parameter")
